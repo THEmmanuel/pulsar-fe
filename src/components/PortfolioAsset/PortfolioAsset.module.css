@@ -6,14 +6,17 @@
 .CoinInfoWrapper {
 	display: flex;
 	flex-direction: row;
+	gap: 10px;
 }
 
 .CoinInfo {
 	display: flex;
 	flex-direction: column;
+	gap: 5px;
 }
 
 .CoinPrice{
 	display: flex;
 	flex-direction: column;
+	gap: 5px;
 }
