@@ -6,11 +6,13 @@ import PortfolioHome from '../../containers/PortfolioHome/PortfolioHome';
 
 const Dashboard = () => {
 	return (
-		<div>
+		<div className={style.Dashboard}>
 			dashboard
 			<MarketCharts />
-			<PeerToPeerHome />
-			<PortfolioHome />
+			<div className={style.AdsAndPortfolio}>
+				<PeerToPeerHome />
+				<PortfolioHome />
+			</div>
 		</div>
 	)
 }

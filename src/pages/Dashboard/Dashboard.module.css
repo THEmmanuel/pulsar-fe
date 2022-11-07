@@ -1,0 +1,10 @@
+.Dashboard{
+	background-color: #F3F3F3;
+	width: 100%;
+}
+
+.AdsAndPortfolio{
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+}
