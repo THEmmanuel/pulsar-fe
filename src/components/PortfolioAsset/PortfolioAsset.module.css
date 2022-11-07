@@ -1,0 +1,19 @@
+.PortfolioAsset {
+	display: flex;
+	flex-direction: row;
+}
+
+.CoinInfoWrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+.CoinInfo {
+	display: flex;
+	flex-direction: column;
+}
+
+.CoinPrice{
+	display: flex;
+	flex-direction: column;
+}
