@@ -1,0 +1,23 @@
+.PeerToPeerAdHome{
+	display: flex;
+	width: 320px;
+	height: 70px;
+	flex-direction: row;
+	background-color: #ECF9E6
+}
+
+.PeerToPeerInfoWrapper{
+	display: flex;
+	flex-direction: column;
+}
+
+.PeerToPeerInfo{
+	display: flex;
+	flex-direction: row;
+}
+
+.Indicator{
+	width: 10px;
+	height: 10px;
+	background-color: green;
+}

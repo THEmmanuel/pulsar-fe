@@ -4,10 +4,11 @@ import style from './PeerToPeerAdHome.module.css';
 const PeerToPeerAdHome = () => {
 	return (
 		<div className={style.PeerToPeerAdHome}>
-			<div className={style.PeerToPeerPrice}>
-				<div>
+			<div className={style.PeerToPeerInfoWrapper}>
+				<div className={style.PeerToPeerInfo}>
 					<div>
-						<span>indicator</span>
+						<div className="style.Indicator">
+						</div>
 						<span>User name</span>
 					</div>
 
