@@ -1,5 +1,6 @@
 import React from "react";
 import style from './PeerToPeerAdHome.module.css';
+import P2PButton from "../P2PButton/P2PButton";
 
 const PeerToPeerAdHome = () => {
 	return (
@@ -9,16 +10,15 @@ const PeerToPeerAdHome = () => {
 					<div>
 						<div className="style.Indicator">
 						</div>
-						<span>User name</span>
+						<span className = {style.UserName}>User name</span>
 					</div>
-
-					<span>720.68 NGN</span>
+					<span className={style.PeerToPeerPrice}>720.68 NGN</span>
 				</div>
 
-				<span>Maximum: 100,000 USDC</span>
+				<span className = {style.MaximumPrice}>Maximum: 100,000 USDC</span>
 			</div>
-
-			<button>Buy USDC</button>
+			
+			<P2PButton />
 		</div>
 	)
 }

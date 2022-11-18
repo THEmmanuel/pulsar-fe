@@ -3,21 +3,44 @@
 	width: 320px;
 	height: 70px;
 	flex-direction: row;
-	background-color: #ECF9E6
+	background-color: #ECF9E6;
+	border-radius: 10px;
+	gap: 40px;
+	justify-content: center;
+	padding: 10px 20px 10px 20px;
+}
+
+.PeerToPeerPrice{
+	font-size: 1.1em;
+	font-weight: 700;
+}
+
+.UserName{
+	font-weight: 700;
+	font-size: 0.8em;
 }
 
 .PeerToPeerInfoWrapper{
 	display: flex;
 	flex-direction: column;
+	gap: 5px;
+	/* justify-content: center; */
 }
 
 .PeerToPeerInfo{
 	display: flex;
 	flex-direction: row;
+	gap: 20px;
+	width: 200px;
 }
 
 .Indicator{
 	width: 10px;
 	height: 10px;
 	background-color: green;
+}
+
+.MaximumPrice{
+	font-weight: 300;
+	text-align: left;
 }
