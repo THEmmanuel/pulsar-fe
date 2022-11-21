@@ -1,0 +1,11 @@
+.MarketChartsContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.MarketChartsTable{
+	margin: auto;
+	background-color: blue;
+}

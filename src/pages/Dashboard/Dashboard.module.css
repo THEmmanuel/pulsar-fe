@@ -3,6 +3,18 @@
 	width: 100%;
 }
 
+.DashboardContent{
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.MarketChartsContainer{
+	display: flex;
+	justify-content: center;
+	margin: auto;
+}
+
 .AdsAndPortfolio {
 	display: flex;
 	flex-direction: row;

@@ -3,9 +3,9 @@ import style from './MarketCharts.module.css';
 
 const MarketCharts = () => {
 	return (
-		<div>
+		<div className={style.MarketChartsContainer}>
 			Marketing values
-			<table>
+			<table className={style.MarketChartsTable}>
 				<thead>
 					<th>Name</th>
 					<th>Symbol</th>

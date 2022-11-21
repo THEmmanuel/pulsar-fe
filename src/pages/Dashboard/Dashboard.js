@@ -7,25 +7,30 @@ import PortfolioHome from '../../containers/PortfolioHome/PortfolioHome';
 const Dashboard = () => {
 	return (
 		<div className={style.Dashboard}>
-			dashboard
-			<MarketCharts />
-			<div className={style.AdsAndPortfolio}>
-				<div className={style.PeerToPeerContainer}>
-					<div className={style.AdTypeWrapper}>
-						<span>USDT</span>
-						<span>NGN</span>
-						<span>Buy</span>
-					</div>
-					<div className={style.PeerToPeerWrapper}>
-						<PeerToPeerHome />
-						<PeerToPeerHome />
-						<PeerToPeerHome />
-						<PeerToPeerHome />
-						<PeerToPeerHome />
-						<PeerToPeerHome />
-					</div>
+			Dashboard
+			<div className={style.DashboardContent}>
+				<div className={style.MarketChartsContainer}>
+					<MarketCharts />
 				</div>
-				<PortfolioHome />
+
+				<div className={style.AdsAndPortfolio}>
+					<div className={style.PeerToPeerContainer}>
+						<div className={style.AdTypeWrapper}>
+							<span>USDT</span>
+							<span>NGN</span>
+							<span>Buy</span>
+						</div>
+						<div className={style.PeerToPeerWrapper}>
+							<PeerToPeerHome />
+							<PeerToPeerHome />
+							<PeerToPeerHome />
+							<PeerToPeerHome />
+							<PeerToPeerHome />
+							<PeerToPeerHome />
+						</div>
+					</div>
+					<PortfolioHome />
+				</div>
 			</div>
 		</div>
 	)
