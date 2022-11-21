@@ -5,16 +5,17 @@ const PortfolioAsset = () => {
 	return (
 		<div className={style.PortfolioAsset}>
 			<div className={style.CoinInfoWrapper}>
-				<span>Icon</span>
+				<div className={style.CoinIcon}>
+				</div>
 				<div className={style.CoinInfo}>
-					<span>Coin name</span>
-					<span>50%</span>
+					<span className={style.CoinName}>Coin name</span>
+					<span className={style.CoinPercentage}>50%</span>
 				</div>
 			</div>
 
 			<div className={style.CoinPrice}>
-				<span>$236765</span>
-				<span>4.5BTC</span>
+				<span className={style.CoinAssetPrice}>$236765</span>
+				<span className={style.CoinTotal}>4.5BTC</span>
 			</div>
 		</div>
 	)

@@ -1,22 +1,44 @@
 .PortfolioAsset {
 	display: flex;
 	flex-direction: row;
+	gap: 80px;
+	justify-content: center;
 }
 
 .CoinInfoWrapper {
 	display: flex;
 	flex-direction: row;
 	gap: 10px;
+	width: 200px;
 }
 
 .CoinInfo {
 	display: flex;
 	flex-direction: column;
-	gap: 5px;
+	gap: 2px;
 }
 
-.CoinPrice{
+.CoinPrice {
 	display: flex;
 	flex-direction: column;
-	gap: 5px;
+	gap: 2px;
+	text-align: left;
+}
+
+.CoinName {
+	font-weight: 600;
+	font-size: 1em;
+}
+
+.CoinInfo {
+	height: 60px;
+	width: 60px;
+	background-color: red;
+	border-radius: 50%;
+	justify-items: right;
+}
+
+.CoinPercentage {
+	font-size: 0.85em;
+	color: #B3B4B9;
 }
