@@ -14,7 +14,12 @@ const PortfolioHome = () => {
 				line
 			</div>
 
-			<PortfolioAsset />
+			<div className={style.PortfolioAssetWrapper}>
+				<PortfolioAsset />
+				<PortfolioAsset />
+				<PortfolioAsset />
+				<PortfolioAsset />
+			</div>
 		</div>
 	)
 }

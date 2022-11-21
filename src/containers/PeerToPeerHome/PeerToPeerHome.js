@@ -5,7 +5,6 @@ import PeerToPeerAdHome from '../../components/PeerToPeerAdHome/PeerToPeerAdHome
 const PeerToPeerHome = () => {
 	return (
 		<div>
-			Peer to Peer ads
 			<PeerToPeerAdHome/>
 		</div>
 	)

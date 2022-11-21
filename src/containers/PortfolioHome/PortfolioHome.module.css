@@ -3,4 +3,11 @@
 	color: #D1D1D4;
 	width: 300px;
 	border-radius: 10px;
+	padding: 20px;
+}
+
+.PortfolioAssetWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }

@@ -14,7 +14,7 @@ const PortfolioAsset = () => {
 			</div>
 
 			<div className={style.CoinPrice}>
-				<span className={style.CoinAssetPrice}>$236765</span>
+				<span className={style.CoinAssetPrice}>$23,676.55</span>
 				<span className={style.CoinTotal}>4.5BTC</span>
 			</div>
 		</div>

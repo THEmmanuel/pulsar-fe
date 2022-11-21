@@ -10,7 +10,21 @@ const Dashboard = () => {
 			dashboard
 			<MarketCharts />
 			<div className={style.AdsAndPortfolio}>
-				<PeerToPeerHome />
+				<div className={style.PeerToPeerContainer}>
+					<div className={style.AdTypeWrapper}>
+						<span>USDT</span>
+						<span>NGN</span>
+						<span>Buy</span>
+					</div>
+					<div className={style.PeerToPeerWrapper}>
+						<PeerToPeerHome />
+						<PeerToPeerHome />
+						<PeerToPeerHome />
+						<PeerToPeerHome />
+						<PeerToPeerHome />
+						<PeerToPeerHome />
+					</div>
+				</div>
 				<PortfolioHome />
 			</div>
 		</div>
