@@ -9,7 +9,7 @@ const Dashboard = () => {
 		<div className={style.Dashboard}>
 			Dashboard
 			<div className={style.DashboardContent}>
-				<div className={style.MarketChartsContainer}>
+				<div className={style.DashboardMarketChartsContainer}>
 					<MarketCharts />
 				</div>
 

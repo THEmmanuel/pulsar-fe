@@ -7,12 +7,14 @@
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
+	width: 100%;
 }
 
-.MarketChartsContainer{
+.DashboardMarketChartsContainer{
 	display: flex;
 	justify-content: center;
 	margin: auto;
+	width: 600px;
 }
 
 .AdsAndPortfolio {

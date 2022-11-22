@@ -7,6 +7,7 @@ const MarketCharts = () => {
 			Marketing values
 			<table className={style.MarketChartsTable}>
 				<thead>
+					<th></th>
 					<th>Name</th>
 					<th>Symbol</th>
 					<th>Price</th>
@@ -17,13 +18,60 @@ const MarketCharts = () => {
 				</thead>
 
 				<tbody>
-					<td>Ethereum</td>
-					<td>BTC</td>
-					<td>$20,000</td>
-					<td>0.10</td>
-					<td>1.06</td>
-					<td>367,024,834</td>
-					<td>27,232,767</td>
+					<tr>
+						<td>Icon</td>
+						<td>Ethereum</td>
+						<td>BTC</td>
+						<td>$20,000</td>
+						<td>0.10</td>
+						<td>1.06</td>
+						<td>367,024,834</td>
+						<td>27,232,767</td>
+					</tr>
+
+					<tr>
+						<td>Icon</td>
+						<td>Ethereum</td>
+						<td>BTC</td>
+						<td>$20,000</td>
+						<td>0.10</td>
+						<td>1.06</td>
+						<td>367,024,834</td>
+						<td>27,232,767</td>
+					</tr>
+
+					<tr>
+						<td>Icon</td>
+						<td>Ethereum</td>
+						<td>BTC</td>
+						<td>$20,000</td>
+						<td>0.10</td>
+						<td>1.06</td>
+						<td>367,024,834</td>
+						<td>27,232,767</td>
+					</tr>
+
+					<tr>
+						<td>Icon</td>
+						<td>Ethereum</td>
+						<td>BTC</td>
+						<td>$20,000</td>
+						<td>0.10</td>
+						<td>1.06</td>
+						<td>367,024,834</td>
+						<td>27,232,767</td>
+					</tr>
+
+					<tr>
+						<td>Icon</td>
+						<td>Ethereum</td>
+						<td>BTC</td>
+						<td>$20,000</td>
+						<td>0.10</td>
+						<td>1.06</td>
+						<td>367,024,834</td>
+						<td>27,232,767</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
