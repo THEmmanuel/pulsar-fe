@@ -4,3 +4,9 @@
 	width: 20%;
 	height: 100vh;
 }
+
+.SideBarButtonsWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}

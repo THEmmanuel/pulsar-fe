@@ -20,7 +20,7 @@
 .AdsAndPortfolio {
 	display: flex;
 	flex-direction: row;
-	gap: 40px;
+	gap: 80px;
 	justify-content: center;
 }
 
