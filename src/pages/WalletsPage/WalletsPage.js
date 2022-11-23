@@ -1,14 +1,15 @@
 import React from 'react';
 import style from './WalletsPage.module.css';
 import WalletCoin from '../../components/WalletCoin/WalletCoin';
+import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA.js';
 
 const WalletsPage = () => {
 	return (
 		<div className={style.WalletsPage}>
 			<div className={style.WalletCoinContainer}>
 				<div className={style.WalletPortfolioValue}>
-					<span>Portfolio:</span>
-					<span>$90,876.78</span>
+					<span>Portfolio balance:</span>
+					<span className={style.WalletTotalValue}>$90,876.78</span>
 				</div>
 
 				<WalletCoin />
@@ -16,6 +17,8 @@ const WalletsPage = () => {
 				<WalletCoin />
 				<WalletCoin />
 				<WalletCoin />
+
+				<PrimaryCTA />
 			</div>
 		</div>
 	);
