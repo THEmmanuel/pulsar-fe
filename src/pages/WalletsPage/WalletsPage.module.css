@@ -1,0 +1,21 @@
+.WalletsPage{
+	background-color: #F3F3F3;
+	width: 100%;
+}
+
+.WalletPortfolioValue{
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.WalletCoinContainer{
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	padding: 20px;
+	background-color: #FFF;
+	border-radius: 10px;
+	width: 80%;
+	margin: auto;
+}

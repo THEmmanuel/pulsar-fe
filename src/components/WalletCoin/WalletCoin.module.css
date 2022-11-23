@@ -1,0 +1,20 @@
+.WalletCoinWrapper{
+	display: flex;
+	background-color: #FAE8CF;
+	border-radius: 10px;
+	padding: 30px 20px 20px 30px;
+	width: 95%;
+	margin: auto;
+}
+
+.WalletCoinContent{
+	display: flex;
+	flex-direction: row;
+	gap: 60px;
+}
+
+.WalletCoinInfo{
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+}
