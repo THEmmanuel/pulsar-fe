@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Wallet.module.css';
+import MainDropdown from '../../components/MainDropdown/MainDropdown';
 
 const Wallet = () => {
 	return (
@@ -11,15 +12,7 @@ const Wallet = () => {
 					<span>Coin Value</span>
 				</div>
 
-				<div>
-					<span></span>
-					<input type="text" />
-				</div>
-
-				<div>
-					<span></span>
-					<input type="text" />
-				</div>
+				<MainDropdown/>
 
 				<span>
 					wallet address
