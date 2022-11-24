@@ -1,0 +1,20 @@
+.PeerToPeerAd {
+	background-color: #EEF9F6;
+	border-radius: 5px;
+	text-align: left;
+}
+
+.PeerToPeerAdWrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+.UserInfo{
+	display: flex;
+	flex-direction: column;
+}
+
+.UserRateInfo{
+	display: flex;
+	flex-direction: column;
+}
