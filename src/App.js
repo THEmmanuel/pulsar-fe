@@ -4,6 +4,7 @@ import './App.css';
 import SideBar from './containers/SideBar/SideBar';
 import Dashboard from './pages/Dashboard/Dashboard';
 import WalletsPage from './pages/WalletsPage/WalletsPage';
+import Wallet from './pages/Wallet/Wallet';
 
 import {
 	BrowserRouter as Router,
@@ -37,6 +38,12 @@ function App() {
 						exact
 						path='/wallets'
 						element={<WalletsPage />}
+					/>
+
+					<Route
+						exact
+						path='/wallet'
+						element={<Wallet />}
 					/>
 				</Routes>
 			</div>
