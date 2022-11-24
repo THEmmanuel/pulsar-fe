@@ -30,7 +30,7 @@ const Wallet = () => {
 					Transaction History
 				</span>
 
-				<table className={style.MarketChartsTable}>
+				<table className={style.TransactionsTable}>
 					<thead>
 						<th>Amount</th>
 						<th>Network</th>

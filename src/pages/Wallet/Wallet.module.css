@@ -31,6 +31,7 @@
 	flex-direction: column;
 	background-color: #FFF;
 	width: 70%;
+	gap: 20px;
 }
 
 .WalletCoinImage {
@@ -60,4 +61,10 @@
 	background-color: #A2E5D2;
 	padding: 10px;
 	width: 400px;
+}
+
+.TransactionsTable{
+	width: 70%;
+	margin: auto;
+	text-align: left;
 }
