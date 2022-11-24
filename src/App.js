@@ -5,6 +5,7 @@ import SideBar from './containers/SideBar/SideBar';
 import Dashboard from './pages/Dashboard/Dashboard';
 import WalletsPage from './pages/WalletsPage/WalletsPage';
 import Wallet from './pages/Wallet/Wallet';
+import MyAds from './pages/MyAds/MyAds';
 
 import {
 	BrowserRouter as Router,
@@ -44,6 +45,12 @@ function App() {
 						exact
 						path='/wallet'
 						element={<Wallet />}
+					/>
+
+					<Route
+						exact
+						path='/my-ads'
+						element={<MyAds />}
 					/>
 				</Routes>
 			</div>
