@@ -26,29 +26,28 @@ const Wallet = () => {
 			</div>
 
 			<div className={style.TransactionHistoryWrapper}>
-				Transaction History
+				<span>
+					Transaction History
+				</span>
+
 				<table className={style.MarketChartsTable}>
 					<thead>
-						<th></th>
-						<th>Name</th>
-						<th>Symbol</th>
-						<th>Price</th>
-						<th>24hr %</th>
-						<th>7d %</th>
-						<th>Market Cap</th>
-						<th>Trading Volume (24hr)</th>
+						<th>Amount</th>
+						<th>Network</th>
+						<th>Blockchain Record</th>
+						<th>Status</th>
+						<th>Remarks</th>
+						<th>Start Time</th>
 					</thead>
 
 					<tbody>
 						<tr>
-							<td>Icon</td>
 							<td>Ethereum</td>
 							<td>BTC</td>
 							<td>$20,000</td>
 							<td>0.10</td>
 							<td>1.06</td>
 							<td>367,024,834</td>
-							<td>27,232,767</td>
 						</tr>
 					</tbody>
 				</table>
