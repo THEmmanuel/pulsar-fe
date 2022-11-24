@@ -3,9 +3,13 @@ import style from './Wallet.module.css';
 
 const Wallet = () => {
 	return (
-		<div>
-			<div>
-				<span>Coin Image</span>
+		<div className={style.WalletPage}>
+			<div className={style.WalletInformation}>
+				<div className={style.WalletCoinInformation}>
+					<span>Coin Image</span>
+					<span>Coin Total</span>
+					<span>Coin Value</span>
+				</div>
 
 				<div>
 					<span></span>

@@ -1,0 +1,17 @@
+.WalletPage {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+	background-color: #F3F3F3;
+}
+
+.WalletInformation {
+	display: flex;
+	flex-direction: column;
+}
+
+.WalletCoinInformation {
+	display: flex;
+	flex-direction: column;
+}
