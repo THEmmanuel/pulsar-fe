@@ -18,7 +18,7 @@ const Wallet = () => {
 
 				<MainDropdown />
 
-				<span>
+				<span className={style.WalletAddress}>
 					wallet address
 				</span>
 

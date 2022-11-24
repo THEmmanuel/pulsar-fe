@@ -10,7 +10,9 @@
 	display: flex;
 	flex-direction: column;
 	background-color: #E9EFEE;
+	width: 70%;
 	gap: 20px;
+	margin: 10px auto;
 }
 
 .WalletCoinInformation {
@@ -48,4 +50,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
+}
+
+.WalletAddress{
+	background-color: #A2E5D2;
 }

@@ -1,0 +1,21 @@
+.MainDropdownContainer {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	width: 400px;
+	margin: auto;
+	gap: 10px;
+}
+
+.MainDropdownTitle {
+	color: #747777;
+}
+
+.MainDropdown{
+	display: flex;
+	flex-direction: row;
+	background-color: #F2F2F2;
+	padding: 10px;
+	border-radius: 5px;
+	gap: 20px;
+}
