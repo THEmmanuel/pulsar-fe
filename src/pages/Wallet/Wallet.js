@@ -3,6 +3,7 @@ import style from './Wallet.module.css';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
 
 import usdcWalletImage from '../../assets/usdc-wallet.svg';
+import qrPlaceholder from '../../assets/qr_code_placeholder.png'
 
 const Wallet = () => {
 	return (
@@ -22,7 +23,7 @@ const Wallet = () => {
 					wallet address
 				</span>
 
-				<span>QR Image</span>
+				<img src={qrPlaceholder} alt="" />
 			</div>
 
 			<div className={style.TransactionHistoryWrapper}>
