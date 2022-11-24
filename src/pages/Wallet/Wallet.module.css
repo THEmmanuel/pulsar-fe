@@ -2,16 +2,50 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 100px;
+	gap: 50px;
 	background-color: #F3F3F3;
 }
 
 .WalletInformation {
 	display: flex;
 	flex-direction: column;
+	background-color: #E9EFEE;
+	gap: 20px;
 }
 
 .WalletCoinInformation {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.TransactionHistoryWrapper {
+	display: flex;
+	flex-direction: column;
+	background-color: #FFF;
+}
+
+.WalletCoinImage {
+	width: 35px;
+	height: 35px;
+}
+
+.WalletCoinTotal{
+	color: #3A3C3C;
+	font-weight: 600;
+	font-size: 1.1em;
+}
+
+.WalletCoinValue{
+	color: #000;
+	font-weight: 700;
+	font-size: 1.4em;
+}
+
+.WalletCoinPriceInfo{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 }
