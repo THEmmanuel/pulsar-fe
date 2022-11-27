@@ -4,7 +4,7 @@ import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 
 const PeerToPeerPage = () => {
 	return (
-		<div>
+		<div className={style.PeerToPeerWrapper}>
 			<PeerToPeerAd/>
 			<PeerToPeerAd/>
 			<PeerToPeerAd/>

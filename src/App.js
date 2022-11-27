@@ -14,7 +14,7 @@ import {
 	// Link,
 	// useLocation
 } from 'react-router-dom';
-
+import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
 
 function App() {
 	return (
@@ -51,6 +51,18 @@ function App() {
 						exact
 						path='/my-ads'
 						element={<MyAds />}
+					/>
+
+					<Route
+						exact
+						path='/'
+						element={<Dashboard />}
+					/>
+
+					<Route
+						exact
+						path='/p2p'
+						element={<PeerToPeerPage />}
 					/>
 				</Routes>
 			</div>
