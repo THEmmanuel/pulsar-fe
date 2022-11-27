@@ -1,0 +1,7 @@
+.UserReviewWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+	background-color: #FAFAFA;
+	margin: auto;
+}
