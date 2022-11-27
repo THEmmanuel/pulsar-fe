@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './UserPage.module.css';
 import UserStat from '../../components/UserStat/UserStat';
+import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 
 const UserPage = () => {
 	return (
@@ -21,6 +22,31 @@ const UserPage = () => {
 				<UserStat />
 				<UserStat />
 				<UserStat />
+			</div>
+
+			<div className={style.UserAdsWrapper}>
+				<div>
+					<span>
+						Buy
+					</span>
+
+					<div>
+						<PeerToPeerAd />
+					</div>
+				</div>
+
+				<div>
+					<span>
+						Sell
+					</span>
+					<PeerToPeerAd />
+				</div>
+
+				<div>
+					<span>
+						Reviews
+					</span>
+				</div>
 			</div>
 		</div>
 	)
