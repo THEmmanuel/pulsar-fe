@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import WalletsPage from './pages/WalletsPage/WalletsPage';
 import Wallet from './pages/Wallet/Wallet';
 import MyAds from './pages/MyAds/MyAds';
+import UserPage from './pages/UserPage/UserPage';
 
 import {
 	BrowserRouter as Router,
@@ -63,6 +64,12 @@ function App() {
 						exact
 						path='/p2p'
 						element={<PeerToPeerPage />}
+					/>
+
+					<Route
+						exact
+						path='/user-page'
+						element={<UserPage />}
 					/>
 				</Routes>
 			</div>
