@@ -4,7 +4,18 @@ import style from './UserPage.module.css';
 const UserPage = () => {
 	return (
 		<div>
-			User Page
+			<div>
+				<span>
+					User Image
+				</span>
+
+				<span>User Name</span>
+				<span>Join date</span>
+			</div>
+
+			<div>
+				stats here
+			</div>
 		</div>
 	)
 }
