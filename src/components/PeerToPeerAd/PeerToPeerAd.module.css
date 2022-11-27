@@ -2,19 +2,74 @@
 	background-color: #EEF9F6;
 	border-radius: 5px;
 	text-align: left;
+	padding: 10px 40px;
 }
 
 .PeerToPeerAdWrapper {
 	display: flex;
 	flex-direction: row;
+	gap: 60px;
 }
 
-.UserInfo{
+.UserInfo {
 	display: flex;
 	flex-direction: column;
 }
 
-.UserRateInfo{
+.UserRateInfo {
 	display: flex;
 	flex-direction: column;
+}
+
+.UserAdButton {
+	background-color: #C9EEE4;
+	border: none;
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.UserImage {
+	background-color: #D9D9D9;
+	border-radius: 50%;
+}
+
+.UserPaymentInfo {
+	border-radius: 10px;
+	margin: auto;
+	padding: 2px 20px 2px 20px;
+	background-color: #FAE8CF;
+	color: #DC9635;
+	font-size: 0.8em;
+}
+
+.UserLimitInfoWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	margin: auto;
+	text-align: left;
+}
+
+.UserName {
+	font-size: 1.1em;
+	font-weight: 700;
+}
+
+.UserOrderInfo {
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+	font-size: 0.8em;
+}
+
+.UserExchangeRate{
+	font-size: 1.2em;
+	font-weight: 600;
+	margin: auto;
+}
+
+.UserLimitInfoText{
+	font-size: 0.8em;
 }

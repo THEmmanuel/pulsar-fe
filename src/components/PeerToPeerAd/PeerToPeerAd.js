@@ -5,13 +5,15 @@ const PeerToPeerAd = () => {
 	return (
 		<div className={style.PeerToPeerAd}>
 			<div className={style.PeerToPeerAdWrapper}>
-				<span className={style.UserImage}>Image</span>
+				<div className={style.UserImage}>
+					Image
+				</div>
 				<div className={style.UserInfo}>
 					<span className={style.UserName}>
 						User name
 					</span>
 
-					<div className={style.UserOrderInfo}> 
+					<div className={style.UserOrderInfo}>
 						<span className={style.UserOrderNumber}>
 							Order number
 						</span>
@@ -23,18 +25,25 @@ const PeerToPeerAd = () => {
 				</div>
 
 				<span className={style.UserExchangeRate}>
-					Exchange rate
+					0.99 USD/USDC
 				</span>
 
 				<div className={style.UserRateInfo}>
-					<span>Available</span>
-					<span>Limit</span>
+					<div className={style.UserLimitInfoWrapper}>
+						<span className={style.UserLimitInfoText}>Available:</span>
+						<span className={style.UserLimitInfo}>4678.4USDC</span>
+					</div>
+
+					<div className={style.UserLimitInfoWrapper}>
+						<span className={style.UserLimitInfoText}>Limit:</span>
+						<span className={style.UserLimitInfo}>4678.4USDC</span>
+					</div>
 				</div>
 
 				<span className={style.UserPaymentInfo}>Payment type</span>
 
 				<button className={style.UserAdButton}>
-					View Ad
+					Buy USDC
 				</button>
 			</div>
 		</div>
