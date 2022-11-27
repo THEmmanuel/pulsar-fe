@@ -1,7 +1,19 @@
+.PeerToPeerPage{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
 .PeerToPeerWrapper{
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 	margin: 10px auto;
-	width: 70%;
+}
+
+.PeerToPeerDropdownWrapper{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
 }
