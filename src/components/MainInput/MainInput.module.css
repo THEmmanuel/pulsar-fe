@@ -1,0 +1,17 @@
+.MainInputWrapper{
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	text-align: left;
+}
+
+.MainInputText{
+	font-size: 0.8em;
+}
+
+.MainInput{
+	border: none;
+	background-color: #E9E9E9;
+	border-radius: 5px;
+	padding: 10px;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import style from './PeerToPeerPage.module.css';
 import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import DropDown from '../../components/DropDown/DropDown';
+import MainInput from '../../components/MainInput/MainInput';
 
 const PeerToPeerPage = () => {
 	return (
@@ -11,6 +12,11 @@ const PeerToPeerPage = () => {
 			<div className={style.PeerToPeerDropdownWrapper}>
 				<DropDown />
 				<DropDown />
+			</div>
+
+			<div>
+				<DropDown/>
+				<MainInput/>
 			</div>
 
 			<div className={style.PeerToPeerWrapper}>
