@@ -15,8 +15,11 @@ const PeerToPeerPage = () => {
 			</div>
 
 			<div className={style.PeerToPeerCurrency}>
-				<MainInput/>
-				<DropDown/>
+				<MainInput />
+				<div>
+					<span>Fiat</span>
+					<DropDown />
+				</div>
 			</div>
 
 			<div className={style.PeerToPeerWrapper}>
