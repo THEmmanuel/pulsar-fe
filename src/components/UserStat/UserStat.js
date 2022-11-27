@@ -3,8 +3,9 @@ import style from './UserStat.module.css';
 
 const UserStat = () => {
 	return (
-		<div>
-			User stat
+		<div className={style.UserStatContainer}>
+			<span className={style.UserStatName}>Stat Name</span>
+			<span className={style.UserStatValue}>Stat Number</span>
 		</div>
 	)
 }

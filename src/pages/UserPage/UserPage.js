@@ -1,10 +1,11 @@
 import React from 'react';
 import style from './UserPage.module.css';
+import UserStat from '../../components/UserStat/UserStat';
 
 const UserPage = () => {
 	return (
-		<div>
-			<div>
+		<div className={style.UserPage}>
+			<div className={style.UserDetails}>
 				<span>
 					User Image
 				</span>
@@ -13,8 +14,11 @@ const UserPage = () => {
 				<span>Join date</span>
 			</div>
 
-			<div>
-				stats here
+			<div className={style.UserStatsContainer}>
+				<UserStat/>
+				<UserStat/>
+				<UserStat/>
+				<UserStat/>
 			</div>
 		</div>
 	)

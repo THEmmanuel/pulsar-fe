@@ -1,0 +1,5 @@
+.UserStatsContainer{
+	display: flex;
+	flex-direction: row;
+	gap: 60px;
+}

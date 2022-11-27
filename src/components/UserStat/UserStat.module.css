@@ -1,0 +1,7 @@
+.UserStatContainer{
+	display: flex;
+	flex-direction: column;
+	background-color: darkcyan;
+	padding: 40px;
+	border-radius: 5px;
+}
