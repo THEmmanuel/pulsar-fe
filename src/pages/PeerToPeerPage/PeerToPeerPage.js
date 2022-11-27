@@ -14,9 +14,9 @@ const PeerToPeerPage = () => {
 				<DropDown />
 			</div>
 
-			<div>
-				<DropDown/>
+			<div className={style.PeerToPeerCurrency}>
 				<MainInput/>
+				<DropDown/>
 			</div>
 
 			<div className={style.PeerToPeerWrapper}>

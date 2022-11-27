@@ -6,7 +6,11 @@ const DropDown = () => {
 	return (
 		<div className={style.DropDown}>
 			<span className={style.DropDownText}>Buy</span>
-			<img src={arrowImage} alt="" />
+			<img
+				src={arrowImage}
+				alt=""
+				className={style.DropDownIcon}
+			/>
 		</div>
 	)
 }

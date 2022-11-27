@@ -17,3 +17,9 @@
 	flex-direction: row;
 	gap: 20px;
 }
+
+.PeerToPeerCurrency{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}

@@ -11,3 +11,8 @@
 .DropDownText{
 	font-size: 0.9em;
 }
+
+.DropDownIcon{
+	width: 11px;
+	margin: auto;
+}
