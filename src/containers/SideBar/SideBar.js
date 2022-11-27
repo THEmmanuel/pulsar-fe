@@ -2,6 +2,7 @@ import React from 'react';
 import style from './SideBar.module.css';
 
 import SideBarButton from '../../components/SidebarButton/SideBarButton';
+import { Link } from 'react-router-dom';
 
 import dashboardIcon from '../../assets/dashboard.svg';
 import p2pIcon from '../../assets/peertopeer.svg';
@@ -20,30 +21,40 @@ const SideBar = () => {
 			</div>
 
 			<div className={style.SideBarButtonsWrapper}>
-				<SideBarButton
-					SidebarIcon={dashboardIcon}
-					SidebarText='Dashboard'
-				/>
+				<Link to='/home'>
+					<SideBarButton
+						SidebarIcon={dashboardIcon}
+						SidebarText='Dashboard'
+					/>
+				</Link>
 
-				<SideBarButton
-					SidebarIcon={p2pIcon}
-					SidebarText='Peer To Peer'
-				/>
+				<Link to='/p2p'>
+					<SideBarButton
+						SidebarIcon={p2pIcon}
+						SidebarText='Peer To Peer'
+					/>
+				</Link>
 
+				{/* <Link to='/p2p'> */}
 				<SideBarButton
 					SidebarIcon={swapIcon}
 					SidebarText='Swap'
 				/>
+				{/* </Link> */}
 
-				<SideBarButton
-					SidebarIcon={walletsIcon}
-					SidebarText='Wallets'
-				/>
+				<Link to='/wallets'>
+					<SideBarButton
+						SidebarIcon={walletsIcon}
+						SidebarText='Wallets'
+					/>
+				</Link>
 
-				<SideBarButton
-					SidebarIcon={adsIcon}
-					SidebarText='Ads'
-				/>
+				<Link to='/my-ads'>
+					<SideBarButton
+						SidebarIcon={adsIcon}
+						SidebarText='My Ads'
+					/>
+				</Link>
 
 				<SideBarButton
 					SidebarIcon={profileIcon}
