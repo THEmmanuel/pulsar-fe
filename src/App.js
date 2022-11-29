@@ -23,7 +23,7 @@ function App() {
 		<Router>
 			<div className="App">
 				<SideBar />
-				<section >
+				<section className='Page-container'>
 					<NavBar />
 					<Routes>
 						<Route
