@@ -3,7 +3,8 @@ import style from './PeerToPeerAd.module.css';
 
 const PeerToPeerAd = props => {
 	return (
-		<div className={style.PeerToPeerAd}
+		<div
+			className={style.PeerToPeerAd}
 			style={
 				props.adType === 'buy' ?
 					{
@@ -50,7 +51,17 @@ const PeerToPeerAd = props => {
 
 				<span className={style.UserPaymentInfo}>Payment type</span>
 
-				<button className={style.UserAdButton}>
+				<button
+					className={style.UserAdButton}
+					style={
+						props.adType === 'buy' ?
+							{
+								backgroundColor: '#C9EEE4'
+							} : {
+								backgroundColor: '#DCA1A1'
+							}
+					}
+				>
 					Buy USDC
 				</button>
 			</div>
