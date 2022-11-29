@@ -23,6 +23,7 @@ const UserPage = () => {
 					<UserStat
 						UserStatName='All Trades'
 						UserStatValue='3680'
+						UserStatColor = '#D8EEE6'
 					/>
 
 					<UserStat
@@ -48,8 +49,12 @@ const UserPage = () => {
 						</span>
 
 						<div className={style.UserAds}>
-							<PeerToPeerAd />
-							<PeerToPeerAd />
+							<PeerToPeerAd
+								adType='buy'
+							/>
+							<PeerToPeerAd
+								adType='buy'
+							/>
 						</div>
 					</div>
 
@@ -59,8 +64,12 @@ const UserPage = () => {
 						</span>
 
 						<div className={style.UserAds}>
-							<PeerToPeerAd />
-							<PeerToPeerAd />
+							<PeerToPeerAd
+								adType='sell'
+							/>
+							<PeerToPeerAd
+								adType='sell'
+							/>
 						</div>
 					</div>
 
@@ -69,7 +78,7 @@ const UserPage = () => {
 							Reviews
 						</span>
 
-						<div>
+						<div className={style.UserReviews}>
 							<UserReview />
 							<UserReview />
 						</div>

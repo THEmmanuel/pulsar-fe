@@ -1,9 +1,17 @@
 import React from 'react';
 import style from './PeerToPeerAd.module.css';
 
-const PeerToPeerAd = () => {
+const PeerToPeerAd = props => {
 	return (
-		<div className={style.PeerToPeerAd}>
+		<div className={style.PeerToPeerAd}
+			style={
+				props.adType === 'buy' ?
+					{
+						backgroundColor: '#EEF9F6'
+					} : {
+						backgroundColor: '#F7E2E3'
+					}}>
+
 			<div className={style.PeerToPeerAdWrapper}>
 				<div className={style.UserImage}>
 					Image
