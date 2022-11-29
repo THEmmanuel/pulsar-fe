@@ -9,6 +9,7 @@
 	flex-direction: row;
 	gap: 60px;
 	margin: auto;
+	justify-content: space-between;
 }
 
 .UserReviewName {

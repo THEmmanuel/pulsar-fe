@@ -7,6 +7,7 @@
 	display: flex;
 	flex-direction: row;
 	gap: 60px;
+	justify-content: space-between;
 }
 
 .UserDetailsContainer {
@@ -42,5 +43,29 @@
 	width: 80%;
 	justify-content: center;
 	margin: auto;
+	gap: 40px;
+}
+
+.UserAds{
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.UserAdsContainer{
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.UserAdHeading{
+	text-align: left;
+	font-size: 1.1em;
+	font-weight: 600;
+}
+
+.UserAdsWrapper{
+	display: flex;
+	flex-direction: column;
 	gap: 40px;
 }

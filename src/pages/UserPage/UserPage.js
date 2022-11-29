@@ -20,36 +20,57 @@ const UserPage = () => {
 				</div>
 
 				<div className={style.UserStatsContainer}>
-					<UserStat />
-					<UserStat />
-					<UserStat />
-					<UserStat />
+					<UserStat
+						UserStatName='All Trades'
+						UserStatValue='3680'
+					/>
+
+					<UserStat
+						UserStatName='30 days'
+						UserStatValue='462'
+					/>
+
+					<UserStat
+						UserStatName='Completion Rate'
+						UserStatValue='99.2%'
+					/>
+
+					<UserStat
+						UserStatName='Avg pay time'
+						UserStatValue='4.75 mins'
+					/>
 				</div>
 
 				<div className={style.UserAdsWrapper}>
-					<div>
-						<span>
+					<div className={style.UserAdsContainer}>
+						<span className={style.UserAdHeading}>
 							Buy
 						</span>
 
-						<div>
+						<div className={style.UserAds}>
+							<PeerToPeerAd />
 							<PeerToPeerAd />
 						</div>
 					</div>
 
-					<div>
-						<span>
+					<div className={style.UserAdsContainer}>
+						<span className={style.UserAdHeading}>
 							Sell
 						</span>
-						<PeerToPeerAd />
+
+						<div className={style.UserAds}>
+							<PeerToPeerAd />
+							<PeerToPeerAd />
+						</div>
 					</div>
 
-					<div>
-						<span>
+					<div className={style.UserAdsContainer}>
+						<span className={style.UserAdHeading}>
 							Reviews
 						</span>
 
 						<div>
+							<UserReview />
 							<UserReview />
 						</div>
 					</div>

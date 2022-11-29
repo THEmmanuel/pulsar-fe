@@ -22,9 +22,7 @@ const UserReview = () => {
 					Review
 				</span>
 
-				<span>
-					Review Type
-				</span>
+				<img src={thumbsUp} alt="" />
 			</div>
 		</div>
 	)
