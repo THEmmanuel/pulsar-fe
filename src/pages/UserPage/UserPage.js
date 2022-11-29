@@ -23,22 +23,25 @@ const UserPage = () => {
 					<UserStat
 						UserStatName='All Trades'
 						UserStatValue='3680'
-						UserStatColor = '#D8EEE6'
+						UserStatColor='#D8EEE6'
 					/>
 
 					<UserStat
 						UserStatName='30 days'
 						UserStatValue='462'
+						UserStatColor='#EED8D8'
 					/>
 
 					<UserStat
 						UserStatName='Completion Rate'
 						UserStatValue='99.2%'
+						UserStatColor='#C3E2F0'
 					/>
 
 					<UserStat
 						UserStatName='Avg pay time'
 						UserStatValue='4.75 mins'
+						UserStatColor='#EEE0CD'
 					/>
 				</div>
 
