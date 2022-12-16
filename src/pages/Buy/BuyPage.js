@@ -18,7 +18,7 @@ const UserInformation = () => {
 			</div>
 		</div>
 	)
-}
+};
 
 const UserInformationContent = () => {
 	return (
@@ -45,7 +45,7 @@ const UserInformationContent = () => {
 			</div>
 		</div>
 	)
-}
+};
 
 const UserTerms = () => {
 	return (
@@ -66,6 +66,35 @@ const UserTerms = () => {
 			</div>
 		</div>
 	)
+};
+
+const UserAccountDetails = () => {
+	return (
+		<div className={style.UserInformationContentWrapper}>
+			<h4>Buying USDT</h4>
+			<div>
+				<div>
+					<span>Fiat Amount</span>
+					<span>$602.75</span>
+				</div>
+
+				<div>
+					<span>Fiat Amount</span>
+					<span>$602.75</span>
+				</div>
+
+				<div>
+					<span>Fiat Amount</span>
+					<span>$602.75</span>
+				</div>
+
+				<div>
+					<span>Fiat Amount</span>
+					<span>$602.75</span>
+				</div>
+			</div>
+		</div>
+	)
 }
 
 const BuyPage = () => {
@@ -73,7 +102,8 @@ const BuyPage = () => {
 		<div className={style.BuyPageWrapper}>
 			<UserInformation />
 			<UserInformationContent />
-			<UserTerms/>
+			<UserTerms />
+			<UserAccountDetails />
 
 			<div className={style.ButtonContainer}>
 				<button className={style.ButtomButtonProceed}>Proceed to payment</button>
