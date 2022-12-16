@@ -9,6 +9,7 @@ import Wallet from './pages/Wallet/Wallet';
 import MyAds from './pages/MyAds/MyAds';
 import UserPage from './pages/UserPage/UserPage';
 import BuyPage from './pages/Buy/BuyPage';
+import SellPage from './pages/Sell/SellPage';
 
 import {
 	BrowserRouter as Router,
@@ -79,6 +80,12 @@ function App() {
 							exact
 							path='/buy-page'
 							element={<BuyPage />}
+						/>
+
+						<Route
+							exact
+							path='/sell-page'
+							element={<SellPage />}
 						/>
 					</Routes>
 
