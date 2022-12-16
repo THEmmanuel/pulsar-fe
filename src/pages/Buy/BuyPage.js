@@ -3,7 +3,7 @@ import style from './BuyPage.module.css';
 
 const BuyPage = () => {
 	return (
-		<div>
+		<div className={style.BuyPageWrapper}>
 			<div className={style.UserInformationWrapper}>
 				<div className={style.UserInformation}>
 					<span>image</span>
@@ -21,7 +21,7 @@ const BuyPage = () => {
 
 			<div className={style.UserInformationContentWrapper}>
 				<input type="text" />
-				<div>
+				<div className={style.BuyPriceInformation}>
 					<span>Crypto Amount</span>
 					<span>600 USDT</span>
 				</div>
@@ -37,9 +37,9 @@ const BuyPage = () => {
 				</div>
 			</div>
 
-			<div>
+			<div className={style.UserInformationContentWrapper}>
 				<h4>Terms</h4>
-				<div>
+				<div className={style.BuyTerms}>
 					<li>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi laudantium cum, sunt accusamus alias nostrum minima maiores quidem numquam, recusandae autem incidunt ab voluptatum officiis delectus.
 					</li>
@@ -52,6 +52,11 @@ const BuyPage = () => {
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi laudantium cum, sunt accusamus alias nostrum minima maiores quidem numquam, recusandae autem incidunt ab voluptatum officiis delectus.
 					</li>
 				</div>
+			</div>
+
+			<div className={style.ButtonContainer}>
+				<button>Proceed to payment</button>
+				<button>Cancel</button>
 			</div>
 
 		</div>

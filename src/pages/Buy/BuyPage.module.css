@@ -21,5 +21,41 @@
 }
 
 .UserInformationContentWrapper{
-	
+	background-color: #E9EFEE;
+	width: 40%;
+	border-radius: 10px;
+	padding: 20px 0 20px 0;
+	margin: auto;
+}
+
+.BuyPageWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.BuyTerms{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	text-align: left;
+	justify-content: center;
+}
+
+.BuyPriceInformation{
+	display: flex;
+	flex-direction: row;
+	gap: 80px;
+	justify-content: center;
+}
+
+.ButtonContainer{
+	display: flex;
+	flex-direction: row;
+	background-color: #E3E3E3;
+	gap: 200px;
+	justify-content: center;
+	position: absolute;
+	bottom: 0;
+	padding: 20px 0 20px 0;
 }
