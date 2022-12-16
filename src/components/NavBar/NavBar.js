@@ -4,7 +4,11 @@ import style from './NavBar.module.css';
 const NavBar = () => {
 	return (
 		<nav>
-			NavBar
+			<span>Page Title</span>
+
+			<div>
+				<input type="text" />
+			</div>
 		</nav>
 	)
 }
