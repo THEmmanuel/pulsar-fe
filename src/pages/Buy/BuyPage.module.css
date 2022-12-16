@@ -10,17 +10,17 @@
 	flex-direction: row;
 }
 
-.UserInformationText{
+.UserInformationText {
 	display: flex;
 	flex-direction: column;
 }
 
-.UserInformationExtra{
+.UserInformationExtra {
 	display: flex;
 	flex-direction: column;
 }
 
-.UserInformationContentWrapper{
+.UserInformationContentWrapper {
 	background-color: #BEE8E1;
 	width: 40%;
 	border-radius: 10px;
@@ -28,13 +28,13 @@
 	margin: auto;
 }
 
-.BuyPageWrapper{
+.BuyPageWrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
 }
 
-.BuyTerms{
+.BuyTerms {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -42,14 +42,14 @@
 	justify-content: center;
 }
 
-.BuyPriceInformation{
+.BuyPriceInformation {
 	display: flex;
 	flex-direction: row;
 	gap: 80px;
 	justify-content: center;
 }
 
-.ButtonContainer{
+.ButtonContainer {
 	display: flex;
 	flex-direction: row;
 	background-color: #E3E3E3;
@@ -58,10 +58,11 @@
 	position: absolute;
 	bottom: 0;
 	padding: 20px 0 20px 0;
-	width: 80%
+	width: 80%;
+	/* margin-top: 50px; */
 }
 
-.ButtomButtonProceed{
+.ButtomButtonProceed {
 	padding: 5px;
 	border-radius: 5px;
 	width: 180px;
@@ -69,7 +70,7 @@
 	border: none;
 }
 
-.ButtomButtonCancel{
+.ButtomButtonCancel {
 	padding: 5px;
 	border-radius: 5px;
 	width: 180px;
@@ -77,9 +78,20 @@
 	border: none;
 }
 
-.BuyPageInput{
+.BuyPageInput {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	gap: 20px;
+}
+
+.BuyPageContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.BuyPageSuccess{
+	display: flex;
+	flex-direction: column;
 }

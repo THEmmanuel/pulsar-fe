@@ -71,11 +71,14 @@ const UserTerms = () => {
 const UserAccountDetails = () => {
 	return (
 		<div className={style.UserInformationContentWrapper}>
-			<h4>Buying USDT</h4>
+			<div>
+				<h4>Payment method</h4>
+				<span>bank transfer</span>
+			</div>
 			<div>
 				<div>
-					<span>Fiat Amount</span>
-					<span>$602.75</span>
+					<span>Bank name</span>
+					<span>Zenith bank</span>
 				</div>
 
 				<div>
@@ -93,6 +96,18 @@ const UserAccountDetails = () => {
 					<span>$602.75</span>
 				</div>
 			</div>
+		</div>
+	)
+}
+
+const BuySuccess = () => {
+	return (
+		<div className={style.BuyPageSuccess}>
+			<span>Check mark</span>
+			<span>600.00 USDT</span>
+			<span>Deposited into your wallet</span>
+			<button>Go home</button>
+			<span>Check USDT wallet</span>
 		</div>
 	)
 }
@@ -100,10 +115,13 @@ const UserAccountDetails = () => {
 const BuyPage = () => {
 	return (
 		<div className={style.BuyPageWrapper}>
-			<UserInformation />
-			<UserInformationContent />
-			<UserTerms />
-			<UserAccountDetails />
+			<div className={style.BuyPageContainer}>
+				<UserInformation />
+				<UserInformationContent />
+				<UserTerms />
+				<UserAccountDetails />
+				<BuySuccess />
+			</div>
 
 			<div className={style.ButtonContainer}>
 				<button className={style.ButtomButtonProceed}>Proceed to payment</button>
@@ -111,8 +129,8 @@ const BuyPage = () => {
 			</div>
 
 		</div>
-	)
-}
+	);
+};
 
 
 export default BuyPage;
