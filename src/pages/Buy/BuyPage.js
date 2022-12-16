@@ -20,7 +20,12 @@ const BuyPage = () => {
 			</div>
 
 			<div className={style.UserInformationContentWrapper}>
-				<input type="text" />
+				<div className={style.BuyPageInput}>
+					<input type="text" />
+					<span>USDT</span>
+					<span>All</span>
+				</div>
+
 				<div className={style.BuyPriceInformation}>
 					<span>Crypto Amount</span>
 					<span>600 USDT</span>
@@ -55,8 +60,8 @@ const BuyPage = () => {
 			</div>
 
 			<div className={style.ButtonContainer}>
-				<button>Proceed to payment</button>
-				<button>Cancel</button>
+				<button className={style.ButtomButtonProceed}>Proceed to payment</button>
+				<button className={style.ButtomButtonCancel}>Cancel</button>
 			</div>
 
 		</div>

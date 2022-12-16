@@ -21,7 +21,7 @@
 }
 
 .UserInformationContentWrapper{
-	background-color: #E9EFEE;
+	background-color: #BEE8E1;
 	width: 40%;
 	border-radius: 10px;
 	padding: 20px 0 20px 0;
@@ -53,9 +53,33 @@
 	display: flex;
 	flex-direction: row;
 	background-color: #E3E3E3;
-	gap: 200px;
+	gap: 400px;
 	justify-content: center;
 	position: absolute;
 	bottom: 0;
 	padding: 20px 0 20px 0;
+	width: 80%
+}
+
+.ButtomButtonProceed{
+	padding: 5px;
+	border-radius: 5px;
+	width: 180px;
+	background-color: #B8E8A1;
+	border: none;
+}
+
+.ButtomButtonCancel{
+	padding: 5px;
+	border-radius: 5px;
+	width: 180px;
+	background-color: #DCA1A1;
+	border: none;
+}
+
+.BuyPageInput{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 20px;
 }
