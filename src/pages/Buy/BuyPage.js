@@ -4,20 +4,22 @@ import style from './BuyPage.module.css';
 const BuyPage = () => {
 	return (
 		<div>
-			<div>
-				<div>
-					<span>profile</span>
-					<span>name</span>
-					<span>limit</span>
+			<div className={style.UserInformationWrapper}>
+				<div className={style.UserInformation}>
+					<span>image</span>
+					<div className={style.UserInformationText}>
+						<span>name</span>
+						<span>limit</span>
+					</div>
 				</div>
 
-				<div>
+				<div className={style.UserInformationExtra}>
 					<span>available</span>
 					<span>method</span>
 				</div>
 			</div>
 
-			<div>
+			<div className={style.UserInformationContentWrapper}>
 				<input type="text" />
 				<div>
 					<span>Crypto Amount</span>
@@ -51,7 +53,7 @@ const BuyPage = () => {
 					</li>
 				</div>
 			</div>
-			
+
 		</div>
 	)
 }
