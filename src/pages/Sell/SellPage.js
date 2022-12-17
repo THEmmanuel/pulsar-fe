@@ -18,7 +18,7 @@ const UserInformation = () => {
 			</div>
 		</div>
 	)
-}
+};
 
 const SellerAmountWrapper = () => {
 	return (
@@ -45,7 +45,7 @@ const SellerAmountWrapper = () => {
 			</div>
 		</div>
 	)
-}
+};
 
 const UserTerms = () => {
 	return (
@@ -70,10 +70,17 @@ const UserTerms = () => {
 
 const SellPage = () => {
 	return (
-		<div>
-			<UserInformation />
-			<SellerAmountWrapper />
-			<UserTerms />
+		<div className={style.SellPageWrapper}>
+			<div className={style.SellPageContainer}>
+				<UserInformation />
+				<SellerAmountWrapper />
+				<UserTerms />
+			</div>
+
+			<div className={style.ButtonContainer}>
+				<button className={style.ButtomButtonProceed}>Proceed to payment</button>
+				<button className={style.ButtomButtonCancel}>Cancel</button>
+			</div>
 		</div>
 	)
 }

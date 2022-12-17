@@ -1,0 +1,78 @@
+.UserInformationWrapper {
+	display: flex;
+	gap: 80px;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.UserInformation {
+	display: flex;
+	flex-direction: row;
+}
+
+.UserInformationText {
+	display: flex;
+	flex-direction: column;
+}
+
+.UserInformationExtra {
+	display: flex;
+	flex-direction: column;
+}
+
+.UserInformationContentWrapper {
+	background-color: #F6E6E6;
+	width: 40%;
+	border-radius: 10px;
+	padding: 20px 0 20px 0;
+	margin: auto;
+}
+
+.BuyPageInput {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 20px;
+}
+
+.BuyPriceInformation {
+	display: flex;
+	flex-direction: row;
+	gap: 80px;
+	justify-content: center;
+}
+
+.SellPageContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-bottom: 100px;
+}
+
+.ButtonContainer {
+	display: flex;
+	flex-direction: row;
+	background-color: #E3E3E3;
+	gap: 400px;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	padding: 20px 0 20px 0;
+	width: 100%;
+}
+
+.ButtomButtonProceed {
+	padding: 5px;
+	border-radius: 5px;
+	width: 180px;
+	background-color: #DCA1A1;
+	border: none;
+}
+
+.ButtomButtonCancel {
+	padding: 5px;
+	border-radius: 5px;
+	width: 180px;
+	background-color: #DED0D0;
+	border: none;
+}

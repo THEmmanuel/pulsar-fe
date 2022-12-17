@@ -127,7 +127,6 @@ const BuyPage = () => {
 				<button className={style.ButtomButtonProceed}>Proceed to payment</button>
 				<button className={style.ButtomButtonCancel}>Cancel</button>
 			</div>
-
 		</div>
 	);
 };
