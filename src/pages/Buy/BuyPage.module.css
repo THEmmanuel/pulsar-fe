@@ -133,3 +133,11 @@
 .BuyPriceValue{
 	font-weight: 600;
 }
+
+.PaymentMethod{
+	background-color: #FAE8CF;
+	color: #DC9635;
+	font-size: 0.9em;
+	padding: 1px 10px;
+	border-radius: 10px;
+}

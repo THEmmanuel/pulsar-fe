@@ -77,7 +77,7 @@ const UserAccountDetails = () => {
 		<div className={style.UserInformationContentWrapper}>
 			<div>
 				<h4>Payment method</h4>
-				<span>bank transfer</span>
+				<span className={style.PaymentMethod}>Bank transfer</span>
 			</div>
 			<div className={style.BuyPriceInformationWrapper}>
 				<div className={style.BuyPriceInformation}>
