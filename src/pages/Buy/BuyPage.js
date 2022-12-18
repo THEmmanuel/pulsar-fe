@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from './BuyPage.module.css';
+import checkIcon from '../../assets/check.svg';
 
 const UserInformation = () => {
 	return (
@@ -107,11 +108,19 @@ const UserAccountDetails = () => {
 const BuySuccess = () => {
 	return (
 		<div className={style.BuyPageSuccess}>
-			<span>Check mark</span>
-			<span>600.00 USDT</span>
-			<span>Deposited into your wallet</span>
-			<button>Go home</button>
-			<span>Check USDT wallet</span>
+			<img src={checkIcon} alt="" className={style.CheckIcon} />
+
+			<div className={style.TransactionInfo}>
+				<div className={style.TransactionDetails}>
+					<span className={style.TransactionAmount}>600.00 USDT</span>
+					<span className={style.TransactionText}>Deposited into your wallet</span>
+				</div>
+
+				<div className={style.TransactionCTA}>
+					<button className={style.SuccessCTAButton}>Go home</button>
+					<span>Check USDT wallet</span>
+				</div>
+			</div>
 		</div>
 	)
 }
@@ -122,9 +131,9 @@ const BuyPage = () => {
 			<div className={style.BuyPageContainer}>
 				<UserInformation />
 				<UserInformationContent />
-				<UserTerms />
 				<UserAccountDetails />
-				<BuySuccess />
+				<UserTerms />
+				{/* <BuySuccess /> */}
 			</div>
 
 			<div className={style.ButtonContainer}>
