@@ -79,25 +79,25 @@ const UserAccountDetails = () => {
 				<h4>Payment method</h4>
 				<span>bank transfer</span>
 			</div>
-			<div>
-				<div>
-					<span>Bank name</span>
-					<span>Zenith bank</span>
+			<div className={style.BuyPriceInformationWrapper}>
+				<div className={style.BuyPriceInformation}>
+					<span className={style.BuyPriceTitle}>Bank name</span>
+					<span className={style.BuyPriceValue}>Zenith bank</span>
 				</div>
 
-				<div>
-					<span>Fiat Amount</span>
-					<span>$602.75</span>
+				<div className={style.BuyPriceInformation}>
+					<span className={style.BuyPriceTitle}>Account Name</span>
+					<span className={style.BuyPriceValue}>John Doe</span>
 				</div>
 
-				<div>
-					<span>Fiat Amount</span>
-					<span>$602.75</span>
+				<div className={style.BuyPriceInformation}>
+					<span className={style.BuyPriceTitle}>Account Number</span>
+					<span className={style.BuyPriceValue}>2207656876</span>
 				</div>
 
-				<div>
-					<span>Fiat Amount</span>
-					<span>$602.75</span>
+				<div className={style.BuyPriceInformation}>
+					<span className={style.BuyPriceTitle}>Amount To Transfer</span>
+					<span className={style.BuyPriceValue}>$602.75</span>
 				</div>
 			</div>
 		</div>
