@@ -24,12 +24,12 @@
 	background-color: #BEE8E1;
 	width: 40%;
 	border-radius: 10px;
-	padding: 20px 0 20px 0;
+	padding: 20px 0 60px 0;
 	margin: auto;
 }
 
 .BuyPageWrapper {
-display: flex;
+	display: flex;
 	flex-direction: column;
 	gap: 40px;
 }
@@ -43,10 +43,12 @@ display: flex;
 }
 
 .BuyPriceInformation {
-	display: flex;
-	flex-direction: row;
-	gap: 80px;
+	display: grid;
+	grid-template-columns: 120px 120px;
+	grid-gap: 120px;
 	justify-content: center;
+	width: 100%;
+	text-align: left;
 }
 
 .ButtonContainer {
@@ -82,6 +84,9 @@ display: flex;
 	flex-direction: row;
 	justify-content: center;
 	gap: 20px;
+	width: 100%;
+	justify-content: center;
+	margin: auto;
 }
 
 .BuyPageContainer {
@@ -94,4 +99,35 @@ display: flex;
 .BuyPageSuccess {
 	display: flex;
 	flex-direction: column;
+}
+
+.AmountInput {
+	color: #F7F7F7;
+	border: none;
+	border-radius: 5px;
+	color: #000;
+	height: 30px;
+	width: 80%;
+}
+
+.UserInformationContent{
+	display: flex;
+	width: 400px;
+	margin: auto;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.BuyPriceInformationWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.BuyPriceTitle{
+	font-weight: 300;
+}
+
+.BuyPriceValue{
+	font-weight: 600;
 }
