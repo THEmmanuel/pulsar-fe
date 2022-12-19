@@ -13,7 +13,7 @@ import TransactionCTAButtons from '../../components/TransactionCTAButtons/Transa
 // <UserTerms />
 // <TransactionStatus />
 
-const BuyPage = () => {
+const BuyPage = props => {
 	return (
 		<div className={style.BuyPageWrapper}>
 			<div className={style.BuyPageContainer}>
@@ -28,7 +28,7 @@ const BuyPage = () => {
 	)
 }
 
-const BuyPageConfirm = () => {
+const BuyPageConfirm = props => {
 	return (
 		<div className={style.BuyPageWrapper}>
 			<div className={style.BuyPageContainer}>
@@ -44,7 +44,7 @@ const BuyPageConfirm = () => {
 	)
 }
 
-const BuyPageStatus = () => {
+const BuyPageStatus = props => {
 	return (
 		<div className={style.BuyPageWrapper}>
 			<div className={style.BuyPageContainer}>
@@ -57,15 +57,19 @@ const BuyPageStatus = () => {
 }
 
 const BuyPageContent = () => {
-	const [activePagge, setActivePage] = useState('buy')
+	const [activePage, setActivePage] = useState('buy')
 
-	return (
-		<div>
-			<BuyPage />
-			{/* <BuyPageConfirm /> */}
-			{/* <BuyPageStatus /> */}
-		</div>
-	);
+	if (activePage === 'buy') {
+		return <BuyPage />
+	}
+
+	if (activePage === 'confirm') {
+		return <BuyPageConfirm />
+	}
+
+	if (activePage === 'status') {
+		return <BuyPageStatus />
+	}
 };
 
 
