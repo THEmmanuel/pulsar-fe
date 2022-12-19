@@ -1,0 +1,50 @@
+.BuyPageSuccess {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	align-items: center;
+	gap: 20px;
+	margin: auto;
+}
+
+.CheckIcon {
+	width: 180px;
+}
+
+.TransactionInfo{
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.SuccessCTAButton{
+	background-color: #B8E8A1;
+	border: none;
+	padding: 10px 25px;
+	width: fit-content;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.TransactionAmount{
+	font-size: 1.5em;
+	font-weight: 600;
+}
+
+.TransactionDetails{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.TransactionCTA{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.TransactionInfo{
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}

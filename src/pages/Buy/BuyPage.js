@@ -1,61 +1,10 @@
 import React, { useState } from 'react';
 import style from './BuyPage.module.css';
-import checkIcon from '../../assets/check.svg';
 import UserTerms from '../../components/UserTerms/UserTerms';
 import UserInformation from '../../components/UserInformation/UserInformation';
 import UserInformationContent from '../../components/UserInformationContent/UserInformationContent';
-
-const UserAccountDetails = () => {
-	return (
-		<div className={style.UserInformationContentWrapper}>
-			<div>
-				<h4>Payment method</h4>
-				<span className={style.PaymentMethod}>Bank transfer</span>
-			</div>
-			<div className={style.BuyPriceInformationWrapper}>
-				<div className={style.BuyPriceInformation}>
-					<span className={style.BuyPriceTitle}>Bank name</span>
-					<span className={style.BuyPriceValue}>Zenith bank</span>
-				</div>
-
-				<div className={style.BuyPriceInformation}>
-					<span className={style.BuyPriceTitle}>Account Name</span>
-					<span className={style.BuyPriceValue}>John Doe</span>
-				</div>
-
-				<div className={style.BuyPriceInformation}>
-					<span className={style.BuyPriceTitle}>Account Number</span>
-					<span className={style.BuyPriceValue}>2207656876</span>
-				</div>
-
-				<div className={style.BuyPriceInformation}>
-					<span className={style.BuyPriceTitle}>Amount To Transfer</span>
-					<span className={style.BuyPriceValue}>$602.75</span>
-				</div>
-			</div>
-		</div>
-	)
-}
-
-const BuySuccess = () => {
-	return (
-		<div className={style.BuyPageSuccess}>
-			<img src={checkIcon} alt="" className={style.CheckIcon} />
-
-			<div className={style.TransactionInfo}>
-				<div className={style.TransactionDetails}>
-					<span className={style.TransactionAmount}>600.00 USDT</span>
-					<span className={style.TransactionText}>Deposited into your wallet</span>
-				</div>
-
-				<div className={style.TransactionCTA}>
-					<button className={style.SuccessCTAButton}>Go home</button>
-					<span>Check USDT wallet</span>
-				</div>
-			</div>
-		</div>
-	)
-}
+import UserAccountDetails from '../../components/UserAccountDetails/UserAccountDetails';
+import TransactionStatus from '../../components/TransactionStatus/TransactionStatus';
 
 const BuyPage = () => {
 	const [activePagge, setActivePage] = useState('buy')
@@ -70,7 +19,7 @@ const BuyPage = () => {
 					<UserTerms />
 				</div>
 
-				<BuySuccess />
+				<TransactionStatus />
 			</div>
 
 			<div className={style.ButtonContainer}>

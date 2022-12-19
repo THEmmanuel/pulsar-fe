@@ -1,0 +1,46 @@
+.UserInformationContentWrapper {
+	background-color: #BEE8E1;
+	width: 40%;
+	border-radius: 10px;
+	padding: 20px 0 60px 0;
+	margin: auto;
+}
+
+.UserInformationContent {
+	display: flex;
+	width: 400px;
+	margin: auto;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.BuyPriceInformation {
+	display: grid;
+	grid-template-columns: 200px 120px;
+	grid-gap: 120px;
+	justify-content: center;
+	width: 100%;
+	text-align: left;
+}
+
+.BuyPriceInformationWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.BuyPriceTitle {
+	font-weight: 300;
+}
+
+.BuyPriceValue {
+	font-weight: 600;
+}
+
+.PaymentMethod {
+	background-color: #FAE8CF;
+	color: #DC9635;
+	font-size: 0.9em;
+	padding: 1px 10px;
+	border-radius: 10px;
+}
