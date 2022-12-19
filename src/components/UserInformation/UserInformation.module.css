@@ -1,0 +1,21 @@
+.UserInformationWrapper {
+	display: flex;
+	gap: 80px;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.UserInformation {
+	display: flex;
+	flex-direction: row;
+}
+
+.UserInformationText {
+	display: flex;
+	flex-direction: column;
+}
+
+.UserInformationExtra {
+	display: flex;
+	flex-direction: column;
+}
