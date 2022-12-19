@@ -5,8 +5,21 @@ import UserInformation from '../../components/UserInformation/UserInformation';
 import UserInformationContent from '../../components/UserInformationContent/UserInformationContent';
 import UserAccountDetails from '../../components/UserAccountDetails/UserAccountDetails';
 import TransactionStatus from '../../components/TransactionStatus/TransactionStatus';
+import TransactionCTAButtons from '../../components/TransactionCTAButtons/TransactionCTAButtons';
 
 const BuyPage = () => {
+	'test'
+}
+
+const BuyPageConfirm = () => {
+
+}
+
+const BuyPageStatus = () => {
+	
+}
+
+const BuyPageContent = () => {
 	const [activePagge, setActivePage] = useState('buy')
 
 	return (
@@ -22,15 +35,10 @@ const BuyPage = () => {
 				<TransactionStatus />
 			</div>
 
-			<div className={style.ButtonContainer}>
-				<div className={style.ButtonWrapper}>
-					<button className={style.ButtomButtonProceed}>Buy USDT</button>
-					<button className={style.ButtomButtonCancel}>Cancel</button>
-				</div>
-			</div>
+			<TransactionCTAButtons/>
 		</div>
 	);
 };
 
 
-export default BuyPage;
+export default BuyPageContent;
