@@ -7,8 +7,26 @@ import UserAccountDetails from '../../components/UserAccountDetails/UserAccountD
 import TransactionStatus from '../../components/TransactionStatus/TransactionStatus';
 import TransactionCTAButtons from '../../components/TransactionCTAButtons/TransactionCTAButtons';
 
+					// <UserInformation />
+					// <UserInformationContent />
+					// <UserAccountDetails />
+					// <UserTerms />
+					// <TransactionStatus />
+
+
 const BuyPage = () => {
-	'test'
+	return (
+		<div className={style.BuyPageWrapper}>
+			<div className={style.BuyPageContainer}>
+				<div className={style.BuyPageContent}>
+					<UserInformation />
+					<UserInformationContent />
+					<UserTerms />
+				</div>
+			</div>
+			<TransactionCTAButtons />
+		</div>
+	)
 }
 
 const BuyPageConfirm = () => {
@@ -16,26 +34,15 @@ const BuyPageConfirm = () => {
 }
 
 const BuyPageStatus = () => {
-	
+
 }
 
 const BuyPageContent = () => {
 	const [activePagge, setActivePage] = useState('buy')
 
 	return (
-		<div className={style.BuyPageWrapper}>
-			<div className={style.BuyPageContainer}>
-				<div className={style.BuyPageContent}>
-					<UserInformation />
-					<UserInformationContent />
-					<UserAccountDetails />
-					<UserTerms />
-				</div>
-
-				<TransactionStatus />
-			</div>
-
-			<TransactionCTAButtons/>
+		<div>
+			<BuyPage />
 		</div>
 	);
 };
