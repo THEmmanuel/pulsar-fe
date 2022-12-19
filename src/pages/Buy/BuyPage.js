@@ -7,12 +7,11 @@ import UserAccountDetails from '../../components/UserAccountDetails/UserAccountD
 import TransactionStatus from '../../components/TransactionStatus/TransactionStatus';
 import TransactionCTAButtons from '../../components/TransactionCTAButtons/TransactionCTAButtons';
 
-					// <UserInformation />
-					// <UserInformationContent />
-					// <UserAccountDetails />
-					// <UserTerms />
-					// <TransactionStatus />
-
+// <UserInformation />
+// <UserInformationContent />
+// <UserAccountDetails />
+// <UserTerms />
+// <TransactionStatus />
 
 const BuyPage = () => {
 	return (
@@ -30,11 +29,31 @@ const BuyPage = () => {
 }
 
 const BuyPageConfirm = () => {
-
+	return (
+		<div className={style.BuyPageWrapper}>
+			<div className={style.BuyPageContainer}>
+				<div className={style.BuyPageContent}>
+					<UserInformation />
+					<UserInformationContent />
+					<UserAccountDetails />
+					<UserTerms />
+				</div>
+			</div>
+			<TransactionCTAButtons />
+		</div>
+	)
 }
 
 const BuyPageStatus = () => {
-
+	return (
+		<div className={style.BuyPageWrapper}>
+			<div className={style.BuyPageContainer}>
+				<div className={style.BuyPageContent}>
+					<TransactionStatus />
+				</div>
+			</div>
+		</div>
+	)
 }
 
 const BuyPageContent = () => {
@@ -43,6 +62,8 @@ const BuyPageContent = () => {
 	return (
 		<div>
 			<BuyPage />
+			{/* <BuyPageConfirm /> */}
+			{/* <BuyPageStatus /> */}
 		</div>
 	);
 };
