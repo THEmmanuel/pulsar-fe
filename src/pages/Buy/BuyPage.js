@@ -23,7 +23,17 @@ const BuyPage = props => {
 					<UserTerms />
 				</div>
 			</div>
-			<TransactionCTAButtons />
+
+			<div className={style.ButtonContainer}>
+				<div className={style.ButtonWrapper}>
+					<button
+						className={style.ButtomButtonProceed}
+						onClick={() => props.proceed()}>
+						Buy USDT
+					</button>
+					<button className={style.ButtomButtonCancel}>Cancel</button>
+				</div>
+			</div>
 		</div>
 	)
 }
@@ -39,7 +49,17 @@ const BuyPageConfirm = props => {
 					<UserTerms />
 				</div>
 			</div>
-			<TransactionCTAButtons />
+
+			<div className={style.ButtonContainer}>
+				<div className={style.ButtonWrapper}>
+					<button
+						className={style.ButtomButtonProceed}
+						onClick={() => props.proceed()}>
+						Buy USDT
+					</button>
+					<button className={style.ButtomButtonCancel}>Cancel</button>
+				</div>
+			</div>
 		</div>
 	)
 }
@@ -58,13 +78,15 @@ const BuyPageStatus = props => {
 
 const BuyPageContent = () => {
 	const [activePage, setActivePage] = useState('buy')
+	const buyCoinHandler = () => setActivePage('confirm');
+	const confirmTransactionHandler = () => setActivePage('status')
 
 	if (activePage === 'buy') {
-		return <BuyPage />
+		return <BuyPage proceed={buyCoinHandler} />
 	}
 
 	if (activePage === 'confirm') {
-		return <BuyPageConfirm />
+		return <BuyPageConfirm proceed={confirmTransactionHandler} />
 	}
 
 	if (activePage === 'status') {

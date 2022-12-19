@@ -31,8 +31,43 @@
 	margin-bottom: 100px;
 }
 
-.BuyPageContent{
+.BuyPageContent {
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
+}
+
+.ButtonContainer {
+	display: flex;
+	flex-direction: row;
+	background-color: #E3E3E3;
+	gap: 400px;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	padding: 20px 0 20px 0;
+	width: 100%;
+}
+
+.ButtomButtonProceed {
+	padding: 5px;
+	border-radius: 5px;
+	width: 180px;
+	background-color: #B8E8A1;
+	border: none;
+}
+
+.ButtomButtonCancel {
+	padding: 5px;
+	border-radius: 5px;
+	width: 180px;
+	background-color: #DCA1A1;
+	border: none;
+}
+
+.ButtonWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 400px;
+	margin: auto;
 }
