@@ -20,6 +20,7 @@ const Dashboard = () => {
 							<span>NGN</span>
 							<span>Buy</span>
 						</div>
+						
 						<div className={style.PeerToPeerWrapper}>
 							<PeerToPeerHome />
 							<PeerToPeerHome />

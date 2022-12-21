@@ -18,10 +18,12 @@
 }
 
 .AdsAndPortfolio {
+	width: 80%;
 	display: flex;
 	flex-direction: row;
 	gap: 80px;
-	justify-content: center;
+	justify-content: space-between;
+	margin: auto;
 }
 
 .PeerToPeerContainer {
