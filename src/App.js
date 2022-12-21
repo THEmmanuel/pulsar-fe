@@ -10,6 +10,9 @@ import MyAds from './pages/MyAds/MyAds';
 import UserPage from './pages/UserPage/UserPage';
 import BuyPage from './pages/Buy/BuyPage';
 import SellPage from './pages/Sell/SellPage';
+import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
+
+import { ClerkProvider } from '@clerk/clerk-react';
 
 import {
 	BrowserRouter as Router,
@@ -18,80 +21,84 @@ import {
 	// Link,
 	// useLocation
 } from 'react-router-dom';
-import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
+
+const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
 	return (
-		<Router>
-			<div className="App">
-				<SideBar />
-				<section className='Page-container'>
-					<NavBar />
-					<Routes>
-						<Route
-							exact
-							path='/'
-							element={<Dashboard />}
-						/>
+		<ClerkProvider
+			frontendApi={frontendApi}>
+			<Router>
+				<div className="App">
+					<SideBar />
+					<section className='Page-container'>
+						<NavBar />
+						<Routes>
+							<Route
+								exact
+								path='/'
+								element={<Dashboard />}
+							/>
 
-						<Route
-							exact
-							path='/home'
-							element={<Dashboard />}
-						/>
+							<Route
+								exact
+								path='/home'
+								element={<Dashboard />}
+							/>
 
-						<Route
-							exact
-							path='/wallets'
-							element={<WalletsPage />}
-						/>
+							<Route
+								exact
+								path='/wallets'
+								element={<WalletsPage />}
+							/>
 
-						<Route
-							exact
-							path='/wallet'
-							element={<Wallet />}
-						/>
+							<Route
+								exact
+								path='/wallet'
+								element={<Wallet />}
+							/>
 
-						<Route
-							exact
-							path='/my-ads'
-							element={<MyAds />}
-						/>
+							<Route
+								exact
+								path='/my-ads'
+								element={<MyAds />}
+							/>
 
-						<Route
-							exact
-							path='/'
-							element={<Dashboard />}
-						/>
+							<Route
+								exact
+								path='/'
+								element={<Dashboard />}
+							/>
 
-						<Route
-							exact
-							path='/p2p'
-							element={<PeerToPeerPage />}
-						/>
+							<Route
+								exact
+								path='/p2p'
+								element={<PeerToPeerPage />}
+							/>
 
-						<Route
-							exact
-							path='/user-page'
-							element={<UserPage />}
-						/>
+							<Route
+								exact
+								path='/user-page'
+								element={<UserPage />}
+							/>
 
-						<Route
-							exact
-							path='/buy-page'
-							element={<BuyPage />}
-						/>
+							<Route
+								exact
+								path='/buy-page'
+								element={<BuyPage />}
+							/>
 
-						<Route
-							exact
-							path='/sell-page'
-							element={<SellPage />}
-						/>
-					</Routes>
+							<Route
+								exact
+								path='/sell-page'
+								element={<SellPage />}
+							/>
+						</Routes>
 
-				</section>
-			</div>
-		</Router>
+					</section>
+				</div>
+			</Router>
+		</ClerkProvider>
 	);
 }
 
