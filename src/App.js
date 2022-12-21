@@ -11,6 +11,7 @@ import UserPage from './pages/UserPage/UserPage';
 import BuyPage from './pages/Buy/BuyPage';
 import SellPage from './pages/Sell/SellPage';
 import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
+import Login from './pages/Auth/Login';
 
 import { ClerkProvider } from '@clerk/clerk-react';
 
@@ -23,6 +24,7 @@ import {
 } from 'react-router-dom';
 
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
+console.log(frontendApi)
 
 function App() {
 	return (
@@ -38,6 +40,12 @@ function App() {
 								exact
 								path='/'
 								element={<Dashboard />}
+							/>
+
+							<Route
+								exact
+								path='/login'
+								element={<Login />}
 							/>
 
 							<Route
