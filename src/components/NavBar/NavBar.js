@@ -3,11 +3,14 @@ import style from './NavBar.module.css';
 
 const NavBar = () => {
 	return (
-		<nav>
-			<span>Page Title</span>
+		<nav className={style.NavBar}>
+			<div className={style.NavContent}>
+				<span>Page Title</span>
 
-			<div>
-				<input type="text" />
+				<div className={style.NavIntroduction}>
+					<div>Hi gabe</div>
+					<button>Login</button>
+				</div>
 			</div>
 		</nav>
 	)

@@ -1,0 +1,17 @@
+.NavBar{
+
+}
+
+.NavContent{
+	display: flex;
+	flex-direction: row;
+	width: 80%;
+	margin: auto;
+	justify-content: space-between;
+}
+
+.NavIntroduction{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
