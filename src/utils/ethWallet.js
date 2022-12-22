@@ -1,6 +1,12 @@
-import {ethers} from 'ethers';
-const wallet = ethers.Wallet.createRandom()
+import {
+	ethers
+} from 'ethers';
 
-export let walletAddress = wallet.address;
-export let mnemonic = wallet.mnemonic.phrase;
-export let privateKey = wallet.privateKey;
+export const createEthWallet = () => {
+	const wallet = ethers.Wallet.createRandom()
+	return {
+		walletAddress: wallet.address,
+		mnemonic: wallet.mnemonic.phrase,
+		privateKey: wallet.privateKey
+	}
+}

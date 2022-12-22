@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Login.module.css';
-import { useUser, SignIn } from '@clerk/clerk-react'
+import { useUser, SignIn } from '@clerk/clerk-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
