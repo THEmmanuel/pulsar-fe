@@ -15,3 +15,8 @@
 	flex-direction: row;
 	gap: 20px;
 }
+
+.NavUserInfo{
+	display: flex;
+	flex-direction: row;
+}
