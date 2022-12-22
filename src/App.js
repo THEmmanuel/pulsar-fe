@@ -13,7 +13,7 @@ import SellPage from './pages/Sell/SellPage';
 import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
 import Login from './pages/Auth/Login';
 import { createEthWallet } from './utils/ethWallet';
-
+import { generateBTCWallet } from './utils/btcWallet';
 import { ClerkProvider } from '@clerk/clerk-react';
 
 import {
@@ -26,7 +26,8 @@ import {
 
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 console.log(frontendApi)
-console.log(createEthWallet())
+// console.log(createEthWallet())
+console.log(generateBTCWallet())
 
 function App() {
 	return (

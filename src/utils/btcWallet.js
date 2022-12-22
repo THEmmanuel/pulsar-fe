@@ -1,0 +1,1 @@
+import {PrivateKey} from 'bitcore-lib';
