@@ -12,9 +12,10 @@ import BuyPage from './pages/Buy/BuyPage';
 import SellPage from './pages/Sell/SellPage';
 import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
 import Login from './pages/Auth/Login';
-import { createEthWallet } from './utils/ethWallet';
-import { generateBTCWallet } from './utils/btcWallet';
+// import { createEthWallet } from './utils/ethWallet';
+// import { createWallet } from './utils/btcWallet';
 import { ClerkProvider } from '@clerk/clerk-react';
+// import {testnet} from 'bitcore-lib/lib/networks'
 
 import {
 	BrowserRouter as Router,
@@ -27,7 +28,7 @@ import {
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 console.log(frontendApi)
 // console.log(createEthWallet())
-console.log(generateBTCWallet())
+// console.log(createWallet(testnet))
 
 function App() {
 	return (
