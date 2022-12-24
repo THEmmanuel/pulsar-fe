@@ -18,6 +18,7 @@ const Wallet = () => {
 				</div>
 
 				<MainDropdown />
+				<MainDropdown />
 
 				<span className={style.WalletAddress}>
 					wallet address
@@ -43,12 +44,12 @@ const Wallet = () => {
 
 					<tbody>
 						<tr>
-							<td>Ethereum</td>
-							<td>BTC</td>
-							<td>$20,000</td>
-							<td>0.10</td>
-							<td>1.06</td>
-							<td>367,024,834</td>
+							<td>7.78 ETH</td>
+							<td>ERC-20</td>
+							<td>View Transaction</td>
+							<td>Completed</td>
+							<td>Deposit</td>
+							<td>2021/11/10 23:01:33</td>
 						</tr>
 					</tbody>
 				</table>
