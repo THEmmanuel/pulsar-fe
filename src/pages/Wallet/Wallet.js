@@ -4,6 +4,7 @@ import MainDropdown from '../../components/MainDropdown/MainDropdown';
 
 import usdcWalletImage from '../../assets/usdc-wallet.svg';
 import qrPlaceholder from '../../assets/qr_code_placeholder.png'
+import DropDown from '../../components/DropDown/DropDown';
 
 const Wallet = () => {
 	return (
@@ -17,9 +18,17 @@ const Wallet = () => {
 					</div>
 				</div>
 
-				<MainDropdown />
-				<MainDropdown />
+				<MainDropdown
+					DropdownHeading='Token'
+					PrimaryText='USDT'
+					SecondaryText='Tether'
+				/>
 
+				<MainDropdown
+					DropdownHeading='Network'
+					PrimaryText='Ethereum'
+					SecondaryText='ERC-20'
+				/>
 				<span className={style.WalletAddress}>
 					wallet address
 				</span>
