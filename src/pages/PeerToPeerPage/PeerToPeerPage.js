@@ -10,20 +10,29 @@ const PeerToPeerPage = () => {
 			Peer to peer page
 
 			<div className={style.PeerToPeerDropdownWrapper}>
-				<DropDown />
-				<DropDown />
+				<DropDown
+					DropDownText='Buy'
+				/>
+
+				<DropDown
+					DropDownText='USDT'
+				/>
 			</div>
 
 			<div className={style.PeerToPeerCurrency}>
 				<MainInput />
 				<div>
 					<span>Fiat</span>
-					<DropDown />
+					<DropDown DropDownText = 'USD'/>
 				</div>
 			</div>
 
+			<button>
+				+ Create Ad
+			</button>
+
 			<div className={style.PeerToPeerWrapper}>
-				<PeerToPeerAd />
+				<PeerToPeerAd adType = 'buy'/>
 				<PeerToPeerAd />
 				<PeerToPeerAd />
 				<PeerToPeerAd />
