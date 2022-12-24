@@ -12,15 +12,17 @@ const WalletsPage = () => {
 					<span>Portfolio balance:</span>
 					<span className={style.WalletTotalValue}>$90,876.78</span>
 				</div>
-				<Link to='/wallet'>
+
+				<div className={style.WalletsContainer}>
+					<Link to='/wallet'>
+						<WalletCoin />
+					</Link>
+
 					<WalletCoin />
-				</Link>
-
-				<WalletCoin />
-				<WalletCoin />
-				<WalletCoin />
-				<WalletCoin />
-
+					<WalletCoin />
+					<WalletCoin />
+					<WalletCoin />
+				</div>
 				<PrimaryCTA />
 			</div>
 		</div>
