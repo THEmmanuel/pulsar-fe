@@ -5,20 +5,21 @@ import PortfolioAsset from "../../components/PortfolioAsset/PortfolioAsset";
 const PortfolioHome = () => {
 	return (
 		<div className={style.PortfolioHome}>
-			<div>
-				<span>Portfolio</span>
-				<span>$56498</span>
+			<div className={style.PortfolioDetails}>
+				<span className={style.PortfolioText}>Portfolio</span>
+				<span className={style.PortfolioValue}>$56,498.65</span>
 			</div>
 
-			<div>
-				line
-			</div>
-
+			<div className={style.PortfolioLine} />
 			<div className={style.PortfolioAssetWrapper}>
 				<PortfolioAsset />
 				<PortfolioAsset />
 				<PortfolioAsset />
 				<PortfolioAsset />
+			</div>
+
+			<div>
+				<span className={style.PortfolioWalletCTA}>See wallets</span>
 			</div>
 		</div>
 	)
