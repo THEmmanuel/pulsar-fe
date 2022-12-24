@@ -27,7 +27,7 @@ const PeerToPeerPage = () => {
 				</div>
 			</div>
 
-			<button>
+			<button className={style.CreateAdButton}>
 				+ Create Ad
 			</button>
 

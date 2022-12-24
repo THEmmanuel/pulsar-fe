@@ -23,3 +23,13 @@
 	flex-direction: row;
 	gap: 20px;
 }
+
+.CreateAdButton{
+	background-color: #008DFF;
+	border: none;
+	width: 140px;
+	border-radius: 5px;
+	padding: 20px;
+	color: #FFF;
+	margin-left: 20px;
+}
