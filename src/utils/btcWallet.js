@@ -1,24 +1,37 @@
-import {PrivateKey} from 'bitcore-lib';
-import {mainnet, testnet} from 'bitcore-lib/lib/networks';
-import {Mnemonic} from 'bitcore-mnemonic';
+//Import dependencies
+const bip32 = require('bip32')
+const bip39 = require('bip39')
+const bitcoin = require('bitcoinjs-lib')
 
-export const createWallet = (network = testnet) => {
-	let privateKey = new PrivateKey();
-	let address = privateKey.toAddress(network);
+//Define the network
+
+export const createBTCWallet = () => {
+	const network = bitcoin.networks.bitcoin //use networks.testnet for testnet
+
+	// Derivation path
+	const path = `m/49'/0'/0'/0` // Use m/49'/1'/0'/0 for testnet
+
+	let mnemonic = bip39.generateMnemonic()
+	const seed = bip39.mnemonicToSeedSync(mnemonic)
+	let root = bip32.fromSeed(seed, network)
+
+	let account = root.derivePath(path)
+	let node = account.derive(0).derive(0)
+	let btcAddress = bitcoin.payments.p2pkh({
+		pubkey: node.publicKey,
+		network: network,
+	}).address
+
 	return {
-		privateKey: privateKey.toString(),
-		address: address.toString(),
+		Address: btcAddress,
+		Key: node.toWIF(),
+		Mnemonic: mnemonic
 	}
 }
 
-export const createHDWallet = (network = testnet) => {
-	let passPhrase = new Mnemonic(Mnemonic.Words.SPANISH);
-	let xpriv = passPhrase.toHDPrivateKey(passPhrase.toString(), network);
-
-	return {
-		xpub: xpriv.xpubkey,
-		privateKey: xpriv.privateKey.toString(),
-		address: xpriv.publicKey.toAddress().toString(),
-		mnemonic: passPhrase.toString()
-	};
-};
+// console.log(`
+// Wallet generated:
+//  - Address  : ${btcAddress},
+//  - Key : ${node.toWIF()}, 
+//  - Mnemonic : ${mnemonic}
+// `)

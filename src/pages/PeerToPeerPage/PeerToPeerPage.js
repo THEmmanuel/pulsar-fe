@@ -8,7 +8,7 @@ const PeerToPeerPage = () => {
 	return (
 		<div className={style.PeerToPeerPage}>
 			Peer to peer page
-
+			
 			<div className={style.PeerToPeerDropdownWrapper}>
 				<DropDown
 					DropDownText='Buy'
