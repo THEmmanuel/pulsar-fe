@@ -1,6 +1,7 @@
 .Dashboard {
 	background-color: #F3F3F3;
 	width: 100%;
+	height: 100%;
 }
 
 .DashboardContent{
@@ -21,7 +22,6 @@
 	width: 80%;
 	display: flex;
 	flex-direction: row;
-	gap: 80px;
 	justify-content: space-between;
 	margin: auto;
 }
@@ -35,11 +35,26 @@
 .AdTypeWrapper{
 	display: flex;
 	flex-direction: row;
-	gap: 40px;
+	gap: 20px;
 }
 
 .PeerToPeerWrapper{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 30px;
+}
+
+.PeerToPeerHeadingWrapper{
+	margin-bottom: 40px;
+}
+
+.PeerToPeerHeading{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.PeerToPeerHeadingText{
+	font-size: 1.1em;
+	font-weight: 700;
 }
