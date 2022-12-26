@@ -13,7 +13,6 @@ import SellPage from './pages/Sell/SellPage';
 import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
 import Login from './pages/Auth/Login';
 import { ClerkProvider } from '@clerk/clerk-react';
-// import {testnet} from 'bitcore-lib/lib/networks'
 
 import {
 	BrowserRouter as Router,
