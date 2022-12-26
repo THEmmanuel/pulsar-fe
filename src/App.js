@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
 
 import SideBar from './containers/SideBar/SideBar';
 import NavBar from './components/NavBar/NavBar';
@@ -12,7 +13,7 @@ import BuyPage from './pages/Buy/BuyPage';
 import SellPage from './pages/Sell/SellPage';
 import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
 import Login from './pages/Auth/Login';
-import { ClerkProvider } from '@clerk/clerk-react';
+import { ClerkProvider, useUser } from '@clerk/clerk-react';
 
 import {
 	BrowserRouter as Router,
@@ -22,10 +23,20 @@ import {
 	// useLocation
 } from 'react-router-dom';
 
+const API_URL = 'http://localhost:9000/';
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 console.log(frontendApi)
 
 function App() {
+	const { user } = useUser;
+	const addUserToDatabase = () => {
+		
+	}
+
+	useEffect(() => {
+
+	}, [user])
+
 	return (
 		<ClerkProvider
 			frontendApi={frontendApi}>
