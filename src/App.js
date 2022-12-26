@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 import SideBar from './containers/SideBar/SideBar';
 import NavBar from './components/NavBar/NavBar';
@@ -28,13 +29,23 @@ const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 console.log(frontendApi)
 
 function App() {
-	const { user } = useUser;
+	const { user } = useUser();
 	const addUserToDatabase = () => {
-		
-	}
+		axios.post(`${API_URL}/users`, {
+			email: user.primaryEmailAddress.emailAddress,
+			username: user.username,
+			userID: user.id
+		}).then(
+			res => console.log(res)
+		).catch(err => console.log(err))
+		console.log('adding user to database...')
+	};
 
 	useEffect(() => {
-
+		if (user) {
+			addUserToDatabase()
+		}
+		console.log(user)
 	}, [user])
 
 	return (
