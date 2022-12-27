@@ -45,8 +45,8 @@ function App() {
 
 	const getWalletDetails = () => {
 		axios.get(`${API_URL}/users/${user.id}`)
-		.then(res => setWallets(res.data.userWallets))
-		.catch(err => console.log(err))
+			.then(res => setWallets(res.data.userWallets))
+			.catch(err => console.log(err))
 		console.log('///get wallet details')
 		console.log(`${API_URL}/users/${user.id}`)
 	}
@@ -62,80 +62,86 @@ function App() {
 	console.log(wallets)
 
 	return (
+
 		<Router>
 			<div className="App">
-				<SideBar />
-				<section className='Page-container'>
-					<NavBar />
-					<Routes>
-						<Route
-							exact
-							path='/'
-							element={<Dashboard />}
-						/>
+				<UserContext.Provider value={{
+					wallets,
+					setWallets
+				}}>
+					<SideBar />
+					<section className='Page-container'>
+						<NavBar />
+						<Routes>
+							<Route
+								exact
+								path='/'
+								element={<Dashboard />}
+							/>
 
-						<Route
-							exact
-							path='/login'
-							element={<Login />}
-						/>
+							<Route
+								exact
+								path='/login'
+								element={<Login />}
+							/>
 
-						<Route
-							exact
-							path='/home'
-							element={<Dashboard />}
-						/>
+							<Route
+								exact
+								path='/home'
+								element={<Dashboard />}
+							/>
 
-						<Route
-							exact
-							path='/wallets'
-							element={<WalletsPage />}
-						/>
+							<Route
+								exact
+								path='/wallets'
+								element={<WalletsPage />}
+							/>
 
-						<Route
-							exact
-							path='/wallet'
-							element={<Wallet />}
-						/>
+							<Route
+								exact
+								path='/wallet'
+								element={<Wallet />}
+							/>
 
-						<Route
-							exact
-							path='/my-ads'
-							element={<MyAds />}
-						/>
+							<Route
+								exact
+								path='/my-ads'
+								element={<MyAds />}
+							/>
 
-						<Route
-							exact
-							path='/'
-							element={<Dashboard />}
-						/>
+							<Route
+								exact
+								path='/'
+								element={<Dashboard />}
+							/>
 
-						<Route
-							exact
-							path='/p2p'
-							element={<PeerToPeerPage />}
-						/>
+							<Route
+								exact
+								path='/p2p'
+								element={<PeerToPeerPage />}
+							/>
 
-						<Route
-							exact
-							path='/user-page'
-							element={<UserPage />}
-						/>
+							<Route
+								exact
+								path='/user-page'
+								element={<UserPage />}
+							/>
 
-						<Route
-							exact
-							path='/buy-page'
-							element={<BuyPage />}
-						/>
+							<Route
+								exact
+								path='/buy-page'
+								element={<BuyPage />}
+							/>
 
-						<Route
-							exact
-							path='/sell-page'
-							element={<SellPage />}
-						/>
-					</Routes>
+							<Route
+								exact
+								path='/sell-page'
+								element={<SellPage />}
+							/>
+						</Routes>
 
-				</section>
+					</section>
+				</UserContext.Provider>
 			</div>
 		</Router>
 	);
