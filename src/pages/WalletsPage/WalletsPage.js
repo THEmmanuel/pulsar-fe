@@ -34,9 +34,12 @@ const WalletsPage = () => {
 				<div className={style.WalletsContainer}>
 					{
 						userWallets.map(
-							userWallet => <WalletCoin 
-								walletName = {userWallet.walletName}
-							/>
+							userWallet =>
+								<Link to={`/wallet}`}>
+									<WalletCoin
+										walletName={userWallet.walletName}
+									/>
+								</Link>
 						)
 					}
 
