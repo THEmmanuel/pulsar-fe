@@ -99,7 +99,7 @@ function App() {
 
 							<Route
 								exact
-								path='/wallet'
+								path='/wallet/:walletName'
 								element={<Wallet />}
 							/>
 
