@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 
 import SideBar from './containers/SideBar/SideBar';
@@ -14,7 +14,9 @@ import BuyPage from './pages/Buy/BuyPage';
 import SellPage from './pages/Sell/SellPage';
 import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
 import Login from './pages/Auth/Login';
-import { ClerkProvider, useUser } from '@clerk/clerk-react';
+
+import { useUser } from '@clerk/clerk-react';
+import { UserContext } from './contexts/UserContext';
 
 import {
 	BrowserRouter as Router,
@@ -28,6 +30,8 @@ const API_URL = 'http://localhost:9000';
 
 function App() {
 	const { user } = useUser();
+	const [wallets, setWallets] = useState([])
+
 	const addUserToDatabase = () => {
 		axios.post(`${API_URL}/users`, {
 			email: user.primaryEmailAddress.emailAddress,
@@ -39,12 +43,23 @@ function App() {
 		console.log('adding user to database...')
 	};
 
+	const getWalletDetails = () => {
+		axios.get(`${API_URL}/users/${user.id}`)
+		.then(res => setWallets(res.data.userWallets))
+		.catch(err => console.log(err))
+		console.log('///get wallet details')
+		console.log(`${API_URL}/users/${user.id}`)
+	}
+
 	useEffect(() => {
 		if (user) {
 			addUserToDatabase()
+			getWalletDetails()
 		}
 		console.log(user)
 	}, [user])
+
+	console.log(wallets)
 
 	return (
 		<Router>
