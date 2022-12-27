@@ -10,8 +10,7 @@ import { Link } from 'react-router-dom'
 const API_URL = 'http://localhost:9000/'
 
 const WalletsPage = () => {
-	const [userWallets, setUserWallets] = useState([])
-	const {wallets, setWallets} = useContext(UserContext)
+	const {wallets} = useContext(UserContext)
 	console.log(wallets)
 
 	return (
@@ -24,11 +23,11 @@ const WalletsPage = () => {
 
 				<div className={style.WalletsContainer}>
 					{
-						userWallets.map(
-							userWallet =>
+						wallets.map(
+							wallet =>
 								<Link to={`/wallet}`}>
 									<WalletCoin
-										walletName={userWallet.walletName}
+										walletName={wallet.walletName}
 									/>
 								</Link>
 						)
