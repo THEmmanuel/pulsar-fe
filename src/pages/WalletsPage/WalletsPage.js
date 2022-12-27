@@ -8,16 +8,16 @@ import { Link } from 'react-router-dom'
 const API_URL = 'http://localhost:9000/'
 
 const WalletsPage = () => {
-	const [userObject, setUserObject] = useState([])
+	const [userWallets, setUserWallets] = useState([])
 
 	const getWalletDetails = () => {
-		axios.get(`${API_URL}users`)
-			.then(res => setUserObject(res.data.users))
+		axios.get(`${API_URL}users/user_2JEFnGFazbo0yBE7ytCgruQv0nm`)
+			.then(res => setUserWallets(res.data.userWallets))
 			.catch(err => console.log(err))
 		console.log('////get wallet details')
 	}
 
-	console.log(userObject)
+	console.log(userWallets)
 
 	useEffect(() => {
 		getWalletDetails()
@@ -32,14 +32,14 @@ const WalletsPage = () => {
 				</div>
 
 				<div className={style.WalletsContainer}>
-					<Link to='/wallet'>
-						<WalletCoin />
-					</Link>
+					{
+						userWallets.map(
+							userWallet => <WalletCoin 
+								walletName = {userWallet.walletName}
+							/>
+						)
+					}
 
-					<WalletCoin />
-					<WalletCoin />
-					<WalletCoin />
-					<WalletCoin />
 				</div>
 				<PrimaryCTA />
 			</div>
