@@ -1,12 +1,22 @@
 import React from 'react';
 import style from './Wallet.module.css';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
+import { useParams } from 'react-router-dom';
+
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
 import usdcWalletImage from '../../assets/usdc-wallet.svg';
 import qrPlaceholder from '../../assets/qr_code_placeholder.png'
 import DropDown from '../../components/DropDown/DropDown';
 
 const Wallet = () => {
+	let {walletName} = useParams();
+	const { wallets } = useContext(UserContext);
+	let userWallet = wallets.find(wallet => wallet.walletName === walletName)
+
+	console.log(userWallet)
+
 	return (
 		<div className={style.WalletPage}>
 			<div className={style.WalletInformation}>
