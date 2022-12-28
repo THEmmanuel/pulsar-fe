@@ -24,7 +24,7 @@ const WalletsPage = () => {
 				<div className={style.WalletsContainer}>
 					{
 						wallets.map(
-							wallet =>
+							wallet => 
 								<Link key={wallet._id} to={`/wallet/${wallet.walletName}`}>
 									<WalletCoin
 										walletName={wallet.walletName}
