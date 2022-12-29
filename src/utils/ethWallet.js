@@ -1,12 +1,9 @@
-import {
-	ethers
-} from 'ethers';
+import { ethers } from 'ethers';
 
-export const createEthWallet = () => {
-	const wallet = ethers.Wallet.createRandom()
-	return {
-		walletAddress: wallet.address,
-		mnemonic: wallet.mnemonic.phrase,
-		privateKey: wallet.privateKey
-	}
+export const getETHBalance = async (address) => {
+	const network = 'goerli';
+	const provider = ethers.getDefaultProvider(network);
+	const balance = await provider.getBalance(address);
+	const EthBalance = ethers.utils.formatEther(balance);
+	return EthBalance;
 }
