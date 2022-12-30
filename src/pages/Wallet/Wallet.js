@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import style from './Wallet.module.css';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
+import TransferModal from '../../containers/TransferModal/TransferModal';
 import sendIcon from '../../assets/send_icon.svg'
 
 import { useParams } from 'react-router-dom';
@@ -89,6 +90,8 @@ const Wallet = () => {
 
 				<img src={qrPlaceholder} alt="" />
 			</div>
+
+			<TransferModal/>
 
 			<div className={style.TransactionHistoryWrapper}>
 				<span>
