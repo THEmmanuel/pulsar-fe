@@ -10,31 +10,38 @@ const TransferModal = props => {
 	const sendAddress = '0xbB0581307673918fDf9442e37a06c364837a15D6';
 
 	return (
-		<div>
-			<span>Sending ETH</span>
+		<div className={style.TransferModalWrapper}>
+			<span className={style.TransferHeading}>Sending ETH</span>
 
-			<div>
-				<div>
-					<span>Amount</span>
-					<input type="text" onChange={(e) => setAmount(e.target.value)} />
+			<div className={style.TransferInputWrapper}>
+				<div className={style.TransferInputContainer}>
+					<span className={style.TransferInputText}>Amount</span>
+					<input
+						type="text"
+						className={style.TransferInput}
+						onChange={(e) => setAmount(e.target.value)} />
+				</div>
+
+				<div className={style.TransferInputContainer}>
+					<span className={style.TransferInputText}>Recipient Wallet Address</span>
+					<input
+						type="text"
+						className={style.TransferInput}
+						onChange={(e) => setRecipientAddress(e.target.value)} />
 				</div>
 
 				<div>
-					<span>Recipient Wallet Address</span>
-					<input type="text" onChange={(e) => setRecipientAddress(e.target.value)} />
-				</div>
+					<button
+						onClick={
+							() => sendETH(sendAddress, recipientAddress, amount, privateKey, contractAddress)
+						}>
+						Send
+					</button>
 
-				<div>
-					<span>Private Key</span>
-					<input type="text" onChange={(e) => setPrivateKey(e.target.value)} />
+					<button>
+						Cancel
+					</button>
 				</div>
-
-				<button
-					onClick={
-						() => sendETH(sendAddress, recipientAddress, amount, privateKey, contractAddress)
-					}>
-					Send
-				</button>
 			</div>
 		</div>
 	)
