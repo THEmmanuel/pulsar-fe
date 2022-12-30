@@ -11,7 +11,7 @@ import { UserContext } from '../../contexts/UserContext';
 import usdcWalletImage from '../../assets/usdc-wallet.svg';
 import qrPlaceholder from '../../assets/qr_code_placeholder.png'
 import { ethers } from 'ethers';
-import { getETHBalance } from '../../utils/ethWallet';
+import { getETHBalance, getETHHistory } from '../../utils/ethWallet';
 // import DropDown from '../../components/DropDown/DropDown';
 
 const Wallet = () => {
@@ -19,6 +19,7 @@ const Wallet = () => {
 	const [wallet, setWallet] = useState({})
 	const { wallets } = useContext(UserContext);
 	const [walletBalance, setWalletBalance] = useState(0)
+	const [ethTransactions, setEthTransactions] = useState([]);
 	let userWallet = wallets.find(wallet => wallet.walletName === walletName)
 
 	useEffect(() => {
@@ -34,6 +35,11 @@ const Wallet = () => {
 	// 	}
 	// }, [wallet])
 
+	const fetchTransactions = async () => {
+		const ethTransactions = await getETHHistory(wallet.walletAddress);
+		setEthTransactions(ethTransactions)
+	}
+
 	useEffect(() => {
 		const fetchBalance = async () => {
 			if (wallet) {
@@ -42,18 +48,17 @@ const Wallet = () => {
 			}
 		};
 		fetchBalance();
+		fetchTransactions()
 		return () => {
 			// clean up logic
 		};
 	}, [wallet]);
 
-	console.log(userWallet)
-	console.log(wallets.length)
-	console.log(wallet)
-	console.log(wallet.walletAddress)
-	console.log(walletBalance)
-
-
+	// console.log(userWallet)
+	// console.log(wallets.length)
+	// console.log(wallet)
+	// console.log(wallet.walletAddress)
+	// console.log(walletBalance)
 
 	return (
 		<div className={style.WalletPage}>
@@ -91,7 +96,10 @@ const Wallet = () => {
 				<img src={qrPlaceholder} alt="" />
 			</div>
 
-			<TransferModal/>
+			{/* <TransferModal
+				ETHAddress = {wallet.walletAddress}
+				privateKey = {wallet.walletKey}
+			/> */}
 
 			<div className={style.TransactionHistoryWrapper}>
 				<span>
@@ -109,14 +117,19 @@ const Wallet = () => {
 					</thead>
 
 					<tbody>
-						<tr>
-							<td>7.78 ETH</td>
-							<td>ERC-20</td>
-							<td>View Transaction</td>
-							<td>Completed</td>
-							<td>Deposit</td>
-							<td>2021/11/10 23:01:33</td>
-						</tr>
+						{ethTransactions ? ethTransactions.map(transaction => {
+							return (
+								<tr>
+									<td>7.78 ETH</td>
+									<td>ERC-20</td>
+									<td>View Transaction</td>
+									<td>Completed</td>
+									<td>Deposit</td>
+									<td>2021/11/10 23:01:33</td>
+								</tr>
+
+							)
+						}) : <span>Loading</span>}
 					</tbody>
 				</table>
 			</div>

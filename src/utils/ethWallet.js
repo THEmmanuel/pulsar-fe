@@ -40,3 +40,22 @@ export const sendETH = async (sendAddress,
 		alert('sent!')
 	})
 };
+
+export const getETHHistory = async (address) => {
+	let etherscanProvider = new ethers.providers.EtherscanProvider('goerli');
+  
+	try {
+	  // Wait for the Promise to resolve
+	  const history = await etherscanProvider.getHistory(address);
+  
+	  // Do something with the history
+	  history.forEach((tx) => tx);
+  
+	  // Return the history
+	  return history;
+	} catch (error) {
+	  // Catch any errors that might occur
+	  console.error(error);
+	}
+  };
+  

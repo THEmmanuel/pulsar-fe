@@ -5,15 +5,15 @@ import { sendETH } from '../../utils/ethWallet';
 const TransferModal = props => {
 	const [recipientAddress, setRecipientAddress] = useState("");
 	const [amount, setAmount] = useState("");
-	const [privateKey, setPrivateKey] = useState("");
+	const privateKey = props.privateKey;
 	const contractAddress = '';
-	const sendAddress = '0xbB0581307673918fDf9442e37a06c364837a15D6';
+	const sendAddress = props.ETHAddress;
 
 	return (
 		<div className={style.TransferModalWrapper}>
 			<div className={style.TransferOverlay}>
 				<div className={style.TransferModal}>
-					<span className={style.TransferHeading}>Sending ETH</span>
+				<span className={style.TransferHeading}>Sending ETH</span>
 
 					<div className={style.TransferInputWrapper}>
 						<div className={style.TransferInputContainer}>
