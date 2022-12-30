@@ -11,37 +11,45 @@ const TransferModal = props => {
 
 	return (
 		<div className={style.TransferModalWrapper}>
-			<span className={style.TransferHeading}>Sending ETH</span>
+			<div className={style.TransferOverlay}>
+				<div className={style.TransferModal}>
+					<span className={style.TransferHeading}>Sending ETH</span>
 
-			<div className={style.TransferInputWrapper}>
-				<div className={style.TransferInputContainer}>
-					<span className={style.TransferInputText}>Amount</span>
-					<input
-						type="text"
-						className={style.TransferInput}
-						onChange={(e) => setAmount(e.target.value)} />
+					<div className={style.TransferInputWrapper}>
+						<div className={style.TransferInputContainer}>
+							<span className={style.TransferInputText}>Amount</span>
+							<input
+								type="text"
+								className={style.TransferInput}
+								onChange={(e) => setAmount(e.target.value)} />
+						</div>
+
+						<div className={style.TransferInputContainer}>
+							<span className={style.TransferInputText}>Recipient Wallet Address</span>
+							<input
+								type="text"
+								className={style.TransferInput}
+								onChange={(e) => setRecipientAddress(e.target.value)} />
+						</div>
+
+						<div className={style.TransferButtons}>
+							<button
+								className={style.TransferSendButton}
+								onClick={
+									() => sendETH(sendAddress, recipientAddress, amount, privateKey, contractAddress)
+								}>
+								Send
+							</button>
+
+							<button
+								className={style.TransferCancelButton}
+							>
+								Cancel
+							</button>
+						</div>
+					</div>
 				</div>
 
-				<div className={style.TransferInputContainer}>
-					<span className={style.TransferInputText}>Recipient Wallet Address</span>
-					<input
-						type="text"
-						className={style.TransferInput}
-						onChange={(e) => setRecipientAddress(e.target.value)} />
-				</div>
-
-				<div>
-					<button
-						onClick={
-							() => sendETH(sendAddress, recipientAddress, amount, privateKey, contractAddress)
-						}>
-						Send
-					</button>
-
-					<button>
-						Cancel
-					</button>
-				</div>
 			</div>
 		</div>
 	)

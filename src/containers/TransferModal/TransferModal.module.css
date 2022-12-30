@@ -1,0 +1,57 @@
+.TransferModal {
+	background-color: #D9D9D9;
+	width: 20vw;
+	padding: 40px;
+	border-radius: 5px;
+}
+
+.TransferHeading {
+	font-weight: 700;
+}
+
+.TransferInputContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.TransferInputText {
+	text-align: left;
+	color: #8B95AF;
+	font-size: 0.8em;
+}
+
+.TransferInputWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.TransferInput {
+	border-radius: 5px;
+	border: none;
+	background-color: #F7F7F7;
+	height: 30px;
+}
+
+.TransferSendButton{
+	background-color: #B8E8A1;
+}
+
+.TransferCancelButton{
+	background-color: #DCA1A1;
+}
+
+.TransferButtons{
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+	justify-content: center;
+}
+
+button{
+	border: none;
+	border-radius: 5px;
+	width: 120px;
+	padding: 10px;
+}
