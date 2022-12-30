@@ -28,13 +28,6 @@ const Wallet = () => {
 		}
 	}, [userWallet]);
 
-	// useEffect(() => {
-	// 	if (wallet) {
-	// 		setWalletBalance(getETHBalance(wallet.walletAddress)
-	// 		)
-	// 	}
-	// }, [wallet])
-
 	const fetchTransactions = async () => {
 		const ethTransactions = await getETHHistory(wallet.walletAddress);
 		setEthTransactions(ethTransactions)
@@ -53,12 +46,6 @@ const Wallet = () => {
 			// clean up logic
 		};
 	}, [wallet]);
-
-	// console.log(userWallet)
-	// console.log(wallets.length)
-	// console.log(wallet)
-	// console.log(wallet.walletAddress)
-	// console.log(walletBalance)
 
 	return (
 		<div className={style.WalletPage}>
