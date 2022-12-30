@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import style from './Wallet.module.css';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
+import sendIcon from '../../assets/send_icon.svg'
 
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
@@ -61,6 +62,11 @@ const Wallet = () => {
 					<div className={style.WalletCoinPriceInfo}>
 						<span className={style.WalletCoinTotal}>{walletBalance} ETH</span>
 						<span className={style.WalletCoinValue}>${walletBalance * 1200.08}</span>
+
+						<button className={style.SendButton}>
+							Send
+							<img src={sendIcon} alt="" />
+						</button>
 					</div>
 				</div>
 

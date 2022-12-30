@@ -67,6 +67,19 @@
 	border-radius: 5px;
 }
 
+.SendButton{
+	background-color: #008DFF;
+	color: #FFF;
+	border: none;
+	display: flex;
+	align-items: center;
+	padding: 10px 20px;
+	flex-direction: row;
+	gap: 10px;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
 .TransactionsTable{
 	width: 70%;
 	margin: auto;
