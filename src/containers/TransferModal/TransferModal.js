@@ -3,19 +3,11 @@ import style from './TransferModal.module.css';
 import { sendETH } from '../../utils/ethWallet';
 
 const TransferModal = props => {
-	const [recipientAddress, setRecipientAddress] = useState('');
-	const [amount, setAmount] = useState('');
-	const [privateKey, setPrivateKey] = useState('');
-
-	const handleSubmit = () => {
-		sendETH(recipientAddress, amount, privateKey)
-			.then((response) => {
-				console.log(`Transaction sent: ${response.hash}`);
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-	}
+	const [recipientAddress, setRecipientAddress] = useState("");
+	const [amount, setAmount] = useState("");
+	const [privateKey, setPrivateKey] = useState("");
+	const contractAddress = '';
+	const sendAddress = '0xbB0581307673918fDf9442e37a06c364837a15D6';
 
 	return (
 		<div>
@@ -37,7 +29,10 @@ const TransferModal = props => {
 					<input type="text" onChange={(e) => setPrivateKey(e.target.value)} />
 				</div>
 
-				<button onClick={() => handleSubmit()}>
+				<button
+					onClick={
+						() => sendETH(sendAddress, recipientAddress, amount, privateKey, contractAddress)
+					}>
 					Send
 				</button>
 			</div>
