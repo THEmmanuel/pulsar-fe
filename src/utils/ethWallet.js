@@ -12,9 +12,9 @@ export const getETHBalance = async (address) => {
 	return EthBalance;
 }
 
-export const SendETH = async (senderAddress, address, amount, key) => {
+export const sendETH = async (address, amount, key) => {
 	const wallet = new ethers.Wallet(key, provider);
-	balance = await provider.getBalance(senderAddress)
+	balance = await provider.getBalance()
 
 	if (balance.lt(amount)) {
 		throw new Error(`Insufficient balance. Required: ${amount.toString()}, available: ${balance.toString()}`);
