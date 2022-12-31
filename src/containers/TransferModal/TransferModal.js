@@ -43,6 +43,7 @@ const TransferModal = props => {
 
 							<button
 								className={style.TransferCancelButton}
+								onClick = {props.cancel}
 							>
 								Cancel
 							</button>

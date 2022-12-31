@@ -58,4 +58,3 @@ export const getETHHistory = async (address) => {
 	  console.error(error);
 	}
   };
-  

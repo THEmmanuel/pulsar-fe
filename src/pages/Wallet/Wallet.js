@@ -20,6 +20,7 @@ const Wallet = () => {
 	const { wallets } = useContext(UserContext);
 	const [walletBalance, setWalletBalance] = useState(0)
 	const [ethTransactions, setEthTransactions] = useState([]);
+	const [isModalOpen, setIsModalOpen] = useState(false)
 	let userWallet = wallets.find(wallet => wallet.walletName === walletName)
 
 	useEffect(() => {
@@ -56,7 +57,10 @@ const Wallet = () => {
 						<span className={style.WalletCoinTotal}>{walletBalance} ETH</span>
 						<span className={style.WalletCoinValue}>${walletBalance * 1200.08}</span>
 
-						<button className={style.SendButton}>
+						<button
+							className={style.SendButton}
+							onClick={() => setIsModalOpen(true)}
+						>
 							Send
 							<img src={sendIcon} alt="" />
 						</button>
@@ -83,10 +87,12 @@ const Wallet = () => {
 				<img src={qrPlaceholder} alt="" />
 			</div>
 
-			{/* <TransferModal
-				ETHAddress = {wallet.walletAddress}
-				privateKey = {wallet.walletKey}
-			/> */}
+			{isModalOpen ?
+			<TransferModal
+				ETHAddress={wallet.walletAddress}
+				privateKey={wallet.walletKey}
+				cancel = {() => setIsModalOpen(false)}
+			/> : null}
 
 			<div className={style.TransactionHistoryWrapper}>
 				<span>
