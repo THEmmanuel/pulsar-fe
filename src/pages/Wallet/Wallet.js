@@ -44,10 +44,12 @@ const Wallet = () => {
 		};
 		fetchBalance();
 		fetchTransactions()
-		console.log(getBTCBalance('1ABXwBQ1MbgKWwgKkLe6cxRw1CPpHJPLse'))
 		return () => {
 		};
 	}, [wallet]);
+
+	console.log(getBTCBalance('1ABXwBQ1MbgKWwgKkLe6cxRw1CPpHJPLse'), 'getbtcbalance')
+
 
 	return (
 		<div className={style.WalletPage}>

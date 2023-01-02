@@ -7,9 +7,9 @@
 import axios from 'axios';
 
 export const getBTCBalance = async address => {
-	const blockchainAPI = 'https://blockchain.info/q/addressbalance/';
-	axios.get(`${blockchainAPI}${address}`)
-		.then(res => res.json)
+	const blockchainAPI = 'https://api.blockcypher.com/v1/btc/main/addrs/';
+	axios.get(`${blockchainAPI}${address}/balance`)
+	.then(res => res.json)
 }
 
 // console.log(`
