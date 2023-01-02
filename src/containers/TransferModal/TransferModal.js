@@ -13,7 +13,7 @@ const TransferModal = props => {
 		<div className={style.TransferModalWrapper}>
 			<div className={style.TransferOverlay}>
 				<div className={style.TransferModal}>
-				<span className={style.TransferHeading}>Sending ETH</span>
+					<span className={style.TransferHeading}>Sending ETH</span>
 
 					<div className={style.TransferInputWrapper}>
 						<div className={style.TransferInputContainer}>
@@ -43,7 +43,7 @@ const TransferModal = props => {
 
 							<button
 								className={style.TransferCancelButton}
-								onClick = {props.cancel}
+								onClick={props.cancel}
 							>
 								Cancel
 							</button>

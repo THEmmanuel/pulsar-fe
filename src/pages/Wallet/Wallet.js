@@ -12,6 +12,7 @@ import usdcWalletImage from '../../assets/usdc-wallet.svg';
 import qrPlaceholder from '../../assets/qr_code_placeholder.png'
 import { ethers } from 'ethers';
 import { getETHBalance, getETHHistory } from '../../utils/ethWallet';
+import { getBTCBalance } from '../../utils/btcWallet';
 // import DropDown from '../../components/DropDown/DropDown';
 
 const Wallet = () => {
@@ -43,8 +44,8 @@ const Wallet = () => {
 		};
 		fetchBalance();
 		fetchTransactions()
+		console.log(getBTCBalance('1ABXwBQ1MbgKWwgKkLe6cxRw1CPpHJPLse'))
 		return () => {
-			// clean up logic
 		};
 	}, [wallet]);
 
@@ -59,8 +60,7 @@ const Wallet = () => {
 
 						<button
 							className={style.SendButton}
-							onClick={() => setIsModalOpen(true)}
-						>
+							onClick={() => setIsModalOpen(true)}>
 							Send
 							<img src={sendIcon} alt="" />
 						</button>
@@ -79,20 +79,18 @@ const Wallet = () => {
 					SecondaryText='ERC-20'
 				/>
 				<span className={style.WalletAddress}>
-					{
-						wallet.walletAddress
-					}
+					{wallet.walletAddress}
 				</span>
 
 				<img src={qrPlaceholder} alt="" />
 			</div>
 
 			{isModalOpen ?
-			<TransferModal
-				ETHAddress={wallet.walletAddress}
-				privateKey={wallet.walletKey}
-				cancel = {() => setIsModalOpen(false)}
-			/> : null}
+				<TransferModal
+					ETHAddress={wallet.walletAddress}
+					privateKey={wallet.walletKey}
+					cancel={() => setIsModalOpen(false)}
+				/> : null}
 
 			<div className={style.TransactionHistoryWrapper}>
 				<span>
