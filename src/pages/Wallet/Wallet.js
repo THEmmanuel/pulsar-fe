@@ -41,6 +41,10 @@ const Wallet = () => {
 				const balance = await getETHBalance(wallet.walletAddress);
 				setWalletBalance(balance);
 			}
+
+			const btcBalance = await getBTCBalance('1ABXwBQ1MbgKWwgKkLe6cxRw1CPpHJPLse')
+			console.log(btcBalance)
+
 		};
 		fetchBalance();
 		fetchTransactions()
@@ -48,7 +52,8 @@ const Wallet = () => {
 		};
 	}, [wallet]);
 
-	console.log(getBTCBalance('1ABXwBQ1MbgKWwgKkLe6cxRw1CPpHJPLse'), 'getbtcbalance')
+	const btcBalance = getBTCBalance('1ABXwBQ1MbgKWwgKkLe6cxRw1CPpHJPLse')
+	console.log(btcBalance)
 
 
 	return (

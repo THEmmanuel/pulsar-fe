@@ -8,9 +8,14 @@ import axios from 'axios';
 
 export const getBTCBalance = async address => {
 	const blockchainAPI = 'https://api.blockcypher.com/v1/btc/main/addrs/';
-	axios.get(`${blockchainAPI}${address}/balance`)
-	.then(res => res.json)
-}
+	try {
+		const response = await axios.get(`${blockchainAPI}${address}/balance`);
+		return response.data;
+	} catch (error) {
+		console.error(error);
+	}
+};
+
 
 // console.log(`
 // Wallet generated:
