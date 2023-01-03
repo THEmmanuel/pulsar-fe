@@ -12,7 +12,7 @@ export const getBTCBalance = async address => {
 	const blockchainAPI = `https://api.blockcypher.com/v1/btc/test3/addrs/`;
 	try {
 		const response = await axios.get(`${blockchainAPI}${address}/balance`);
-		return response.data;
+		return response.data.balance;
 	} catch (error) {
 		console.error(error);
 	}

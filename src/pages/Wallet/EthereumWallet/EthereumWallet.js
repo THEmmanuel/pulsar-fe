@@ -42,8 +42,8 @@ const EthereumWallet = () => {
 				setWalletBalance(balance);
 			}
 
-			const btcBalance = await getBTCBalance('mh6d1eD84k4ntwr6nqF5gjJhov2P9d1vp3')
-			console.log(btcBalance)
+			// const btcBalance = await getBTCBalance('mh6d1eD84k4ntwr6nqF5gjJhov2P9d1vp3')
+			// console.log(btcBalance)
 
 		};
 		fetchBalance();

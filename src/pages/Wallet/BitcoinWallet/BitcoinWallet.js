@@ -11,7 +11,7 @@ import { UserContext } from '../../../contexts/UserContext';
 import usdcWalletImage from '../../../assets/usdc-wallet.svg';
 import qrPlaceholder from '../../../assets/qr_code_placeholder.png'
 import { ethers } from 'ethers';
-import { getETHBalance, getETHHistory } from '../../../utils/ethWallet';
+// import { getETHBalance, getETHHistory } from '../../../utils/ethWallet';
 import { getBTCBalance } from '../../../utils/btcWallet';
 
 const BitcoinWallet = () => {
@@ -29,6 +29,16 @@ const BitcoinWallet = () => {
 		}
 	}, [userWallet]);
 
+	useEffect(() => {
+		const fetchBTCBalance = async () => {
+			if (wallet) {
+				const balance = await getBTCBalance(wallet.walletAddress)
+				setWalletBalance(balance)
+			}
+		}
+		fetchBTCBalance()
+	}, [wallet])
+
 
 	return (
 		<div className={style.WalletPage}>
@@ -36,8 +46,8 @@ const BitcoinWallet = () => {
 				<div className={style.WalletCoinInformation}>
 					<img src={usdcWalletImage} alt="" className={style.WalletCoinImage} />
 					<div className={style.WalletCoinPriceInfo}>
-						<span className={style.WalletCoinTotal}>{walletBalance} ETH</span>
-						<span className={style.WalletCoinValue}>${walletBalance * 1200.08}</span>
+						<span className={style.WalletCoinTotal}>{walletBalance * 0.00000001} BTC</span>
+						<span className={style.WalletCoinValue}>${(walletBalance * 0.00000001) * 16643}</span>
 
 						<button
 							className={style.SendButton}
@@ -106,6 +116,7 @@ const BitcoinWallet = () => {
 				</table>
 			</div>
 		</div>
-	);}
+	);
+}
 
 export default BitcoinWallet;
