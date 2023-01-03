@@ -1,5 +1,5 @@
-import style from './EthereumWallet.module.css';
 import React, { useEffect, useState } from 'react';
+import style from './EthereumWallet.module.css';
 import MainDropdown from '../../../components/MainDropdown/MainDropdown';
 import TransferModal from '../../../containers/TransferModal/TransferModal';
 import sendIcon from '../../../assets/send_icon.svg'
