@@ -6,8 +6,10 @@
 // const bitcoin = require('bitcoinjs-lib')
 import axios from 'axios';
 
+const blockcypherToken = 'a7b3077dd70a47beb1edeaea116f2c60'
+
 export const getBTCBalance = async address => {
-	const blockchainAPI = 'https://api.blockcypher.com/v1/btc/main/addrs/';
+	const blockchainAPI = `https://api.blockcypher.com/v1/btc/test3/addrs/`;
 	try {
 		const response = await axios.get(`${blockchainAPI}${address}/balance`);
 		return response.data;
@@ -15,6 +17,10 @@ export const getBTCBalance = async address => {
 		console.error(error);
 	}
 };
+
+export const sendBTC = async (address, amount) => {
+
+}
 
 
 // console.log(`
