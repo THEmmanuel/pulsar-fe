@@ -47,7 +47,7 @@ const BitcoinWallet = () => {
 					<img src={usdcWalletImage} alt="" className={style.WalletCoinImage} />
 					<div className={style.WalletCoinPriceInfo}>
 						<span className={style.WalletCoinTotal}>{walletBalance * 0.00000001} BTC</span>
-						<span className={style.WalletCoinValue}>${(walletBalance * 0.00000001) * 16643}</span>
+						<span className={style.WalletCoinValue}>${(walletBalance * 0.00000001) * 16643.60}</span>
 
 						<button
 							className={style.SendButton}
