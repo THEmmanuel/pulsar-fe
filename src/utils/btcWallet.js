@@ -5,7 +5,7 @@
 // const ecc = require('tiny-secp256k1')
 import axios from 'axios';
 // const bitcoin = require('bitcoinjs-lib')
-// import { bitcore } from 'bitcore-lib';
+import { bitcore } from 'bitcore-lib';
 
 const blockcypherToken = 'a7b3077dd70a47beb1edeaea116f2c60'
 
