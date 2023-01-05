@@ -3,9 +3,9 @@
 // const bip39 = require('bip39')
 // const { BIP32Factory } = require('bip32')
 // const ecc = require('tiny-secp256k1')
-// const bitcoin = require('bitcoinjs-lib')
 import axios from 'axios';
-import { bitcore } from 'bitcore-lib';
+// const bitcoin = require('bitcoinjs-lib')
+// import { bitcore } from 'bitcore-lib';
 
 const blockcypherToken = 'a7b3077dd70a47beb1edeaea116f2c60'
 
@@ -19,13 +19,11 @@ export const getBTCBalance = async address => {
 	}
 };
 
-// export const sendBTC = async (sendAddress, toAddress, amount, key) => {
-// 	const sochain_network = 'BTCTEST';
-// 	const satoshiToSend = amount * 100000000;
-// 	let fee = 0;
-// 	let inputCount = 0;
-// 	let outputCount = 2;
-// }
+export const sendBTC = async (sendAddress, toAddress, amount, key) => {
+	const sochain_network = 'BTCTEST';
+	const satoshiToSend = amount * 100000000;
+	let fee = 0
+}
 
 
 // console.log(`
