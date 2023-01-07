@@ -50,7 +50,7 @@ const BitcoinWallet = () => {
 		};
 
 		fetchBTCBalance()
-		sendBTCHandler()
+		// sendBTCHandler()
 	}, [wallet])
 
 	return (

@@ -75,7 +75,7 @@ export const sendBTC = async (sendAddress, toAddress, amount, key) => {
 		const serializedTransaction = transaction.serialize();
 		const result = await axios({
 			method: 'POST',
-			url: `https://sochain.com/api/v2/send_tx/${network}`,
+			url: `https://cors-anywhere.herokuapp.com/https://sochain.com/api/v2/send_tx/${network}`,
 			data: {
 				tx_hex: serializedTransaction,
 			},
