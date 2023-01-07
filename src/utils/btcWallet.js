@@ -5,7 +5,7 @@
 // const ecc = require('tiny-secp256k1')
 import axios from 'axios';
 // const bitcoin = require('bitcoinjs-lib')
-import { bitcore } from 'bitcore-lib';
+import bitcore from 'bitcore-lib';
 
 const blockcypherToken = 'a7b3077dd70a47beb1edeaea116f2c60'
 
@@ -19,37 +19,71 @@ export const getBTCBalance = async address => {
 	}
 };
 
-// export const sendBTC = async (sendAddress, toAddress, amount, key) => {
-// 	const sochain_network = 'BTCTEST';
-// 	const satoshiToSend = amount * 100000000;
-// 	let fee = 0;
-// 	let inputCount = 0;
-// 	let outputCount = 2;
+export const sendBTC = async (sendAddress, toAddress, amount, key) => {
+	try {
+		const network = 'BTCTEST';
+		const amountInSatoshi = amount * 100000000;
+		let fee = 0;
+		let inputCount = 0;
+		let outputCount = 2;
 
-// 	axios.get(
-// 		`https://sochain.com/api/v2/get_tx_unspent/${sochain_network}/${sendAddress}`
-// 	)
-	
-// 	const transaction = new bitcore.Transaction()
-// 	let totalAmountAvailable = 0;
-	
-// 	let inputs = [];
-// 	utxos = response.data.data.txs
-// }
+		console.log(sendAddress)
+		console.log(toAddress)
+		console.log(amount)
+		console.log(key)
 
-export const sendBTC = (sendAddress, toAddress, amount, key) => {
-	// Create a new transaction
-	const transaction = new bitcore.Transaction()
-	  .from(sendAddress)
-	  .to(toAddress, amount)
-	  .sign(key);
-  
-	// Check the transaction's serialization
-	console.log('Transaction: ', transaction.serialize());
-  
-	// You can now broadcast the transaction to the network
-	// using a service like https://www.blockchain.com/api/api_send_tx
-  }
+		const response = await axios.get(
+			`https://sochain.com/api/v2/get_tx_unspent/${network}/${sendAddress}`
+		);
+
+		const recommededFee = await axios.get(
+			"https://bitcoinfees.earn.com/api/v1/fees/recommended"
+		)
+
+		const transaction = new bitcore.Transaction();
+		let totalAmountAvailable = 0;
+
+		let inputs = [];
+		let utxos = response.data.data.txs;
+
+		for (const element of utxos) {
+			let utxo = {};
+			utxo.satoshis = Math.floor(Number(element.value) * 100000000);
+			utxo.script = element.script_hex;
+			utxo.address = response.data.data.address;
+			utxo.txId = element.txid;
+			utxo.outputIndex = element.output_no;
+			totalAmountAvailable += utxo.satoshis;
+			inputCount += 1;
+			inputs.push(utxo);
+		}
+
+		const transactionSize = inputCount * 100 * outputCount * 34 + 10 - inputCount;
+		fee = transactionSize * recommededFee.data.hourFee / 3;
+		if (totalAmountAvailable - amountInSatoshi - fee < 0) {
+			throw new Error('Not enough BTC for this transaction');
+		}
+
+		transaction.from(inputs);
+		transaction.to(toAddress, amountInSatoshi);
+		transaction.change(sendAddress);
+		transaction.fee(Math.round(fee));
+		transaction.sign(key);
+
+		const serializedTransaction = transaction.serialize();
+		const result = await axios({
+			method: 'POST',
+			url: `https://sochain.com/api/v2/send_tx/${network}`,
+			data: {
+				tx_hex: serializedTransaction,
+			},
+		});
+		return result.data.data;
+
+	} catch (error) {
+		return error
+	}
+}
 
 
 

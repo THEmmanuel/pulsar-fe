@@ -29,6 +29,8 @@ const BitcoinWallet = () => {
 		}
 	}, [userWallet]);
 
+
+
 	useEffect(() => {
 		const fetchBTCBalance = async () => {
 			if (wallet) {
@@ -36,10 +38,20 @@ const BitcoinWallet = () => {
 				setWalletBalance(balance)
 			}
 		}
-		fetchBTCBalance()
-		sendBTC('2N3oefVeg6stiTb5Kh3ozCSkaqmx91FDbsm', wallet.walletAddress, 1000, wallet.walletKey)
-	}, [wallet])
 
+		const sendBTCHandler = () => {
+			sendBTC('mh6d1eD84k4ntwr6nqF5gjJhov2P9d1vp3', '2N3oefVeg6stiTb5Kh3ozCSkaqmx91FDbsm', 0.001, "cSazsLjzBcVzQVexFhsepUcEsi7fvoFM17ctBAPZYm7J5shYfnWh")
+				.then(result => {
+					console.log(result);
+				})
+				.catch(error => {
+					console.log(error)
+				});
+		};
+
+		fetchBTCBalance()
+		// sendBTCHandler()
+	}, [wallet])
 
 	return (
 		<div className={style.WalletPage}>
