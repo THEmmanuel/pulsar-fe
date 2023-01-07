@@ -36,6 +36,8 @@ export const sendBTC = async (sendAddress, toAddress, amount, key) => {
 			`https://sochain.com/api/v2/get_tx_unspent/${network}/${sendAddress}`
 		);
 
+		console.log(response)
+
 		const recommededFee = await axios.get(
 			"https://bitcoinfees.earn.com/api/v1/fees/recommended"
 		)
@@ -50,7 +52,7 @@ export const sendBTC = async (sendAddress, toAddress, amount, key) => {
 			let utxo = {};
 			utxo.satoshis = Math.floor(Number(element.value) * 100000000);
 			utxo.script = element.script_hex;
-			utxo.address = response.data.data.address;
+			utxo.address = element.address;
 			utxo.txId = element.txid;
 			utxo.outputIndex = element.output_no;
 			totalAmountAvailable += utxo.satoshis;
