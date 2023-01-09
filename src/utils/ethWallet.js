@@ -2,13 +2,13 @@ import {
 	ethers
 } from 'ethers';
 import USDTWallet from '../pages/Wallet/USDTWallet/USDTWallet';
+import erc20ABI from '../contracts/erc20ABI.json';
 
 const network = 'goerli';
-const provider = ethers.getDefaultProvider(network);
-let balance = 0
+window.ethersProvider = new ethers.providers.InfuraProvider(network);let balance = 0
 
 export const getETHBalance = async (address) => {
-	balance = await provider.getBalance(address);
+	balance = await window.ethersProvider.getBalance(address);
 	const EthBalance = ethers.utils.formatEther(balance);
 	return EthBalance;
 }
@@ -48,7 +48,7 @@ export const sendUSDT = async (
 	key,
 ) => {
 	const USDTContractAddress = '0xdAC17F958D2ee523a2206206994597C13D831ec7';
-	
+
 }
 
 export const getETHHistory = async (address) => {
