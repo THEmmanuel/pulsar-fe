@@ -1,6 +1,7 @@
 import {
 	ethers
 } from 'ethers';
+import USDTWallet from '../pages/Wallet/USDTWallet/USDTWallet';
 
 const network = 'goerli';
 const provider = ethers.getDefaultProvider(network);
@@ -12,14 +13,13 @@ export const getETHBalance = async (address) => {
 	return EthBalance;
 }
 
-// export const sendETH = async (address, amount, key) => {
-// }
-
-export const sendETH = async (sendAddress,
+export const sendETH = async (
+	sendAddress,
 	toAddress,
 	amount,
 	key,
-	contractAddress) => {
+	contractAddress
+) => {
 	window.ethersProvider = new ethers.providers.InfuraProvider(network);
 	let gas_limit = '0x100000'
 	let wallet = new ethers.Wallet(key);
@@ -41,24 +41,30 @@ export const sendETH = async (sendAddress,
 	})
 };
 
-export const sendUSDT = async () => {
+export const sendUSDT = async (
+	sendAddress,
+	toAddress,
+	amount,
+	key,
+) => {
+	const USDTContractAddress = '0xdAC17F958D2ee523a2206206994597C13D831ec7';
 	
 }
 
 export const getETHHistory = async (address) => {
 	let etherscanProvider = new ethers.providers.EtherscanProvider('goerli');
-  
+
 	try {
-	  // Wait for the Promise to resolve
-	  const history = await etherscanProvider.getHistory(address);
-  
-	  // Do something with the history
-	  history.forEach((tx) => tx);
-  
-	  // Return the history
-	  return history;
+		// Wait for the Promise to resolve
+		const history = await etherscanProvider.getHistory(address);
+
+		// Do something with the history
+		history.forEach((tx) => tx);
+
+		// Return the history
+		return history;
 	} catch (error) {
-	  // Catch any errors that might occur
-	  console.error(error);
+		// Catch any errors that might occur
+		console.error(error);
 	}
-  };
+};
