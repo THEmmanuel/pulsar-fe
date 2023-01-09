@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from './EthereumWallet.module.css';
+import style from './../EthereumWallet/EthereumWallet.module.css';
 import MainDropdown from '../../../components/MainDropdown/MainDropdown';
 import TransferModal from '../../../containers/TransferModal/TransferModal';
 import sendIcon from '../../../assets/send_icon.svg'
@@ -12,10 +12,8 @@ import usdcWalletImage from '../../../assets/usdc-wallet.svg';
 import qrPlaceholder from '../../../assets/qr_code_placeholder.png'
 import { ethers } from 'ethers';
 import { getETHBalance, getETHHistory } from '../../../utils/ethWallet';
-import { getBTCBalance } from '../../../utils/btcWallet';
-// import DropDown from '../../components/DropDown/DropDown';
 
-const EthereumWallet = () => {
+const USDTWallet = () => {
 	let { walletName } = useParams();
 	const [wallet, setWallet] = useState({})
 	const { wallets } = useContext(UserContext);
@@ -23,38 +21,6 @@ const EthereumWallet = () => {
 	const [ethTransactions, setEthTransactions] = useState([]);
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	let userWallet = wallets.find(wallet => wallet.walletName === walletName)
-
-	useEffect(() => {
-		if (wallets.length !== 0) {
-			setWallet({ ...userWallet })
-		}
-	}, [userWallet]);
-
-	const fetchTransactions = async () => {
-		const ethTransactions = await getETHHistory(wallet.walletAddress);
-		setEthTransactions(ethTransactions)
-	}
-
-	useEffect(() => {
-		const fetchBalance = async () => {
-			if (wallet) {
-				const balance = await getETHBalance(wallet.walletAddress);
-				setWalletBalance(balance);
-			}
-
-			// const btcBalance = await getBTCBalance('mh6d1eD84k4ntwr6nqF5gjJhov2P9d1vp3')
-			// console.log(btcBalance)
-
-		};
-		fetchBalance();
-		fetchTransactions()
-		return () => {
-		};
-	}, [wallet]);
-
-	const btcBalance = getBTCBalance('mh6d1eD84k4ntwr6nqF5gjJhov2P9d1vp3')
-	console.log(btcBalance)
-
 
 	return (
 		<div className={style.WalletPage}>
@@ -77,7 +43,7 @@ const EthereumWallet = () => {
 				<MainDropdown
 					DropdownHeading='Token'
 					PrimaryText={wallet.walletName}
-					SecondaryText='Ether'
+					SecondaryText='Tether'
 				/>
 
 				<MainDropdown
@@ -133,6 +99,6 @@ const EthereumWallet = () => {
 			</div>
 		</div>
 	);
-}
+};
 
-export default EthereumWallet;
+export default USDTWallet;

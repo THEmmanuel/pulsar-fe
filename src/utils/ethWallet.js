@@ -41,6 +41,10 @@ export const sendETH = async (sendAddress,
 	})
 };
 
+export const sendUSDT = async () => {
+	
+}
+
 export const getETHHistory = async (address) => {
 	let etherscanProvider = new ethers.providers.EtherscanProvider('goerli');
   
