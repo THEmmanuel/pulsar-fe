@@ -16,7 +16,7 @@ export const getETHBalance = async (address) => {
 
 export const getUSDTBalance = async (address) => {
 	const contract = new ethers.Contract(USDTContractAddress, erc20ABI, window.ethersProvider)
-	return balance = await contract.balanceOf(address).toString()
+	return balance = (await contract.balanceOf(address).toString())
 }
 
 export const sendETH = async (

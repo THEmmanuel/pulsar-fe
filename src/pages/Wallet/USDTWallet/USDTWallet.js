@@ -37,6 +37,8 @@ const USDTWallet = () => {
 		const fetchBalance = async () => {
 			if (wallet) {
 				const balance = await getUSDTBalance(wallet.walletAddress);
+				console.log(balance 
+					 + 'usdt wallet stuff lol')
 				setWalletBalance(balance);
 			}
 		};
@@ -52,7 +54,7 @@ const USDTWallet = () => {
 				<div className={style.WalletCoinInformation}>
 					<img src={usdcWalletImage} alt="" className={style.WalletCoinImage} />
 					<div className={style.WalletCoinPriceInfo}>
-						<span className={style.WalletCoinTotal}>{walletBalance} ETH</span>
+						<span className={style.WalletCoinTotal}>{walletBalance} USDT</span>
 						<span className={style.WalletCoinValue}>${walletBalance * 1200.08}</span>
 
 						<button
