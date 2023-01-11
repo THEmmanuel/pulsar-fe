@@ -11,7 +11,7 @@ import { UserContext } from '../../../contexts/UserContext';
 import usdcWalletImage from '../../../assets/usdc-wallet.svg';
 import qrPlaceholder from '../../../assets/qr_code_placeholder.png'
 import { ethers } from 'ethers';
-import { getETHBalance, getETHHistory } from '../../../utils/ethWallet';
+import { getUSDTBalance, getETHHistory } from '../../../utils/ethWallet';
 
 const USDTWallet = () => {
 	let { walletName } = useParams();
@@ -21,6 +21,30 @@ const USDTWallet = () => {
 	const [ethTransactions, setEthTransactions] = useState([]);
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	let userWallet = wallets.find(wallet => wallet.walletName === walletName)
+
+	useEffect(() => {
+		if (wallets.length !== 0) {
+			setWallet({ ...userWallet })
+		}
+	}, [userWallet]);
+
+	const fetchTransactions = async () => {
+		const ethTransactions = await getETHHistory(wallet.walletAddress);
+		setEthTransactions(ethTransactions)
+	}
+
+	useEffect(() => {
+		const fetchBalance = async () => {
+			if (wallet) {
+				const balance = await getUSDTBalance(wallet.walletAddress);
+				setWalletBalance(balance);
+			}
+		};
+		fetchBalance();
+		fetchTransactions()
+		return () => {
+		};
+	}, [wallet]);
 
 	return (
 		<div className={style.WalletPage}>
