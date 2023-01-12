@@ -8,31 +8,42 @@ const PeerToPeerPage = () => {
 	return (
 		<div className={style.PeerToPeerPage}>
 			Peer to peer page
-			
-			<div className={style.PeerToPeerDropdownWrapper}>
-				<DropDown
-					DropDownText='Buy'
-				/>
 
-				<DropDown
-					DropDownText='USDT'
-				/>
-			</div>
+			<div className={style.PeerToPeerHeadingContainer}>
+				<div className={style.PeerToPeerHeading}>
+					<div className={style.PeerToPeerDropdownWrapper}>
 
-			<div className={style.PeerToPeerCurrency}>
-				<MainInput />
-				<div>
-					<span>Fiat</span>
-					<DropDown DropDownText = 'USD'/>
+						<div>
+							<span>Ad type</span>
+							<DropDown
+								DropDownText='Buy'
+							/>
+						</div>
+
+						<div>
+							<span>Token</span>
+							<DropDown
+								DropDownText='USDT'
+							/>
+						</div>
+					</div>
+
+					<div className={style.PeerToPeerCurrency}>
+						<MainInput />
+						<div>
+							<span>Fiat</span>
+							<DropDown DropDownText='USD' />
+						</div>
+					</div>
 				</div>
-			</div>
 
-			<button className={style.CreateAdButton}>
-				+ Create Ad
-			</button>
+				<button className={style.CreateAdButton}>
+					+ Create Ad
+				</button>
+			</div>
 
 			<div className={style.PeerToPeerWrapper}>
-				<PeerToPeerAd adType = 'buy'/>
+				<PeerToPeerAd adType='buy' />
 				<PeerToPeerAd />
 				<PeerToPeerAd />
 				<PeerToPeerAd />
