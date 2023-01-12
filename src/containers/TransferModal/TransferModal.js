@@ -32,6 +32,18 @@ const TransferModal = props => {
 								onChange={(e) => setRecipientAddress(e.target.value)} />
 						</div>
 
+						<div className={style.TransactionDetailsContainer}>
+							<div className={style.TransactionDetails}>
+								<span className={style.TransactionDetailsText}>Gas fees:</span>
+								<span className={style.TransactionDetailsValue}>$0.98</span>
+							</div>
+
+							<div className={style.TransactionDetails}>
+								<span className={style.TransactionDetailsText}>Total:</span>
+								<span className={style.TransactionDetailsValue}>$450.98</span>
+							</div>
+						</div>
+
 						<div className={style.TransferButtons}>
 							<button
 								className={style.TransferSendButton}

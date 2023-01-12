@@ -22,7 +22,7 @@
 	font-size: 0.8em;
 }
 
-.TransferInputWrapper{
+.TransferInputWrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
@@ -35,29 +35,31 @@
 	height: 30px;
 }
 
-.TransferSendButton{
+.TransferSendButton {
 	background-color: #B8E8A1;
 }
 
-.TransferCancelButton{
+.TransferCancelButton {
 	background-color: #DCA1A1;
 }
 
-.TransferButtons{
+.TransferButtons {
 	display: flex;
 	flex-direction: row;
 	gap: 40px;
 	justify-content: center;
 }
 
-.TransferButtons button{
+.TransactionInformation {}
+
+.TransferButtons button {
 	border: none;
 	border-radius: 5px;
 	width: 120px;
 	padding: 10px;
 }
 
-.TransferOverlay{
+.TransferOverlay {
 	background-color: rgba(0, 0, 0, 0.75);
 	width: 80%;
 	height: 100vh;
@@ -65,4 +67,22 @@
 	top: 0;
 	left: 0;
 	margin-left: 20%;
+}
+
+.TransactionDetailsContainer {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	margin: auto;
+	gap: 10px;
+}
+
+.TransactionDetails {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.TransactionDetailsText{
+	
 }
