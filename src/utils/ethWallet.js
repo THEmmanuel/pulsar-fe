@@ -50,6 +50,11 @@ export const sendETH = async (
 	})
 };
 
+export const getETHGasPrice = async () => {
+	let gas_price = window.ethersProvider.getGasPrice()
+	return gas_price
+}
+
 export const sendUSDT = async (
 	sendAddress,
 	toAddress,

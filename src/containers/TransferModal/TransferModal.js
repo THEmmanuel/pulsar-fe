@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import style from './TransferModal.module.css';
-import { sendETH } from '../../utils/ethWallet';
+import { sendETH, getETHGasPrice } from '../../utils/ethWallet';
 
 const TransferModal = props => {
 	const [recipientAddress, setRecipientAddress] = useState("");
@@ -31,7 +31,7 @@ const TransferModal = props => {
 								className={style.TransferInput}
 								onChange={(e) => setRecipientAddress(e.target.value)} />
 
-								<span className={style.WalletCheckText}>Wallet address is valid</span>
+							<span className={style.WalletCheckText}>Wallet address is valid</span>
 						</div>
 
 						<div className={style.TransactionDetailsContainer}>
