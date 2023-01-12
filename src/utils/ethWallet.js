@@ -5,8 +5,15 @@ import USDTWallet from '../pages/Wallet/USDTWallet/USDTWallet';
 import erc20ABI from '../contracts/erc20ABI.json';
 
 const network = 'goerli';
-window.ethersProvider = new ethers.providers.InfuraProvider(network);let balance = 0
+window.ethersProvider = new ethers.providers.InfuraProvider(network);
+let balance = 0
 const USDTContractAddress = '0xdAC17F958D2ee523a2206206994597C13D831ec7';
+
+export const getUSDTBalance = async (address) => {
+	const contract = new ethers.Contract(USDTContractAddress, erc20ABI, window.ethersProvider)
+	balance = await contract.balanceOf(address);
+	return balance.toString();
+}
 
 export const getETHBalance = async (address) => {
 	balance = await window.ethersProvider.getBalance(address);
@@ -14,10 +21,6 @@ export const getETHBalance = async (address) => {
 	return EthBalance;
 }
 
-export const getUSDTBalance = async (address) => {
-	const contract = new ethers.Contract(USDTContractAddress, erc20ABI, window.ethersProvider)
-	return balance = (await contract.balanceOf(address).toString())
-}
 
 export const sendETH = async (
 	sendAddress,
