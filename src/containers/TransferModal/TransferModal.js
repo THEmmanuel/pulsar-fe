@@ -30,6 +30,8 @@ const TransferModal = props => {
 								type="text"
 								className={style.TransferInput}
 								onChange={(e) => setRecipientAddress(e.target.value)} />
+
+								<span className={style.WalletCheckText}>Wallet address is valid</span>
 						</div>
 
 						<div className={style.TransactionDetailsContainer}>
