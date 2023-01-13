@@ -19,26 +19,19 @@ const TransferModal = props => {
 
 					<div className={style.TransferInputWrapper}>
 						<div className={style.TransferInputContainer}>
-							<span className={style.TransferInputText}>Amount</span>
-							<input
-								type="text"
-								className={style.TransferInput}
-								change={(e) => setAmount(e.target.value)} />
+							<FormInput
+								title = 'Amount'
+								change={(e) => setAmount(e.target.value)}
+							/>
 						</div>
 
 						<div className={style.TransferInputContainer}>
-							<span className={style.TransferInputText}>Recipient Wallet Address</span>
-							<input
-								type="text"
-								className={style.TransferInput}
-								onChange={(e) => setRecipientAddress(e.target.value)} />
-
+							<FormInput
+								title = 'Recipient Wallet Address'
+								change={(e) => setRecipientAddress(e.target.value)}
+							/>
 							<span className={style.WalletCheckText}>Wallet address is valid</span>
 						</div>
-
-						<FormInput
-							change={(e) => setAmount(e.target.value)}
-						/>
 
 						<div className={style.TransactionDetailsContainer}>
 							<div className={style.TransactionDetails}>
