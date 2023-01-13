@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import style from './TransferModal.module.css';
 import { sendETH, getETHGasPrice } from '../../utils/ethWallet';
+import FormInput from '../../components/FormInput/FormInput';
 
 const TransferModal = props => {
 	const [recipientAddress, setRecipientAddress] = useState("");
@@ -22,7 +23,7 @@ const TransferModal = props => {
 							<input
 								type="text"
 								className={style.TransferInput}
-								onChange={(e) => setAmount(e.target.value)} />
+								change={(e) => setAmount(e.target.value)} />
 						</div>
 
 						<div className={style.TransferInputContainer}>
@@ -34,6 +35,10 @@ const TransferModal = props => {
 
 							<span className={style.WalletCheckText}>Wallet address is valid</span>
 						</div>
+
+						<FormInput
+							change={(e) => setAmount(e.target.value)}
+						/>
 
 						<div className={style.TransactionDetailsContainer}>
 							<div className={style.TransactionDetails}>
