@@ -5,6 +5,7 @@ import { sendETH, getETHGasPrice } from '../../utils/ethWallet';
 const TransferModal = props => {
 	const [recipientAddress, setRecipientAddress] = useState("");
 	const [amount, setAmount] = useState(0);
+	const [gasPrice, setGasPrice] = useState(0)
 	const privateKey = props.privateKey;
 	const contractAddress = '';
 	const sendAddress = props.ETHAddress;
@@ -42,7 +43,7 @@ const TransferModal = props => {
 
 							<div className={style.TransactionDetails}>
 								<span className={style.TransactionDetailsText}>Total:</span>
-								<span className={style.TransactionDetailsValue}>{+amount + 0.98}</span>
+								<span className={style.TransactionDetailsValue}>${+amount + 0.98}</span>
 							</div>
 						</div>
 
