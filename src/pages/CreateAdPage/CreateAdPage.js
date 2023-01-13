@@ -3,6 +3,7 @@ import style from './CreateAdPage.module.css';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import FormInput from '../../components/FormInput/FormInput';
 import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
+import MainDropdown from '../../components/MainDropdown/MainDropdown';
 
 const CreateAdPage = () => {
 	return (
@@ -10,6 +11,11 @@ const CreateAdPage = () => {
 			<span>Create Ad page</span>
 			<div className={style.FormInputContainer}>
 				<div className={style.FormInputWrapper}>
+					<MainDropdown
+						DropdownHeading='Ad Type'
+						PrimaryText = 'Buy'
+					/>
+
 					<FormInput
 						title='Rate'
 					/>
