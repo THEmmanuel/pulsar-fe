@@ -1,10 +1,10 @@
 import React from 'react';
 import style from './PrimaryCTA.module.css';
 
-const PrimaryCTA = () => {
+const PrimaryCTA = props => {
 	return (
 		<button className={style.PrimaryCTA}>
-			Add Wallet
+			{props.ButtonText}
 		</button>
 	);
 }

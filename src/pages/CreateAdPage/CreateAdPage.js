@@ -27,7 +27,9 @@ const CreateAdPage = () => {
 
 
 				</div>
-				<PrimaryCTA />
+				<PrimaryCTA 
+					ButtonText = 'Preview'
+				/>
 			</div>
 		</div>
 	)
