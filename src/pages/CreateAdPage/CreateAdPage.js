@@ -2,6 +2,7 @@ import React from 'react';
 import style from './CreateAdPage.module.css';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import FormInput from '../../components/FormInput/FormInput';
+import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 
 const CreateAdPage = () => {
 	return (
@@ -27,10 +28,12 @@ const CreateAdPage = () => {
 
 
 				</div>
-				<PrimaryCTA 
-					ButtonText = 'Preview'
+				<PrimaryCTA
+					ButtonText='Preview'
 				/>
 			</div>
+
+			<PeerToPeerAd />
 		</div>
 	)
 }
