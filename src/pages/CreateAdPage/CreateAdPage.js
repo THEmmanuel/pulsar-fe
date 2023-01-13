@@ -25,15 +25,19 @@ const CreateAdPage = () => {
 					<FormInput
 						title='Highest Order Limit'
 					/>
-
-
 				</div>
-				<PrimaryCTA
-					ButtonText='Preview'
-				/>
-			</div>
 
-			<PeerToPeerAd />
+				<div className={style.AdPreviewWrapper}>
+					<span className={style.AdPreviewHeading}>Here's what your ad will look like</span>
+					<PeerToPeerAd />
+				</div>
+
+				<div>
+					<PrimaryCTA
+						ButtonText='Confirm'
+					/>
+				</div>
+			</div>
 		</div>
 	)
 }

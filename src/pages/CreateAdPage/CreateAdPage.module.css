@@ -1,5 +1,4 @@
 .FormInputContainer {
-	width: 30%;
 	display: flex;
 	flex-direction: column;
 	gap: 60px;
@@ -10,4 +9,20 @@
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
+	width: 30%;
+	margin: auto;
+}
+
+.AdPreviewWrapper {
+	width: 70%;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.AdPreviewHeading {
+	color: #212121;
+	font-size: 1.2em;
+	font-weight: 600;
 }
