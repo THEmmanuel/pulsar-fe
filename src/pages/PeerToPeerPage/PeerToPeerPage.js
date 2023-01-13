@@ -3,6 +3,7 @@ import style from './PeerToPeerPage.module.css';
 import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import DropDown from '../../components/DropDown/DropDown';
 import MainInput from '../../components/MainInput/MainInput';
+import { Link } from 'react-router-dom';
 
 const PeerToPeerPage = () => {
 	return (
@@ -37,9 +38,11 @@ const PeerToPeerPage = () => {
 					</div>
 				</div>
 
-				<button className={style.CreateAdButton}>
-					+ Create Ad
-				</button>
+				<Link to = '/create-ad'>
+					<button className={style.CreateAdButton}>
+						+ Create Ad
+					</button>
+				</Link>
 			</div>
 
 			<div className={style.PeerToPeerWrapper}>
