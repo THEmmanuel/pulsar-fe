@@ -2,13 +2,14 @@
 	display: flex;
 	flex-direction: column;
 	text-align: left;
-	width: 400px;
+	width: 100%;
 	margin: auto;
 	gap: 10px;
 }
 
 .MainDropdownTitle {
-	color: #747777;
+	color: #212121;
+	font-size: 0.8em;
 }
 
 .MainDropdown {
@@ -29,7 +30,7 @@
 }
 
 .DropdownPrimaryText {
-	font-size: 1.1em;
+	font-size: 0.8em;
 	font-weight: 600;
 }
 

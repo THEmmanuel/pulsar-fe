@@ -40,7 +40,9 @@ const CreateAdPage = () => {
 
 				<div className={style.AdPreviewWrapper}>
 					<span className={style.AdPreviewHeading}>Here's what your ad will look like</span>
-					<PeerToPeerAd />
+					<PeerToPeerAd 
+						
+					/>
 				</div>
 
 				<div>
