@@ -13,7 +13,7 @@ const CreateAdPage = () => {
 				<div className={style.FormInputWrapper}>
 					<MainDropdown
 						DropdownHeading='Ad Type'
-						PrimaryText = 'Buy'
+						PrimaryText='Buy'
 					/>
 
 					<FormInput
@@ -30,6 +30,11 @@ const CreateAdPage = () => {
 
 					<FormInput
 						title='Highest Order Limit'
+					/>
+
+					<MainDropdown
+						DropdownHeading='Payment method'
+						PrimaryText='Bank transfer'
 					/>
 				</div>
 
