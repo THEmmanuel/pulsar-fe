@@ -21,6 +21,11 @@
 	border-radius: 10px;
 }
 
+.WalletTransactionInput {
+	width: 400px;
+	padding: 10px;
+}
+
 .WalletCoinInformation {
 	display: flex;
 	flex-direction: column;
@@ -42,32 +47,32 @@
 	height: 35px;
 }
 
-.WalletCoinTotal{
+.WalletCoinTotal {
 	color: #3A3C3C;
 	font-weight: 600;
 	font-size: 1.1em;
 }
 
-.WalletCoinValue{
+.WalletCoinValue {
 	color: #000;
 	font-weight: 700;
 	font-size: 1.4em;
 }
 
-.WalletCoinPriceInfo{
+.WalletCoinPriceInfo {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 }
 
-.WalletAddress{
+.WalletAddress {
 	background-color: #A2E5D2;
 	padding: 10px;
 	width: 400px;
 	border-radius: 5px;
 }
 
-.SendButton{
+.SendButton {
 	background-color: #008DFF;
 	color: #FFF;
 	border: none;
@@ -82,7 +87,7 @@
 	justify-content: center;
 }
 
-.TransactionsTable{
+.TransactionsTable {
 	width: 70%;
 	margin: auto;
 	text-align: left;
