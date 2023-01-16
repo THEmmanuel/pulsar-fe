@@ -34,7 +34,7 @@ const PeerToPeerAd = props => {
 				</div>
 
 				<span className={style.UserExchangeRate}>
-					0.99 USD/USDC
+					{props.rate} USD/USDC
 				</span>
 
 				<div className={style.UserRateInfo}>

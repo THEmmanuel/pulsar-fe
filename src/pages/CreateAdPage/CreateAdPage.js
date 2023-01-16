@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './CreateAdPage.module.css';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import FormInput from '../../components/FormInput/FormInput';
@@ -6,6 +6,14 @@ import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
 
 const CreateAdPage = () => {
+	const [adType, setAdType] = useState('buy');
+	const [token, setToken] = useState('USDT');
+	const [rate, setRate] = useState();
+	const [availableAmount, setAvailableAmount] = useState();
+	const [lowestAmount, setLowestAmount] = useState();
+	const [highestAmount, setHighestAmount] = useState();
+	const [paymentMethod, setPaymentMethod] = useState();
+
 	return (
 		<div>
 			<span>Create Ad page</span>
@@ -16,8 +24,14 @@ const CreateAdPage = () => {
 						PrimaryText='Buy'
 					/>
 
+					<MainDropdown
+						DropdownHeading='Token'
+						PrimaryText='USDT'
+					/>
+
 					<FormInput
 						title='Rate'
+						change = {e => setRate(e.target.value)}
 					/>
 
 					<FormInput
@@ -40,8 +54,9 @@ const CreateAdPage = () => {
 
 				<div className={style.AdPreviewWrapper}>
 					<span className={style.AdPreviewHeading}>Here's what your ad will look like</span>
-					<PeerToPeerAd 
-						
+					<PeerToPeerAd
+						adType = {adType}
+						rate = {rate}
 					/>
 				</div>
 
