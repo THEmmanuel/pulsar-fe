@@ -4,6 +4,7 @@ import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import FormInput from '../../components/FormInput/FormInput';
 import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
+import axios from 'axios'
 
 const CreateAdPage = () => {
 	const [adType, setAdType] = useState('buy');
@@ -13,6 +14,11 @@ const CreateAdPage = () => {
 	const [lowestAmount, setLowestAmount] = useState();
 	const [highestAmount, setHighestAmount] = useState();
 	const [paymentMethod, setPaymentMethod] = useState();
+
+	const addPeerToPeerAd = () => {
+		// axios.post()
+		// Send a post reequst with the data passed to the input fields here.
+	}
 
 	return (
 		<div>
@@ -26,22 +32,22 @@ const CreateAdPage = () => {
 
 					<MainDropdown
 						DropdownHeading='Token'
-						PrimaryText='USDT'
+						PrimaryText={token}
 					/>
 
 					<FormInput
 						title='Rate'
-						change = {e => setRate(e.target.value)}
+						change={e => setRate(e.target.value)}
 					/>
 
 					<FormInput
-						title='Available USDT'
-						change = {e => setAvailableAmount(e.target.value)}
+						title={`Available ${token}`}
+						change={e => setAvailableAmount(e.target.value)}
 					/>
 
 					<FormInput
 						title='Lowest Order Limit'
-						change = {e => setLowestAmount(e.target.value)}
+						change={e => setLowestAmount(e.target.value)}
 					/>
 
 					<FormInput
@@ -57,11 +63,11 @@ const CreateAdPage = () => {
 				<div className={style.AdPreviewWrapper}>
 					<span className={style.AdPreviewHeading}>Here's what your ad will look like</span>
 					<PeerToPeerAd
-						adType = {adType}
-						rate = {rate}
-						available = {availableAmount}
-						lowest = {lowestAmount}
-						token = {token}
+						adType={adType}
+						rate={rate}
+						available={availableAmount}
+						lowest={lowestAmount}
+						token={token}
 					/>
 				</div>
 
