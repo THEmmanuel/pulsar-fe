@@ -36,10 +36,12 @@ const CreateAdPage = () => {
 
 					<FormInput
 						title='Available USDT'
+						change = {e => setAvailableAmount(e.target.value)}
 					/>
 
 					<FormInput
 						title='Lowest Order Limit'
+						change = {e => setLowestAmount(e.target.value)}
 					/>
 
 					<FormInput
@@ -57,6 +59,9 @@ const CreateAdPage = () => {
 					<PeerToPeerAd
 						adType = {adType}
 						rate = {rate}
+						available = {availableAmount}
+						lowest = {lowestAmount}
+						token = {token}
 					/>
 				</div>
 

@@ -34,18 +34,18 @@ const PeerToPeerAd = props => {
 				</div>
 
 				<span className={style.UserExchangeRate}>
-					{props.rate} USD/USDC
+					{props.rate} USD/{props.token}
 				</span>
 
 				<div className={style.UserRateInfo}>
 					<div className={style.UserLimitInfoWrapper}>
 						<span className={style.UserLimitInfoText}>Available:</span>
-						<span className={style.UserLimitInfo}>4678.4USDC</span>
+						<span className={style.UserLimitInfo}>{props.available}{props.token}</span>
 					</div>
 
 					<div className={style.UserLimitInfoWrapper}>
 						<span className={style.UserLimitInfoText}>Limit:</span>
-						<span className={style.UserLimitInfo}>4678.4USDC</span>
+						<span className={style.UserLimitInfo}>{props.lowest}{props.token}</span>
 					</div>
 				</div>
 
