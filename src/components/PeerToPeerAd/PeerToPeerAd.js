@@ -45,7 +45,7 @@ const PeerToPeerAd = props => {
 
 					<div className={style.UserLimitInfoWrapper}>
 						<span className={style.UserLimitInfoText}>Limit:</span>
-						<span className={style.UserLimitInfo}>{props.lowest}{props.token}</span>
+						<span className={style.UserLimitInfo}>{props.lowest} - {props.highest} {props.token}</span>
 					</div>
 				</div>
 
@@ -62,7 +62,7 @@ const PeerToPeerAd = props => {
 							}
 					}
 				>
-					Buy {props.token}
+					{props.adType === 'buy' ? `Buy ${props.token}` : `Sell ${props.token}`}
 				</button>
 			</div>
 		</div>
