@@ -18,9 +18,9 @@ const CreateAdPage = () => {
 	const [paymentMethod, setPaymentMethod] = useState();
 
 	const tokens = [
-		{ value: 'Ethereum', label: 'Ethereum' },
-		{ value: 'strawberry', label: 'Strawberry' },
-		{ value: 'vanilla', label: 'Vanilla' }
+		{ value: 'ETH', label: 'Ethereum' },
+		{ value: 'USDT', label: 'USDT' },
+		{ value: 'BTC', label: 'Bitcoin' }
 	]
 
 	const handleTokenChange = selected => {
