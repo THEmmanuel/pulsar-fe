@@ -27,6 +27,10 @@ const CreateAdPage = () => {
 		setToken(selected)
 	}
 
+	const handleAdTypeChange = selected => {
+		setAdType(selected)
+	}
+
 	const addPeerToPeerAd = () => {
 		// axios.post()
 		// Send a post reequst with the data passed to the input fields here.
@@ -45,6 +49,7 @@ const CreateAdPage = () => {
 								{ value: 'buy', label: 'Buy' },
 								{ value: 'sell', label: 'Sell' },
 							]}
+							onSelect = {handleAdTypeChange}
 					/>
 
 					<MainDropdown
