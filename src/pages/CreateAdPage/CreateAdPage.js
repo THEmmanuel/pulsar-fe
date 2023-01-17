@@ -56,6 +56,7 @@ const CreateAdPage = () => {
 						DropdownHeading='Token'
 						PrimaryText={token}
 						options = {tokens}
+						onSelect = {handleTokenChange}
 					/>
 
 					<FormInput
