@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './MainDropdown.module.css';
 import arrowImage from '../../assets/arrowImage.svg';
+import Select from 'react-select';
 
 const MainDropdown = props => {
 	return (
@@ -9,7 +10,10 @@ const MainDropdown = props => {
 				{props.DropdownHeading}
 			</span>
 
-			<div className={style.MainDropdown}>
+		<Select
+			options = {props.options}
+		/>
+			{/* <div className={style.MainDropdown}>
 				<div className={style.DropDownDetails}>
 					<span className={style.DropdownPrimaryText}>
 						{props.PrimaryText}
@@ -20,7 +24,7 @@ const MainDropdown = props => {
 					</span>
 				</div>
 				<img src={arrowImage} alt="" />
-			</div>
+			</div> */}
 		</div>
 	);
 }

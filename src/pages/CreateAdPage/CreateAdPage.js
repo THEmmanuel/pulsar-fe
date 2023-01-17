@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import axios from 'axios'
+import Select from 'react-select'
+
 import style from './CreateAdPage.module.css';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import FormInput from '../../components/FormInput/FormInput';
 import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
-import axios from 'axios'
 
 const CreateAdPage = () => {
 	const [adType, setAdType] = useState('buy');
@@ -14,6 +16,16 @@ const CreateAdPage = () => {
 	const [lowestAmount, setLowestAmount] = useState();
 	const [highestAmount, setHighestAmount] = useState();
 	const [paymentMethod, setPaymentMethod] = useState();
+
+	const tokens = [
+		{ value: 'Ethereum', label: 'Ethereum' },
+		{ value: 'strawberry', label: 'Strawberry' },
+		{ value: 'vanilla', label: 'Vanilla' }
+	]
+
+	const handleTokenChange = selected => {
+		setToken(selected)
+	}
 
 	const addPeerToPeerAd = () => {
 		// axios.post()
@@ -28,11 +40,17 @@ const CreateAdPage = () => {
 					<MainDropdown
 						DropdownHeading='Ad Type'
 						PrimaryText='Buy'
+						options={
+							[
+								{ value: 'buy', label: 'Buy' },
+								{ value: 'sell', label: 'Sell' },
+							]}
 					/>
 
 					<MainDropdown
 						DropdownHeading='Token'
 						PrimaryText={token}
+						options = {tokens}
 					/>
 
 					<FormInput
