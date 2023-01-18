@@ -40,7 +40,7 @@ const PeerToPeerAd = props => {
 				<div className={style.UserRateInfo}>
 					<div className={style.UserLimitInfoWrapper}>
 						<span className={style.UserLimitInfoText}>Available:</span>
-						<span className={style.UserLimitInfo}>{props.available}{props.token}</span>
+						<span className={style.UserLimitInfo}>{props.available} {props.token}</span>
 					</div>
 
 					<div className={style.UserLimitInfoWrapper}>
@@ -49,7 +49,7 @@ const PeerToPeerAd = props => {
 					</div>
 				</div>
 
-				<span className={style.UserPaymentInfo}>Payment type</span>
+				<span className={style.UserPaymentInfo}>{props.paymentMethod}</span>
 
 				<button
 					className={style.UserAdButton}

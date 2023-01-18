@@ -15,7 +15,7 @@ const CreateAdPage = () => {
 	const [availableAmount, setAvailableAmount] = useState();
 	const [lowestAmount, setLowestAmount] = useState();
 	const [highestAmount, setHighestAmount] = useState();
-	const [paymentMethod, setPaymentMethod] = useState();
+	const [paymentMethod, setPaymentMethod] = useState('Bank Transfer');
 
 	const tokens = [
 		{ value: 'ETH', label: 'Ethereum' },
@@ -49,14 +49,14 @@ const CreateAdPage = () => {
 								{ value: 'buy', label: 'Buy' },
 								{ value: 'sell', label: 'Sell' },
 							]}
-							onSelect = {handleAdTypeChange}
+						onSelect={handleAdTypeChange}
 					/>
 
 					<MainDropdown
 						DropdownHeading='Token'
 						PrimaryText={token}
-						options = {tokens}
-						onSelect = {handleTokenChange}
+						options={tokens}
+						onSelect={handleTokenChange}
 					/>
 
 					<FormInput
@@ -76,6 +76,7 @@ const CreateAdPage = () => {
 
 					<FormInput
 						title='Highest Order Limit'
+						change={e => setHighestAmount(e.target.value)}
 					/>
 
 					<MainDropdown
@@ -91,7 +92,9 @@ const CreateAdPage = () => {
 						rate={rate}
 						available={availableAmount}
 						lowest={lowestAmount}
+						highest={highestAmount}
 						token={token}
+						paymentMethod = {paymentMethod}
 					/>
 				</div>
 
