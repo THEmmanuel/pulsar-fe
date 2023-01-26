@@ -1,8 +1,9 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+
 import EthereumWallet from './EthereumWallet/EthereumWallet';
 import BitcoinWallet from './BitcoinWallet/BitcoinWallet';
 import USDTWallet from './USDTWallet/USDTWallet';
-import { useParams } from 'react-router-dom';
 
 
 const Wallet = () => {
