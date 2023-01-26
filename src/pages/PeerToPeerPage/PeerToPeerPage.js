@@ -19,7 +19,9 @@ const PeerToPeerPage = () => {
 	}
 
 	// getAds()
-	// useEffect
+	useEffect(() => {
+		getAds()
+	}, ads)
 
 	return (
 		<div className={style.PeerToPeerPage}>
