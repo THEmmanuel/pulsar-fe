@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios'
-import Select from 'react-select'
+import axios from 'axios';
+import Select from 'react-select';
+import { useUser } from '@clerk/clerk-react';
 
 import style from './CreateAdPage.module.css';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
@@ -9,6 +10,8 @@ import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
 
 const CreateAdPage = () => {
+	const { user } = useUser();
+
 	const [adType, setAdType] = useState('buy');
 	const [token, setToken] = useState('USDT');
 	const [rate, setRate] = useState();
@@ -88,13 +91,14 @@ const CreateAdPage = () => {
 				<div className={style.AdPreviewWrapper}>
 					<span className={style.AdPreviewHeading}>Here's what your ad will look like</span>
 					<PeerToPeerAd
+						username = {user.username}
 						adType={adType}
 						rate={rate}
 						available={availableAmount}
 						lowest={lowestAmount}
 						highest={highestAmount}
 						token={token}
-						paymentMethod = {paymentMethod}
+						paymentMethod={paymentMethod}
 					/>
 				</div>
 

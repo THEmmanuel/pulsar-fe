@@ -19,7 +19,7 @@ const PeerToPeerAd = props => {
 				</div>
 				<div className={style.UserInfo}>
 					<span className={style.UserName}>
-						User name
+						{props.username}
 					</span>
 
 					<div className={style.UserOrderInfo}>

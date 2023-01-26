@@ -18,7 +18,6 @@ const PeerToPeerPage = () => {
 			.catch(err => console.log(err))
 	}
 
-	// getAds()
 	useEffect(() => {
 		getAds()
 	}, ads)
