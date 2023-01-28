@@ -10,10 +10,12 @@ import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
 
 const CreateAdPage = () => {
+	const API_URL = 'http://localhost:9000';
 	const { user } = useUser();
 
 	const [ad, setAd] = useState({
 		adType: 'buy',
+		username: '',
 		token: 'ETH',
 		rate: 0,
 		availableAmount: 0,
@@ -60,7 +62,13 @@ const CreateAdPage = () => {
 	// }
 
 	const addPeerToPeerAd = () => {
-		// axios.post()
+		// axios.post(`${API_URL}`)
+		setAd({
+			...ad,
+			username: user.username
+		})
+
+		console.log('sup lol')
 		// Send a post reequst with the data passed to the input fields here.
 	}
 
@@ -80,7 +88,7 @@ const CreateAdPage = () => {
 									{ value: 'sell', label: 'Sell' },
 								]}
 							onSelect={handleChange}
-							name = 'adType'
+							name='adType'
 						/>
 
 						<MainDropdown
@@ -88,7 +96,7 @@ const CreateAdPage = () => {
 							PrimaryText={ad.token}
 							options={tokens}
 							onSelect={handleChange}
-							name = 'token'
+							name='token'
 						/>
 
 						<FormInput
@@ -142,6 +150,7 @@ const CreateAdPage = () => {
 					<div>
 						<PrimaryCTA
 							ButtonText='Confirm'
+							click={addPeerToPeerAd}
 						/>
 					</div>
 				</div>
