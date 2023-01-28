@@ -33,14 +33,6 @@ const CreateAdPage = () => {
 		}
 	}, user)
 
-	// const [adType, setAdType] = useState('buy');
-	// const [token, setToken] = useState('ETH');
-	// const [rate, setRate] = useState();
-	// const [availableAmount, setAvailableAmount] = useState();
-	// const [lowestAmount, setLowestAmount] = useState();
-	// const [highestAmount, setHighestAmount] = useState();
-	// const [paymentMethod, setPaymentMethod] = useState('Bank Transfer');
-
 	const tokens = [
 		{ value: 'ETH', label: 'Ethereum' },
 		{ value: 'USDT', label: 'USDT' },
@@ -60,15 +52,6 @@ const CreateAdPage = () => {
 			[e.target.name]: e.target.value,
 		});
 	}
-
-
-	// const handleTokenChange = selected => {
-	// 	setToken(selected)
-	// }
-
-	// const handleAdTypeChange = selected => {
-	// 	setAdType(selected)
-	// }
 
 	const addPeerToPeerAd = () => {
 		axios.post(`${API_URL}/p2p`, ad)
