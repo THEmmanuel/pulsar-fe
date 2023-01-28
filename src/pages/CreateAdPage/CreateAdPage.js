@@ -102,21 +102,21 @@ const CreateAdPage = () => {
 							title={`Available ${ad.token}`}
 							name='availableAmount'
 							value={ad.availableAmount}
-							change={handleChange}
+							change={handleTextChange}
 						/>
 
 						<FormInput
 							title='Lowest Order Limit'
 							name='lowestAmount'
 							value={ad.lowestAmount}
-							change={handleChange}
+							change={handleTextChange}
 						/>
 
 						<FormInput
 							title='Highest Order Limit'
 							name='highestAmount'
 							value={ad.highestAmount}
-							change={handleChange}
+							change={handleTextChange}
 						/>
 
 						<MainDropdown
