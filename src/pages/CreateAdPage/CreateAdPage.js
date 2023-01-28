@@ -36,20 +36,28 @@ const CreateAdPage = () => {
 		{ value: 'BTC', label: 'Bitcoin' }
 	]
 
-	const handleChange = (e) => {
+	const handleChange = e => {
+		setAd({
+			...ad,
+			[e.name]: e.value,
+		});
+	}
+
+	const handleTextChange = e => {
 		setAd({
 			...ad,
 			[e.target.name]: e.target.value,
 		});
 	}
 
-	const handleTokenChange = selected => {
-		setToken(selected)
-	}
 
-	const handleAdTypeChange = selected => {
-		setAdType(selected)
-	}
+	// const handleTokenChange = selected => {
+	// 	setToken(selected)
+	// }
+
+	// const handleAdTypeChange = selected => {
+	// 	setAdType(selected)
+	// }
 
 	const addPeerToPeerAd = () => {
 		// axios.post()
@@ -71,36 +79,44 @@ const CreateAdPage = () => {
 									{ value: 'buy', label: 'Buy' },
 									{ value: 'sell', label: 'Sell' },
 								]}
-							onSelect={handleAdTypeChange}
+							onSelect={handleChange}
+							name = 'adType'
 						/>
 
 						<MainDropdown
 							DropdownHeading='Token'
 							PrimaryText={token}
 							options={tokens}
-							onSelect={handleTokenChange}
+							onSelect={handleChange}
+							name = 'token'
 						/>
 
 						<FormInput
 							title='Rate'
-							name = 'rate'
-							value = {ad.rate}
-							change={handleChange}
+							name='rate'
+							value={ad.rate}
+							change={handleTextChange}
 						/>
 
 						<FormInput
 							title={`Available ${token}`}
-							change={e => setAvailableAmount(e.target.value)}
+							name='availableAmount'
+							value={ad.availableAmount}
+							change={handleChange}
 						/>
 
 						<FormInput
 							title='Lowest Order Limit'
-							change={e => setLowestAmount(e.target.value)}
+							name='lowestAmount'
+							value={ad.lowestAmount}
+							change={handleChange}
 						/>
 
 						<FormInput
 							title='Highest Order Limit'
-							change={e => setHighestAmount(e.target.value)}
+							name='highestAmount'
+							value={ad.highestAmount}
+							change={handleChange}
 						/>
 
 						<MainDropdown
@@ -113,12 +129,12 @@ const CreateAdPage = () => {
 						<span className={style.AdPreviewHeading}>Here's what your ad will look like</span>
 						<PeerToPeerAd
 							username={user.username}
-							adType={adType}
+							adType={ad.adType}
 							rate={ad.rate}
-							available={availableAmount}
-							lowest={lowestAmount}
-							highest={highestAmount}
-							token={token}
+							available={ad.availableAmount}
+							lowest={ad.lowestAmount}
+							highest={ad.highestAmount}
+							token={ad.token}
 							paymentMethod={paymentMethod}
 						/>
 					</div>

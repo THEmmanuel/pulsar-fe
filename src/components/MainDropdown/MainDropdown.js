@@ -3,13 +3,14 @@ import style from './MainDropdown.module.css';
 import arrowImage from '../../assets/arrowImage.svg';
 import Select from 'react-select';
 
-const MainDropdown = ({DropdownHeading, options, onSelect}) => {
+const MainDropdown = ({ DropdownHeading, options, onSelect, name }) => {
 	const [selectedOption, setSelectedOption] = useState(options ? options[0] : null)
 
 	const handleChange = selected => {
 		setSelectedOption(selected);
-		onSelect(selected.value)
+		onSelect({ name: name, value: selected.value });
 	}
+
 
 	return (
 		<div className={style.MainDropdownContainer}>
@@ -19,8 +20,8 @@ const MainDropdown = ({DropdownHeading, options, onSelect}) => {
 
 			<Select
 				options={options}
-				value = {selectedOption}
-				onChange = {handleChange}
+				value={selectedOption}
+				onChange={handleChange}
 			/>
 		</div>
 	);
