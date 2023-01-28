@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Select from 'react-select';
 import { useUser } from '@clerk/clerk-react';
@@ -23,6 +23,15 @@ const CreateAdPage = () => {
 		highestOrder: 0,
 		paymentMethod: 'Bank Transfer'
 	})
+
+	useEffect(() => {
+		if (user) {
+			setAd({
+				...ad,
+				username: user.username
+			})
+		}
+	}, user)
 
 	// const [adType, setAdType] = useState('buy');
 	// const [token, setToken] = useState('ETH');
@@ -62,12 +71,9 @@ const CreateAdPage = () => {
 	// }
 
 	const addPeerToPeerAd = () => {
-		setAd({
-			...ad,
-			username: user.username
-		})
-		
 		axios.post(`${API_URL}/p2p`, ad)
+			.then(res => console.log(res))
+			.catch(err => console.log(err))
 		// Send a post reequst with the data passed to the input fields here.
 	}
 
