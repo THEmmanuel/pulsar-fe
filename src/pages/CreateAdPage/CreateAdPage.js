@@ -12,6 +12,16 @@ import MainDropdown from '../../components/MainDropdown/MainDropdown';
 const CreateAdPage = () => {
 	const { user } = useUser();
 
+	const [ad, setAd] = useState({
+		adType: 'buy',
+		token: 'ETH',
+		rate: 0,
+		availableAmount: 0,
+		lowestAmount: 0,
+		highestAmount: 0,
+		paymentMethod: 'Bank Transfer'
+	})
+
 	const [adType, setAdType] = useState('buy');
 	const [token, setToken] = useState('ETH');
 	const [rate, setRate] = useState();
@@ -25,6 +35,13 @@ const CreateAdPage = () => {
 		{ value: 'USDT', label: 'USDT' },
 		{ value: 'BTC', label: 'Bitcoin' }
 	]
+
+	const handleChange = (e) => {
+		setAd({
+			...ad,
+			[e.target.name]: e.target.value,
+		})
+	}
 
 	const handleTokenChange = selected => {
 		setToken(selected)
