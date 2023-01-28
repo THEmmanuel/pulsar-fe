@@ -18,9 +18,9 @@ const CreateAdPage = () => {
 		username: '',
 		token: 'ETH',
 		rate: 0,
-		availableAmount: 0,
-		lowestAmount: 0,
-		highestAmount: 0,
+		available: 0,
+		lowestOrder: 0,
+		highestOrder: 0,
 		paymentMethod: 'Bank Transfer'
 	})
 
@@ -62,13 +62,12 @@ const CreateAdPage = () => {
 	// }
 
 	const addPeerToPeerAd = () => {
-		// axios.post(`${API_URL}`)
 		setAd({
 			...ad,
 			username: user.username
 		})
-
-		console.log('sup lol')
+		
+		axios.post(`${API_URL}/p2p`, ad)
 		// Send a post reequst with the data passed to the input fields here.
 	}
 
@@ -108,22 +107,22 @@ const CreateAdPage = () => {
 
 						<FormInput
 							title={`Available ${ad.token}`}
-							name='availableAmount'
-							value={ad.availableAmount}
+							name='available'
+							value={ad.available}
 							change={handleTextChange}
 						/>
 
 						<FormInput
 							title='Lowest Order Limit'
-							name='lowestAmount'
-							value={ad.lowestAmount}
+							name='lowestOrder'
+							value={ad.lowestOrder}
 							change={handleTextChange}
 						/>
 
 						<FormInput
 							title='Highest Order Limit'
-							name='highestAmount'
-							value={ad.highestAmount}
+							name='highestOrder'
+							value={ad.highestOrder}
 							change={handleTextChange}
 						/>
 
@@ -136,13 +135,13 @@ const CreateAdPage = () => {
 					<div className={style.AdPreviewWrapper}>
 						<span className={style.AdPreviewHeading}>Here's what your ad will look like</span>
 						<PeerToPeerAd
-							username={user.username}
 							adType={ad.adType}
-							rate={ad.rate}
-							available={ad.availableAmount}
-							lowest={ad.lowestAmount}
-							highest={ad.highestAmount}
 							token={ad.token}
+							username={user.username}
+							rate={ad.rate}
+							available={ad.available}
+							lowest={ad.lowestOrder}
+							highest={ad.highestOrder}
 							paymentMethod={ad.paymentMethod}
 						/>
 					</div>
