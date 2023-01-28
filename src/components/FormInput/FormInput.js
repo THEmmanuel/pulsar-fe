@@ -8,7 +8,10 @@ const FormInput = (props) => {
 			<input
 				type="text"
 				className={style.TransferInput}
-				onChange={props.change} />
+				onChange={props.change} 
+				name = {props.name}
+				value = {props.value}
+				/>
 		</div>
 	)
 }

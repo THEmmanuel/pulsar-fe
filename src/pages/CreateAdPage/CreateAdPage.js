@@ -40,7 +40,7 @@ const CreateAdPage = () => {
 		setAd({
 			...ad,
 			[e.target.name]: e.target.value,
-		})
+		});
 	}
 
 	const handleTokenChange = selected => {
@@ -83,7 +83,9 @@ const CreateAdPage = () => {
 
 						<FormInput
 							title='Rate'
-							change={e => setRate(e.target.value)}
+							name = 'rate'
+							value = {ad.rate}
+							change={handleChange}
 						/>
 
 						<FormInput
@@ -112,7 +114,7 @@ const CreateAdPage = () => {
 						<PeerToPeerAd
 							username={user.username}
 							adType={adType}
-							rate={rate}
+							rate={ad.rate}
 							available={availableAmount}
 							lowest={lowestAmount}
 							highest={highestAmount}
