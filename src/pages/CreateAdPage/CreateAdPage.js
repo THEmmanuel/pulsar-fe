@@ -61,7 +61,7 @@ const CreateAdPage = () => {
 	}
 
 	return (
-		!user ? <span>Not looged in</span>
+		!user ? <span>Not logged in</span>
 			:
 			<div>
 				<span>Create Ad page</span>
