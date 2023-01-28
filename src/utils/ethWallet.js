@@ -21,7 +21,6 @@ export const getETHBalance = async (address) => {
 	return EthBalance;
 }
 
-
 export const sendETH = async (
 	sendAddress,
 	toAddress,
