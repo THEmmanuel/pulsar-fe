@@ -22,13 +22,13 @@ const CreateAdPage = () => {
 		paymentMethod: 'Bank Transfer'
 	})
 
-	const [adType, setAdType] = useState('buy');
-	const [token, setToken] = useState('ETH');
-	const [rate, setRate] = useState();
-	const [availableAmount, setAvailableAmount] = useState();
-	const [lowestAmount, setLowestAmount] = useState();
-	const [highestAmount, setHighestAmount] = useState();
-	const [paymentMethod, setPaymentMethod] = useState('Bank Transfer');
+	// const [adType, setAdType] = useState('buy');
+	// const [token, setToken] = useState('ETH');
+	// const [rate, setRate] = useState();
+	// const [availableAmount, setAvailableAmount] = useState();
+	// const [lowestAmount, setLowestAmount] = useState();
+	// const [highestAmount, setHighestAmount] = useState();
+	// const [paymentMethod, setPaymentMethod] = useState('Bank Transfer');
 
 	const tokens = [
 		{ value: 'ETH', label: 'Ethereum' },
@@ -85,7 +85,7 @@ const CreateAdPage = () => {
 
 						<MainDropdown
 							DropdownHeading='Token'
-							PrimaryText={token}
+							PrimaryText={ad.token}
 							options={tokens}
 							onSelect={handleChange}
 							name = 'token'
@@ -99,7 +99,7 @@ const CreateAdPage = () => {
 						/>
 
 						<FormInput
-							title={`Available ${token}`}
+							title={`Available ${ad.token}`}
 							name='availableAmount'
 							value={ad.availableAmount}
 							change={handleChange}
@@ -135,7 +135,7 @@ const CreateAdPage = () => {
 							lowest={ad.lowestAmount}
 							highest={ad.highestAmount}
 							token={ad.token}
-							paymentMethod={paymentMethod}
+							paymentMethod={ad.paymentMethod}
 						/>
 					</div>
 
