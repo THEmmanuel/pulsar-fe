@@ -62,15 +62,17 @@ const PeerToPeerPage = () => {
 			</div>
 
 			<div className={style.PeerToPeerWrapper}>
-				{ads.map(ad => <PeerToPeerAd
-					adType={ad.adType}
-					username={ad.username}
-					token={ad.token}
-					available={ad.available}
-					lowest = {ad.lowestOrder}
-					highest = {ad.highestOrder}
-					paymentMethod = {ad.paymentMethod}
-				/>)}
+				<Link to = '/buy-page'>
+					{ads.map(ad => <PeerToPeerAd
+						adType={ad.adType}
+						username={ad.username}
+						token={ad.token}
+						available={ad.available}
+						lowest={ad.lowestOrder}
+						highest={ad.highestOrder}
+						paymentMethod={ad.paymentMethod}
+					/>)}
+				</Link>
 			</div>
 		</div>
 	)
