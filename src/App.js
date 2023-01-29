@@ -130,7 +130,7 @@ function App() {
 
 							<Route
 								exact
-								path='/buy-page'
+								path='/buy-page/:id'
 								element={<BuyPage />}
 							/>
 

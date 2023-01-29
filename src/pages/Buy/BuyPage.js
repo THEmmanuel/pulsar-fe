@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import style from './BuyPage.module.css';
 import UserTerms from '../../components/UserTerms/UserTerms';
 import UserInformation from '../../components/UserInformation/UserInformation';
@@ -14,6 +16,9 @@ import TransactionCTAButtons from '../../components/TransactionCTAButtons/Transa
 // <TransactionStatus />
 
 const BuyPage = props => {
+	const peerToPeerID = useParams()
+	console.log(peerToPeerID.id)
+
 	return (
 		<div className={style.BuyPageWrapper}>
 			<div className={style.BuyPageContainer}>
