@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 import style from './BuyPage.module.css';
 import UserTerms from '../../components/UserTerms/UserTerms';
@@ -15,9 +16,20 @@ import TransactionCTAButtons from '../../components/TransactionCTAButtons/Transa
 // <UserTerms />
 // <TransactionStatus />
 
+const API_URL = 'http://localhost:9000';
+
 const BuyPage = props => {
 	const peerToPeerID = useParams()
-	console.log(peerToPeerID.id)
+	const getAdInfo = () => {
+		axios.get(`${API_URL}/p2p/${peerToPeerID.id}`)
+			.then(res => console.log(res.data))
+	}
+
+	useEffect(() => {
+		getAdInfo()
+	}, [])
+
+	// console.log(peerToPeerID.id)
 
 	return (
 		<div className={style.BuyPageWrapper}>
