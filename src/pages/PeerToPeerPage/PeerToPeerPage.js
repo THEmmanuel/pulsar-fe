@@ -63,7 +63,7 @@ const PeerToPeerPage = () => {
 
 			<div className={style.PeerToPeerWrapper}>
 				{ads.map(ad =>
-					<Link to='/buy-page'>
+					<Link to= {`/buy-page/${ad._id}`}>
 						<PeerToPeerAd
 							adType={ad.adType}
 							username={ad.username}
