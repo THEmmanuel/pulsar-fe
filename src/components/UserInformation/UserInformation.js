@@ -1,14 +1,14 @@
 import React from 'react';
 import style from './UserInformation.module.css';
 
-const UserInformation = () => {
+const UserInformation = props => {
 	return (
 		<div className={style.UserInformationWrapper}>
 			<div className={style.UserInformation}>
 				<span>image</span>
 				<div className={style.UserInformationText}>
-					<span>name</span>
-					<span>limit</span>
+					<span>{props.name}</span>
+					<span>{props.lowestOrder} - {props.highestOrder}</span>
 				</div>
 			</div>
 

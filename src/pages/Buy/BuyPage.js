@@ -20,9 +20,11 @@ const API_URL = 'http://localhost:9000';
 
 const BuyPage = props => {
 	const peerToPeerID = useParams()
+	const [adInfo, setAdInfo] = useState(null)
+
 	const getAdInfo = () => {
 		axios.get(`${API_URL}/p2p/${peerToPeerID.id}`)
-			.then(res => console.log(res.data))
+			.then(res => setAdInfo(res.data))
 	}
 
 	useEffect(() => {
@@ -34,11 +36,19 @@ const BuyPage = props => {
 	return (
 		<div className={style.BuyPageWrapper}>
 			<div className={style.BuyPageContainer}>
-				<div className={style.BuyPageContent}>
-					<UserInformation />
-					<UserInformationContent />
-					<UserTerms />
-				</div>
+				{
+					adInfo ? 
+					<div className={style.BuyPageContent}>
+						<UserInformation
+							username={adInfo.username}
+							lowestOrder = {adInfo.lowestOrder}
+							highestOrder = {adInfo.highestOrder}
+						/>
+						<UserInformationContent />
+						<UserTerms />
+					</div>
+					: <span>Loadinf</span>
+				}
 			</div>
 
 			<div className={style.ButtonContainer}>

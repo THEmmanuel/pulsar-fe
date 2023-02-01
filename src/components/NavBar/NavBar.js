@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
 	const { user } = useUser();
-	console.log(user)
+	console.log(user.profileImageUrl)
 
 	return (
 		<nav className={style.NavBar}>
