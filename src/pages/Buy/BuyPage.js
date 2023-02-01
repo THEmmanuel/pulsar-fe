@@ -47,7 +47,7 @@ const BuyPage = props => {
 						<UserInformationContent />
 						<UserTerms />
 					</div>
-					: <span>Loadinf</span>
+					: <span>Loading</span>
 				}
 			</div>
 

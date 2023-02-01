@@ -20,7 +20,11 @@
 	flex-direction: column;
 }
 
-.UserImage{
+.UserName {
+	font-weight: 700;
+}
+
+.UserImage {
 	border-radius: 50%;
-	width: 150px;
+	width: 60px;
 }

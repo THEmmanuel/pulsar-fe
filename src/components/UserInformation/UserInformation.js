@@ -8,9 +8,9 @@ const UserInformation = props => {
 	return (
 		<div className={style.UserInformationWrapper}>
 			<div className={style.UserInformation}>
-				<img src={user.profileImageUrl} alt="" className={style.UserImage} />
+				<img src={user ? user.profileImageUrl : 'loading'} alt="" className={style.UserImage} />
 				<div className={style.UserInformationText}>
-					<span>{props.username}</span>
+					<span className={style.UserName}>{props.username}</span>
 					<span>{props.lowestOrder} - {props.highestOrder}</span>
 				</div>
 			</div>
