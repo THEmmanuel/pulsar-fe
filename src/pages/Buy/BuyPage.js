@@ -43,6 +43,8 @@ const BuyPage = props => {
 							username={adInfo.username}
 							lowestOrder = {adInfo.lowestOrder}
 							highestOrder = {adInfo.highestOrder}
+							available = {adInfo.available}
+							paymentMethod = {adInfo.paymentMethod}
 						/>
 						<UserInformationContent />
 						<UserTerms />

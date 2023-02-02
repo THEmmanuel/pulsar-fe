@@ -16,8 +16,8 @@ const UserInformation = props => {
 			</div>
 
 			<div className={style.UserInformationExtra}>
-				<span>available</span>
-				<span>method</span>
+				<span>{props.available}</span>
+				<span>{props.paymentMethod}</span>
 			</div>
 		</div>
 	)
