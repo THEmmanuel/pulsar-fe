@@ -73,80 +73,81 @@ function App() {
 					<SideBar />
 					<section className='Page-container'>
 						<NavBar />
-						<Routes>
-							<Route
-								exact
-								path='/'
-								element={<Dashboard />}
-							/>
+						<div className='pages-wrapper'>
+							<Routes>
+								<Route
+									exact
+									path='/'
+									element={<Dashboard />}
+								/>
 
-							<Route
-								exact
-								path='/login'
-								element={<Login />}
-							/>
+								<Route
+									exact
+									path='/login'
+									element={<Login />}
+								/>
 
-							<Route
-								exact
-								path='/home'
-								element={<Dashboard />}
-							/>
+								<Route
+									exact
+									path='/home'
+									element={<Dashboard />}
+								/>
 
-							<Route
-								exact
-								path='/wallets'
-								element={<WalletsPage />}
-							/>
+								<Route
+									exact
+									path='/wallets'
+									element={<WalletsPage />}
+								/>
 
-							<Route
-								exact
-								path='/wallet/:walletName'
-								element={<Wallet />}
-							/>
+								<Route
+									exact
+									path='/wallet/:walletName'
+									element={<Wallet />}
+								/>
 
-							<Route
-								exact
-								path='/my-ads'
-								element={<MyAds />}
-							/>
+								<Route
+									exact
+									path='/my-ads'
+									element={<MyAds />}
+								/>
 
-							<Route
-								exact
-								path='/'
-								element={<Dashboard />}
-							/>
+								<Route
+									exact
+									path='/'
+									element={<Dashboard />}
+								/>
 
-							<Route
-								exact
-								path='/p2p'
-								element={<PeerToPeerPage />}
-							/>
+								<Route
+									exact
+									path='/p2p'
+									element={<PeerToPeerPage />}
+								/>
 
-							<Route
-								exact
-								path='/user-page'
-								element={<UserPage />}
-							/>
+								<Route
+									exact
+									path='/user-page'
+									element={<UserPage />}
+								/>
 
-							<Route
-								exact
-								path='/buy-page/:id'
-								element={<BuyPage />}
-							/>
+								<Route
+									exact
+									path='/buy-page/:id'
+									element={<BuyPage />}
+								/>
 
-							<Route
-								exact
-								path='/sell-page'
-								element={<SellPage />}
-							/>
+								<Route
+									exact
+									path='/sell-page'
+									element={<SellPage />}
+								/>
 
-							<Route
-								exact
-								path='/create-ad'
-								element={<CreateAdPage />}
-							/>
-						</Routes>
-
+								<Route
+									exact
+									path='/create-ad'
+									element={<CreateAdPage />}
+								/>
+							</Routes>
+						</div>
 					</section>
 				</UserContext.Provider>
 			</div>
