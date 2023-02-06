@@ -29,7 +29,6 @@ const PeerToPeerPage = () => {
 			<div className={style.PeerToPeerHeadingContainer}>
 				<div className={style.PeerToPeerHeading}>
 					<div className={style.PeerToPeerDropdownWrapper}>
-
 						<div>
 							<span>Ad type</span>
 							<DropDown

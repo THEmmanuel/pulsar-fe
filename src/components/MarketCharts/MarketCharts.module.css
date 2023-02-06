@@ -5,14 +5,13 @@
 	align-items: center;
 	background-color: #FFF;
 	border-radius: 10px;
-	width: 65vw;
-
+	width: 100%;
 }
 
 .MarketChartsTable{
 	margin: auto;
 	padding: 20px;
-	width: 65vw;
+	width: 100%;
 	text-align: left;
 }
 
