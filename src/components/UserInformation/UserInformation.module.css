@@ -1,8 +1,10 @@
 .UserInformationWrapper {
 	display: flex;
 	gap: 80px;
-	justify-content: center;
+	justify-content: space-between;
 	flex-direction: row;
+	width: 40%;
+	margin: auto;
 }
 
 .UserInformation {

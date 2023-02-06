@@ -2,6 +2,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
+	width: 100%;
+	position: relative;
 }
 
 .BuyTerms {
@@ -43,7 +45,7 @@
 	background-color: #E3E3E3;
 	gap: 400px;
 	justify-content: center;
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	padding: 20px 0 20px 0;
 	width: 100%;
