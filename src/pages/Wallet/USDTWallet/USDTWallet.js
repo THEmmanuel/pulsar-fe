@@ -37,8 +37,8 @@ const USDTWallet = () => {
 		const fetchBalance = async () => {
 			if (wallet) {
 				const balance = await getUSDTBalance(wallet.walletAddress);
-				console.log(balance 
-					 + 'usdt wallet stuff lol')
+				console.log(balance
+					+ 'usdt wallet stuff lol')
 				setWalletBalance(balance);
 			}
 		};
@@ -66,17 +66,19 @@ const USDTWallet = () => {
 					</div>
 				</div>
 
-				<MainDropdown
-					DropdownHeading='Token'
-					PrimaryText={wallet.walletName}
-					SecondaryText='Tether'
-				/>
+				<div className={style.WalletTransactionInput}>
+					<MainDropdown
+						DropdownHeading='Token'
+						PrimaryText={wallet.walletName}
+						SecondaryText='Tether'
+					/>
 
-				<MainDropdown
-					DropdownHeading='Network'
-					PrimaryText='Ethereum'
-					SecondaryText='ERC-20'
-				/>
+					<MainDropdown
+						DropdownHeading='Network'
+						PrimaryText='Ethereum'
+						SecondaryText='ERC-20'
+					/>
+				</div>
 				<span className={style.WalletAddress}>
 					{wallet.walletAddress}
 				</span>

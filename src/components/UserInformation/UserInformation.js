@@ -11,12 +11,12 @@ const UserInformation = props => {
 				<img src={user ? user.profileImageUrl : 'loading'} alt="" className={style.UserImage} />
 				<div className={style.UserInformationText}>
 					<span className={style.UserName}>{props.username}</span>
-					<span>{props.lowestOrder} - {props.highestOrder}</span>
+					<span>Limit: {props.lowestOrder} - {props.highestOrder}</span>
 				</div>
 			</div>
 
 			<div className={style.UserInformationExtra}>
-				<span>{props.available}</span>
+				<span>Available: {props.available}</span>
 				<span>{props.paymentMethod}</span>
 			</div>
 		</div>

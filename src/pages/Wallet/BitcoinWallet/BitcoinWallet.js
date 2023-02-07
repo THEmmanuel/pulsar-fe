@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from './BitcoinWallet.module.css';
+import style from '../EthereumWallet/EthereumWallet.module.css';
 import MainDropdown from '../../../components/MainDropdown/MainDropdown';
 import TransferModal from '../../../containers/TransferModal/TransferModal';
 import sendIcon from '../../../assets/send_icon.svg'
@@ -71,17 +71,20 @@ const BitcoinWallet = () => {
 					</div>
 				</div>
 
-				<MainDropdown
-					DropdownHeading='Token'
-					PrimaryText={wallet.walletName}
-					SecondaryText='Bitcoin'
-				/>
+				<div className={style.WalletTransactionInput}>
+					<MainDropdown
+						DropdownHeading='Token'
+						PrimaryText={wallet.walletName}
+						SecondaryText='Bitcoin'
+					/>
 
-				<MainDropdown
-					DropdownHeading='Network'
-					PrimaryText='Bitcoin'
-					SecondaryText='Testnet'
-				/>
+					<MainDropdown
+						DropdownHeading='Network'
+						PrimaryText='Bitcoin'
+						SecondaryText='Testnet'
+					/>
+				</div>
+				
 				<span className={style.WalletAddress}>
 					{wallet.walletAddress}
 				</span>

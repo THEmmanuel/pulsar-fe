@@ -10,20 +10,26 @@
 .UserInformation {
 	display: flex;
 	flex-direction: row;
+	gap: 40px;
 }
 
 .UserInformationText {
 	display: flex;
 	flex-direction: column;
+	text-align: left;
+	gap: 10px;
 }
 
 .UserInformationExtra {
 	display: flex;
 	flex-direction: column;
+	gap: 10px;
+	text-align: right;
 }
 
 .UserName {
 	font-weight: 700;
+	font-size: 1.1em;
 }
 
 .UserImage {
