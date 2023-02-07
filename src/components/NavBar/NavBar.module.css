@@ -19,4 +19,10 @@
 .NavUserInfo{
 	display: flex;
 	flex-direction: row;
+	gap: 10px;
+}
+
+.NavIntro{
+	font-size: 1em;
+	font-weight: 600;
 }
