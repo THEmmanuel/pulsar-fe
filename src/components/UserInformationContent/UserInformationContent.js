@@ -1,14 +1,23 @@
 import React from 'react';
 import style from './UserInformationContent.module.css';
+import MainDropdown from '../MainDropdown/MainDropdown';
 
 const UserInformationContent = () => {
 	return (
 		<div className={style.UserInformationContentWrapper}>
 			<div className={style.UserInformationContent}>
-				<div className={style.BuyPageInput}>
-					<input type="text" className={style.AmountInput} />
-					<span>USDT</span>
-					<span>All</span>
+				<div className={style.BuyPageInputWrapper}>
+					<div>
+						<input type="text" className={style.AmountInput} />
+						<span>USDT</span>
+						<span>All</span>
+					</div>
+
+					<div>
+						<MainDropdown/>	
+					</div>
+
+
 				</div>
 
 				<div className={style.BuyPriceInformationWrapper}>

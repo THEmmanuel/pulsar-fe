@@ -6,6 +6,7 @@ import style from './PeerToPeerPage.module.css';
 import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import DropDown from '../../components/DropDown/DropDown';
 import MainInput from '../../components/MainInput/MainInput';
+import SecondaryDropdown from '../../components/SecondaryDropdown/SecondaryDropdown';
 
 const API_URL = 'http://localhost:9000';
 

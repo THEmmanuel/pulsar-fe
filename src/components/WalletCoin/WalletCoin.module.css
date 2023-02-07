@@ -18,3 +18,10 @@
 	flex-direction: row;
 	gap: 40px;
 }
+
+.WalletCoinIcon{
+	background-color: #000;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+}

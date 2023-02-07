@@ -1,18 +1,13 @@
 import React from 'react';
 import style from './DropDown.module.css';
-import arrowImage from '../../assets/arrowImage.svg'
+import Select from 'react-select';
 
-const DropDown = props => {
+const Dropdown = () => {
 	return (
-		<div className={style.DropDown}>
-			<span className={style.DropDownText}>{props.DropDownText}</span>
-			<img
-				src={arrowImage}
-				alt=""
-				className={style.DropDownIcon}
-			/>
+		<div>
+			test
 		</div>
 	)
 }
 
-export default DropDown;
+export default Dropdown;
