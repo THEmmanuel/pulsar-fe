@@ -6,6 +6,10 @@
 	margin: 120px auto;
 }
 
+.TransferModalWrapper {
+	width: 100%;
+}
+
 .TransferHeading {
 	font-weight: 700;
 }
@@ -66,7 +70,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	margin-left: 20%;
+	margin-left: 15%;
 }
 
 .TransactionDetailsContainer {
