@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import style from './MarketCharts.module.css';
 
+
 const MarketCharts = () => {
+	const [coinData, setCoinData] = useState(null);
+	const coinGeckoAPI = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether%2Csolana&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true'
+
+	useEffect(() => {
+		axios.get(coinGeckoAPI)
+		.then(res => console.log(res.data))
+		.catch(err => console.log(err))
+	})
+
+
 	return (
 		<div className={style.MarketChartsContainer}>
 			Marketing values
