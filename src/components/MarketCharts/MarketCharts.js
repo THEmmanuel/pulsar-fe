@@ -4,15 +4,14 @@ import style from './MarketCharts.module.css';
 
 
 const MarketCharts = () => {
-	const [coinData, setCoinData] = useState(null);
+	const [coinData, setCoinData] = useState({});
 	const coinGeckoAPI = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether%2Csolana&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true'
 
 	useEffect(() => {
 		axios.get(coinGeckoAPI)
-		.then(res => console.log(res.data))
-		.catch(err => console.log(err))
-	})
-
+			.then(res => setCoinData(res.data))
+			.catch(err => console.log(err))
+	}, [])
 
 	return (
 		<div className={style.MarketChartsContainer}>
@@ -30,27 +29,18 @@ const MarketCharts = () => {
 				</thead>
 
 				<tbody>
-					<tr>
-						<td className={style.ChartIcon}>Icon</td>
-						<td className={style.CoinName}>Ethereum</td>
-						<td className={style.CoinAbbreviation}>BTC</td>
-						<td className={style.CoinPrice}>$20,000</td>
-						<td className={style.CoinDiff}>0.10</td>
-						<td className={style.CoinDiff}>1.06</td>
-						<td className={style.CoinMarketCap}>367,024,834</td>
-						<td className={style.CoinTradingVolume}>27,232,767</td>
-					</tr>
-
-					<tr>
-						<td>Icon</td>
-						<td>Ethereum</td>
-						<td>BTC</td>
-						<td>$20,000</td>
-						<td>0.10</td>
-						<td>1.06</td>
-						<td>367,024,834</td>
-						<td>27,232,767</td>
-					</tr>
+					{Object.entries(coinData).map(([coin, info]) => (
+						<tr key={coin}>
+							<td className={style.ChartIcon}>Icon</td>
+							<td className={style.CoinName}>{coin}</td>
+							<td className={style.CoinAbbreviation}>BTC</td>
+							<td className={style.CoinPrice}>{info.usd}</td>
+							<td className={style.CoinDiff}>{info.usd_24h_change}</td>
+							<td className={style.CoinDiff}>1.06</td>
+							<td className={style.CoinMarketCap}>{info.usd_market_cap}</td>
+							<td className={style.CoinTradingVolume}>{info.usd_24h_vol}</td>
+						</tr>
+					))}
 				</tbody>
 			</table>
 		</div>
