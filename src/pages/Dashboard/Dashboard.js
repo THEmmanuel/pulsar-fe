@@ -5,6 +5,22 @@ import PeerToPeerHome from '../../containers/PeerToPeerHome/PeerToPeerHome';
 import PortfolioHome from '../../containers/PortfolioHome/PortfolioHome';
 import DropDown from '../../components/DropDown/DropDown';
 
+const tokens = [
+	{ value: 'ETH', label: 'Ethereum' },
+	{ value: 'USDT', label: 'USDT' },
+	{ value: 'BTC', label: 'Bitcoin' }
+]
+
+const fiatCurrencies = [
+	{ value: 'NGN', label: 'Nigerian Naira' },
+	{ value: 'USD', label: 'US Dollar' },
+]
+
+const adTtype = [
+	{ value: 'buy', label: 'Buy' },
+	{ value: 'sell', label: 'Sell' },
+]
+
 const Dashboard = () => {
 	return (
 		<div className={style.Dashboard}>
@@ -23,12 +39,15 @@ const Dashboard = () => {
 									</span>
 									<DropDown
 										DropDownText='USDT'
+										options={tokens}
 									/>
 									<DropDown
 										DropDownText='NGN'
+										options={fiatCurrencies}
 									/>
 									<DropDown
 										DropDownText='Buy'
+										options={adTtype}										
 									/>
 								</div>
 
