@@ -8,7 +8,6 @@ import DropDown from '../../components/DropDown/DropDown';
 const Dashboard = () => {
 	return (
 		<div className={style.Dashboard}>
-			Dashboard
 			<div className={style.DashboardContent}>
 				<div className={style.DashboardMarketChartsContainer}>
 					<MarketCharts />
