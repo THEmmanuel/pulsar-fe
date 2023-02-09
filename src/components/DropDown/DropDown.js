@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './DropDown.module.css';
 import Select from 'react-select';
 
-const Dropdown = () => {
+const Dropdown = (props) => {
+	const [selectedOption, setSelectedOption] = useState(props.options ? props.options[0] : null)
+
+	const handleChange = selected => {
+		setSelectedOption(selected);
+		props.onSelect({name: props.name, value: selected.value})
+	}
+
 	return (
 		<div>
-			test
+			<span>
+				{props.DropdownHeading}
+			</span>
+
+			<Select
+				options={props.options}
+				value = {selectedOption}
+				onChange = {handleChange}
+			/>
 		</div>
 	)
 }
