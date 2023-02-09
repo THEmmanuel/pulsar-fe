@@ -47,10 +47,10 @@ const MarketCharts = () => {
 							</td>
 							<td className={style.CoinName}>{coin}</td>
 							<td className={style.CoinAbbreviation}>BTC</td>
-							<td className={style.CoinPrice}>{info.usd}</td>
-							<td className={style.CoinDiff}>{info.usd_24h_change}</td>
-							<td className={style.CoinMarketCap}>{info.usd_market_cap}</td>
-							<td className={style.CoinTradingVolume}>{formatNumber(info.usd_24h_vol)}</td>
+							<td className={style.CoinPrice}>${formatNumber(info.usd)}</td>
+							<td className={style.CoinDiff}>${formatNumber(info.usd_24h_change)}</td>
+							<td className={style.CoinMarketCap}>${formatNumber(info.usd_market_cap)}</td>
+							<td className={style.CoinTradingVolume}>${formatNumber(info.usd_24h_vol)}</td>
 						</tr>
 					))}
 				</tbody>
