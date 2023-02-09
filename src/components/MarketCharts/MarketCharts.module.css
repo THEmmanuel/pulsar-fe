@@ -15,6 +15,14 @@
 	text-align: left;
 }
 
+.NegativeDiff{
+	color: red;
+}
+
+.PositiveDiff{
+	color: green;
+}
+
 th{
 	color: #727272;
 	font-weight: 400;
