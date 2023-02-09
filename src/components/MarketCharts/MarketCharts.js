@@ -15,6 +15,13 @@ const coinIcons = {
 	solana
 }
 
+const getDiffClass = diff => {
+	if (diff < 0) {
+		return style.NegativeDiff;
+	}
+	return style.PositiveDiff;
+};
+
 const MarketCharts = () => {
 	const [coinData, setCoinData] = useState({});
 	const coinGeckoAPI = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether%2Csolana&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true'
@@ -48,7 +55,9 @@ const MarketCharts = () => {
 							<td className={style.CoinName}>{coin}</td>
 							<td className={style.CoinAbbreviation}>BTC</td>
 							<td className={style.CoinPrice}>${formatNumber(info.usd)}</td>
-							<td className={style.CoinDiff}>${formatNumber(info.usd_24h_change)}</td>
+							<td className={getDiffClass(info.usd_24h_change)}>
+								{formatNumber(info.usd_24h_change)}
+							</td>
 							<td className={style.CoinMarketCap}>${formatNumber(info.usd_market_cap)}</td>
 							<td className={style.CoinTradingVolume}>${formatNumber(info.usd_24h_vol)}</td>
 						</tr>
