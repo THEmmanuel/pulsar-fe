@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { formatNumber } from '../../utils/formatNumber';
 import axios from 'axios';
 import style from './MarketCharts.module.css';
 
@@ -49,7 +50,7 @@ const MarketCharts = () => {
 							<td className={style.CoinPrice}>{info.usd}</td>
 							<td className={style.CoinDiff}>{info.usd_24h_change}</td>
 							<td className={style.CoinMarketCap}>{info.usd_market_cap}</td>
-							<td className={style.CoinTradingVolume}>{info.usd_24h_vol}</td>
+							<td className={style.CoinTradingVolume}>{formatNumber(info.usd_24h_vol)}</td>
 						</tr>
 					))}
 				</tbody>
