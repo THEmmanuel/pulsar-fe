@@ -10,6 +10,22 @@ import SecondaryDropdown from '../../components/SecondaryDropdown/SecondaryDropd
 
 const API_URL = 'http://localhost:9000';
 
+const tokens = [
+	{ value: 'ETH', label: 'Ethereum' },
+	{ value: 'USDT', label: 'USDT' },
+	{ value: 'BTC', label: 'Bitcoin' }
+]
+
+const fiatCurrencies = [
+	{ value: 'NGN', label: 'Nigerian Naira' },
+	{ value: 'USD', label: 'US Dollar' },
+]
+
+const adTtype = [
+	{ value: 'buy', label: 'Buy' },
+	{ value: 'sell', label: 'Sell' },
+]
+
 const PeerToPeerPage = () => {
 	const [ads, setAds] = useState([])
 
@@ -34,6 +50,7 @@ const PeerToPeerPage = () => {
 							<span>Ad type</span>
 							<DropDown
 								DropDownText='Buy'
+								options={adTtype}
 							/>
 						</div>
 
@@ -41,6 +58,7 @@ const PeerToPeerPage = () => {
 							<span>Token</span>
 							<DropDown
 								DropDownText='USDT'
+								options={tokens}
 							/>
 						</div>
 					</div>
@@ -49,7 +67,10 @@ const PeerToPeerPage = () => {
 						<MainInput />
 						<div>
 							<span>Fiat</span>
-							<DropDown DropDownText='USD' />
+							<DropDown
+								DropDownText='USD'
+								options={fiatCurrencies}
+							/>
 						</div>
 					</div>
 				</div>
@@ -63,7 +84,7 @@ const PeerToPeerPage = () => {
 
 			<div className={style.PeerToPeerWrapper}>
 				{ads.map(ad =>
-					<Link to= {`/buy-page/${ad._id}`}>
+					<Link to={`/buy-page/${ad._id}`}>
 						<PeerToPeerAd
 							adType={ad.adType}
 							username={ad.username}
