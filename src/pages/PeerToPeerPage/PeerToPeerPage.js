@@ -93,6 +93,7 @@ const PeerToPeerPage = () => {
 							lowest={ad.lowestOrder}
 							highest={ad.highestOrder}
 							paymentMethod={ad.paymentMethod}
+							rate={ad.rate}
 						/>
 					</Link>
 				)}
