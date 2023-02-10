@@ -54,6 +54,11 @@ const PeerToPeerPage = () => {
 		getAds()
 	}, ads)
 
+	const filteredAds = ads.filter(ad =>
+		ad.token === selectedToken &&
+		ad.adType === selectedAdType
+	);
+
 	return (
 		<div className={style.PeerToPeerPage}>
 			Peer to peer page
@@ -65,7 +70,7 @@ const PeerToPeerPage = () => {
 							<span>Ad type</span>
 							<DropDown
 								DropDownText='Buy'
-								onSelect = {handleTokenChange}
+								onSelect={handleAdTypeChange}
 								options={adTypes}
 							/>
 						</div>
@@ -74,6 +79,7 @@ const PeerToPeerPage = () => {
 							<span>Token</span>
 							<DropDown
 								DropDownText='USDT'
+								onSelect={handleTokenChange}
 								options={tokens}
 							/>
 						</div>
@@ -85,6 +91,7 @@ const PeerToPeerPage = () => {
 							<span>Fiat</span>
 							<DropDown
 								DropDownText='USD'
+								onSelect={handleFiatChange}
 								options={fiatCurrencies}
 							/>
 						</div>
@@ -99,7 +106,7 @@ const PeerToPeerPage = () => {
 			</div>
 
 			<div className={style.PeerToPeerWrapper}>
-				{ads.map(ad =>
+				{filteredAds.map(ad =>
 					<Link to={`/buy-page/${ad._id}`}>
 						<PeerToPeerAd
 							adType={ad.adType}
