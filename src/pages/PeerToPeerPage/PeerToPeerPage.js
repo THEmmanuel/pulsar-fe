@@ -21,13 +21,28 @@ const fiatCurrencies = [
 	{ value: 'USD', label: 'US Dollar' },
 ]
 
-const adTtype = [
+const adTypes = [
 	{ value: 'buy', label: 'Buy' },
 	{ value: 'sell', label: 'Sell' },
 ]
 
 const PeerToPeerPage = () => {
 	const [ads, setAds] = useState([])
+	const [selectedToken, setSelectedToken] = useState(tokens[0].value);
+	const [selectedFiat, setSelectedFiat] = useState(fiatCurrencies[0].value)
+	const [selectedAdType, setSelectedAdType] = useState(adTypes[0].value)
+
+	const handleTokenChange = e => {
+		setSelectedToken(e.value)
+	}
+
+	const handleFiatChange = e => {
+		setSelectedFiat(e.value)
+	}
+
+	const handleAdTypeChange = e => {
+		setSelectedAdType(e.value)
+	}
 
 	const getAds = () => {
 		axios.get(`${API_URL}/p2p`)
@@ -50,7 +65,8 @@ const PeerToPeerPage = () => {
 							<span>Ad type</span>
 							<DropDown
 								DropDownText='Buy'
-								options={adTtype}
+								onSelect = {handleTokenChange}
+								options={adTypes}
 							/>
 						</div>
 
