@@ -31,6 +31,7 @@ const PeerToPeerPage = () => {
 	const [selectedToken, setSelectedToken] = useState(tokens[0].value);
 	const [selectedFiat, setSelectedFiat] = useState(fiatCurrencies[0].value)
 	const [selectedAdType, setSelectedAdType] = useState(adTypes[0].value)
+	const [inputAmount, setInputAmount] = useState(0)
 
 	const handleTokenChange = e => {
 		setSelectedToken(e.value)
@@ -42,6 +43,10 @@ const PeerToPeerPage = () => {
 
 	const handleAdTypeChange = e => {
 		setSelectedAdType(e.value)
+	}
+
+	const handleInputAmount = e => {
+		setInputAmount(e.target.value)
 	}
 
 	const getAds = () => {
@@ -86,7 +91,9 @@ const PeerToPeerPage = () => {
 					</div>
 
 					<div className={style.PeerToPeerCurrency}>
-						<MainInput />
+						<MainInput
+							change={handleInputAmount}
+						/>
 						<div>
 							<span>Fiat</span>
 							<DropDown
