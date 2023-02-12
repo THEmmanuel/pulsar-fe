@@ -1,13 +1,13 @@
 import React from "react";
 import style from './P2PCard.module.css';
 
-const P2PCard = () => {
+const P2PCard = props => {
 	return (
 		<div className={style.P2PCardWrapper}>
 			<div className={style.P2PCard}>
 				<div className={style.P2PCardHeadingWrapper}>
 					<span className={style.P2PCardHeading}>Buy Crypto</span>
-					<span>Image</span>
+					<img src={props.cardImage} alt="" />
 				</div>
 
 				<span className={style.P2PCardText}>

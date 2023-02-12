@@ -5,6 +5,8 @@ import PeerToPeerHome from '../../containers/PeerToPeerHome/PeerToPeerHome';
 import PortfolioHome from '../../containers/PortfolioHome/PortfolioHome';
 import DropDown from '../../components/DropDown/DropDown';
 import P2PCard from '../../components/P2PCard/P2PCard';
+import buyImage from '../../assets/BuyCryptoImage.svg';
+import sellImage from '../../assets/SellCryptoImage.svg';
 
 const tokens = [
 	{ value: 'ETH', label: 'Ethereum' },
@@ -59,8 +61,12 @@ const Dashboard = () => {
 						</div>
 
 						<div className={style.PeerToPeerWrapper}>
-							<P2PCard />
-							<P2PCard />
+							<P2PCard
+								cardImage={buyImage}
+							/>
+							<P2PCard
+								cardImage={sellImage}
+							/>
 						</div>
 					</div>
 					<PortfolioHome />
