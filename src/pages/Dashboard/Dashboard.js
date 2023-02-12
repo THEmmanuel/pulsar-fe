@@ -4,6 +4,7 @@ import MarketCharts from '../../components/MarketCharts/MarketCharts';
 import PeerToPeerHome from '../../containers/PeerToPeerHome/PeerToPeerHome';
 import PortfolioHome from '../../containers/PortfolioHome/PortfolioHome';
 import DropDown from '../../components/DropDown/DropDown';
+import P2PCard from '../../components/P2PCard/P2PCard';
 
 const tokens = [
 	{ value: 'ETH', label: 'Ethereum' },
@@ -35,7 +36,7 @@ const Dashboard = () => {
 							<div className={style.PeerToPeerHeading}>
 								<div className={style.AdTypeWrapper}>
 									<span className={style.PeerToPeerHeadingText}>
-										Peer To Peer Ads
+										Trade Cryptocurrencies
 									</span>
 									<DropDown
 										DropDownText='USDT'
@@ -47,7 +48,7 @@ const Dashboard = () => {
 									/>
 									<DropDown
 										DropDownText='Buy'
-										options={adTtype}										
+										options={adTtype}
 									/>
 								</div>
 
@@ -58,7 +59,8 @@ const Dashboard = () => {
 						</div>
 
 						<div className={style.PeerToPeerWrapper}>
-							
+							<P2PCard />
+							<P2PCard />
 						</div>
 					</div>
 					<PortfolioHome />
