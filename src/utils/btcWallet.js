@@ -6,6 +6,7 @@
 import axios from 'axios';
 // const bitcoin = require('bitcoinjs-lib')
 import bitcore from 'bitcore-lib';
+// mv4rnyY3Su5gjcDNzbMLKBQkBicCtHUtFB
 
 const blockcypherToken = 'a7b3077dd70a47beb1edeaea116f2c60'
 

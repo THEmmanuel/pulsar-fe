@@ -58,12 +58,7 @@ const Dashboard = () => {
 						</div>
 
 						<div className={style.PeerToPeerWrapper}>
-							<PeerToPeerHome />
-							<PeerToPeerHome />
-							<PeerToPeerHome />
-							<PeerToPeerHome />
-							<PeerToPeerHome />
-							<PeerToPeerHome />
+							
 						</div>
 					</div>
 					<PortfolioHome />
