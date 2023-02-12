@@ -38,7 +38,7 @@ const Dashboard = () => {
 									<span className={style.PeerToPeerHeadingText}>
 										Trade Cryptocurrencies
 									</span>
-									<DropDown
+									{/* <DropDown
 										DropDownText='USDT'
 										options={tokens}
 									/>
@@ -49,7 +49,7 @@ const Dashboard = () => {
 									<DropDown
 										DropDownText='Buy'
 										options={adTtype}
-									/>
+									/> */}
 								</div>
 
 								<span>
