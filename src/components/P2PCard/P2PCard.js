@@ -4,9 +4,14 @@ import style from './P2PCard.module.css';
 const P2PCard = props => {
 	return (
 		<div className={style.P2PCardWrapper}>
-			<div className={style.P2PCard}>
+			<div
+				className={style.P2PCard}
+				style={
+					{ backgroundColor: props.backgroundColor }
+				}
+			>
 				<div className={style.P2PCardHeadingWrapper}>
-					<span className={style.P2PCardHeading}>Buy Crypto</span>
+					<span className={style.P2PCardHeading}>{props.headingText}</span>
 					<img src={props.cardImage} alt="" className={style.P2PCardImage} />
 				</div>
 

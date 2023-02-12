@@ -1,5 +1,4 @@
 .P2PCardWrapper {
-	background-color: #C9EEE4;
 	border-radius: 10px;
 }
 
@@ -21,6 +20,7 @@
 	margin: auto;
 	text-align: left;
 	padding: 50px 50px 100px;
+	border-radius: 10px;
 }
 
 .P2PCardText {

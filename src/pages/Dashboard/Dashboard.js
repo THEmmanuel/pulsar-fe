@@ -62,10 +62,14 @@ const Dashboard = () => {
 
 						<div className={style.PeerToPeerWrapper}>
 							<P2PCard
+								headingText='Buy Crypto'
 								cardImage={buyImage}
+								backgroundColor='#C9EEE4'
 							/>
 							<P2PCard
+								headingText='Sell Crypto'
 								cardImage={sellImage}
+								backgroundColor='#DCA1A1'
 							/>
 						</div>
 					</div>
