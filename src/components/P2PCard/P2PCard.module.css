@@ -1,28 +1,33 @@
-.P2PCardWrapper{
+.P2PCardWrapper {
 	background-color: #C9EEE4;
 	border-radius: 10px;
 }
 
-.P2PCardHeadingWrapper{
+.P2PCardHeadingWrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	margin-bottom: 20px;
 }
 
-.P2PCardHeading{
+.P2PCardHeading {
 	font-size: 1em;
 	font-weight: 600;
 	opacity: 60%;
 }
 
-.P2PCard{
+.P2PCard {
 	width: 70%;
 	margin: auto;
 	text-align: left;
-	padding: 50px 50px 100px ;
+	padding: 50px 50px 100px;
 }
 
-.P2PCardText{
+.P2PCardText {
 	font-size: 0.8em;
 	opacity: 50%;
+}
+
+.P2PCardImage {
+	height: 70px;
 }

@@ -7,7 +7,7 @@ const P2PCard = props => {
 			<div className={style.P2PCard}>
 				<div className={style.P2PCardHeadingWrapper}>
 					<span className={style.P2PCardHeading}>Buy Crypto</span>
-					<img src={props.cardImage} alt="" />
+					<img src={props.cardImage} alt="" className={style.P2PCardImage} />
 				</div>
 
 				<span className={style.P2PCardText}>
