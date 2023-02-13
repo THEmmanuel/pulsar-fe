@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import style from './PeerToPeerPage.module.css';
@@ -27,10 +27,11 @@ const adTypes = [
 ]
 
 const PeerToPeerPage = () => {
+	const { adType } = useParams()
 	const [ads, setAds] = useState([])
 	const [selectedToken, setSelectedToken] = useState(tokens[0].value);
 	const [selectedFiat, setSelectedFiat] = useState(fiatCurrencies[0].value)
-	const [selectedAdType, setSelectedAdType] = useState(adTypes[0].value)
+	const [selectedAdType, setSelectedAdType] = useState(adType)
 	const [inputAmount, setInputAmount] = useState(0)
 
 	const handleTokenChange = e => {
@@ -74,7 +75,6 @@ const PeerToPeerPage = () => {
 						<div>
 							<span>Ad type</span>
 							<DropDown
-								DropDownText='Buy'
 								onSelect={handleAdTypeChange}
 								options={adTypes}
 							/>
