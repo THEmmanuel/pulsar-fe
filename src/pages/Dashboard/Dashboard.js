@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from './Dashboard.module.css';
 import MarketCharts from '../../components/MarketCharts/MarketCharts';
 import PeerToPeerHome from '../../containers/PeerToPeerHome/PeerToPeerHome';
@@ -40,18 +41,6 @@ const Dashboard = () => {
 									<span className={style.PeerToPeerHeadingText}>
 										Trade Cryptocurrencies
 									</span>
-									{/* <DropDown
-										DropDownText='USDT'
-										options={tokens}
-									/>
-									<DropDown
-										DropDownText='NGN'
-										options={fiatCurrencies}
-									/>
-									<DropDown
-										DropDownText='Buy'
-										options={adTtype}
-									/> */}
 								</div>
 
 								<span>
@@ -61,16 +50,22 @@ const Dashboard = () => {
 						</div>
 
 						<div className={style.PeerToPeerWrapper}>
-							<P2PCard
-								headingText='Buy Crypto'
-								cardImage={buyImage}
-								backgroundColor='#C9EEE4'
-							/>
-							<P2PCard
-								headingText='Sell Crypto'
-								cardImage={sellImage}
-								backgroundColor='#DCA1A1'
-							/>
+							<Link to={`/p2p/buy`}>
+								<P2PCard
+									headingText='Buy Crypto'
+									cardImage={buyImage}
+									backgroundColor='#C9EEE4'
+								/>
+							</Link>
+
+							<Link to={`/p2p/sell`}>
+								<P2PCard
+									headingText='Sell Crypto'
+									cardImage={sellImage}
+									backgroundColor='#DCA1A1'
+								/>
+							</Link>
+
 						</div>
 					</div>
 					<PortfolioHome />

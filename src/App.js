@@ -119,7 +119,7 @@ function App() {
 
 								<Route
 									exact
-									path='/p2p'
+									path='/p2p/:adType'
 									element={<PeerToPeerPage />}
 								/>
 
