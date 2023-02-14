@@ -28,14 +28,9 @@ import { generateOrderToken } from '../../utils/generateOrderToken';
 //need to update this based on if the ad is a buy or sell ad
 
 const API_URL = 'http://localhost:9000';
+// Set up logic based on adType, buy or sell
 
-const createOrderHandler = () => {
-	//generate a unique transaction id and time stamp
-	// generateOrderToken()
-	// make a apost request to the backend, create and API route there. Store the new order and it's details...
-	console.log(generateOrderToken())
-}
-
+const OrderPage = () => { }
 const BuyPage = props => {
 	const peerToPeerID = useParams()
 	const [adInfo, setAdInfo] = useState('')
@@ -76,7 +71,6 @@ const BuyPage = props => {
 					<button
 						className={style.ButtomButtonProceed}
 						onClick={() => {
-							createOrderHandler()
 							props.proceed()
 						}}>
 						Buy {adInfo.token}
@@ -94,7 +88,9 @@ const BuyPageConfirm = props => {
 			<div className={style.BuyPageContainer}>
 				<div className={style.BuyPageContent}>
 					<UserInformation />
-					<UserInformationContent />
+					<UserInformationContent
+						orderToken={props.orderToken}
+					/>
 					<UserAccountDetails />
 					<UserTerms />
 				</div>
@@ -127,16 +123,36 @@ const BuyPageStatus = props => {
 }
 
 const BuyPageContent = () => {
-	const [activePage, setActivePage] = useState('buy')
-	const buyCoinHandler = () => setActivePage('confirm');
+	const [activePage, setActivePage] = useState('buy');
+	const [orderToken, setOrderToken] = useState('');
+
+
+	const createOrderHandler = () => {
+		//generate a unique transaction id and time stamp
+		// generateOrderToken()
+		// make a apost request to the backend, create and API route there. Store the new order and it's details...
+		setOrderToken(generateOrderToken())
+	}
+
+
+
+	const buyCoinHandler = () => {
+		createOrderHandler()
+		setActivePage('confirm');
+	}
 	const confirmTransactionHandler = () => setActivePage('status')
 
 	if (activePage === 'buy') {
-		return <BuyPage proceed={buyCoinHandler} />
+		return <BuyPage
+			orderToken={orderToken}
+			proceed={buyCoinHandler} />
 	}
 
 	if (activePage === 'confirm') {
-		return <BuyPageConfirm proceed={confirmTransactionHandler} />
+		return <BuyPageConfirm
+			orderToken={orderToken}
+			proceed={confirmTransactionHandler}
+		/>
 	}
 
 	if (activePage === 'status') {

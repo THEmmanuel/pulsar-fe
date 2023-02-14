@@ -2,7 +2,7 @@ import React from 'react';
 import style from './UserInformationContent.module.css';
 import MainDropdown from '../MainDropdown/MainDropdown';
 
-const UserInformationContent = () => {
+const UserInformationContent = props => {
 	return (
 		<div className={style.UserInformationContentWrapper}>
 			<div className={style.UserInformationContent}>
@@ -38,7 +38,7 @@ const UserInformationContent = () => {
 
 					<div className={style.BuyPriceInformation}>
 						<span className={style.BuyPriceTitle}>Order Number</span>
-						<span className={style.BuyPriceValue}>256367egdw7627w28</span>
+						<span className={style.BuyPriceValue}>{props.orderToken}</span>
 					</div>
 				</div>
 			</div>
