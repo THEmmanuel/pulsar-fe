@@ -95,6 +95,7 @@ const PeerToPeerPage = () => {
 							change={handleInputAmount}
 						/>
 						<div>
+
 							<span>Fiat</span>
 							<DropDown
 								DropDownText='USD'
@@ -114,7 +115,7 @@ const PeerToPeerPage = () => {
 
 			<div className={style.PeerToPeerWrapper}>
 				{filteredAds.map(ad =>
-					<Link to={`/buy-page/${ad._id}`}>
+					<Link to={`/buy-page/${ad._id}/${inputAmount}`}>
 						<PeerToPeerAd
 							adType={ad.adType}
 							username={ad.username}
