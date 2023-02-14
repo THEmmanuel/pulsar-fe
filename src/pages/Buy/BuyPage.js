@@ -32,11 +32,13 @@ const API_URL = 'http://localhost:9000';
 
 const OrderPage = () => { }
 const BuyPage = props => {
-	const peerToPeerID = useParams()
+	const {id, amount} = useParams()
+	
 	const [adInfo, setAdInfo] = useState('')
+	
 
 	const getAdInfo = () => {
-		axios.get(`${API_URL}/p2p/${peerToPeerID.id}`)
+		axios.get(`${API_URL}/p2p/${id}`)
 			.then(res => setAdInfo(res.data))
 	}
 
