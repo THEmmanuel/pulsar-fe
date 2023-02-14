@@ -3,7 +3,7 @@ import style from './UserInformationContent.module.css';
 import MainDropdown from '../MainDropdown/MainDropdown';
 
 const UserInformationContent = props => {
-	
+
 	return (
 		<div className={style.UserInformationContentWrapper}>
 			<div className={style.UserInformationContent}>
@@ -32,7 +32,7 @@ const UserInformationContent = props => {
 
 					<div className={style.BuyPriceInformation}>
 						<span className={style.BuyPriceTitle}>Fiat Amount</span>
-						<span className={style.BuyPriceValue}>$602.75</span>
+						<span className={style.BuyPriceValue}>${props.amount}</span>
 					</div>
 
 					<div className={style.BuyPriceInformation}>
