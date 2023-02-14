@@ -35,7 +35,7 @@ const BuyPage = props => {
 	const {id, amount} = useParams()
 	
 	const [adInfo, setAdInfo] = useState('')
-	
+	const [cryptoAmount, setCryptoAmount] = useState(amount)
 
 	const getAdInfo = () => {
 		axios.get(`${API_URL}/p2p/${id}`)
@@ -61,7 +61,9 @@ const BuyPage = props => {
 								available={adInfo.available}
 								paymentMethod={adInfo.paymentMethod}
 							/>
-							<UserInformationContent />
+							<UserInformationContent 
+								amount = {cryptoAmount}
+							/>
 							<UserTerms />
 						</div>
 						: <span>Loading</span>

@@ -3,6 +3,7 @@ import style from './UserInformationContent.module.css';
 import MainDropdown from '../MainDropdown/MainDropdown';
 
 const UserInformationContent = props => {
+	
 	return (
 		<div className={style.UserInformationContentWrapper}>
 			<div className={style.UserInformationContent}>
@@ -16,14 +17,12 @@ const UserInformationContent = props => {
 					<div>
 						<MainDropdown/>	
 					</div>
-
-
 				</div>
 
 				<div className={style.BuyPriceInformationWrapper}>
 					<div className={style.BuyPriceInformation}>
 						<span className={style.BuyPriceTitle}>Crypto Amount</span>
-						<span className={style.BuyPriceValue}>600 USDT</span>
+						<span className={style.BuyPriceValue}>{props.amount} USDT</span>
 					</div>
 
 					<div className={style.BuyPriceInformation}>
