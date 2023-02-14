@@ -9,6 +9,7 @@ import UserInformationContent from '../../components/UserInformationContent/User
 import UserAccountDetails from '../../components/UserAccountDetails/UserAccountDetails';
 import TransactionStatus from '../../components/TransactionStatus/TransactionStatus';
 import TransactionCTAButtons from '../../components/TransactionCTAButtons/TransactionCTAButtons';
+import { generateOrderToken } from '../../utils/generateOrderToken';
 
 // <UserInformation />
 // <UserInformationContent />
@@ -30,8 +31,9 @@ const API_URL = 'http://localhost:9000';
 
 const createOrderHandler = () => {
 	//generate a unique transaction id and time stamp
+	// generateOrderToken()
 	// make a apost request to the backend, create and API route there. Store the new order and it's details...
-	console.log('create order')
+	console.log(generateOrderToken())
 }
 
 const BuyPage = props => {
