@@ -16,7 +16,23 @@ import TransactionCTAButtons from '../../components/TransactionCTAButtons/Transa
 // <UserTerms />
 // <TransactionStatus />
 
+// const uniqueId = () => {
+//   const dateString = Date.now().toString(36);
+//   const randomness = Math.random().toString(36).substr(2);
+//   return dateString + randomness;
+// };
+
+// console.log(uniqueId())
+
+//need to update this based on if the ad is a buy or sell ad
+
 const API_URL = 'http://localhost:9000';
+
+const createOrderHandler = () => {
+	//generate a unique transaction id and time stamp
+	// make a apost request to the backend, create and API route there. Store the new order and it's details...
+	console.log('create order')
+}
 
 const BuyPage = props => {
 	const peerToPeerID = useParams()
@@ -37,19 +53,19 @@ const BuyPage = props => {
 		<div className={style.BuyPageWrapper}>
 			<div className={style.BuyPageContainer}>
 				{
-					adInfo ? 
-					<div className={style.BuyPageContent}>
-						<UserInformation
-							username={adInfo.username}
-							lowestOrder = {adInfo.lowestOrder}
-							highestOrder = {adInfo.highestOrder}
-							available = {adInfo.available}
-							paymentMethod = {adInfo.paymentMethod}
-						/>
-						<UserInformationContent />
-						<UserTerms />
-					</div>
-					: <span>Loading</span>
+					adInfo ?
+						<div className={style.BuyPageContent}>
+							<UserInformation
+								username={adInfo.username}
+								lowestOrder={adInfo.lowestOrder}
+								highestOrder={adInfo.highestOrder}
+								available={adInfo.available}
+								paymentMethod={adInfo.paymentMethod}
+							/>
+							<UserInformationContent />
+							<UserTerms />
+						</div>
+						: <span>Loading</span>
 				}
 			</div>
 
@@ -57,7 +73,10 @@ const BuyPage = props => {
 				<div className={style.ButtonWrapper}>
 					<button
 						className={style.ButtomButtonProceed}
-						onClick={() => props.proceed()}>
+						onClick={() => {
+							createOrderHandler()
+							props.proceed()
+						}}>
 						Buy {adInfo.token}
 					</button>
 					<button className={style.ButtomButtonCancel}>Cancel</button>
