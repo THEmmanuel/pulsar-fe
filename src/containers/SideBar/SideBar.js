@@ -16,8 +16,10 @@ const SideBar = () => {
 	return (
 		<div className={style.SideBar}>
 			<div className={style.LogoContainer}>
-				<span>Logo</span>
-				<span>Tunnel</span>
+				<Link to='/home'>
+					<span>Logo</span>
+					<span>Tunnel</span>
+				</Link>
 			</div>
 
 			<div className={style.SideBarButtonsWrapper}>
