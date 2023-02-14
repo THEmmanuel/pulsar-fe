@@ -20,7 +20,7 @@ const API_URL = 'http://localhost:9000';
 
 const BuyPage = props => {
 	const peerToPeerID = useParams()
-	const [adInfo, setAdInfo] = useState(null)
+	const [adInfo, setAdInfo] = useState('')
 
 	const getAdInfo = () => {
 		axios.get(`${API_URL}/p2p/${peerToPeerID.id}`)
@@ -58,7 +58,7 @@ const BuyPage = props => {
 					<button
 						className={style.ButtomButtonProceed}
 						onClick={() => props.proceed()}>
-						Buy USDT
+						Buy {adInfo.token}
 					</button>
 					<button className={style.ButtomButtonCancel}>Cancel</button>
 				</div>

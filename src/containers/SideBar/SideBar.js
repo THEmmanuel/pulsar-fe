@@ -28,7 +28,7 @@ const SideBar = () => {
 					/>
 				</Link>
 
-				<Link to='/p2p'>
+				<Link to='/p2p/buy'>
 					<SideBarButton
 						SidebarIcon={p2pIcon}
 						SidebarText='Peer To Peer'
