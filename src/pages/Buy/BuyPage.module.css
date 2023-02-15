@@ -78,3 +78,8 @@
 	font-weight: 600;
 	font-size: 1.5em;
 }
+
+.OrderInfo{
+	display: flex;
+	flex-direction: column;
+}

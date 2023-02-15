@@ -71,7 +71,10 @@ const OrderPage = (props) => {
 							/>
 
 							{orderCreated ?
-								<span className={style.OrderCountdown}>10:00</span>
+								<div className={style.OrderInfo}>
+									<span>Your order {orderToken} has been created</span>
+									<span className={style.OrderCountdown}>10:00</span>
+								</div>
 								: null}
 
 							<UserAccountDetails
