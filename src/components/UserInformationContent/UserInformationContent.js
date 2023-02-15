@@ -5,6 +5,11 @@ import MainDropdown from '../MainDropdown/MainDropdown';
 const UserInformationContent = props => {
 	const [orderAmount, setOrderAmount] = useState(props.amount);
 
+	const handleInputAmount = e => {
+		setOrderAmount(e.target.value)
+		console.log('running')
+	}
+
 	return (
 		<div className={style.UserInformationContentWrapper}
 			style={
@@ -18,7 +23,11 @@ const UserInformationContent = props => {
 			<div className={style.UserInformationContent}>
 				<div className={style.BuyPageInputWrapper}>
 					<div>
-						<input type="text" className={style.AmountInput} />
+						<input
+							type="text"
+							className={style.AmountInput}
+							onChange={handleInputAmount}
+						/>
 						<span>{props.token}</span>
 					</div>
 
