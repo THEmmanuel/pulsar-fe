@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './UserInformationContent.module.css';
 import MainDropdown from '../MainDropdown/MainDropdown';
 
 const UserInformationContent = props => {
+	const [orderAmount, setOrderAmount] = useState(props.amount);
 
 	return (
 		<div className={style.UserInformationContentWrapper}
@@ -29,7 +30,7 @@ const UserInformationContent = props => {
 				<div className={style.BuyPriceInformationWrapper}>
 					<div className={style.BuyPriceInformation}>
 						<span className={style.BuyPriceTitle}>Crypto Amount</span>
-						<span className={style.BuyPriceValue}>{props.amount} {props.token}</span>
+						<span className={style.BuyPriceValue}>{orderAmount} {props.token}</span>
 					</div>
 
 					<div className={style.BuyPriceInformation}>

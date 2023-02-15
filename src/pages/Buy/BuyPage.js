@@ -40,9 +40,8 @@ const OrderPage = (props) => {
 
 	const createOrderHandler = () => {
 		//generate a unique transaction id and time stamp
-		// generateOrderToken()
-		// make a apost request to the backend, create and API route there. Store the new order and it's details...
 		setOrderToken(generateOrderToken())
+		// make a apost request to the backend, create and API route there. Store the new order and it's details...
 	}
 
 	const getAdInfo = () => {
@@ -53,8 +52,6 @@ const OrderPage = (props) => {
 	useEffect(() => {
 		getAdInfo()
 	}, [])
-
-	// console.log(peerToPeerID.id)
 
 	return (
 		<div className={style.BuyPageWrapper}>
