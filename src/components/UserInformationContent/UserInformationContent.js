@@ -10,8 +10,7 @@ const UserInformationContent = props => {
 				<div className={style.BuyPageInputWrapper}>
 					<div>
 						<input type="text" className={style.AmountInput} />
-						<span>USDT</span>
-						<span>All</span>
+						<span>{props.token}</span>
 					</div>
 
 					<div>
@@ -22,7 +21,7 @@ const UserInformationContent = props => {
 				<div className={style.BuyPriceInformationWrapper}>
 					<div className={style.BuyPriceInformation}>
 						<span className={style.BuyPriceTitle}>Crypto Amount</span>
-						<span className={style.BuyPriceValue}>{props.amount} USDT</span>
+						<span className={style.BuyPriceValue}>{props.amount} {props.token}</span>
 					</div>
 
 					<div className={style.BuyPriceInformation}>
