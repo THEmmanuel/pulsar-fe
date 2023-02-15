@@ -31,12 +31,12 @@ const API_URL = 'http://localhost:9000';
 // Set up logic based on adType, buy or sell
 
 const OrderPage = (props) => {
-	const { id, amount } = useParams()
+	const { id, amount } = useParams();
 
-	const [adInfo, setAdInfo] = useState('')
-	const [cryptoAmount, setCryptoAmount] = useState(amount)
+	const [adInfo, setAdInfo] = useState('');
+	const [cryptoAmount, setCryptoAmount] = useState(amount);
 	const [orderToken, setOrderToken] = useState('');
-	const [orderStatus, setOrderStatus] = useState('')
+	const [orderStatus, setOrderStatus] = useState('');
 
 	const createOrderHandler = () => {
 		//generate a unique transaction id and time stamp
@@ -68,11 +68,16 @@ const OrderPage = (props) => {
 								highestOrder={adInfo.highestOrder}
 								available={adInfo.available}
 								paymentMethod={adInfo.paymentMethod}
+								adType={adInfo.adType}
 							/>
+
+							<UserAccountDetails />
+
 							<UserInformationContent
 								amount={cryptoAmount}
 								token={adInfo.token}
 								orderToken={orderToken}
+								adType={adInfo.adType}
 							/>
 							<UserTerms />
 						</div>
