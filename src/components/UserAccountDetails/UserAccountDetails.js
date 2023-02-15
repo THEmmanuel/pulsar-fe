@@ -1,9 +1,17 @@
 import React from 'react';
 import style from './UserAccountDetails.module.css';
 
-const UserAccountDetails = () => {
+const UserAccountDetails = props => {
 	return (
-		<div className={style.UserInformationContentWrapper}>
+		<div className={style.UserInformationContentWrapper}
+			style={
+				props.adType === 'buy' ?
+					{
+						backgroundColor: '#BEE8E1'
+					} : {
+						backgroundColor: '#F7E2E3'
+					}}
+		>
 			<div>
 				<h4>Payment method</h4>
 				<span className={style.PaymentMethod}>Bank transfer</span>
