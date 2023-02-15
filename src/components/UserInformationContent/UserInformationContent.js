@@ -22,7 +22,7 @@ const UserInformationContent = props => {
 
 			<div className={style.UserInformationContent}>
 				<div className={style.BuyPageInputWrapper}>
-					<div>
+					<div className={style.InputContainer}>
 						<input
 							type="text"
 							value={orderAmount}
