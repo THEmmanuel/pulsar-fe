@@ -36,11 +36,13 @@ const OrderPage = (props) => {
 	const [adInfo, setAdInfo] = useState('');
 	const [cryptoAmount, setCryptoAmount] = useState(amount);
 	const [orderToken, setOrderToken] = useState('');
-	const [orderStatus, setOrderStatus] = useState('');
+	const [orderCreated, setOrderCreated] = useState(false);
 
 	const createOrderHandler = () => {
 		//generate a unique transaction id and time stamp
-		setOrderToken(generateOrderToken())
+		setOrderToken(generateOrderToken());
+		setOrderCreated(true);
+		// start a timer, end and cancel if the order isn't fufilled in 30 mins
 		// make a apost request to the backend, create and API route there. Store the new order and it's details...
 	}
 
