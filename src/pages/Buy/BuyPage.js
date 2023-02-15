@@ -70,6 +70,10 @@ const OrderPage = (props) => {
 								adType={adInfo.adType}
 							/>
 
+							{orderCreated ?
+								<span className={style.OrderCountdown}>10:00</span>
+								: null}
+
 							<UserAccountDetails
 								adType={adInfo.adType}
 
