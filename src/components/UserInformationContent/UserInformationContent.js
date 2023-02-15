@@ -25,6 +25,7 @@ const UserInformationContent = props => {
 					<div>
 						<input
 							type="text"
+							value={orderAmount}
 							className={style.AmountInput}
 							onChange={handleInputAmount}
 						/>
