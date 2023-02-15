@@ -71,7 +71,10 @@ const OrderPage = (props) => {
 								adType={adInfo.adType}
 							/>
 
-							<UserAccountDetails />
+							<UserAccountDetails
+								adType={adInfo.adType}
+
+							/>
 
 							<UserInformationContent
 								amount={cryptoAmount}
@@ -79,6 +82,7 @@ const OrderPage = (props) => {
 								orderToken={orderToken}
 								adType={adInfo.adType}
 							/>
+
 							<UserTerms />
 						</div>
 						: <span>Loading</span>
