@@ -39,11 +39,13 @@ const OrderPage = (props) => {
 	const [cryptoAmount, setCryptoAmount] = useState(amount);
 	const [orderToken, setOrderToken] = useState('');
 	const [orderCreated, setOrderCreated] = useState(false);
+	const [orderStatus, setOrderStatus] = useState('')
 
 	const createOrderHandler = () => {
 		//generate a unique transaction id and time stamp
 		setOrderToken(generateOrderToken());
 		setOrderCreated(true);
+		setOrderStatus('pending')
 		// start a timer, end and cancel if the order isn't fufilled in 30 mins
 		// make a apost request to the backend, create and API route there. Store the new order and it's details...
 	}
@@ -75,7 +77,7 @@ const OrderPage = (props) => {
 							{orderCreated ?
 								<div className={style.OrderInfo}>
 									<span>Your order {orderToken} has been created</span>
-									<Timer initialTime={1800}/>
+									<Timer initialTime={1800} />
 								</div>
 								: null}
 
@@ -99,14 +101,28 @@ const OrderPage = (props) => {
 
 			<div className={style.ButtonContainer}>
 				<div className={style.ButtonWrapper}>
-					<button
-						className={style.ButtomButtonProceed}
-						onClick={() => {
-							createOrderHandler()
-						}}>
+					{
+						orderCreated ?
 
-						Buy {adInfo.token}
-					</button>
+							<button
+								className={style.ButtomButtonProceed}
+								// onClick={() => {
+								// 	createOrderHandler()
+								// }}
+								>
+
+								Paid, Notify Seller
+							</button>
+							:
+							<button
+								className={style.ButtomButtonProceed}
+								onClick={() => {
+									createOrderHandler()
+								}}>
+
+								Buy {adInfo.token}
+							</button>
+					}
 					<button className={style.ButtomButtonCancel}>Cancel</button>
 				</div>
 			</div>
