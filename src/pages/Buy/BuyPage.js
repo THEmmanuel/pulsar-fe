@@ -106,9 +106,10 @@ const OrderPage = (props) => {
 
 							<button
 								className={style.ButtomButtonProceed}
-								// onClick={() => {
-								// 	createOrderHandler()
-								// }}
+								onClick={() => {
+									// createOrderHandler()
+									alert('notified seller, waiting for confirmation to release funds')
+								}}
 								>
 
 								Paid, Notify Seller
