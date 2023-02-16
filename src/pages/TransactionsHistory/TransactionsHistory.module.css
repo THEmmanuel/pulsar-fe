@@ -1,0 +1,18 @@
+.TransactionHistory {
+	width: 100%;
+}
+
+.TransactionHistoryTable {
+	width: 100%;
+	text-align: left;
+}
+
+.TransactionsHistoryPage{
+	width: 1280px;
+	max-width: 1280px;
+}
+
+.TransactionsHistoryCard{
+	background-color: #8B95AF;
+	border: none;
+}
