@@ -16,6 +16,7 @@ import PeerToPeerPage from './pages/PeerToPeerPage/PeerToPeerPage';
 import Login from './pages/Auth/Login';
 import CreateAdPage from './pages/CreateAdPage/CreateAdPage';
 import TransactionsHistory from './pages/TransactionsHistory/TransactionsHistory';
+import TransactionPage from './pages/TransactionPage/TransactionPage';
 
 import { useUser } from '@clerk/clerk-react';
 import { UserContext } from './contexts/UserContext';
@@ -146,6 +147,12 @@ function App() {
 									exact
 									path='/transactions-history'
 									element={<TransactionsHistory />}
+								/>
+
+								<Route
+									exact
+									path='/transaction'
+									element={<TransactionPage />}
 								/>
 
 								<Route
