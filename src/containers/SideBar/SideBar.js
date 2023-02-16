@@ -37,11 +37,18 @@ const SideBar = () => {
 					/>
 				</Link>
 
+				<Link to='/p2p/buy'>
+					<SideBarButton
+						SidebarIcon={p2pIcon}
+						SidebarText='Transactions History'
+					/>
+				</Link>
+
 				{/* <Link to='/p2p'> */}
-				<SideBarButton
+				{/* <SideBarButton
 					SidebarIcon={swapIcon}
 					SidebarText='Swap'
-				/>
+				/> */}
 				{/* </Link> */}
 
 				<Link to='/wallets'>
