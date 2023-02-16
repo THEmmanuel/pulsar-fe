@@ -1,0 +1,45 @@
+.TransactionPage{
+	display: flex;
+	flex-direction: column;
+}
+
+.TransactionStatusContainer{
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+}
+
+.TransactionStatusHeading{
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+.TransactionStatusIcon{
+	width: 120px;
+	height: 120px;
+	background-color: blue;
+}
+
+.TransactionStatus{
+	
+}
+
+.OrderTokenWrapper{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	background-color: #FFF;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.OrderDetailsWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.OrderDetails{
+	width: 400px;
+	background-color: green;
+}
