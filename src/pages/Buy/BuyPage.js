@@ -7,6 +7,8 @@ import UserTerms from '../../components/UserTerms/UserTerms';
 import UserInformation from '../../components/UserInformation/UserInformation';
 import UserInformationContent from '../../components/UserInformationContent/UserInformationContent';
 import UserAccountDetails from '../../components/UserAccountDetails/UserAccountDetails';
+import Timer from '../../components/Timer/Timer';
+
 import TransactionStatus from '../../components/TransactionStatus/TransactionStatus';
 import TransactionCTAButtons from '../../components/TransactionCTAButtons/TransactionCTAButtons';
 import { generateOrderToken } from '../../utils/generateOrderToken';
@@ -73,7 +75,7 @@ const OrderPage = (props) => {
 							{orderCreated ?
 								<div className={style.OrderInfo}>
 									<span>Your order {orderToken} has been created</span>
-									<span className={style.OrderCountdown}>10:00</span>
+									<Timer initialTime={1800}/>
 								</div>
 								: null}
 
