@@ -23,8 +23,12 @@
 	border-radius: 50%;
 }
 
-.TransactionStatus{
+/* .TransactionStatus{
 	
+} */
+
+.OrderToken{
+	color: #008DFF;
 }
 
 .OrderTokenWrapper{
@@ -65,4 +69,9 @@
 .OrderDetailsContainer{
 	display: flex;
 	flex-direction: column;
+	gap: 10px;
+}
+
+.OrderDetailText{
+	font-weight: 700;
 }
