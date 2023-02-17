@@ -37,10 +37,22 @@ const TransactionPage = () => {
 				</div>
 
 				<div className={style.OrderDetails}>
-					<span>Your Order</span>
-					<div>
-						<span>Order Type</span>
-						<span>Buy or sell</span>
+					<h3>Order Summary</h3>
+					<div className={style.OrderDetailsContainer}>
+						<div className={style.OrderDetail}>
+							<span className={style.OrderDetailHeading}>Order Type</span>
+							<span className={style.OrderDetailText}>Buy or sell</span>
+						</div>
+
+						<div className={style.OrderDetail}>
+							<span className={style.OrderDetailHeading}>Order Typeeeeee</span>
+							<span className={style.OrderDetailText}>Buy or selllllllllll</span>
+						</div>
+
+						<div className={style.OrderDetail}>
+							<span className={style.OrderDetailHeading}>Order Type</span>
+							<span className={style.OrderDetailText}>Buy or sell</span>
+						</div>
 					</div>
 				</div>
 			</div>

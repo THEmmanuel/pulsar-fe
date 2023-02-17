@@ -37,7 +37,7 @@ const SideBar = () => {
 					/>
 				</Link>
 
-				<Link to='/p2p/buy'>
+				<Link to='/transactions-history'>
 					<SideBarButton
 						SidebarIcon={p2pIcon}
 						SidebarText='Transactions History'
