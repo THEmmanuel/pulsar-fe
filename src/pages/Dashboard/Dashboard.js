@@ -43,9 +43,11 @@ const Dashboard = () => {
 									</span>
 								</div>
 
-								<span>
-									See all P2P ads
-								</span>
+								<Link to={`/p2p/buy`}>
+									<span>
+										See all P2P ads
+									</span>
+								</Link>
 							</div>
 						</div>
 

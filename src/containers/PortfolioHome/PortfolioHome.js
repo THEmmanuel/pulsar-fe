@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from './PortfolioHome.module.css';
 import PortfolioAsset from "../../components/PortfolioAsset/PortfolioAsset";
 
@@ -19,7 +20,9 @@ const PortfolioHome = () => {
 			</div>
 
 			<div>
-				<span className={style.PortfolioWalletCTA}>See wallets</span>
+				<Link to={`/wallets`}>
+					<span className={style.PortfolioWalletCTA}>See wallets</span>
+				</Link>
 			</div>
 		</div>
 	)
