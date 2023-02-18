@@ -47,7 +47,18 @@ const OrderPage = (props) => {
 		setOrderCreated(true);
 		setOrderStatus('pending')
 		// start a timer, end and cancel if the order isn't fufilled in 30 mins
-		// make a apost request to the backend, create and API route there. Store the new order and it's details...
+		// if time === 0, cancle trade and return crypto to sellers wallet
+
+		// make a post request to the backend, create and API route there. Store the new order and it's details...
+		// axios.post(order details)
+
+		// escrow the crypto from the user's account...
+		// const escrow = (crypto amount) => {}
+
+		// if it's a sell ad, when the buyer has made payment, display a confirm reciept button for the seller
+		// maybe allow the user to create a tarnsfer pin before the transaction is completed and the funds in escrow are released to the buyer
+
+		// Mark the order as completed if all goes well
 	}
 
 	const getAdInfo = () => {
