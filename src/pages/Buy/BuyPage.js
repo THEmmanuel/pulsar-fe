@@ -40,12 +40,18 @@ const OrderPage = (props) => {
 	const [orderToken, setOrderToken] = useState('');
 	const [orderCreated, setOrderCreated] = useState(false);
 	const [orderStatus, setOrderStatus] = useState('')
+	const [sellerConfirmedOrder, setSellerConfirmedOrder] = useState(false)
+
+	const processOrderHandler = () => [
+	
+	]
 
 	const createOrderHandler = () => {
 		//generate a unique transaction id and time stamp
 		setOrderToken(generateOrderToken());
 		setOrderCreated(true);
 		setOrderStatus('pending')
+
 		// start a timer, end and cancel if the order isn't fufilled in 30 mins
 		// if time === 0, cancle trade and return crypto to sellers wallet
 
@@ -53,12 +59,26 @@ const OrderPage = (props) => {
 		// axios.post(order details)
 
 		// escrow the crypto from the user's account...
-		// const escrow = (crypto amount) => {}
+		// const escrow = (crypto amount) => {
+		// Maybe a smart contract interaction here or something... idk
+		// }
 
 		// if it's a sell ad, when the buyer has made payment, display a confirm reciept button for the seller
+		// display a success page for the buyer if the seller confirms the paymenr.
+		// display a success page for the seller if they confirm the reciept
+
 		// maybe allow the user to create a tarnsfer pin before the transaction is completed and the funds in escrow are released to the buyer
 
 		// Mark the order as completed if all goes well
+		// If the seller appeals the trade, keep crypto in escrow while dispute is resolved
+		// if the seller wins the case, return the crypto back to their account
+
+		// if the buyer appeals the trade, still hold the crypto in escrow
+		// if the buyer wins the case, release the crypto to their account and let admin decide to ban or suspend seller from creating ads and make their ads invisible
+	}
+
+	const confirmOrderHaandler = () => {
+		setSellerConfirmedOrder(true)
 	}
 
 	const getAdInfo = () => {
@@ -118,11 +138,10 @@ const OrderPage = (props) => {
 							<button
 								className={style.ButtomButtonProceed}
 								onClick={() => {
-									// createOrderHandler()
-									alert('notified seller, waiting for confirmation to release funds')
+									confirmOrderHaandler()
+									// alert('notified seller, waiting for confirmation to release funds')
 								}}
-								>
-
+							>
 								Paid, Notify Seller
 							</button>
 							:
