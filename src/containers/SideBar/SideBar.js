@@ -11,6 +11,7 @@ import walletsIcon from '../../assets/wallets.svg';
 import adsIcon from '../../assets/ads.svg';
 import profileIcon from '../../assets/profile.svg';
 import settingsIcon from '../../assets/settings.svg';
+import historyIcon from '../../assets/historyIcon.svg';
 
 const SideBar = () => {
 	return (
@@ -39,7 +40,7 @@ const SideBar = () => {
 
 				<Link to='/transactions-history'>
 					<SideBarButton
-						SidebarIcon={p2pIcon}
+						SidebarIcon={historyIcon}
 						SidebarText='Transactions History'
 					/>
 				</Link>
