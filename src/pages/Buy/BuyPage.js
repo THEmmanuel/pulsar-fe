@@ -42,16 +42,15 @@ const OrderPage = (props) => {
 	const [orderStatus, setOrderStatus] = useState('')
 	const [sellerConfirmedOrder, setSellerConfirmedOrder] = useState(false)
 	const [buyerPaid, setBuyerPaid] = useState(false)
-
-	const processOrderHandler = () => [
-
-	]
+	const [timeer, setTimer] = useState(1800)
 
 	const createOrderHandler = () => {
 		//generate a unique transaction id and time stamp
 		setOrderToken(generateOrderToken());
 		setOrderCreated(true);
 		setOrderStatus('pending')
+
+
 
 		// start a timer, end and cancel if the order isn't fufilled in 30 mins
 		// if time === 0, cancle trade and return crypto to sellers wallet
@@ -78,7 +77,11 @@ const OrderPage = (props) => {
 		// if the buyer wins the case, release the crypto to their account and let admin decide to ban or suspend seller from creating ads and make their ads invisible
 	}
 
-	const confirmOrderHaandler = () => {
+	const processOrderHandler = () => [
+
+	]
+
+	const confirmOrderHandler = () => {
 		setSellerConfirmedOrder(true)
 	}
 
@@ -92,82 +95,85 @@ const OrderPage = (props) => {
 	}, [])
 
 	return (
-		<div className={style.BuyPageWrapper}>
-			<div className={style.BuyPageContainer}>
-				{
-					adInfo ?
-						<div className={style.BuyPageContent}>
-							<UserInformation
-								username={adInfo.username}
-								lowestOrder={adInfo.lowestOrder}
-								highestOrder={adInfo.highestOrder}
-								available={adInfo.available}
-								paymentMethod={adInfo.paymentMethod}
-								adType={adInfo.adType}
-							/>
-
-							{
-								orderCreated ?
-									<div className={style.OrderInfo}>
-										<span>Your order {orderToken} has been created</span>
-										<Timer initialTime={1800} />
-									</div>
-									: null
-							}
-
-							{
-								buyerPaid ?
-									<span>Notified seller</span>
-									:
-									<div>
-										<UserAccountDetails
-											adType={adInfo.adType}
-
-										/>
-
-										<UserInformationContent
-											amount={cryptoAmount}
-											token={adInfo.token}
-											orderToken={orderToken}
-											adType={adInfo.adType}
-										/>
-
-										<UserTerms />
-									</div>
-							}
-						</div>
-						: <span>Loading</span>
-				}
-			</div>
-
-			<div className={style.ButtonContainer}>
-				<div className={style.ButtonWrapper}>
+		sellerConfirmedOrder ?
+			<div>Order sucessful</div>
+			:
+			<div className={style.BuyPageWrapper}>
+				<div className={style.BuyPageContainer}>
 					{
-						orderCreated ?
+						adInfo ?
+							<div className={style.BuyPageContent}>
+								<UserInformation
+									username={adInfo.username}
+									lowestOrder={adInfo.lowestOrder}
+									highestOrder={adInfo.highestOrder}
+									available={adInfo.available}
+									paymentMethod={adInfo.paymentMethod}
+									adType={adInfo.adType}
+								/>
 
-							<button
-								className={style.ButtomButtonProceed}
-								onClick={() => {
-									setBuyerPaid(true)
-									// alert('notified seller, waiting for confirmation to release funds')
-								}}
-							>
-								Paid, Notify Seller
-							</button>
-							:
-							<button
-								className={style.ButtomButtonProceed}
-								onClick={() => {
-									createOrderHandler()
-								}}>
+								{
+									orderCreated ?
+										<div className={style.OrderInfo}>
+											<span>Your order {orderToken} has been created</span>
+											<Timer initialTime={timeer} />
+										</div>
+										: null
+								}
 
-								Buy {adInfo.token}
-							</button>
+								{
+									buyerPaid ?
+										<span>Notified seller</span>
+										:
+										<div>
+											<UserAccountDetails
+												adType={adInfo.adType}
+
+											/>
+
+											<UserInformationContent
+												amount={cryptoAmount}
+												token={adInfo.token}
+												orderToken={orderToken}
+												adType={adInfo.adType}
+											/>
+
+											<UserTerms />
+										</div>
+								}
+							</div>
+							: <span>Loading</span>
 					}
-					<button className={style.ButtomButtonCancel}>Cancel</button>
+				</div>
+
+				<div className={style.ButtonContainer}>
+					<div className={style.ButtonWrapper}>
+						{
+							orderCreated ?
+
+								<button
+									className={style.ButtomButtonProceed}
+									onClick={() => {
+										setBuyerPaid(true)
+										// alert('notified seller, waiting for confirmation to release funds')
+									}}
+								>
+									Paid, Notify Seller
+								</button>
+								:
+								<button
+									className={style.ButtomButtonProceed}
+									onClick={() => {
+										createOrderHandler()
+									}}>
+
+									Buy {adInfo.token}
+								</button>
+						}
+						<button className={style.ButtomButtonCancel}>Cancel</button>
+					</div>
 				</div>
 			</div>
-		</div>
 	)
 }
 
