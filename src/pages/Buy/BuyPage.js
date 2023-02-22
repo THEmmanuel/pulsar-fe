@@ -42,17 +42,15 @@ const OrderPage = (props) => {
 	const [orderStatus, setOrderStatus] = useState('')
 	const [sellerConfirmedOrder, setSellerConfirmedOrder] = useState(false)
 	const [buyerPaid, setBuyerPaid] = useState(false)
-	const [timeer, setTimer] = useState(1800)
+	const [timer, setTimer] = useState(8)
 
-	const createOrderHandler = () => {
+	const createOrderHandler = (adType) => {
 		//generate a unique transaction id and time stamp
 		setOrderToken(generateOrderToken());
 		setOrderCreated(true);
 		setOrderStatus('pending')
 
-
-
-		// start a timer, end and cancel if the order isn't fufilled in 30 mins
+		// start a timer, end and cancel if the payment isn't made in 30 mins
 		// if time === 0, cancle trade and return crypto to sellers wallet
 
 		// make a post request to the backend, create and API route there. Store the new order and it's details...
@@ -116,7 +114,12 @@ const OrderPage = (props) => {
 									orderCreated ?
 										<div className={style.OrderInfo}>
 											<span>Your order {orderToken} has been created</span>
-											<Timer initialTime={timeer} />
+											<Timer
+												initialTime={timer}
+												onTimerEnd={() => {
+													alert('timer elapsed')
+												}}
+											/>
 										</div>
 										: null
 								}
@@ -166,8 +169,9 @@ const OrderPage = (props) => {
 									onClick={() => {
 										createOrderHandler()
 									}}>
-
-									Buy {adInfo.token}
+									{
+										adInfo.adType === 'buy' ? `Buy ${adInfo.token}` : `Sell ${adInfo.token}`
+									}
 								</button>
 						}
 						<button className={style.ButtomButtonCancel}>Cancel</button>

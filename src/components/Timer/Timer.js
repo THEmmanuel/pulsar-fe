@@ -1,32 +1,39 @@
 import React, { useState, useEffect } from 'react';
 
 function CountdownTimer({ initialTime, onTimerEnd }) {
-  const [timeRemaining, setTimeRemaining] = useState(initialTime);
+	const [timeRemaining, setTimeRemaining] = useState(initialTime);
+	const [timerId, setTimerId] = useState(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeRemaining((prevTime) => prevTime - 1);
-    }, 1000);
+	useEffect(() => {
+		if (timeRemaining <= 0) {
+			setTimeRemaining(0);
+			clearInterval(timerId);
+			if (onTimerEnd) {
+				onTimerEnd();
+			}
+			return;
+		}
 
-    return () => clearInterval(interval);
-  }, []);
+		const newTimerId = setInterval(() => {
+			setTimeRemaining((prevTime) => prevTime - 1);
+		}, 1000);
 
-  useEffect(() => {
-    if (timeRemaining === 0) {
-      onTimerEnd();
-    }
-  }, [timeRemaining, onTimerEnd]);
+		setTimerId(newTimerId);
 
-  const minutes = Math.floor(timeRemaining / 60);
-  const seconds = timeRemaining % 60;
+		return () => {
+			clearInterval(timerId);
+		};
+	}, [timeRemaining, timerId, onTimerEnd]);
 
-  return (
-    <div>
-      <h1>
-        {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
-      </h1>
-    </div>
-  );
+	const minutes = Math.floor(timeRemaining / 60);
+	const seconds = timeRemaining % 60;
+	const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+	return (
+		<div>
+			<h1>{timeString}</h1>
+		</div>
+	);
 }
 
 export default CountdownTimer;
