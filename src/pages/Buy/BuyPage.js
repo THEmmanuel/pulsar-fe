@@ -42,7 +42,7 @@ const OrderPage = (props) => {
 	const [orderStatus, setOrderStatus] = useState('')
 	const [sellerConfirmedOrder, setSellerConfirmedOrder] = useState(false)
 	const [buyerPaid, setBuyerPaid] = useState(false)
-	const [timer, setTimer] = useState(8)
+	const [timer, setTimer] = useState(1800)
 
 	const createOrderHandler = (adType) => {
 		//generate a unique transaction id and time stamp
@@ -75,9 +75,15 @@ const OrderPage = (props) => {
 		// if the buyer wins the case, release the crypto to their account and let admin decide to ban or suspend seller from creating ads and make their ads invisible
 	}
 
-	const processOrderHandler = () => [
+	const processOrderHandler = () => {
+		if (adInfo.adType === 'buy') {
+			setBuyerPaid(true)
+		}
 
-	]
+		if (adInfo.adType === 'sell') {
+			setSellerConfirmedOrder(true)
+		}
+	}
 
 	const confirmOrderHandler = () => {
 		setSellerConfirmedOrder(true)
@@ -126,12 +132,14 @@ const OrderPage = (props) => {
 
 								{
 									buyerPaid ?
-										<span>Notified seller</span>
+										<div>
+											<span>Notified seller</span>
+											<button onClick={() => setSellerConfirmedOrder(true)}>Confirm order</button>
+										</div>
 										:
 										<div>
 											<UserAccountDetails
 												adType={adInfo.adType}
-
 											/>
 
 											<UserInformationContent
@@ -157,11 +165,12 @@ const OrderPage = (props) => {
 								<button
 									className={style.ButtomButtonProceed}
 									onClick={() => {
-										setBuyerPaid(true)
-										// alert('notified seller, waiting for confirmation to release funds')
+										processOrderHandler()
 									}}
 								>
-									Paid, Notify Seller
+									{
+										adInfo.adType === 'buy' ? `Paid, Notify Seller` : `Confirm Reciept`
+									}
 								</button>
 								:
 								<button
