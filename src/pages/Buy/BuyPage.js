@@ -41,9 +41,10 @@ const OrderPage = (props) => {
 	const [orderCreated, setOrderCreated] = useState(false);
 	const [orderStatus, setOrderStatus] = useState('')
 	const [sellerConfirmedOrder, setSellerConfirmedOrder] = useState(false)
+	const [buyerPaid, setBuyerPaid] = useState(false)
 
 	const processOrderHandler = () => [
-	
+
 	]
 
 	const createOrderHandler = () => {
@@ -105,26 +106,35 @@ const OrderPage = (props) => {
 								adType={adInfo.adType}
 							/>
 
-							{orderCreated ?
-								<div className={style.OrderInfo}>
-									<span>Your order {orderToken} has been created</span>
-									<Timer initialTime={1800} />
-								</div>
-								: null}
+							{
+								orderCreated ?
+									<div className={style.OrderInfo}>
+										<span>Your order {orderToken} has been created</span>
+										<Timer initialTime={1800} />
+									</div>
+									: null
+							}
 
-							<UserAccountDetails
-								adType={adInfo.adType}
+							{
+								buyerPaid ?
+									<span>Notified seller</span>
+									:
+									<div>
+										<UserAccountDetails
+											adType={adInfo.adType}
 
-							/>
+										/>
 
-							<UserInformationContent
-								amount={cryptoAmount}
-								token={adInfo.token}
-								orderToken={orderToken}
-								adType={adInfo.adType}
-							/>
+										<UserInformationContent
+											amount={cryptoAmount}
+											token={adInfo.token}
+											orderToken={orderToken}
+											adType={adInfo.adType}
+										/>
 
-							<UserTerms />
+										<UserTerms />
+									</div>
+							}
 						</div>
 						: <span>Loading</span>
 				}
@@ -138,7 +148,7 @@ const OrderPage = (props) => {
 							<button
 								className={style.ButtomButtonProceed}
 								onClick={() => {
-									confirmOrderHaandler()
+									setBuyerPaid(true)
 									// alert('notified seller, waiting for confirmation to release funds')
 								}}
 							>
