@@ -120,16 +120,23 @@ const OrderPage = (props) => {
 									orderCreated ?
 										<div className={style.OrderInfo}>
 											<span>Your order {orderToken} has been created</span>
+
+											{adInfo.adType === 'buy' ? (
+												<span>Pay the Seller</span>
+											) :
+												<span>Pending Buyer's payment</span>
+											}
+
 											<Timer
 												initialTime={timer}
 												onTimerEnd={() => {
 													alert('timer elapsed')
 												}}
 											/>
+
 										</div>
 										: null
 								}
-
 								{
 									buyerPaid ?
 										<div>
