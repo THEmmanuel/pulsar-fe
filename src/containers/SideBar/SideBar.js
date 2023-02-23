@@ -66,10 +66,13 @@ const SideBar = () => {
 					/>
 				</Link>
 
-				<SideBarButton
-					SidebarIcon={profileIcon}
-					SidebarText='Profile'
-				/>
+				<Link to='/user-page'>
+					<SideBarButton
+						SidebarIcon={profileIcon}
+						SidebarText='Profile'
+					/>
+				</Link>
+
 
 				<SideBarButton
 					SidebarIcon={settingsIcon}
