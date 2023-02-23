@@ -83,3 +83,9 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.UserDetailsWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}

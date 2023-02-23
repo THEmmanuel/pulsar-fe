@@ -137,6 +137,7 @@ const OrderPage = (props) => {
 										</div>
 										: null
 								}
+
 								{
 									buyerPaid ?
 										<div>
@@ -144,10 +145,13 @@ const OrderPage = (props) => {
 											<button onClick={() => setSellerConfirmedOrder(true)}>Confirm order</button>
 										</div>
 										:
-										<div>
-											<UserAccountDetails
-												adType={adInfo.adType}
-											/>
+										<div className={style.UserDetailsWrapper}>
+											{
+												orderCreated ?
+													<UserAccountDetails
+														adType={adInfo.adType}
+													/> : null
+											}
 
 											<UserInformationContent
 												amount={cryptoAmount}
