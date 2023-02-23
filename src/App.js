@@ -17,6 +17,7 @@ import Login from './pages/Auth/Login';
 import CreateAdPage from './pages/CreateAdPage/CreateAdPage';
 import TransactionsHistory from './pages/TransactionsHistory/TransactionsHistory';
 import TransactionPage from './pages/TransactionPage/TransactionPage';
+import Order from './pages/OrderPage/Order';
 
 import { useUser } from '@clerk/clerk-react';
 import { UserContext } from './contexts/UserContext';
@@ -28,6 +29,7 @@ import {
 	// Link,
 	// useLocation
 } from 'react-router-dom';
+import OrderPage from './pages/Buy/BuyPage';
 
 const API_URL = 'http://localhost:9000';
 
@@ -133,7 +135,7 @@ function App() {
 
 								<Route
 									exact
-									path='/buy-page/:id/:amount'
+									path='/buy-page'
 									element={<BuyPage />}
 								/>
 
@@ -160,6 +162,13 @@ function App() {
 									path='/create-ad'
 									element={<CreateAdPage />}
 								/>
+
+								<Route
+									exact
+									path='/order/:id/:amount'
+									element={<Order />}
+								/>
+
 							</Routes>
 						</div>
 					</section>

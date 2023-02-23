@@ -32,7 +32,7 @@ import { generateOrderToken } from '../../utils/generateOrderToken';
 const API_URL = 'http://localhost:9000';
 // Set up logic based on adType, buy or sell
 
-const OrderPage = (props) => {
+const BuyPage = (props) => {
 	const { id, amount } = useParams();
 
 	const [adInfo, setAdInfo] = useState('');
@@ -232,4 +232,4 @@ const OrderPage = (props) => {
 // };
 
 
-export default OrderPage;
+export default BuyPage;
