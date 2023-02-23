@@ -115,7 +115,7 @@ const PeerToPeerPage = () => {
 
 			<div className={style.PeerToPeerWrapper}>
 				{filteredAds.map(ad =>
-					<Link to={`/buy-page/${ad._id}/${inputAmount}`}>
+					<Link to={`/order/${ad._id}/${inputAmount}`}>
 						<PeerToPeerAd
 							adType={ad.adType}
 							username={ad.username}
