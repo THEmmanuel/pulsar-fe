@@ -7,7 +7,7 @@ import UserTerms from '../../components/UserTerms/UserTerms';
 import UserInformation from '../../components/UserInformation/UserInformation';
 import UserInformationContent from '../../components/UserInformationContent/UserInformationContent';
 import UserAccountDetails from '../../components/UserAccountDetails/UserAccountDetails';
-import Timer from '../../components/Timer/Timer';
+import CountdownTimer from '../../components/Timer/Timer';
 
 import TransactionStatus from '../../components/TransactionStatus/TransactionStatus';
 import TransactionCTAButtons from '../../components/TransactionCTAButtons/TransactionCTAButtons';
@@ -124,7 +124,7 @@ const BuyPage = (props) => {
 
 											<span>Pay the Seller</span>
 
-											<Timer
+											<CountdownTimer
 												initialTime={timer}
 												onTimerEnd={() => {
 													alert('timer elapsed')
