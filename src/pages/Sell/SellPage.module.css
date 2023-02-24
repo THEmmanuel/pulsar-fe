@@ -53,11 +53,12 @@
 	display: flex;
 	flex-direction: row;
 	background-color: #E3E3E3;
-	width: 100%;
-	padding: 20px 0 20px 0;
-	position: fixed;
-	bottom: 0;
+	gap: 400px;
 	justify-content: center;
+	position: absolute;
+	bottom: 0;
+	padding: 20px 0 20px 0;
+	width: 100%;
 }
 
 .ButtomButtonProceed {
@@ -76,8 +77,9 @@
 	border: none;
 }
 
-.ButtonWrapper{
+.ButtonWrapper {
 	display: flex;
 	flex-direction: row;
 	gap: 400px;
+	margin: auto;
 }

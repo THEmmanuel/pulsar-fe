@@ -1,24 +1,10 @@
 import React from 'react';
 import style from './SellPage.module.css';
 
-const UserInformation = () => {
-	return (
-		<div className={style.UserInformationWrapper}>
-			<div className={style.UserInformation}>
-				<span>image</span>
-				<div className={style.UserInformationText}>
-					<span>name</span>
-					<span>limit</span>
-				</div>
-			</div>
+import UserInformation from '../../components/UserInformation/UserInformation';
+import UserTerms from '../../components/UserTerms/UserTerms';
+import UserInformationContent from '../../components/UserInformationContent/UserInformationContent';
 
-			<div className={style.UserInformationExtra}>
-				<span>available</span>
-				<span>method</span>
-			</div>
-		</div>
-	)
-};
 
 const SellerAmountWrapper = () => {
 	return (
@@ -47,33 +33,20 @@ const SellerAmountWrapper = () => {
 	)
 };
 
-const UserTerms = () => {
-	return (
-		<div className={style.UserInformationContentWrapper}>
-			<h4>Terms</h4>
-			<div className={style.BuyTerms}>
-				<li>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi laudantium cum, sunt accusamus alias nostrum minima maiores quidem numquam, recusandae autem incidunt ab voluptatum officiis delectus.
-				</li>
-
-				<li>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi laudantium cum, sunt accusamus alias nostrum minima maiores quidem numquam, recusandae autem incidunt ab voluptatum officiis delectus.
-				</li>
-
-				<li>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi laudantium cum, sunt accusamus alias nostrum minima maiores quidem numquam, recusandae autem incidunt ab voluptatum officiis delectus.
-				</li>
-			</div>
-		</div>
-	)
-};
 
 const SellPage = () => {
 	return (
 		<div className={style.SellPageWrapper}>
 			<div className={style.SellPageContainer}>
-				<UserInformation />
-				<SellerAmountWrapper />
+				<UserInformation
+					username={adInfo.username}
+					lowestOrder={adInfo.lowestOrder}
+					highestOrder={adInfo.highestOrder}
+					available={adInfo.available}
+					paymentMethod={adInfo.paymentMethod}
+					adType={adInfo.adType}
+				/>
+				<UserInformationContent />
 				<UserTerms />
 			</div>
 
