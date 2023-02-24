@@ -12,6 +12,7 @@ const API_URL = 'http://localhost:9000';
 const SellPage = () => {
 	const [adInfo, setAdInfo] = useState('');
 	const { id, amount } = useParams();
+	const [orderCreated, setOrderCreated] = useState(false);
 
 	const getAdInfo = () => {
 		axios.get(`${API_URL}/p2p/${id}`)
@@ -22,25 +23,39 @@ const SellPage = () => {
 		getAdInfo()
 	}, [])
 
+	const createOrderHandler = () => {
+		setOrderCreated(true)
+	}
+
 
 	return (
 		<div className={style.SellPageWrapper}>
-			<div className={style.SellPageContainer}>
-				<UserInformation
-					username={adInfo.username}
-					lowestOrder={adInfo.lowestOrder}
-					highestOrder={adInfo.highestOrder}
-					available={adInfo.available}
-					paymentMethod={adInfo.paymentMethod}
-					adType={adInfo.adType}
-				/>
-				<UserInformationContent />
-				<UserTerms />
-			</div>
+			{
+				orderCreated ?
+					<span>pending buyer's payment</span>
+					:
+					<div className={style.SellPageContainer}>
+						<UserInformation
+							username={adInfo.username}
+							lowestOrder={adInfo.lowestOrder}
+							highestOrder={adInfo.highestOrder}
+							available={adInfo.available}
+							paymentMethod={adInfo.paymentMethod}
+							adType={adInfo.adType}
+						/>
+						<UserInformationContent />
+						<UserTerms />
+					</div>
+			}
 
 			<div className={style.ButtonContainer}>
 				<div className={style.ButtonWrapper}>
-					<button className={style.ButtomButtonProceed}>Proceed to payment</button>
+					<button
+						className={style.ButtomButtonProceed}
+						onClick={createOrderHandler}>
+						{orderCreated ? `Confirm Payment` : `Sell ${adInfo.token}`}
+					</button>
+
 					<button className={style.ButtomButtonCancel}>Cancel</button>
 				</div>
 			</div>
