@@ -100,7 +100,7 @@ const BuyPage = (props) => {
 
 	return (
 		sellerConfirmedOrder ?
-			<div>Order sucessful</div>
+			<TransactionStatus />
 			:
 			<div className={style.BuyPageWrapper}>
 				<div className={style.BuyPageContainer}>
