@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 const API_URL = 'http://localhost:9000';
 const Order = (props) => {
 	const [adInfo, setAdInfo] = useState(null)
-	const { id, amount } = useParams();
+	const { id } = useParams();
 
 	const getAdInfo = () => {
 		axios.get(`${API_URL}/p2p/${id}`)

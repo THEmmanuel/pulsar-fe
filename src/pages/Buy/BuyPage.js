@@ -99,7 +99,99 @@ const BuyPage = (props) => {
 	}, [])
 
 	return (
-		<div>Buy page</div>
+		sellerConfirmedOrder ?
+			<div>Order sucessful</div>
+			:
+			<div className={style.BuyPageWrapper}>
+				<div className={style.BuyPageContainer}>
+					{
+						adInfo ?
+							<div className={style.BuyPageContent}>
+								<UserInformation
+									username={adInfo.username}
+									lowestOrder={adInfo.lowestOrder}
+									highestOrder={adInfo.highestOrder}
+									available={adInfo.available}
+									paymentMethod={adInfo.paymentMethod}
+									adType={adInfo.adType}
+								/>
+
+								{
+									orderCreated ?
+										<div className={style.OrderInfo}>
+											<span>Your order {orderToken} has been created</span>
+
+
+											<span>Pay the Seller</span>
+
+											<Timer
+												initialTime={timer}
+												onTimerEnd={() => {
+													alert('timer elapsed')
+												}}
+											/>
+
+										</div>
+										: null
+								}
+
+								{
+									buyerPaid ?
+										<div>
+											<span>Notified seller</span>
+											<button onClick={() => setSellerConfirmedOrder(true)}>Confirm order</button>
+										</div>
+										:
+										<div className={style.UserDetailsWrapper}>
+											{
+												orderCreated ?
+													<UserAccountDetails
+														adType={adInfo.adType}
+													/> : null
+											}
+
+											<UserInformationContent
+												amount={cryptoAmount}
+												token={adInfo.token}
+												orderToken={orderToken}
+												adType={adInfo.adType}
+											/>
+
+											<UserTerms />
+										</div>
+								}
+							</div>
+							: <span>Loading</span>
+					}
+				</div>
+
+				<div className={style.ButtonContainer}>
+					<div className={style.ButtonWrapper}>
+						{
+							orderCreated ?
+
+								<button
+									className={style.ButtomButtonProceed}
+									onClick={() => {
+										processOrderHandler()
+									}}>
+									Paid, Notify Seller
+								</button>
+								:
+								<button
+									className={style.ButtomButtonProceed}
+									onClick={() => {
+										createOrderHandler()
+									}}>
+									{
+										`Buy ${adInfo.token}`
+									}
+								</button>
+						}
+						<button className={style.ButtomButtonCancel}>Cancel</button>
+					</div>
+				</div>
+			</div>
 	)
 }
 
