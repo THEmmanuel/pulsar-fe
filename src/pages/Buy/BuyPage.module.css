@@ -92,6 +92,13 @@
 
 .BuyerPaidImage{
 	width: 400px;
+	margin: auto;
 }
 
-.B
+.BuyerPaymentWrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: fit-content;
+	margin: auto;
+}
