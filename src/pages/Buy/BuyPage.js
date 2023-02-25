@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import TransactionIcon from '../../assets/transactionIcon.svg';
 
 import style from './BuyPage.module.css';
 import UserTerms from '../../components/UserTerms/UserTerms';
@@ -137,7 +138,8 @@ const BuyPage = (props) => {
 
 								{
 									buyerPaid ?
-										<div>
+										<div className={style.BuyerPaymentWrapper}>
+											<img src={TransactionIcon} alt="" className={style.BuyerPaidImage}/>
 											<span>Notified seller</span>
 											<button onClick={() => setSellerConfirmedOrder(true)}>Confirm order</button>
 										</div>
