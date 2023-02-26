@@ -23,6 +23,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	margin: auto;
+	gap: 25px;
 }
 
 .PeerToPeerContainer {

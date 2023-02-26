@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import WaitIcon from '../../assets/waitIcon.svg';
 import style from './SellPage.module.css';
 
 import UserInformation from '../../components/UserInformation/UserInformation';
@@ -36,13 +37,14 @@ const SellPage = () => {
 
 
 	return (
-		paymentConfirmed ? <TransactionStatus/> :
+		paymentConfirmed ? <TransactionStatus /> :
 			<div className={style.SellPageWrapper}>
 				{
 					orderCreated ?
 						<div>
 							<span>pending buyer's payment</span>
 							<CountdownTimer initialTime={1800} />
+							<img src={WaitIcon} alt="" />
 						</div>
 						:
 						<div className={style.SellPageContainer}>
