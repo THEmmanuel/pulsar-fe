@@ -99,11 +99,12 @@ const BuyPage = (props) => {
 		getAdInfo()
 	}, [])
 
+
 	return (
 		sellerConfirmedOrder ?
 			<TransactionStatus
 				amount={cryptoAmount}
-				token = {adInfo.token}
+				token={adInfo.token}
 			/>
 			:
 			<div className={style.BuyPageWrapper}>
@@ -140,31 +141,31 @@ const BuyPage = (props) => {
 								}
 
 								{
-									buyerPaid ?
-										<div className={style.BuyerPaymentWrapper}>
-											<img src={TransactionIcon} alt="" className={style.BuyerPaidImage} />
-											<h3>Notified seller</h3>
-											<span className={style.BuyerPaidText}>{amount} {adInfo.token} is in escrow and will be released to your wallet as soon as the seller confirms the receipt of your transfer.</span>
-											<button onClick={() => setSellerConfirmedOrder(true)}>Confirm order</button>
-										</div>
-										:
-										<div className={style.UserDetailsWrapper}>
-											{
-												orderCreated ?
-													<UserAccountDetails
-														adType={adInfo.adType}
-													/> : null
-											}
+									<div className={style.UserDetailsWrapper}>
+										{buyerPaid ?
+											<div className={style.BuyerPaymentWrapper}>
+												<img src={TransactionIcon} alt="" className={style.BuyerPaidImage} />
+												<h3>Notified seller</h3>
+												<span className={style.BuyerPaidText}>{amount} {adInfo.token} is in escrow and will be released to your wallet as soon as the seller confirms the receipt of your transfer.</span>
+												<button onClick={() => setSellerConfirmedOrder(true)}>Confirm order</button>
+											</div>
+											: null}
+										{
+											orderCreated ?
+												<UserAccountDetails
+													adType={adInfo.adType}
+												/> : null
+										}
 
-											<UserInformationContent
-												amount={cryptoAmount}
-												token={adInfo.token}
-												orderToken={orderToken}
-												adType={adInfo.adType}
-											/>
+										<UserInformationContent
+											amount={cryptoAmount}
+											token={adInfo.token}
+											orderToken={orderToken}
+											adType={adInfo.adType}
+										/>
 
-											<UserTerms />
-										</div>
+										<UserTerms />
+									</div>
 								}
 							</div>
 							: <span>Loading</span>
@@ -174,25 +175,29 @@ const BuyPage = (props) => {
 				<div className={style.ButtonContainer}>
 					<div className={style.ButtonWrapper}>
 						{
-							orderCreated ?
-
-								<button
+							!buyerPaid ?
+								orderCreated ?
+									<button
+										className={style.ButtomButtonProceed}
+										onClick={() => {
+											processOrderHandler()
+										}}>
+										Paid, Notify Seller
+									</button>
+									:
+									<button
+										className={style.ButtomButtonProceed}
+										onClick={() => {
+											createOrderHandler()
+										}}>
+										{
+											`Buy ${adInfo.token}`
+										}
+									</button>
+								: <button
 									className={style.ButtomButtonProceed}
-									onClick={() => {
-										processOrderHandler()
-									}}>
-									Paid, Notify Seller
-								</button>
-								:
-								<button
-									className={style.ButtomButtonProceed}
-									onClick={() => {
-										createOrderHandler()
-									}}>
-									{
-										`Buy ${adInfo.token}`
-									}
-								</button>
+								>
+									Appeal</button>
 						}
 						<button className={style.ButtomButtonCancel}>Cancel</button>
 					</div>
