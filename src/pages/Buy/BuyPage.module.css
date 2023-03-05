@@ -71,7 +71,8 @@
 .ButtonWrapper {
 	display: flex;
 	flex-direction: row;
-	gap: 400px;
+	width: 80%;
+	justify-content: space-around;
 	margin: auto;
 }
 
