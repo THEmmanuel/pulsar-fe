@@ -101,7 +101,10 @@ const BuyPage = (props) => {
 
 	return (
 		sellerConfirmedOrder ?
-			<TransactionStatus />
+			<TransactionStatus
+				amount={cryptoAmount}
+				token = {adInfo.token}
+			/>
 			:
 			<div className={style.BuyPageWrapper}>
 				<div className={style.BuyPageContainer}>
@@ -141,7 +144,7 @@ const BuyPage = (props) => {
 										<div className={style.BuyerPaymentWrapper}>
 											<img src={TransactionIcon} alt="" className={style.BuyerPaidImage} />
 											<h3>Notified seller</h3>
-											<span className={style.BuyerPaidText}>The crypto is in escrow and will be released to your wallet as soon as the seller confirms the receipt of your transfer.</span>
+											<span className={style.BuyerPaidText}>{amount} {adInfo.token} is in escrow and will be released to your wallet as soon as the seller confirms the receipt of your transfer.</span>
 											<button onClick={() => setSellerConfirmedOrder(true)}>Confirm order</button>
 										</div>
 										:
