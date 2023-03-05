@@ -45,11 +45,12 @@
 	background-color: #E3E3E3;
 	gap: 400px;
 	justify-content: center;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
-	padding: 20px 0 20px 0;
-	width: 100%;
-}
+	right: 0;
+	padding: 20px 0;
+	width: 85%;
+  }
 
 .ButtomButtonProceed {
 	padding: 5px;

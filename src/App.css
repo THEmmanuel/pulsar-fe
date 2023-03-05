@@ -12,8 +12,8 @@
 .Page-container{
 	display: flex;
 	flex-direction: column;
-	width: 80%;
-	margin-left: 20%;
+	width: 85%;
+	margin-left: 15%;
 }
 
 .pages-wrapper {
