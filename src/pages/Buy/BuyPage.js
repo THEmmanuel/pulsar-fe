@@ -76,7 +76,15 @@ const BuyPage = (props) => {
 		// if the buyer wins the case, release the crypto to their account and let admin decide to ban or suspend seller from creating ads and make their ads invisible
 	}
 
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth"
+		});
+	}
+
 	const processOrderHandler = () => {
+		scrollToTop()
 		if (adInfo.adType === 'buy') {
 			setBuyerPaid(true)
 		}
