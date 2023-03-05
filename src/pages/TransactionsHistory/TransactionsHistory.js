@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from './TransactionsHistory.module.css';
+import axios from 'axios';
 import { Link } from "react-router-dom";
 // import TransactionCard from "../../components/TransactionCard/TransactionCard";
 
+const API_URL = 'http://localhost:9000';
+
+
 const TransactionsHistory = () => {
+
+	const [orders, setOrders] = useState(null)
+
+	const getOrders = () => {
+		axios.get(`${API_URL}/orders`)
+			.then(res => setOrders(res.data.orders))
+	}
+
+	useEffect(() => {
+		getOrders()
+	}, [])
+
 	return (
 		<div className={style.TransactionsHistoryPage}>
 			Transactions History
@@ -25,31 +41,26 @@ const TransactionsHistory = () => {
 					</thead>
 
 					<tbody>
-						<tr className={style.TransactionsHistoryCard}>
-							<td className={style.TransactionImage}>
-								image
-							</td>
-							<td>User name</td>
-							<td>le6l69se1puajhtd62f</td>
-							<td>Buy</td>
-							<td>600</td>
-							<td>USDT</td>
-							<td>June 15 2023 12:22 PM</td>
-							<td className={style.TransactionStatus}>
-								Sucess
-							</td>
-						</tr>
+						{orders ?
+							orders.map(order =>
+								<tr className={style.TransactionsHistoryCard}>
+									<td className={style.TransactionImage}>
+										image
+									</td>
+									<td>User name</td>
+									<td>le6l69se1puajhtd62f</td>
+									<td>Buy</td>
+									<td>600</td>
+									<td>USDT</td>
+									<td>June 15 2023 12:22 PM</td>
+									<td className={style.TransactionStatus}>
+										Sucess
+									</td>
+								</tr>
+							)
 
-						<tr className={style.TransactionsHistoryCard}>
-							<td>image</td>
-							<td>User name</td>
-							<td>le6l69se1puajhtd62f</td>
-							<td>Buy</td>
-							<td>600</td>
-							<td>USDT</td>
-							<td>June 15 2023 12:22 PM</td>
-							<td>Sucess</td>
-						</tr>
+							: <span>Loading</span>
+						}
 					</tbody>
 				</table>
 			</div>
