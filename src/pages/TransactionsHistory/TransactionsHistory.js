@@ -53,9 +53,11 @@ const TransactionsHistory = () => {
 									<td>600</td>
 									<td>USDT</td>
 									<td>June 15 2023 12:22 PM</td>
-									<td className={style.TransactionStatus}>
-										Sucess
-									</td>
+									<Link to='/transaction'>
+										<td className={style.TransactionStatus}>
+											Sucess
+										</td>
+									</Link>
 								</tr>
 							)
 
