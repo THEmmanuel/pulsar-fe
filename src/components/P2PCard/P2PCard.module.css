@@ -12,7 +12,7 @@
 .P2PCardHeading {
 	font-size: 1em;
 	font-weight: 600;
-	opacity: 60%;
+	opacity: 0.6;
 }
 
 .P2PCard {
@@ -25,7 +25,7 @@
 
 .P2PCardText {
 	font-size: 0.8em;
-	opacity: 50%;
+	opacity: 0.5;
 }
 
 .P2PCardImage {
