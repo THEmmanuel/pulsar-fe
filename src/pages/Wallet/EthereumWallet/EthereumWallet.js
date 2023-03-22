@@ -89,6 +89,7 @@ const EthereumWallet = () => {
 
 			{isModalOpen ?
 				<TransferModal
+					type='ethereum'
 					ETHAddress={wallet.walletAddress}
 					privateKey={wallet.walletKey}
 					cancel={() => setIsModalOpen(false)}

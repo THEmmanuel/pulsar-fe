@@ -3,6 +3,9 @@ import {
 } from 'ethers';
 import USDTWallet from '../pages/Wallet/USDTWallet/USDTWallet';
 import erc20ABI from '../contracts/erc20ABI.json';
+import {
+	isAddress
+} from 'ethers/lib/utils';
 
 const network = 'goerli';
 window.ethersProvider = new ethers.providers.InfuraProvider(network);
@@ -15,11 +18,13 @@ export const getUSDTBalance = async (address) => {
 	return balance.toString();
 }
 
+
 export const getETHBalance = async (address) => {
 	balance = await window.ethersProvider.getBalance(address);
 	const EthBalance = ethers.utils.formatEther(balance);
 	return EthBalance;
 }
+
 
 export const sendETH = async (
 	sendAddress,
@@ -80,3 +85,8 @@ export const getETHHistory = async (address) => {
 		console.error(error);
 	}
 };
+
+// Check eth wallet validity
+export const checkAddress = async (address) => {
+	console.log(isAddress(address))
+}
