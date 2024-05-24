@@ -21,7 +21,7 @@ const TransferModal = props => {
 					<div className={style.TransferInputWrapper}>
 						<div className={style.TransferInputContainer}>
 							<FormInput
-								title='Amount'
+								title='Amount in $'
 								change={(e) => setAmount(e.target.value)}
 							/>
 						</div>

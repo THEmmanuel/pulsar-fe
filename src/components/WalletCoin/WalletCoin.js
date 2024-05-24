@@ -5,7 +5,7 @@ const WalletCoin = props => {
 	return ( 
 		<div className={style.WalletCoinWrapper}>
 			<div className={style.WalletCoinContent}>
-				<img src="" alt="" className={style.WalletCoinIcon} />
+				{/* <img src={props.walletImage} alt="" className={style.WalletCoinIcon} /> */}
 
 				<div className={style.WalletCoinInfo}>
 					<span>{props.walletName}</span>

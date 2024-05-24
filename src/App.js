@@ -67,7 +67,6 @@ function App() {
 	console.log(wallets)
 
 	return (
-
 		<Router>
 			<div className="App">
 				<UserContext.Provider value={{

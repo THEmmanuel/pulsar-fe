@@ -9,7 +9,7 @@ const NavBar = () => {
 	return (
 		<nav className={style.NavBar}>
 			<div className={style.NavContent}>
-				<h2>Page Title</h2>
+				<h2></h2>
 
 				<div className={style.NavIntroduction}>
 					{

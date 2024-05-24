@@ -15,7 +15,7 @@ const PeerToPeerAd = props => {
 
 			<div className={style.PeerToPeerAdWrapper}>
 				<div className={style.UserImage}>
-					Image
+
 				</div>
 				<div className={style.UserInfo}>
 					<span className={style.UserName}>
