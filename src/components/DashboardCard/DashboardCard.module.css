@@ -1,0 +1,26 @@
+.DashboardCard {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	background-color: #232323;
+	width: fit-content;
+	padding: 40px 80px;
+	border-radius: 10px;
+}
+
+.DashboardCardTitle {
+	color: #AFAFAF;
+	font-weight: 500;
+	font-size: 1em;
+}
+
+.DashboardCardDescription {
+	color: #AFAFAF;
+	font-weight: 200;
+	font-size: 0.75em;
+}
+
+.DashboardCardIcon{
+	width: 35px;
+	margin: auto;
+}

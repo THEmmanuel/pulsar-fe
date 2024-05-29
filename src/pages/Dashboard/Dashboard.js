@@ -8,6 +8,12 @@ import DropDown from '../../components/DropDown/DropDown';
 import P2PCard from '../../components/P2PCard/P2PCard';
 import buyImage from '../../assets/BuyCryptoImage.svg';
 import sellImage from '../../assets/SellCryptoImage.svg';
+import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+
+import DashboardCard from '../../components/DashboardCard/DashboardCard';
+import usdcIcon from '../../assets/usdc-icon.svg';
+
+
 
 const tokens = [
 	{ value: 'ETH', label: 'Ethereum' },
@@ -29,48 +35,29 @@ const Dashboard = () => {
 	return (
 		<div className={style.Dashboard}>
 			<div className={style.DashboardContent}>
-				<div className={style.DashboardMarketChartsContainer}>
-					<MarketCharts />
+				<div className={style.DashboardBalanceWrapper}>
+					<div className={style.DashboardBalance}>
+						<span>Total wallet balance</span>
+						<span>$20,000</span>
+					</div>
+
+					<PrimaryCTA
+						ButtonText='View Wallets'
+					/>
 				</div>
 
-				<div className={style.AdsAndPortfolio}>
-					<div className={style.PeerToPeerContainer}>
-						<div className={style.PeerToPeerHeadingWrapper}>
-							<div className={style.PeerToPeerHeading}>
-								<div className={style.AdTypeWrapper}>
-									<span className={style.PeerToPeerHeadingText}>
-										Trade Cryptocurrencies
-									</span>
-								</div>
+				<div className={style.DashboardCardsWrapper}>
+					<DashboardCard
+						icon={usdcIcon}
+						title='Buy Crypto'
+						description='Buy BTC, ETH, USDT, USDC.'
+					/>
 
-								<Link to={`/p2p/buy`}>
-									<span>
-										See all P2P ads
-									</span>
-								</Link>
-							</div>
-						</div>
-
-						<div className={style.PeerToPeerWrapper}>
-							<Link to={`/p2p/buy`}>
-								<P2PCard
-									headingText='Buy Crypto'
-									cardImage={buyImage}
-									backgroundColor='#C9EEE4'
-								/>
-							</Link>
-
-							<Link to={`/p2p/sell`}>
-								<P2PCard
-									headingText='Sell Crypto'
-									cardImage={sellImage}
-									backgroundColor='#DCA1A1'
-								/>
-							</Link>
-
-						</div>
-					</div>
-					<PortfolioHome />
+					<DashboardCard />
+					<DashboardCard />
+					<DashboardCard />
+					<DashboardCard />
+					<DashboardCard />
 				</div>
 			</div>
 		</div>
