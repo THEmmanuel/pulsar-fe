@@ -4,7 +4,7 @@
 	gap: 15px;
 	background-color: #232323;
 	width: fit-content;
-	padding: 40px 80px;
+	padding: 20px 100px;
 	border-radius: 10px;
 }
 
@@ -21,6 +21,6 @@
 }
 
 .DashboardCardIcon{
-	width: 35px;
+	width: 30px;
 	margin: auto;
 }

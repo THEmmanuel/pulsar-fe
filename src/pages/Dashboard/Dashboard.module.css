@@ -4,14 +4,14 @@
 	color: #FFF;
 }
 
-.DashboardContent{
+.DashboardContent {
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
 	width: 100%;
 }
 
-.DashboardMarketChartsContainer{
+.DashboardMarketChartsContainer {
 	display: flex;
 	justify-content: center;
 	margin: auto;
@@ -33,48 +33,62 @@
 	padding: 15px;
 }
 
-.AdTypeWrapper{
+.AdTypeWrapper {
 	display: flex;
 	flex-direction: row;
 	gap: 20px;
 }
 
-.PeerToPeerWrapper{
+.PeerToPeerWrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
 
-.PeerToPeerHeadingWrapper{
+.PeerToPeerHeadingWrapper {
 	margin-bottom: 40px;
 }
 
-.PeerToPeerHeading{
+.PeerToPeerHeading {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
 
-.PeerToPeerHeadingText{
+.PeerToPeerHeadingText {
 	font-size: 1.1em;
 	font-weight: 700;
 }
 
-.DashboardBalanceWrapper{
+.DashboardBalanceWrapper {
 	display: flex;
 	flex-direction: column;
+	gap: 20px;
 }
 
-.DashboardBalance{
+.DashboardBalance {
 	display: flex;
 	flex-direction: column;
+	gap: 5px;
 }
 
-.DashboardCardsWrapper{
+.DashboardCardsWrapper {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 80px;
-	width: 960px;
+	width: 1080px;
 	margin: auto;
 	margin-top: 40px;
+}
+
+.DashboardBalanceAmount {
+	font-weight: 500;
+	color: #AFAFAF;
+	font-size: 1.5em;
+}
+
+.DashboardBalanceText {
+	color: #AFAFAF;
+	font-weight: 300;
+	font-size: 0.8em;
 }
