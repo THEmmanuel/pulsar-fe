@@ -17,11 +17,21 @@ const WalletsPage = () => {
 
 	return (
 		<div className={style.WalletsPage}>
-			<div className={style.WalletCoinContainer}>
-			<WalletCard/>
+			<div>
+				all wallets, kjdkdd ,d,d,
+			</div>
 
+			<div className={style.WalletCoinContainer}>
 				<div className={style.WalletsContainer}>
-					{
+					<WalletCard />
+
+
+
+
+
+
+
+					{/* {
 						wallets.map(
 							wallet => 
 								<Link key={wallet._id} to={`/wallet/${wallet.walletName}`}>
@@ -31,7 +41,7 @@ const WalletsPage = () => {
 									/>
 								</Link>
 						)
-					}
+					} */}
 
 				</div>
 				{/* <PrimaryCTA /> */}

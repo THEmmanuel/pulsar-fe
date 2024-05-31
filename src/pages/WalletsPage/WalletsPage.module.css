@@ -1,5 +1,5 @@
 .WalletsPage{
-	/* background-color: #F3F3F3; */
+	color: #FFF;
 	width: 1280px;
 	height: 100%;
 }
@@ -13,7 +13,7 @@
 
 .WalletCoinContainer{
 	padding: 20px;
-	background-color: #FFF;
+	/* background-color: #FFF; */
 	border-radius: 10px;
 	width: 80%;
 	margin: 40px auto;
