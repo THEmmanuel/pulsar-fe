@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import WalletCard from '../../components/WalletCard/WalletCard.js';
 
 
 const API_URL = 'http://localhost:9000/'
@@ -17,10 +18,7 @@ const WalletsPage = () => {
 	return (
 		<div className={style.WalletsPage}>
 			<div className={style.WalletCoinContainer}>
-			<div className={style.WalletPortfolioValue}>
-					<span>Portfolio balance:</span>
-					<span className={style.WalletTotalValue}>loading</span>
-				</div>
+			<WalletCard/>
 
 				<div className={style.WalletsContainer}>
 					{

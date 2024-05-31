@@ -1,0 +1,38 @@
+.WalletCard {
+	display: flex;
+	flex-direction: row;
+	background-color: #232323;
+	color: #FFF;
+	padding: 35px 40px;
+	gap: 80px;
+	width: fit-content;
+	border-radius: 10px;
+}
+
+.WalletCardWrapper {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	gap: 20px;
+}
+
+.WalletCoinIcon {
+	width: 30px;
+	height: 30px;
+}
+
+.WalletCoinName {
+	color: #AFAFAF
+}
+
+
+.WalletCoinDescription {
+	color: #AFAFAF;
+	font-weight: 300;
+	font-size: 0.8em;
+}
+
+.WalletCardAmount{
+	color: #AFAFAF;
+	font-weight: 700;
+}
