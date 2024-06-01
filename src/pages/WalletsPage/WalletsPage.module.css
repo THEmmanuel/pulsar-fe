@@ -31,3 +31,8 @@
 	gap: 30px;
 	margin: 40px 0 70px 0px;
 }
+
+.WalletsPageBalance{
+	display: flex;
+	flex-direction: column;
+}

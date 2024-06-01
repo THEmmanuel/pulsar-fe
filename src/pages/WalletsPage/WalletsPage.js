@@ -22,14 +22,36 @@ const WalletsPage = () => {
 			</div>
 
 			<div className={style.WalletCoinContainer}>
+				<div className={style.WalletsPageBalance}>
+					<span>Total Wallet Value</span>
+					<span>$25,897.768</span>
+				</div>
+
 				<div className={style.WalletsContainer}>
-					<WalletCard />
+					<div>
+						<div className={style.WalletsPageBalance}>
+							<span>token</span>
+							<span>chain</span>
+						</div>
+
+						<div>
+							<WalletCard />
+						</div>
+					</div>
 
 
+					<div>
+						<div className={style.WalletsPageBalance}>
+							<span>token</span>
+							<span>chain</span>
+						</div>
 
-
-
-
+						<div>
+							<WalletCard />
+							<WalletCard />
+							<WalletCard />
+						</div>
+					</div>
 
 					{/* {
 						wallets.map(
