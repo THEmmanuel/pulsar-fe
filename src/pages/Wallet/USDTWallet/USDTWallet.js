@@ -4,6 +4,8 @@ import MainDropdown from '../../../components/MainDropdown/MainDropdown';
 import TransferModal from '../../../containers/TransferModal/TransferModal';
 import sendIcon from '../../../assets/send_icon.svg'
 import PrimaryCTA from '../../../components/PrimaryCTA/PrimaryCTA';
+import TransactionCard from '../../../components/TransactionCard/TransactionCard';
+
 
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
@@ -49,7 +51,7 @@ const USDTWallet = () => {
 		};
 	}, [wallet]);
 
-	
+
 	return (
 		<div className={style.WalletPage}>
 			<div className={style.WalletInformation}>
@@ -117,8 +119,12 @@ const USDTWallet = () => {
 							)
 						}) : <span>Loading</span>}
 						 */}
-
 						
+						<TransactionCard />
+						<TransactionCard />
+						<TransactionCard />
+						<TransactionCard />
+						<TransactionCard />
 					</tbody>
 				</table>
 			</div>

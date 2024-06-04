@@ -1,0 +1,8 @@
+.TransactionCardWrapper{
+	background-color: #232323;
+	border-radius: 5px;
+}
+
+.TransactionCardWrapper td{
+	color: #AFAFAF;
+}
