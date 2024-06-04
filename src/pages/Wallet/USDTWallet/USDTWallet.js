@@ -76,7 +76,8 @@ const USDTWallet = () => {
 
 
 				<span className={style.WalletAddress}>
-					{wallet.walletAddress}
+					{/* {wallet.walletAddress} */}
+					0xEA40A86cD04E142fBF0d9fFc8170E2A82e80f5B0
 				</span>
 
 				<img src={qrPlaceholder} alt="" />

@@ -3,6 +3,7 @@ import style from './TransferModal.module.css';
 import { sendETH, getETHGasPrice } from '../../utils/ethWallet';
 import FormInput from '../../components/FormInput/FormInput';
 import { checkAddress } from '../../utils/ethWallet';
+import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 
 const TransferModal = props => {
 	const [recipientAddress, setRecipientAddress] = useState("");
@@ -44,10 +45,15 @@ const TransferModal = props => {
 								<span className={style.TransactionDetailsText}>Total:</span>
 								<span className={style.TransactionDetailsValue}>${+amount + 0.98}</span>
 							</div>
+
+							<div className={style.TransactionDetails}>
+								<span className={style.TransactionDetailsText}>Total:</span>
+								<span className={style.TransactionDetailsValue}>${+amount + 0.98}</span>
+							</div>
 						</div>
 
 						<div className={style.TransferButtons}>
-							<button
+							{/* <button
 								className={style.TransferSendButton}
 								onClick={
 									() => sendETH(sendAddress, recipientAddress, amount, privateKey, contractAddress)
@@ -59,7 +65,15 @@ const TransferModal = props => {
 								className={style.TransferCancelButton}
 								onClick={checkAddress(recipientAddress)}>
 								Cancel
-							</button>
+							</button> */}
+
+							<PrimaryCTA
+								ButtonText='Send'
+							/>
+
+							<PrimaryCTA
+								ButtonText='Cancel'
+							/>
 						</div>
 					</div>
 				</div>

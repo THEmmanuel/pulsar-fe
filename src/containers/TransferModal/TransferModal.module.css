@@ -1,5 +1,5 @@
 .TransferModal {
-	background-color: #D9D9D9;
+	background-color: #181818;
 	width: 20vw;
 	padding: 40px;
 	border-radius: 5px;
@@ -12,6 +12,7 @@
 
 .TransferHeading {
 	font-weight: 700;
+	color: #AFAFAF;
 }
 
 .TransferInputContainer {
@@ -79,6 +80,7 @@
 	width: 60%;
 	margin: auto;
 	gap: 10px;
+	color: #fff;
 }
 
 .TransactionDetails {
