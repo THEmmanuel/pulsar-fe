@@ -3,6 +3,7 @@ import style from './../EthereumWallet/EthereumWallet.module.css';
 import MainDropdown from '../../../components/MainDropdown/MainDropdown';
 import TransferModal from '../../../containers/TransferModal/TransferModal';
 import sendIcon from '../../../assets/send_icon.svg'
+import PrimaryCTA from '../../../components/PrimaryCTA/PrimaryCTA';
 
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
@@ -48,37 +49,30 @@ const USDTWallet = () => {
 		};
 	}, [wallet]);
 
+	
 	return (
 		<div className={style.WalletPage}>
 			<div className={style.WalletInformation}>
 				<div className={style.WalletCoinInformation}>
 					<img src={usdcWalletImage} alt="" className={style.WalletCoinImage} />
 					<div className={style.WalletCoinPriceInfo}>
-						<span className={style.WalletCoinTotal}>{walletBalance} USDT</span>
-						<span className={style.WalletCoinValue}>${walletBalance * 1200.08}</span>
+						<span className={style.WalletCoinTotal}>{walletBalance} USDC</span>
+						<span className={style.WalletCoinValue}>
+							${walletBalance * 1200.08}
+						</span>
 
-						<button
-							className={style.SendButton}
-							onClick={() => setIsModalOpen(true)}>
-							Send
-							<img src={sendIcon} alt="" />
-						</button>
+						<span className={style.WalletCoinNetwork}>
+							{wallet.walletName}
+							network
+						</span>
+
+						<PrimaryCTA
+							ButtonText='Send USDC'
+						/>
 					</div>
 				</div>
 
-				<div className={style.WalletTransactionInput}>
-					<MainDropdown
-						DropdownHeading='Token'
-						PrimaryText={wallet.walletName}
-						SecondaryText='Tether'
-					/>
 
-					<MainDropdown
-						DropdownHeading='Network'
-						PrimaryText='Ethereum'
-						SecondaryText='ERC-20'
-					/>
-				</div>
 				<span className={style.WalletAddress}>
 					{wallet.walletAddress}
 				</span>
@@ -109,7 +103,7 @@ const USDTWallet = () => {
 					</thead>
 
 					<tbody>
-						{ethTransactions ? ethTransactions.map(transaction => {
+						{/* {ethTransactions ? ethTransactions.map(transaction => {
 							return (
 								<tr>
 									<td>7.78 ETH</td>
@@ -122,6 +116,9 @@ const USDTWallet = () => {
 
 							)
 						}) : <span>Loading</span>}
+						 */}
+
+						
 					</tbody>
 				</table>
 			</div>
