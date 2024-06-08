@@ -1,5 +1,7 @@
 import React from 'react';
 import style from './PeerToPeerAd.module.css';
+import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+
 
 const PeerToPeerAd = props => {
 	return (
@@ -8,62 +10,40 @@ const PeerToPeerAd = props => {
 			style={
 				props.adType === 'buy' ?
 					{
-						backgroundColor: '#EEF9F6'
+						backgroundColor: '#232323'
 					} : {
 						backgroundColor: '#F7E2E3'
 					}}>
 
 			<div className={style.PeerToPeerAdWrapper}>
-				<div className={style.UserImage}>
-
-				</div>
 				<div className={style.UserInfo}>
 					<span className={style.UserName}>
 						{props.username}
 					</span>
-
-					<div className={style.UserOrderInfo}>
-						<span className={style.UserOrderNumber}>
-							Order number
-						</span>
-
-						<span className={style.UserCompletionRate}>
-							Completion rate
-						</span>
-					</div>
 				</div>
 
 				<span className={style.UserExchangeRate}>
 					{props.rate} USD/{props.token}
 				</span>
 
-				<div className={style.UserRateInfo}>
-					<div className={style.UserLimitInfoWrapper}>
-						<span className={style.UserLimitInfoText}>Available:</span>
-						<span className={style.UserLimitInfo}>{props.available} {props.token}</span>
-					</div>
+				<span className={style.UserPaymentInfo}>{props.paymentMethod}</span>
 
+				<div className={style.UserRateInfo}>
 					<div className={style.UserLimitInfoWrapper}>
 						<span className={style.UserLimitInfoText}>Limit:</span>
 						<span className={style.UserLimitInfo}>{props.lowest} - {props.highest} {props.token}</span>
 					</div>
 				</div>
 
-				<span className={style.UserPaymentInfo}>{props.paymentMethod}</span>
-
-				<button
-					className={style.UserAdButton}
-					style={
-						props.adType === 'buy' ?
-							{
-								backgroundColor: '#C9EEE4'
-							} : {
-								backgroundColor: '#DCA1A1'
-							}
-					}
-				>
-					{props.adType === 'buy' ? `Buy ${props.token}` : `Sell ${props.token}`}
-				</button>
+				<div className={style.UserRateInfo}>
+					<div className={style.UserLimitInfoWrapper}>
+						<div className={style.UserInfo}>
+							<span className={style.UserLimitInfo}>{props.completionRate}% completion rate</span>
+							<span className={style.UserLimitInfo}>1k orders</span>
+							<span className={style.UserLimitInfo}>5 stars</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	)

@@ -114,7 +114,10 @@ const PeerToPeerPage = () => {
 			</div>
 
 			<div className={style.PeerToPeerWrapper}>
-				{filteredAds.map(ad =>
+				<span className={style.PageTitle}>
+					Order Offers
+				</span>
+				{/* {filteredAds.map(ad =>
 					<Link to={`/order/${ad._id}/${inputAmount}`}>
 						<PeerToPeerAd
 							adType={ad.adType}
@@ -127,7 +130,21 @@ const PeerToPeerPage = () => {
 							rate={ad.rate}
 						/>
 					</Link>
-				)}
+				)} */}
+
+				{/* <Link to={`/order/${ad._id}/${inputAmount}`}> */}
+				<PeerToPeerAd
+					adType={'buy'}
+					username={'p4nther'}
+					token={'usdc'}
+					available={'100'}
+					lowest={'300'}
+					highest={'100k'}
+					paymentMethod={'Bank transfer'}
+					rate={'1200'}
+					completionRate={'100'}
+				/>
+				{/* </Link> */}
 			</div>
 		</div>
 	)

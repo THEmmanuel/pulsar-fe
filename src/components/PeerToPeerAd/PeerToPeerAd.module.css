@@ -6,7 +6,8 @@ a{
 .PeerToPeerAd {
 	border-radius: 5px;
 	text-align: left;
-	padding: 10px 40px;
+	padding: 20px 40px;
+	color: #FFF;
 }
 
 .PeerToPeerAdWrapper {
@@ -17,7 +18,8 @@ a{
 
 .UserInfo {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	gap: 20px;
 }
 
 .UserRateInfo {
@@ -45,8 +47,7 @@ a{
 	border-radius: 10px;
 	margin: auto;
 	padding: 2px 20px 2px 20px;
-	background-color: #FAE8CF;
-	color: #DC9635;
+	color: #FFF;
 	font-size: 0.8em;
 }
 
@@ -61,6 +62,7 @@ a{
 .UserName {
 	font-size: 1.1em;
 	font-weight: 700;
+	color: #FFF;
 }
 
 .UserOrderInfo {
@@ -77,5 +79,5 @@ a{
 }
 
 .UserLimitInfoText{
-	font-size: 0.8em;
+
 }

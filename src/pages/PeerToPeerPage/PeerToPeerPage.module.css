@@ -5,6 +5,10 @@
 	gap: 20px;
 }
 
+.PageTitle{
+	color: #FFF;
+}
+
 .PeerToPeerWrapper {
 	display: flex;
 	flex-direction: column;
