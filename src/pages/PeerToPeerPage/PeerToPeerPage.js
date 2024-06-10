@@ -7,6 +7,7 @@ import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import DropDown from '../../components/DropDown/DropDown';
 import MainInput from '../../components/MainInput/MainInput';
 import SecondaryDropdown from '../../components/SecondaryDropdown/SecondaryDropdown';
+import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 
 const API_URL = 'http://localhost:9000';
 
@@ -67,9 +68,22 @@ const PeerToPeerPage = () => {
 
 	return (
 		<div className={style.PeerToPeerPage}>
-			Peer to peer page
+			<span className={style.PageTitle}>
+				Peer to peer
+			</span>
+
 
 			<div className={style.PeerToPeerHeadingContainer}>
+				<div className={style.PeerToPeerSearchWrapper}>
+					<input
+						type="text"
+						className={style.P2PSearchBox}
+					/>
+
+					<PrimaryCTA ButtonText='Search' />
+				</div>
+
+
 				<div className={style.PeerToPeerHeading}>
 					<div className={style.PeerToPeerDropdownWrapper}>
 						<div>
@@ -88,30 +102,34 @@ const PeerToPeerPage = () => {
 								options={tokens}
 							/>
 						</div>
-					</div>
 
-					<div className={style.PeerToPeerCurrency}>
-						<MainInput
-							change={handleInputAmount}
-						/>
-						<div>
-
-							<span>Fiat</span>
-							<DropDown
-								DropDownText='USD'
-								onSelect={handleFiatChange}
-								options={fiatCurrencies}
+						<div className={style.PeerToPeerCurrency}>
+							<MainInput
+								change={handleInputAmount}
 							/>
+							<div>
+
+								<span>Fiat</span>
+								<DropDown
+									DropDownText='USD'
+									onSelect={handleFiatChange}
+									options={fiatCurrencies}
+								/>
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<Link to='/create-ad'>
+				{/* <Link to='/create-ad'>
 					<button className={style.CreateAdButton}>
 						+ Create Ad
 					</button>
-				</Link>
+				</Link> */}
 			</div>
+
+
+
+
 
 			<div className={style.PeerToPeerWrapper}>
 				<span className={style.PageTitle}>
@@ -133,6 +151,55 @@ const PeerToPeerPage = () => {
 				)} */}
 
 				{/* <Link to={`/order/${ad._id}/${inputAmount}`}> */}
+				<PeerToPeerAd
+					adType={'buy'}
+					username={'p4nther'}
+					token={'usdc'}
+					available={'100'}
+					lowest={'300'}
+					highest={'100k'}
+					paymentMethod={'Bank transfer'}
+					rate={'1200'}
+					completionRate={'100'}
+				/>
+
+
+				<PeerToPeerAd
+					adType={'buy'}
+					username={'p4nther'}
+					token={'usdc'}
+					available={'100'}
+					lowest={'300'}
+					highest={'100k'}
+					paymentMethod={'Bank transfer'}
+					rate={'1200'}
+					completionRate={'100'}
+				/>
+
+				<PeerToPeerAd
+					adType={'buy'}
+					username={'p4nther'}
+					token={'usdc'}
+					available={'100'}
+					lowest={'300'}
+					highest={'100k'}
+					paymentMethod={'Bank transfer'}
+					rate={'1200'}
+					completionRate={'100'}
+				/>
+
+				<PeerToPeerAd
+					adType={'buy'}
+					username={'p4nther'}
+					token={'usdc'}
+					available={'100'}
+					lowest={'300'}
+					highest={'100k'}
+					paymentMethod={'Bank transfer'}
+					rate={'1200'}
+					completionRate={'100'}
+				/>
+
 				<PeerToPeerAd
 					adType={'buy'}
 					username={'p4nther'}
