@@ -11,15 +11,7 @@ const UserInformationContent = props => {
 	}
 
 	return (
-		<div className={style.UserInformationContentWrapper}
-			style={
-				props.adType === 'buy' ?
-					{
-						backgroundColor: '#BEE8E1'
-					} : {
-						backgroundColor: '#F7E2E3'
-					}}>
-
+		<div className={style.UserInformationContentWrapper}>
 			<div className={style.UserInformationContent}>
 				<div className={style.BuyPageInputWrapper}>
 					<div className={style.InputContainer}>

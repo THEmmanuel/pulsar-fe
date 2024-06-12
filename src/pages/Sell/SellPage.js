@@ -60,27 +60,6 @@ const SellPage = () => {
 							<UserTerms />
 						</div>
 				}
-
-				<div className={style.ButtonContainer}>
-					<div className={style.ButtonWrapper}>
-						{!orderCreated ? <button
-							className={style.ButtomButtonProceed}
-							onClick={createOrderHandler}>
-							Sell {adInfo.token}
-						</button>
-
-							:
-
-							<button
-								className={style.ButtomButtonProceed}
-								onClick={processOrderHandler}>
-								Confirm reciept
-							</button>
-						}
-
-						<button className={style.ButtomButtonCancel}>Cancel</button>
-					</div>
-				</div>
 			</div>
 	)
 }

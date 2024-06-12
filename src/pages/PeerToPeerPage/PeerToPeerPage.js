@@ -103,19 +103,16 @@ const PeerToPeerPage = () => {
 							/>
 						</div>
 
-						<div className={style.PeerToPeerCurrency}>
-							<MainInput
-								change={handleInputAmount}
+						<MainInput
+							change={handleInputAmount}
+						/>
+						<div>
+							<span>Fiat</span>
+							<DropDown
+								DropDownText='USD'
+								onSelect={handleFiatChange}
+								options={fiatCurrencies}
 							/>
-							<div>
-
-								<span>Fiat</span>
-								<DropDown
-									DropDownText='USD'
-									onSelect={handleFiatChange}
-									options={fiatCurrencies}
-								/>
-							</div>
 						</div>
 					</div>
 				</div>
