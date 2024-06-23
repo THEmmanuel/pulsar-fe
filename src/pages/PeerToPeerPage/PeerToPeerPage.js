@@ -130,7 +130,7 @@ const PeerToPeerPage = () => {
 
 			<div className={style.PeerToPeerWrapper}>
 				<span className={style.PageTitle}>
-					Order Offers
+					Open Offers
 				</span>
 				{/* {filteredAds.map(ad =>
 					<Link to={`/order/${ad._id}/${inputAmount}`}>

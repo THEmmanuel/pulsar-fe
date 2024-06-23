@@ -7,11 +7,11 @@
 	color: #646464;
 	width: 80%;
 	margin: auto;
-	border-radius: 10px;
+	border-radius: 5px;
 	align-self: center;
 	padding: 10px;
 }
 
 .SideBarButton:hover{
-	
+	background-color: #000000;
 }

@@ -52,9 +52,11 @@ const Dashboard = () => {
 						</span>
 					</div>
 
-					<PrimaryCTA
-						ButtonText='View Wallets'
-					/>
+					<Link to={`/wallets`}>
+						<PrimaryCTA
+							ButtonText='View Wallets'
+						/>
+					</Link>
 				</div>
 
 				<div className={style.DashboardCardsWrapper}>

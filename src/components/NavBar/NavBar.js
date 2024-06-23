@@ -2,6 +2,7 @@ import React from 'react';
 import style from './NavBar.module.css';
 import { useUser, UserButton } from '@clerk/clerk-react';
 import { Link, useNavigate } from 'react-router-dom';
+// import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const NavBar = () => {
 	const { user } = useUser();
@@ -12,6 +13,8 @@ const NavBar = () => {
 				<h2></h2>
 
 				<div className={style.NavIntroduction}>
+				{/* <ConnectButton /> */}
+
 					{
 						user ?
 							<div className={style.NavUserInfo}>

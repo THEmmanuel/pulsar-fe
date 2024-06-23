@@ -7,7 +7,7 @@ const Dropdown = (props) => {
 
 	const handleChange = selected => {
 		setSelectedOption(selected);
-		props.onSelect({name: props.name, value: selected.value})
+		props.onSelect({ name: props.name, value: selected.value })
 	}
 
 	return (
@@ -18,8 +18,16 @@ const Dropdown = (props) => {
 
 			<Select
 				options={props.options}
-				value = {selectedOption}
-				onChange = {handleChange}
+				value={selectedOption}
+				onChange={handleChange}
+				styles={{
+					control: (baseStyles, state) => ({
+						...baseStyles,
+						backgroundColor: '#232323',
+						border: 'none',
+						color: '#FFF'
+					})
+				}}
 			/>
 		</div>
 	)

@@ -1,8 +1,13 @@
-.TransactionCardWrapper{
+.TransactionCardWrapper {
 	background-color: #232323;
 	border-radius: 5px;
+	border: none;
 }
 
-.TransactionCardWrapper td{
-	color: #AFAFAF;
+.TransactionCardWrapper td {
+    color: #AFAFAF;
+    border: none; /* Remove borders from table cells */
+    text-align: center; /* Center text horizontally */
+    vertical-align: middle; /* Center text vertically */
+    padding: 10px; /* Add padding for better spacing */
 }
