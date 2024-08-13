@@ -5,17 +5,11 @@
 	"dependencies": {
 		"@clerk/clerk-react": "^4.7.0",
 		"@rainbow-me/rainbowkit": "^2.1.2",
-		"@tanstack/react-query": "^5.40.0",
+		"@tanstack/react-query": "^5.45.1",
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
 		"axios": "^1.2.1",
-		"bip32": "^3.1.0",
-		"bip39": "^3.0.4",
-		"bitcoinjs-lib": "^6.1.0",
-		"bitcore-lib": "^8.25.40",
-		"bitcore-mnemonic": "^8.25.40",
-		"bn.js": "^5.2.1",
 		"ethers": "^5.7.2",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -23,11 +17,11 @@
 		"react-scripts": "^4.0.3",
 		"react-select": "^5.7.0",
 		"viem": "2.x",
-		"wagmi": "^2.9.7",
+		"wagmi": "^2.10.4",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"start": "react-scripts --openssl-legacy-provider start",
+		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
