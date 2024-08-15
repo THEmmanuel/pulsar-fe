@@ -37,6 +37,10 @@
 	flex-direction: column;
 }
 
+.WalletsPageBalanceAmount{
+	font-size: 2em;
+}
+
 .WalletsCardContainer{
 	display: flex;
 	flex-direction: row;
