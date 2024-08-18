@@ -6,6 +6,7 @@
 	width: fit-content;
 	padding: 20px 100px;
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 .DashboardCardTitle {
@@ -20,7 +21,11 @@
 	font-size: 0.75em;
 }
 
-.DashboardCardIcon{
+.DashboardCardIcon {
 	width: 30px;
 	margin: auto;
+}
+
+.DashboardCard:hover {
+	background-color: #141414;
 }

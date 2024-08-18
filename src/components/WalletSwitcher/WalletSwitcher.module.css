@@ -1,0 +1,14 @@
+.WalletSwitcher{
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	margin-bottom: 100px;
+}
+
+.WalletSwitcherTab{
+	
+}
+
+.WalletSwitcherTabText{
+	font-size: 0.8em;
+}

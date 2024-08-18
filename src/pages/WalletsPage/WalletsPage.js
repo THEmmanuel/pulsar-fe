@@ -7,6 +7,8 @@ import { UserContext } from '../../contexts/UserContext';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import WalletCard from '../../components/WalletCard/WalletCard.js';
+import WalletSwitcher from '../../components/WalletSwitcher/WalletSwitcher.js';
+import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher.js';
 
 
 const API_URL = 'http://localhost:9000/'
@@ -17,11 +19,9 @@ const WalletsPage = () => {
 
 	return (
 		<div className={style.WalletsPage}>
-			<div>
-				all wallets, kjdkdd ,d,d,
-			</div>
 
 			<div className={style.WalletCoinContainer}>
+			<WalletSwitcher />
 				<div className={style.WalletsPageBalance}>
 					<span className={style.WalletsPageBalanceTitle}>
 						Total Wallet Value
@@ -36,8 +36,8 @@ const WalletsPage = () => {
 
 					<div className={style.WalletCardWrapper}>
 						<div className={style.WalletsPageBalance}>
-							<span>token</span>
-							<span>chain</span>
+							<span className={style.WalletsPageChainType}>Bitcoin</span>
+							<ChainSwitcher />
 						</div>
 
 						<div className={style.WalletsCardContainer}>
@@ -48,8 +48,8 @@ const WalletsPage = () => {
 
 					<div className={style.WalletCardWrapper}>
 						<div className={style.WalletsPageBalance}>
-							<span>token</span>
-							<span>chain</span>
+							<span className={style.WalletsPageChainType}>Ethereum</span>
+							<ChainSwitcher />
 						</div>
 
 						<div className={style.WalletsCardContainer}>

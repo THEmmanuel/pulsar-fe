@@ -60,41 +60,53 @@ const Dashboard = () => {
 				</div>
 
 				<div className={style.DashboardCardsWrapper}>
-					<DashboardCard
-						icon={usdcIcon}
-						title='Buy Crypto'
-						description='Buy BTC, ETH, USDT, USDC.'
-					/>
+					<Link to={`/p2p/buy`}>
+						<DashboardCard
+							icon={usdcIcon}
+							title='Buy Crypto'
+							description='Buy BTC, ETH, USDT, USDC.'
+						/>
+					</Link>
 
-					<DashboardCard
-						icon={buyIcon}
-						title='Sell Crypto'
-						description='Sell BTC, ETH, USDT, USDC.'
-					/>
+					<Link to={`/p2p/sell`}>
+						<DashboardCard
+							icon={buyIcon}
+							title='Sell Crypto'
+							description='Sell BTC, ETH, USDT, USDC.'
+						/>
+					</Link>
 
-					<DashboardCard
-						icon={walletIcon}
-						title='Wallets'
-						description='View and manage your wallets.'
-					/>
+					<Link to={`/wallets`}>
+						<DashboardCard
+							icon={walletIcon}
+							title='Wallets'
+							description='View and manage your wallets.'
+						/>
+					</Link>
 
-					<DashboardCard
-						icon={accountIcon}
-						title='Account'
-						description='View and manage your account.'
-					/>
+					<Link to={`/user-page`}>
+						<DashboardCard
+							icon={accountIcon}
+							title='Account'
+							description='View and manage your account.'
+						/>
+					</Link>
 
-					<DashboardCard
-						icon={p2pIcon}
-						title='Peer to Peer'
-						description='View and manage your p2p ads'
-					/>
+					<Link to={`/my-ads`}>
+						<DashboardCard
+							icon={p2pIcon}
+							title='Peer to Peer'
+							description='View and manage your p2p ads'
+						/>
+					</Link>
 
-					<DashboardCard
-						icon={helpIcon}
-						title='Help'
-						description='Guides, FAQs, resources etc'
-					/>
+					<Link to={`/wallets`}>
+						<DashboardCard
+							icon={helpIcon}
+							title='Help'
+							description='Guides, FAQs, resources etc'
+						/>
+					</Link>
 				</div>
 			</div>
 		</div>
@@ -102,3 +114,4 @@ const Dashboard = () => {
 }
 
 export default Dashboard;
+
