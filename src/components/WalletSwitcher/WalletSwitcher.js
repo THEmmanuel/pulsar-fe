@@ -4,19 +4,19 @@ import style from './WalletSwitcher.module.css';
 const WalletSwitcher = () => {
 	return (
 		<div className={style.WalletSwitcher}>
-			<div>
+			<div className={style.WalletSwitcherTab}>
 				<span className={style.WalletSwitcherTabText}>
 					All Wallets
 				</span>
 			</div>
 
-			<div>
+			<div className={style.WalletSwitcherTab}>
 				<span className={style.WalletSwitcherTabText}>
 					Cryptomatic Wallets
 				</span>
 			</div>
 
-			<div>
+			<div className={style.WalletSwitcherTab}>
 				<span className={style.WalletSwitcherTabText}>
 					Connected Wallets
 				</span>
@@ -25,4 +25,4 @@ const WalletSwitcher = () => {
 	)
 }
 
-export default WalletSwitcher
+export default WalletSwitcher;

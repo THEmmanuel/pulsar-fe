@@ -30,6 +30,7 @@ const EthereumWallet = () => {
 		}
 	}, [userWallet]);
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const fetchTransactions = async () => {
 		const ethTransactions = await getETHHistory(wallet.walletAddress);
 		setEthTransactions(ethTransactions)
@@ -46,7 +47,7 @@ const EthereumWallet = () => {
 		fetchTransactions()
 		return () => {
 		};
-	}, [wallet]);
+	}, [fetchTransactions, wallet]);
 
 	return (
 		<div className={style.WalletPage}>

@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom'
 import WalletCard from '../../components/WalletCard/WalletCard.js';
 import WalletSwitcher from '../../components/WalletSwitcher/WalletSwitcher.js';
 import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher.js';
+import usdcIcon from '../../assets/usdc-icon.svg'
+
 
 
 const API_URL = 'http://localhost:9000/'
@@ -21,7 +23,7 @@ const WalletsPage = () => {
 		<div className={style.WalletsPage}>
 
 			<div className={style.WalletCoinContainer}>
-			<WalletSwitcher />
+				<WalletSwitcher />
 				<div className={style.WalletsPageBalance}>
 					<span className={style.WalletsPageBalanceTitle}>
 						Total Wallet Value
@@ -53,9 +55,22 @@ const WalletsPage = () => {
 						</div>
 
 						<div className={style.WalletsCardContainer}>
-							<WalletCard />
-							<WalletCard />
-							<WalletCard />
+							<Link to='/wallet/ethereum'>
+								<WalletCard 
+									CoinName = 'Ether - ETH'
+									CoinText = 'View your ETH on the Ethereum chain'
+									CoinBalance = '111'
+									WalletIcon = {usdcIcon}
+								/>
+							</Link>
+
+							<Link>
+								<WalletCard />
+							</Link>
+
+							<Link>
+								<WalletCard />
+							</Link>
 						</div>
 					</div>
 

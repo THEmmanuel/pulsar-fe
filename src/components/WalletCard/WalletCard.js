@@ -3,28 +3,28 @@ import style from './WalletCard.module.css';
 import usdcIcon from '../../assets/usdc-icon.svg'
 
 
-const WalletCard = () => {
+const WalletCard = props => {
 	return (
 		<div className={style.WalletCard}>
 			<div className={style.WalletCardWrapper}>
 				<img
-					src={usdcIcon}
+					src={props.WalletIcon}
 					alt=""
 					className={style.WalletCoinIcon}
 				/>
 
 				<span className={style.WalletCoinName}>
-					Bitcoin
+					{props.CoinName}
 				</span>
 
 				<span className={style.WalletCoinDescription}>
-					View your btc wallet
+					{props.CoinText}
 				</span>
 			</div>
 
 
 			<span className={style.WalletCardAmount}>
-				Amount
+				{props.CoinBalance}
 			</span>
 		</div>
 	)

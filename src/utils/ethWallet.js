@@ -22,6 +22,7 @@ export const getUSDTBalance = async (address) => {
 export const getETHBalance = async (address) => {
 	balance = await window.ethersProvider.getBalance(address);
 	const EthBalance = ethers.utils.formatEther(balance);
+	console.log('jbgashvgwhdb' + window.ethersProvider)
 	return EthBalance;
 }
 
