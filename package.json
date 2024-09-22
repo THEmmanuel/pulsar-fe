@@ -9,7 +9,14 @@
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
+		"alchemy-sdk": "^3.4.1",
 		"axios": "^1.2.1",
+		"bip32": "^3.1.0",
+		"bip39": "^3.0.4",
+		"bitcoinjs-lib": "^6.1.0",
+		"bitcore-lib": "^8.25.40",
+		"bitcore-mnemonic": "^8.25.40",
+		"bn.js": "^5.2.1",
 		"ethers": "^5.7.2",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -18,13 +25,7 @@
 		"react-select": "^5.7.0",
 		"viem": "2.x",
 		"wagmi": "^2.10.4",
-		"web-vitals": "^2.1.4",
-		"bip32": "^3.1.0",
-		"bip39": "^3.0.4",
-		"bitcoinjs-lib": "^6.1.0",
-		"bitcore-lib": "^8.25.40",
-		"bitcore-mnemonic": "^8.25.40",
-		"bn.js": "^5.2.1"
+		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
 		"start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
@@ -32,12 +33,6 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
-
-
-
-
-
-
 	"eslintConfig": {
 		"extends": [
 			"react-app",

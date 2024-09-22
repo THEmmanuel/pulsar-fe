@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import style from './TransferModal.module.css';
-import { sendETH, getETHGasPrice } from '../../utils/ethWallet';
+import { sendETH, getETHGasPrice, isValidEthereumAddress, estimateGasOfTx } from '../../utils/ethWallet';
 import FormInput from '../../components/FormInput/FormInput';
-import { checkAddress } from '../../utils/ethWallet';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+import {
+	ethers
+} from 'ethers';
 
-const TransferModal = props => {
+const TransferModal = (props) => {
 	const [recipientAddress, setRecipientAddress] = useState("");
-	const [amount, setAmount] = useState(0);
-	const [gasPrice, setGasPrice] = useState(0)
+	const [amount, setAmount] = useState("");
+	const [gasPrice, setGasPrice] = useState(0); // Assuming you'll calculate this later
 	const privateKey = props.privateKey;
-	const contractAddress = '';
+	const contractAddress = ''; // Not used in this case
 	const sendAddress = props.ETHAddress;
+
+	// Validate the wallet address
+	const isValidAddress = ethers.utils.isAddress(recipientAddress);
+
+	// Validate the amount
+	const isValidAmount = !isNaN(amount) && +amount > 0;
 
 	return (
 		<div className={style.TransferModalWrapper}>
@@ -20,67 +28,81 @@ const TransferModal = props => {
 					<span className={style.TransferHeading}>Sending ETH</span>
 
 					<div className={style.TransferInputWrapper}>
+						{/* Amount Input */}
 						<div className={style.TransferInputContainer}>
 							<FormInput
 								title='Amount in $'
 								change={(e) => setAmount(e.target.value)}
 							/>
+							<span
+								style={{
+									textAlign: 'left',
+									color: isValidAmount ? '#4ECB71' : '#FF4E42', // Green for valid, red for invalid
+									fontWeight: 700,
+									fontSize: '0.8em',
+								}}
+							>
+								Amount is {isValidAmount ? 'valid' : 'invalid'}
+							</span>
 						</div>
 
+						{/* Recipient Wallet Address Input */}
 						<div className={style.TransferInputContainer}>
 							<FormInput
 								title='Recipient Wallet Address'
 								change={(e) => setRecipientAddress(e.target.value)}
 							/>
-							<span className={style.WalletCheckText}>Wallet address is valid</span>
+							<span
+								style={{
+									textAlign: 'left',
+									color: isValidAddress ? '#4ECB71' : '#FF4E42', // Green for valid, red for invalid
+									fontWeight: 700,
+									fontSize: '0.8em',
+								}}
+							>
+								Wallet address is {isValidAddress ? 'valid' : 'invalid'}
+							</span>
 						</div>
 
+						{/* Transaction Details */}
 						<div className={style.TransactionDetailsContainer}>
 							<div className={style.TransactionDetails}>
 								<span className={style.TransactionDetailsText}>Gas fees:</span>
-								<span className={style.TransactionDetailsValue}>$0.98</span>
+								<span className={style.TransactionDetailsValue}>${gasPrice || '0.98'}</span>
 							</div>
 
 							<div className={style.TransactionDetails}>
 								<span className={style.TransactionDetailsText}>Total:</span>
-								<span className={style.TransactionDetailsValue}>${+amount + 0.98}</span>
-							</div>
-
-							<div className={style.TransactionDetails}>
-								<span className={style.TransactionDetailsText}>Total:</span>
-								<span className={style.TransactionDetailsValue}>${+amount + 0.98}</span>
+								<span className={style.TransactionDetailsValue}>${(+amount + (gasPrice || 0.98)).toFixed(2)}</span>
 							</div>
 						</div>
 
+						{/* Action Buttons */}
 						<div className={style.TransferButtons}>
-							{/* <button
-								className={style.TransferSendButton}
-								onClick={
-									() => sendETH(sendAddress, recipientAddress, amount, privateKey, contractAddress)
-								}>
-								Send
-							</button>
-
-							<button
-								className={style.TransferCancelButton}
-								onClick={checkAddress(recipientAddress)}>
-								Cancel
-							</button> */}
-
-							<PrimaryCTA
-								ButtonText='Send'
-							/>
-
-							<PrimaryCTA
-								ButtonText='Cancel'
-							/>
+							<PrimaryCTA ButtonText='Send' />
+							<PrimaryCTA ButtonText='Cancel' />
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
-	)
-}
+	);
+};
+
+estimateGasOfTx()
 
 export default TransferModal;
+
+{/* <button
+	className={style.TransferSendButton}
+	onClick={
+		() => sendETH(sendAddress, recipientAddress, amount, privateKey, contractAddress)
+	}>
+	Send
+</button>
+
+<button
+	className={style.TransferCancelButton}
+	onClick={checkAddress(recipientAddress)}>
+	Cancel
+</button> */}

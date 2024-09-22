@@ -11,7 +11,7 @@
 	display: flex;
 	flex-direction: column;
 	/* background-color: #E9EFEE; */
-	width: 70%;
+	width: 100%;
 	gap: 20px;
 	margin: 10px auto;
 	justify-content: center;
@@ -95,6 +95,25 @@
 	border: 0;
 }
 
-.WalletCoinNetwork{
+.WalletCoinNetwork {
 	color: #AFAFAF;
+}
+
+td {
+	color: #FFF;
+}
+
+@media only screen and (max-width: 600px) {
+	.WalletPage {
+		width: 100%
+	}
+
+	.WalletAddress{
+		min-width: 250px;
+		max-width: 320px;
+	}
+
+	.WalletAddress{
+		font-size: 0.8em;
+	}
 }

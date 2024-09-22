@@ -1,17 +1,17 @@
-.WalletsPage{
+.WalletsPage {
 	color: #FFF;
 	width: 1280px;
 	height: 100%;
 }
 
-.WalletPortfolioValue{
+.WalletPortfolioValue {
 	display: flex;
 	flex-direction: row;
 	gap: 10px;
 	align-items: center;
 }
 
-.WalletCoinContainer{
+.WalletCoinContainer {
 	padding: 20px;
 	/* background-color: #FFF; */
 	border-radius: 10px;
@@ -20,19 +20,19 @@
 	padding-bottom: 80px;
 }
 
-.WalletTotalValue{
+.WalletTotalValue {
 	font-size: 1.2em;
 	font-weight: 600;
 }
 
-.WalletsContainer{
+.WalletsContainer {
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
 	margin: 40px 0 70px 0px;
 }
 
-.WalletsPageBalance{
+.WalletsPageBalance {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -40,23 +40,41 @@
 	gap: 10px;
 }
 
-.WalletsPageBalanceAmount{
+.WalletsPageBalanceAmount {
 	font-size: 2em;
 }
 
-.WalletsCardContainer{
+.WalletsCardContainer {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
 
-.WalletCardWrapper{
+.WalletCardWrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 }
 
-.WalletsPageChainType{
+.WalletsPageChainType {
 	color: #AFAFAF;
 	font-size: 1.1em;
+}
+
+@media only screen and (max-width: 600px) {
+	.DashboardCard {
+		/* width: 20px; */
+		padding: 0;
+	}
+
+	.WalletsPage {
+		width: 100%;
+	}
+
+	.WalletsCardContainer {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 20px;
+	}
 }

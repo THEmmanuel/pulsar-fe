@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import style from './EthereumWallet.module.css';
 import MainDropdown from '../../../components/MainDropdown/MainDropdown';
 import TransferModal from '../../../containers/TransferModal/TransferModal';
@@ -31,23 +32,65 @@ const EthereumWallet = () => {
 	}, [userWallet]);
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const fetchTransactions = async () => {
-		const ethTransactions = await getETHHistory(wallet.walletAddress);
-		setEthTransactions(ethTransactions)
-	}
+
+	// const [walletBalance, setWalletBalance] = useState(0);
+	const walletAddress = wallet.walletAddress; // Example address
+
+	const fetchTransactions = async (address) => {
+		console.log('running');
+
+		try {
+			const response = await axios.get('https://api-sepolia.etherscan.io/api', {
+				params: {
+					module: 'account',
+					action: 'txlist',
+					address: wallet.walletAddress,
+					page: 1,
+					offset: 100,
+					startblock: 0,
+					endblock: 99999999,
+					sort: 'desc',
+					apikey: process.env.REACT_APP_ETHERSCAN_KEY
+				}
+			});
+
+			if (response.data.status === "1") {
+				const ethTransactions = response.data.result;
+				setEthTransactions(ethTransactions);
+				console.log(ethTransactions);
+			} else {
+				console.error('Error fetching transactions:', response.data.message);
+			}
+		} catch (error) {
+			console.error('Error with API request:', error);
+		}
+	};
 
 	useEffect(() => {
 		const fetchBalance = async () => {
-			if (wallet) {
-				const balance = await getETHBalance(wallet.walletAddress);
-				setWalletBalance(balance);
+			try {
+				const response = await axios.get(`http://localhost:9000/wallet-actions/get-token-balance/${walletAddress}`);
+				setWalletBalance(response.data.balance);
+			} catch (error) {
+				console.error('Error fetching wallet balance:', error);
 			}
 		};
+
 		fetchBalance();
 		fetchTransactions()
-		return () => {
-		};
-	}, [fetchTransactions, wallet]);
+	}, [walletAddress]);
+
+	// useEffect(() => {
+	// 	const fetchBalance = async () => {
+	// 		if (wallet) {
+	// 			const balance = await getETHBalance(wallet.walletAddress);
+	// 			setWalletBalance(balance);
+	// 		}
+	// 	};
+	// 	fetchBalance();
+	// 	return () => {
+	// 	};
+	// }, [fetchTransactions, wallet]);
 
 	return (
 		<div className={style.WalletPage}>
@@ -55,8 +98,16 @@ const EthereumWallet = () => {
 				<div className={style.WalletCoinInformation}>
 					<img src={usdcWalletImage} alt="" className={style.WalletCoinImage} />
 					<div className={style.WalletCoinPriceInfo}>
-						<span className={style.WalletCoinTotal}>{walletBalance} ETH</span>
-						<span className={style.WalletCoinValue}>${walletBalance * 1200.08}</span>
+						<span className={style.WalletCoinTotal}>
+							<span className={style.WalletCoinTotal}>
+								{walletBalance} ETH
+							</span>
+
+						</span>
+						<span className={style.WalletCoinValue}>
+							${parseFloat(walletBalance * 2517.3).toFixed(2)}
+						</span>
+						{parseFloat(walletBalance).toFixed(2)} ETH
 
 						<button
 							className={style.SendButton}
@@ -67,7 +118,7 @@ const EthereumWallet = () => {
 					</div>
 				</div>
 
-				<div className={style.WalletTransactionInput}>
+				{/* <div className={style.WalletTransactionInput}>
 					<MainDropdown
 						DropdownHeading='Token'
 						PrimaryText={wallet.walletName}
@@ -79,7 +130,7 @@ const EthereumWallet = () => {
 						PrimaryText='Ethereum'
 						SecondaryText='ERC-20'
 					/>
-				</div>
+				</div> */}
 
 				<span className={style.WalletAddress}>
 					{wallet.walletAddress}
@@ -96,7 +147,7 @@ const EthereumWallet = () => {
 					cancel={() => setIsModalOpen(false)}
 				/> : null}
 
-			<div className={style.TransactionHistoryWrapper}>
+			{/* <div className={style.TransactionHistoryWrapper}>
 				<span>
 					Transaction History
 				</span>
@@ -105,7 +156,7 @@ const EthereumWallet = () => {
 					<thead>
 						<th>Amount</th>
 						<th>Network</th>
-						<th>Blockchain Record</th>
+						<th>from</th>
 						<th>Status</th>
 						<th>Remarks</th>
 						<th>Start Time</th>
@@ -115,19 +166,20 @@ const EthereumWallet = () => {
 						{ethTransactions ? ethTransactions.map(transaction => {
 							return (
 								<tr>
-									<td>7.78 ETH</td>
+									<td>{parseInt(transaction.value, 10) / 1e18} ETH</td>
 									<td>ERC-20</td>
-									<td>View Transaction</td>
+									<td>{transaction.from}</td>
 									<td>Completed</td>
 									<td>Deposit</td>
-									<td>2021/11/10 23:01:33</td>
+									<td>{new Date(transaction.timeStamp * 1000).toLocaleString()}</td>
 								</tr>
-
 							)
 						}) : <span>Loading</span>}
 					</tbody>
 				</table>
-			</div>
+			</div> */}
+
+			{/* Redesign these cards */}
 		</div>
 	);
 }

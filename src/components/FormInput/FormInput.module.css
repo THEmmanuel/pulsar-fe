@@ -22,3 +22,9 @@
 	background-color: #1D1D1D;
 	height: 30px;
 }
+
+@media only screen and (max-width: 600px) {
+	.TransferInputText {
+		text-align: center;
+	}
+}

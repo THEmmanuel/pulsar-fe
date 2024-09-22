@@ -12,8 +12,8 @@ import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher.js';
 import usdcIcon from '../../assets/usdc-icon.svg'
 
 
-
 const API_URL = 'http://localhost:9000/'
+
 
 const WalletsPage = () => {
 	const { wallets } = useContext(UserContext)
@@ -56,11 +56,11 @@ const WalletsPage = () => {
 
 						<div className={style.WalletsCardContainer}>
 							<Link to='/wallet/ethereum'>
-								<WalletCard 
-									CoinName = 'Ether - ETH'
-									CoinText = 'View your ETH on the Ethereum chain'
-									CoinBalance = '111'
-									WalletIcon = {usdcIcon}
+								<WalletCard
+									CoinName='Ether - ETH'
+									CoinText='View your ETH on the Ethereum chain'
+									CoinBalance='111'
+									WalletIcon={usdcIcon}
 								/>
 							</Link>
 

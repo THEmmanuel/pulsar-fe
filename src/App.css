@@ -13,7 +13,6 @@
 	display: flex;
 	flex-direction: column;
 	width: 85%;
-	margin-left: 15%;
 }
 
 .pages-wrapper {
@@ -50,4 +49,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@media only screen and (max-width: 600px) {
+	.DashboardCard {
+		width: 20px;
+		padding: 0;
+	}
+
+	.Page-container{
+		width: 100%;
+	}
 }

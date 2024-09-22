@@ -29,3 +29,24 @@
 .DashboardCard:hover {
 	background-color: #141414;
 }
+
+@media only screen and (max-width: 600px) {
+	.DashboardCard {
+		width: 80%;
+		padding: 10px;
+		gap: 10px;
+		margin: auto;
+	}
+
+	.DashboardCardIcon{
+		width: 25px;
+	}
+
+	.DashboardCardTitle{
+		font-size: 0.8em;
+	}
+
+	.DashboardCardDescription{
+		font-size: 0.7em;
+	}
+}

@@ -132,7 +132,7 @@ const PeerToPeerPage = () => {
 				<span className={style.PageTitle}>
 					Open Offers
 				</span>
-				{/* {filteredAds.map(ad =>
+				{ads.map(ad =>
 					<Link to={`/order/${ad._id}/${inputAmount}`}>
 						<PeerToPeerAd
 							adType={ad.adType}
@@ -145,10 +145,10 @@ const PeerToPeerPage = () => {
 							rate={ad.rate}
 						/>
 					</Link>
-				)} */}
+				)}
 
 				{/* <Link to={`/order/${ad._id}/${inputAmount}`}> */}
-				<PeerToPeerAd
+				{/* <PeerToPeerAd
 					adType={'buy'}
 					username={'p4nther'}
 					token={'usdc'}
@@ -207,7 +207,7 @@ const PeerToPeerPage = () => {
 					paymentMethod={'Bank transfer'}
 					rate={'1200'}
 					completionRate={'100'}
-				/>
+				/> */}
 				{/* </Link> */}
 			</div>
 		</div>

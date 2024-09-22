@@ -74,7 +74,7 @@ function App() {
 					wallets,
 					setWallets
 				}}>
-					<SideBar />
+					{/* <SideBar /> */}
 					<section className='Page-container'>
 						<NavBar />
 						<div className='pages-wrapper'>

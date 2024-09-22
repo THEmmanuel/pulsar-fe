@@ -1,8 +1,17 @@
 import {
+	Alchemy,
+	Network,
+	Utils
+} from 'alchemy-sdk';
+
+
+import {
 	ethers
 } from 'ethers';
+
 import USDTWallet from '../pages/Wallet/USDTWallet/USDTWallet';
 import erc20ABI from '../contracts/erc20ABI.json';
+
 import {
 	isAddress
 } from 'ethers/lib/utils';
@@ -19,11 +28,58 @@ export const getUSDTBalance = async (address) => {
 }
 
 
-export const getETHBalance = async (address) => {
-	balance = await window.ethersProvider.getBalance(address);
-	const EthBalance = ethers.utils.formatEther(balance);
-	console.log('jbgashvgwhdb' + window.ethersProvider)
-	return EthBalance;
+
+// Setup: npm install alchemy-sdk
+// Github: https://github.com/alchemyplatform/alchemy-sdk-js
+
+// Optional config object, but defaults to demo api-key and eth-mainnet.
+const settings = {
+	apiKey: process.env.REACT_APP_ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
+	network: Network.ETH_SEPOLIA, // Replace with your network.
+};
+const alchemy = new Alchemy(settings);
+
+alchemy.core.getBlock(15221026).then(console.log);
+
+
+export const getETHBalance = async (walletAddress) => {
+	const axios = require('axios');
+	const ethers = require('ethers');
+
+	// Set wallet address corresponding to vitalik.eth
+	const address = walletAddress;
+
+	// Alchemy API key
+	const apiKey = process.env.REACT_APP_ALCHEMY_API_KEY;
+
+	var data = JSON.stringify({
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "eth_getBalance",
+		"params": [
+			address, 'latest',
+		]
+	});
+
+	var config = {
+		method: 'post',
+		url: `https://eth-sepolia.g.alchemy.com/v2/${apiKey}`,
+		headers: {
+			'Content-Type': 'application/json',
+			'Accept': 'application/json',
+		},
+		data: data
+	};
+
+	axios(config)
+		.then(function (response) {
+			let balance = response['data']['result'];
+			balance = ethers.utils.formatEther(balance);
+			console.log(`Balance of ${address}: ${balance} ETH`);
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
 }
 
 
@@ -69,25 +125,44 @@ export const sendUSDT = async (
 
 }
 
-export const getETHHistory = async (address) => {
-	let etherscanProvider = new ethers.providers.EtherscanProvider('goerli');
+// export const getETHHistory = async (address) => {
+// 	let etherscanProvider = new ethers.providers.EtherscanProvider('goerli');
 
-	try {
-		// Wait for the Promise to resolve
-		const history = await etherscanProvider.getHistory(address);
+// 	try {
+// 		// Wait for the Promise to resolve
+// 		const history = await etherscanProvider.getHistory(address);
 
-		// Do something with the history
-		history.forEach((tx) => tx);
+// 		// Do something with the history
+// 		history.forEach((tx) => tx);
 
-		// Return the history
-		return history;
-	} catch (error) {
-		// Catch any errors that might occur
-		console.error(error);
-	}
-};
+// 		// Return the history
+// 		return history;
+// 	} catch (error) {
+// 		// Catch any errors that might occur
+// 		console.error(error);
+// 	}
+// };
 
-// Check eth wallet validity
-export const checkAddress = async (address) => {
-	console.log(isAddress(address))
+
+export const isValidEthereumAddress = (address) => {
+	return ethers.utils.isAddress(address);
+}
+
+
+// Optional Config object, but defaults to demo api-key and eth-mainnet.
+
+export const estimateGasOfTx = async () => {
+	const estimatedGasCostInHex = await alchemy.core.estimateGas({
+		// Wrapped ETH address
+		to: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+		// `function deposit() payable`
+		data: '0xd0e30db0',
+		// 1 ether
+		value: Utils.parseEther('1.0'),
+	});
+	console.log(
+		'The gas cost estimation for the above tx is: ' +
+		Utils.formatUnits(estimatedGasCostInHex, 'ether') +
+		' ether'
+	);
 }
