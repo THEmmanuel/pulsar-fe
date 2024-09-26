@@ -152,7 +152,7 @@ const EthereumWallet = () => {
 					cancel={() => setIsModalOpen(false)}
 				/> : null}
 
-			{/* <div className={style.TransactionHistoryWrapper}>
+			<div className={style.TransactionHistoryWrapper}>
 				<span>
 					Transaction History
 				</span>
@@ -160,11 +160,11 @@ const EthereumWallet = () => {
 				<table className={style.TransactionsTable}>
 					<thead>
 						<th>Amount</th>
-						<th>Network</th>
-						<th>from</th>
-						<th>Status</th>
-						<th>Remarks</th>
-						<th>Start Time</th>
+						{/* <th>Network</th> */}
+						<th>wallet</th>
+						{/* <th>Status</th> */}
+						{/* <th>Remarks</th> */}
+						<th>Time</th>
 					</thead>
 
 					<tbody>
@@ -172,17 +172,17 @@ const EthereumWallet = () => {
 							return (
 								<tr>
 									<td>{parseInt(transaction.value, 10) / 1e18} ETH</td>
-									<td>ERC-20</td>
+									{/* <td>ERC-20</td> */}
 									<td>{transaction.from}</td>
-									<td>Completed</td>
-									<td>Deposit</td>
+									{/* <td>Completed</td> */}
+									{/* <td>Deposit</td> */}
 									<td>{new Date(transaction.timeStamp * 1000).toLocaleString()}</td>
 								</tr>
 							)
 						}) : <span>Loading</span>}
 					</tbody>
 				</table>
-			</div> */}
+			</div>
 
 			{/* Redesign these cards */}
 		</div>

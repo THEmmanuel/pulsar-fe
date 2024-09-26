@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './SideBar.module.css';
 
 import SideBarButton from '../../components/SidebarButton/SideBarButton';
@@ -14,6 +14,8 @@ import settingsIcon from '../../assets/settings.svg';
 import historyIcon from '../../assets/historyIcon.svg';
 
 const SideBar = () => {
+	const [isMobile, setIsMobile] = useState(true);
+
 	return (
 		<div className={style.SideBar}>
 			<div className={style.LogoContainer}>

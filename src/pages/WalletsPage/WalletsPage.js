@@ -21,10 +21,9 @@ const WalletsPage = () => {
 
 	return (
 		<div className={style.WalletsPage}>
-
 			<div className={style.WalletCoinContainer}>
 				<WalletSwitcher />
-				<div className={style.WalletsPageBalance}>
+				{/* <div className={style.WalletsPageBalance}>
 					<span className={style.WalletsPageBalanceTitle}>
 						Total Wallet Value
 					</span>
@@ -32,11 +31,11 @@ const WalletsPage = () => {
 					<span className={style.WalletsPageBalanceAmount}>
 						$25,897.768
 					</span>
-				</div>
+				</div> */}
 
 				<div className={style.WalletsContainer}>
 
-					<div className={style.WalletCardWrapper}>
+					{/* <div className={style.WalletCardWrapper}>
 						<div className={style.WalletsPageBalance}>
 							<span className={style.WalletsPageChainType}>Bitcoin</span>
 							<ChainSwitcher />
@@ -45,7 +44,7 @@ const WalletsPage = () => {
 						<div className={style.WalletsCardContainer}>
 							<WalletCard />
 						</div>
-					</div>
+					</div> */}
 
 
 					<div className={style.WalletCardWrapper}>
@@ -59,18 +58,18 @@ const WalletsPage = () => {
 								<WalletCard
 									CoinName='Ether - ETH'
 									CoinText='View your ETH on the Ethereum chain'
-									CoinBalance='111'
+									CoinBalance=''
 									WalletIcon={usdcIcon}
 								/>
 							</Link>
 
-							<Link>
+							{/* <Link>
 								<WalletCard />
 							</Link>
 
 							<Link>
 								<WalletCard />
-							</Link>
+							</Link> */}
 						</div>
 					</div>
 

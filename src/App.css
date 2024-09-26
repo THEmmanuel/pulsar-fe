@@ -12,13 +12,13 @@
 .Page-container{
 	display: flex;
 	flex-direction: column;
-	width: 85%;
+	width: 100%;
 }
 
 .pages-wrapper {
 	max-width: 1280px;
 	width: 100%;
-	margin: auto;
+	margin: 10px auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {

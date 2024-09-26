@@ -48,7 +48,7 @@ const Dashboard = () => {
 						</span>
 
 						<span className={style.DashboardBalanceAmount}>
-							$20,000
+							...
 						</span>
 					</div>
 
