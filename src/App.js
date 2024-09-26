@@ -32,12 +32,13 @@ import {
 } from 'react-router-dom';
 import OrderPage from './pages/Buy/BuyPage';
 
-const API_URL = 'http://localhost:9000';
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 function App() {
 	const { user } = useUser();
 	const [wallets, setWallets] = useState([])
-
+	
 	const addUserToDatabase = () => {
 		axios.post(`${API_URL}/users`, {
 			email: user.primaryEmailAddress.emailAddress,
@@ -48,16 +49,17 @@ function App() {
 		).catch(err => console.log(err))
 		console.log('adding user to database...')
 	};
-
+	
 	const getWalletDetails = () => {
 		axios.get(`${API_URL}/users/${user.id}`)
-			.then(res => setWallets(res.data.userWallets))
-			.catch(err => console.log(err))
+		.then(res => setWallets(res.data.userWallets))
+		.catch(err => console.log(err))
 		console.log('///get wallet details')
 		console.log(`${API_URL}/users/${user.id}`)
 	}
-
+	
 	useEffect(() => {
+		console.log('address' + API_URL)
 		if (user) {
 			addUserToDatabase()
 			getWalletDetails()

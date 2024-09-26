@@ -16,6 +16,9 @@ import { getETHBalance, getETHHistory } from '../../../utils/ethWallet';
 import { getBTCBalance } from '../../../utils/btcWallet';
 // import DropDown from '../../components/DropDown/DropDown';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
+
 const EthereumWallet = () => {
 	let { walletName } = useParams();
 	const [wallet, setWallet] = useState({})
@@ -66,10 +69,12 @@ const EthereumWallet = () => {
 		}
 	};
 
+
+
 	useEffect(() => {
 		const fetchBalance = async () => {
 			try {
-				const response = await axios.get(`http://localhost:9000/wallet-actions/get-token-balance/${walletAddress}`);
+				const response = await axios.get(`${API_URL}/wallet-actions/get-token-balance/${walletAddress}`);
 				setWalletBalance(response.data.balance);
 			} catch (error) {
 				console.error('Error fetching wallet balance:', error);

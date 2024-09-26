@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './TransferModal.module.css';
 import { sendETH, getETHGasPrice, isValidEthereumAddress, estimateGasOfTx } from '../../utils/ethWallet';
 import FormInput from '../../components/FormInput/FormInput';
@@ -10,10 +10,17 @@ import {
 const TransferModal = (props) => {
 	const [recipientAddress, setRecipientAddress] = useState("");
 	const [amount, setAmount] = useState("");
-	const [gasPrice, setGasPrice] = useState(0); // Assuming you'll calculate this later
+	const [estimatedGas, setEstimatedGas] = useState(0)
 	const privateKey = props.privateKey;
 	const contractAddress = ''; // Not used in this case
 	const sendAddress = props.ETHAddress;
+
+
+	useEffect(() => {
+		setEstimatedGas(estimateGasOfTx('0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'))
+		console.log('running' + estimateGasOfTx('0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'))
+	}, [])
+
 
 	// Validate the wallet address
 	const isValidAddress = ethers.utils.isAddress(recipientAddress);
@@ -68,12 +75,12 @@ const TransferModal = (props) => {
 						<div className={style.TransactionDetailsContainer}>
 							<div className={style.TransactionDetails}>
 								<span className={style.TransactionDetailsText}>Gas fees:</span>
-								<span className={style.TransactionDetailsValue}>${gasPrice || '0.98'}</span>
+								{/* <span className={style.TransactionDetailsValue}>${estimatedGas || 0.98}</span> */}
 							</div>
 
 							<div className={style.TransactionDetails}>
 								<span className={style.TransactionDetailsText}>Total:</span>
-								<span className={style.TransactionDetailsValue}>${(+amount + (gasPrice || 0.98)).toFixed(2)}</span>
+								{/* <span className={style.TransactionDetailsValue}>${(estimatedGas)}</span> */}
 							</div>
 						</div>
 
@@ -88,8 +95,6 @@ const TransferModal = (props) => {
 		</div>
 	);
 };
-
-estimateGasOfTx()
 
 export default TransferModal;
 

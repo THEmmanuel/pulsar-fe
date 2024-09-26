@@ -12,7 +12,7 @@ import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher.js';
 import usdcIcon from '../../assets/usdc-icon.svg'
 
 
-const API_URL = 'http://localhost:9000/'
+const API_URL = process.env.REACT_APP_API_URL;
 
 
 const WalletsPage = () => {

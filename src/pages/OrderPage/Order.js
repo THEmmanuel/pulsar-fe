@@ -5,7 +5,8 @@ import SellPage from '../Sell/SellPage';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-const API_URL = 'http://localhost:9000';
+const API_URL = process.env.REACT_APP_API_URL;
+
 const Order = (props) => {
 	const [adInfo, setAdInfo] = useState(null)
 	const { id } = useParams();

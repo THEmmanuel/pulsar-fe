@@ -151,18 +151,18 @@ export const isValidEthereumAddress = (address) => {
 
 // Optional Config object, but defaults to demo api-key and eth-mainnet.
 
-export const estimateGasOfTx = async () => {
+export const estimateGasOfTx = async (sendAddress) => {
 	const estimatedGasCostInHex = await alchemy.core.estimateGas({
 		// Wrapped ETH address
-		to: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+		to: sendAddress,
 		// `function deposit() payable`
 		data: '0xd0e30db0',
 		// 1 ether
 		value: Utils.parseEther('1.0'),
+		chainId: 11155111
 	});
-	console.log(
-		'The gas cost estimation for the above tx is: ' +
-		Utils.formatUnits(estimatedGasCostInHex, 'ether') +
-		' ether'
+
+	return (
+		Utils.formatUnits(estimatedGasCostInHex)
 	);
 }

@@ -1,138 +1,138 @@
-import React, { useEffect, useState } from 'react';
-import style from '../EthereumWallet/EthereumWallet.module.css';
-import MainDropdown from '../../../components/MainDropdown/MainDropdown';
-import TransferModal from '../../../containers/TransferModal/TransferModal';
-import sendIcon from '../../../assets/send_icon.svg'
+// import React, { useEffect, useState } from 'react';
+// import style from '../EthereumWallet/EthereumWallet.module.css';
+// import MainDropdown from '../../../components/MainDropdown/MainDropdown';
+// import TransferModal from '../../../containers/TransferModal/TransferModal';
+// import sendIcon from '../../../assets/send_icon.svg'
 
-import { useParams } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from '../../../contexts/UserContext';
+// import { useParams } from 'react-router-dom';
+// import { useContext } from 'react';
+// import { UserContext } from '../../../contexts/UserContext';
 
-import usdcWalletImage from '../../../assets/usdc-wallet.svg';
-import qrPlaceholder from '../../../assets/qr_code_placeholder.png'
-import { ethers } from 'ethers';
-// import { getETHBalance, getETHHistory } from '../../../utils/ethWallet';
-import { getBTCBalance, sendBTC } from '../../../utils/btcWallet';
+// import usdcWalletImage from '../../../assets/usdc-wallet.svg';
+// import qrPlaceholder from '../../../assets/qr_code_placeholder.png'
+// import { ethers } from 'ethers';
+// // import { getETHBalance, getETHHistory } from '../../../utils/ethWallet';
+// import { getBTCBalance, sendBTC } from '../../../utils/btcWallet';
 
-const BitcoinWallet = () => {
-	let { walletName } = useParams();
-	const [walletBalance, setWalletBalance] = useState(0)
-	const [isModalOpen, setIsModalOpen] = useState(false)
-	const [wallet, setWallet] = useState({})
-	const { wallets } = useContext(UserContext);
-	const [ethTransactions, setEthTransactions] = useState([]);
-	let userWallet = wallets.find(wallet => wallet.walletName === walletName)
+// const BitcoinWallet = () => {
+// 	let { walletName } = useParams();
+// 	const [walletBalance, setWalletBalance] = useState(0)
+// 	const [isModalOpen, setIsModalOpen] = useState(false)
+// 	const [wallet, setWallet] = useState({})
+// 	const { wallets } = useContext(UserContext);
+// 	const [ethTransactions, setEthTransactions] = useState([]);
+// 	let userWallet = wallets.find(wallet => wallet.walletName === walletName)
 
-	useEffect(() => {
-		if (wallets.length !== 0) {
-			setWallet({ ...userWallet })
-		}
-	}, [userWallet]);
+// 	useEffect(() => {
+// 		if (wallets.length !== 0) {
+// 			setWallet({ ...userWallet })
+// 		}
+// 	}, [userWallet]);
 
 
 
-	useEffect(() => {
-		const fetchBTCBalance = async () => {
-			if (wallet) {
-				const balance = await getBTCBalance(wallet.walletAddress)
-				setWalletBalance(balance)
-			}
-		}
+// 	useEffect(() => {
+// 		const fetchBTCBalance = async () => {
+// 			if (wallet) {
+// 				const balance = await getBTCBalance(wallet.walletAddress)
+// 				setWalletBalance(balance)
+// 			}
+// 		}
 
-		const sendBTCHandler = () => {
-			sendBTC('mh6d1eD84k4ntwr6nqF5gjJhov2P9d1vp3', '2N3oefVeg6stiTb5Kh3ozCSkaqmx91FDbsm', 0.001, "cSazsLjzBcVzQVexFhsepUcEsi7fvoFM17ctBAPZYm7J5shYfnWh")
-				.then(result => {
-					console.log(result);
-				})
-				.catch(error => {
-					console.log(error)
-				});
-		};
+// 		const sendBTCHandler = () => {
+// 			sendBTC('mh6d1eD84k4ntwr6nqF5gjJhov2P9d1vp3', '2N3oefVeg6stiTb5Kh3ozCSkaqmx91FDbsm', 0.001, "cSazsLjzBcVzQVexFhsepUcEsi7fvoFM17ctBAPZYm7J5shYfnWh")
+// 				.then(result => {
+// 					console.log(result);
+// 				})
+// 				.catch(error => {
+// 					console.log(error)
+// 				});
+// 		};
 
-		fetchBTCBalance()
-		// sendBTCHandler()
-	}, [wallet])
+// 		fetchBTCBalance()
+// 		// sendBTCHandler()
+// 	}, [wallet])
 
-	return (
-		<div className={style.WalletPage}>
-			<div className={style.WalletInformation}>
-				<div className={style.WalletCoinInformation}>
-					<img src={usdcWalletImage} alt="" className={style.WalletCoinImage} />
-					<div className={style.WalletCoinPriceInfo}>
-						<span className={style.WalletCoinTotal}>{walletBalance * 0.00000001} BTC</span>
-						<span className={style.WalletCoinValue}>${(walletBalance * 0.00000001) * 16643.60}</span>
+// 	return (
+// 		<div className={style.WalletPage}>
+// 			<div className={style.WalletInformation}>
+// 				<div className={style.WalletCoinInformation}>
+// 					<img src={usdcWalletImage} alt="" className={style.WalletCoinImage} />
+// 					<div className={style.WalletCoinPriceInfo}>
+// 						<span className={style.WalletCoinTotal}>{walletBalance * 0.00000001} BTC</span>
+// 						<span className={style.WalletCoinValue}>${(walletBalance * 0.00000001) * 16643.60}</span>
 
-						<button
-							className={style.SendButton}
-							onClick={() => setIsModalOpen(true)}>
-							Send
-							<img src={sendIcon} alt="" />
-						</button>
-					</div>
-				</div>
+// 						<button
+// 							className={style.SendButton}
+// 							onClick={() => setIsModalOpen(true)}>
+// 							Send
+// 							<img src={sendIcon} alt="" />
+// 						</button>
+// 					</div>
+// 				</div>
 
-				<div className={style.WalletTransactionInput}>
-					<MainDropdown
-						DropdownHeading='Token'
-						PrimaryText={wallet.walletName}
-						SecondaryText='Bitcoin'
-					/>
+// 				<div className={style.WalletTransactionInput}>
+// 					<MainDropdown
+// 						DropdownHeading='Token'
+// 						PrimaryText={wallet.walletName}
+// 						SecondaryText='Bitcoin'
+// 					/>
 
-					<MainDropdown
-						DropdownHeading='Network'
-						PrimaryText='Bitcoin'
-						SecondaryText='Testnet'
-					/>
-				</div>
+// 					<MainDropdown
+// 						DropdownHeading='Network'
+// 						PrimaryText='Bitcoin'
+// 						SecondaryText='Testnet'
+// 					/>
+// 				</div>
 				
-				<span className={style.WalletAddress}>
-					{wallet.walletAddress}
-				</span>
+// 				<span className={style.WalletAddress}>
+// 					{wallet.walletAddress}
+// 				</span>
 
-				<img src={qrPlaceholder} alt="" />
-			</div>
+// 				<img src={qrPlaceholder} alt="" />
+// 			</div>
 
-			{isModalOpen ?
-				<TransferModal
-					ETHAddress={wallet.walletAddress}
-					privateKey={wallet.walletKey}
-					cancel={() => setIsModalOpen(false)}
-				/> : null}
+// 			{isModalOpen ?
+// 				<TransferModal
+// 					ETHAddress={wallet.walletAddress}
+// 					privateKey={wallet.walletKey}
+// 					cancel={() => setIsModalOpen(false)}
+// 				/> : null}
 
-			<div className={style.TransactionHistoryWrapper}>
-				<span>
-					Transaction History
-				</span>
+// 			<div className={style.TransactionHistoryWrapper}>
+// 				<span>
+// 					Transaction History
+// 				</span>
 
-				<table className={style.TransactionsTable}>
-					<thead>
-						<th>Amount</th>
-						<th>Network</th>
-						<th>Blockchain Record</th>
-						<th>Status</th>
-						<th>Remarks</th>
-						<th>Start Time</th>
-					</thead>
+// 				<table className={style.TransactionsTable}>
+// 					<thead>
+// 						<th>Amount</th>
+// 						<th>Network</th>
+// 						<th>Blockchain Record</th>
+// 						<th>Status</th>
+// 						<th>Remarks</th>
+// 						<th>Start Time</th>
+// 					</thead>
 
-					<tbody>
-						{ethTransactions ? ethTransactions.map(transaction => {
-							return (
-								<tr>
-									<td>7.78 ETH</td>
-									<td>ERC-20</td>
-									<td>View Transaction</td>
-									<td>Completed</td>
-									<td>Deposit</td>
-									<td>2021/11/10 23:01:33</td>
-								</tr>
+// 					<tbody>
+// 						{ethTransactions ? ethTransactions.map(transaction => {
+// 							return (
+// 								<tr>
+// 									<td>7.78 ETH</td>
+// 									<td>ERC-20</td>
+// 									<td>View Transaction</td>
+// 									<td>Completed</td>
+// 									<td>Deposit</td>
+// 									<td>2021/11/10 23:01:33</td>
+// 								</tr>
 
-							)
-						}) : <span>Loading</span>}
-					</tbody>
-				</table>
-			</div>
-		</div>
-	);
-}
+// 							)
+// 						}) : <span>Loading</span>}
+// 					</tbody>
+// 				</table>
+// 			</div>
+// 		</div>
+// 	);
+// }
 
-export default BitcoinWallet;
+// export default BitcoinWallet;

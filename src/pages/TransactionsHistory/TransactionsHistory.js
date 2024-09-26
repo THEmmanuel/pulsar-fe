@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 // import TransactionCard from "../../components/TransactionCard/TransactionCard";
 
-const API_URL = 'http://localhost:9000';
+const API_URL = process.env.REACT_APP_API_URL;
 
 
 const TransactionsHistory = () => {

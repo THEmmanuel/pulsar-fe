@@ -10,7 +10,8 @@ import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
 
 const CreateAdPage = () => {
-	const API_URL = 'http://localhost:9000';
+	const API_URL = process.env.REACT_APP_API_URL;
+	
 	const { user } = useUser();
 
 	const [ad, setAd] = useState({

@@ -30,7 +30,7 @@ import { generateOrderToken } from '../../utils/generateOrderToken';
 
 //need to update this based on if the ad is a buy or sell ad
 
-const API_URL = 'http://localhost:9000';
+const API_URL = process.env.REACT_APP_API_URL;
 // Set up logic based on adType, buy or sell
 
 const BuyPage = (props) => {

@@ -9,7 +9,7 @@ import MainInput from '../../components/MainInput/MainInput';
 import SecondaryDropdown from '../../components/SecondaryDropdown/SecondaryDropdown';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 
-const API_URL = 'http://localhost:9000';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const tokens = [
 	{ value: 'ETH', label: 'Ethereum' },
