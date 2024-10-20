@@ -19,6 +19,7 @@ import CreateAdPage from './pages/CreateAdPage/CreateAdPage';
 import TransactionsHistory from './pages/TransactionsHistory/TransactionsHistory';
 import TransactionPage from './pages/TransactionPage/TransactionPage';
 import Order from './pages/OrderPage/Order';
+import TokenFaucet from './pages/TokenFaucet/TokenFaucet';
 
 import { useUser } from '@clerk/clerk-react';
 import { UserContext } from './contexts/UserContext';
@@ -163,6 +164,12 @@ function App() {
 									exact
 									path='/create-ad'
 									element={<CreateAdPage />}
+								/>
+
+								<Route
+									exact
+									path='/faucet'
+									element={<TokenFaucet />}
 								/>
 
 								<Route

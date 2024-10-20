@@ -1,4 +1,4 @@
-a{
+a {
 	text-decoration: none;
 	color: inherit;
 }
@@ -72,12 +72,60 @@ a{
 	font-size: 0.8em;
 }
 
-.UserExchangeRate{
+.UserExchangeRate {
 	font-size: 1.2em;
 	font-weight: 600;
 	margin: auto;
 }
 
-.UserLimitInfoText{
+.UserLimitInfoText {
+	
+}
 
+
+@media only screen and (max-width: 600px) {
+	.PeerToPeerAd {
+		width: 90%;
+		padding: 5px 10px;
+		margin: auto;
+		font-size: 0.8em;
+		height: 80%;
+	}
+
+	span {
+		font-size: 0.8em;
+	}
+
+	.UserName {
+		font-size: 0.8em;
+	}
+
+	.UserExchangeRate {
+		font-size: 0.8em;
+		margin: 0;
+	}
+
+	.UserInfo {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.UserPaymentInfo {
+		margin: 0;
+	}
+
+	.UserLimitInfoWrapper {
+		margin: 0;
+	}
+
+	.UserInfo {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.PeerToPeerAdWrapper {
+		display: flex;
+		flex-direction: row;
+		gap: 30px;
+	}
 }

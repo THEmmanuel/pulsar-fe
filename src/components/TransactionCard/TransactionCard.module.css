@@ -2,12 +2,55 @@
 	background-color: #232323;
 	border-radius: 5px;
 	border: none;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	color: #AFAFAF;
+	padding: 5px 5px; 
 }
 
-.TransactionCardWrapper td {
-    color: #AFAFAF;
-    border: none; /* Remove borders from table cells */
-    text-align: center; /* Center text horizontally */
-    vertical-align: middle; /* Center text vertically */
-    padding: 10px; /* Add padding for better spacing */
+.TransactionDetails {
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	text-align: left;
+	gap: 100px;
+}
+
+.TransactionWallet {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	text-align: left;
+}
+
+.TransactionAmount {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.TransactionAmountETH {
+	font-size: 0.85em
+}
+
+.TransactionAmountUSD {
+	font-size: 0.85em
+}
+
+.TransactionTimeStamp {
+	font-size: 0.65em
+}
+
+.TransactionTXN {
+	font-size: 0.85em
+}
+
+.TransactionFromAddress {
+	font-size: 0.85em
+}
+
+.TransactionToAddress {
+	font-size: 0.85em
 }

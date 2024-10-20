@@ -12,8 +12,9 @@ import { UserContext } from '../../../contexts/UserContext';
 import usdcWalletImage from '../../../assets/usdc-wallet.svg';
 import qrPlaceholder from '../../../assets/qr_code_placeholder.png'
 import { ethers } from 'ethers';
-import { getETHBalance, getETHHistory } from '../../../utils/ethWallet';
+import { getETHBalance, getETHHistory, estimateGasOfTx } from '../../../utils/ethWallet';
 import { getBTCBalance } from '../../../utils/btcWallet';
+import TransactionCard from '../../../components/TransactionCard/TransactionCard';
 // import DropDown from '../../components/DropDown/DropDown';
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -142,6 +143,10 @@ const EthereumWallet = () => {
 				</span>
 
 				<img src={qrPlaceholder} alt="" />
+
+				{/* <div>
+					{estimateGasOfTx('0xD22507B380D33a6CD115cAe487ce4FDb19543Ac2')}
+				</div> */}
 			</div>
 
 			{isModalOpen ?
@@ -157,36 +162,36 @@ const EthereumWallet = () => {
 					Transaction History
 				</span>
 
-				<table className={style.TransactionsTable}>
-					<thead>
-						<th>Amount</th>
-						{/* <th>Network</th> */}
-						<th>wallet</th>
-						{/* <th>Status</th> */}
-						{/* <th>Remarks</th> */}
-						<th>Time</th>
-					</thead>
-
-					<tbody>
-						{ethTransactions ? ethTransactions.map(transaction => {
-							return (
-								<tr>
-									<td>{parseInt(transaction.value, 10) / 1e18} ETH</td>
-									{/* <td>ERC-20</td> */}
-									<td>{transaction.from}</td>
-									{/* <td>Completed</td> */}
-									{/* <td>Deposit</td> */}
-									<td>{new Date(transaction.timeStamp * 1000).toLocaleString()}</td>
-								</tr>
-							)
-						}) : <span>Loading</span>}
-					</tbody>
-				</table>
+				<div className={style.TransactionHistory}>
+					{ethTransactions ? ethTransactions.map(transaction => {
+						const ethBalance = parseInt(transaction.value, 10) / 1e18
+						return (
+							<TransactionCard
+								ethValue={ethBalance} ETH
+								usdValue={ethBalance * 2300} USD
+								timestamp={new Date(transaction.timeStamp * 1000).toLocaleString()}
+								toAddress={transaction.to}
+								fromAddress={transaction.from}
+								txn={transaction.hash}
+							/>
+						)
+					}) : <span>Loading</span>}
+				</div>
 			</div>
 
 			{/* Redesign these cards */}
-		</div>
+		</div >
 	);
 }
 
 export default EthereumWallet;
+
+
+// <tr>
+// 	<td>{parseInt(transaction.value, 10) / 1e18} ETH</td>
+// 	{/* <td>ERC-20</td> */}
+// 	<td>{transaction.from}</td>
+// 	{/* <td>Completed</td> */}
+// 	{/* <td>Deposit</td> */}
+// 	<td>{new Date(transaction.timeStamp * 1000).toLocaleString()}</td>
+// </tr>

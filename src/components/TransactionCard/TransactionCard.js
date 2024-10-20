@@ -1,16 +1,47 @@
 import React from "react";
 import style from './TransactionCard.module.css';
 
-const TransactionCard = () => {
+
+const TransactionCard = props => {
+	function truncateString(str, frontChars = 6, backChars = 4) {
+		if (!str) return ''; // handle cases where str might be undefined or null
+		return `${str.slice(0, frontChars)}...${str.slice(-backChars)}`;
+	}
+
+
 	return (
-		<tr className={style.TransactionCardWrapper}>
-			<td>7.78 ETH</td>
-			<td>ERC-20</td>
-			<td>View Transaction</td>
-			<td>Completed</td>
-			<td>Deposit</td>
-			<td>2021/11/10 23:01:33</td>
-		</tr>
+		<div className={style.TransactionCardWrapper}>
+			<div className={style.TransactionDetails}>
+				<div className={style.TransactionAmount}>
+					<span className={style.TransactionAmountETH}>
+						ETH Value: {props.ethValue}
+					</span>
+
+					<span className={style.TransactionAmountUSD}>
+						USD Value: ${props.usdValue}
+					</span>
+
+					<span className={style.TransactionTimeStamp}>
+						Timestamp: {props.timestamp}
+					</span>
+				</div>
+			</div>
+
+
+			<div className={style.TransactionWallet}>
+				<span className={style.TransactionToAddress}>
+					To: {truncateString(props.toAddress)}
+				</span>
+
+				<span className={style.TransactionFromAddress}>
+					From: {truncateString(props.fromAddress)}
+				</span>
+
+				<span className={style.TransactionTXN}>
+					TXN: {truncateString(props.txn)}
+				</span>
+			</div>
+		</div>
 	)
 }
 

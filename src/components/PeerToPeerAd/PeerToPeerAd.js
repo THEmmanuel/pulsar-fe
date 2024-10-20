@@ -20,11 +20,12 @@ const PeerToPeerAd = props => {
 					<span className={style.UserName}>
 						{props.username}
 					</span>
+
+					<span className={style.UserExchangeRate}>
+						{props.rate} USD/{props.token}
+					</span>
 				</div>
 
-				<span className={style.UserExchangeRate}>
-					{props.rate} USD/{props.token}
-				</span>
 
 				<span className={style.UserPaymentInfo}>{props.paymentMethod}</span>
 
