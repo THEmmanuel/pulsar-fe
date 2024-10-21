@@ -5,43 +5,49 @@ import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 
 const PeerToPeerAd = props => {
 	return (
-		<div
-			className={style.PeerToPeerAd}
-			style={
-				props.adType === 'buy' ?
-					{
-						backgroundColor: '#232323'
-					} : {
-						backgroundColor: '#F7E2E3'
-					}}>
+		<div className={style.PeerToPeerAd}>
+			<div className={style.PeerToPeerDetailsWrapper}>
+				<div className={style.PeerToPeerUserInfo}>
+					<img
+						src=""
+						alt=""
+						className={style.PeerToPeerUserImage}
+					/>
 
-			<div className={style.PeerToPeerAdWrapper}>
-				<div className={style.UserInfo}>
-					<span className={style.UserName}>
+					<span className={style.PeerToPeerUsername}>
 						{props.username}
 					</span>
-
-					<span className={style.UserExchangeRate}>
-						{props.rate} USD/{props.token}
-					</span>
 				</div>
 
-
-				<span className={style.UserPaymentInfo}>{props.paymentMethod}</span>
-
-				<div className={style.UserRateInfo}>
-					<div className={style.UserLimitInfoWrapper}>
-						<span className={style.UserLimitInfoText}>Limit:</span>
-						<span className={style.UserLimitInfo}>{props.lowest} - {props.highest} {props.token}</span>
+				<div className={style.PeerToPeerDetails}>
+					<span className={style.PeerToPeerCompletionRate}>
+						100% completion Rate
+					</span>
+					<div>
+						<span>{props.paymentMethod}</span>
 					</div>
 				</div>
+			</div>
 
-				<div className={style.UserRateInfo}>
-					<div className={style.UserLimitInfoWrapper}>
-						<div className={style.UserInfo}>
-							<span className={style.UserLimitInfo}>{props.completionRate}% completion rate</span>
-							<span className={style.UserLimitInfo}>1k orders</span>
-							<span className={style.UserLimitInfo}>5 stars</span>
+
+			<div>
+				<div>
+					<span>{props.rate}</span>
+					<span>limit: {props.available}</span>
+
+					<div>
+						<span>
+							1k orders
+						</span>
+
+						<div>
+							<span>
+								5
+							</span>
+
+							<span>
+								star
+							</span>
 						</div>
 					</div>
 				</div>

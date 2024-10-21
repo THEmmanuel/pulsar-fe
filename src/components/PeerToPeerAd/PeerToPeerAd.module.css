@@ -4,128 +4,70 @@ a {
 }
 
 .PeerToPeerAd {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 	border-radius: 5px;
 	text-align: left;
 	padding: 20px 40px;
-	color: #FFF;
+	background-color: #232323;
 }
 
-.PeerToPeerAdWrapper {
+.PeerToPeerUserInfo {
 	display: flex;
 	flex-direction: row;
-	gap: 60px;
 }
 
-.UserInfo {
+.PeerToPeerUserImage {
+	background-color: blueviolet;
+}
+
+.PeerToPeerUserInfo {
 	display: flex;
 	flex-direction: row;
-	gap: 20px;
+	align-items: center;
+	gap: 15px;
 }
 
-.UserRateInfo {
+.PeerToPeerUsername {
+	color: #AFAFAF;
+}
+
+.PeerToPeerCompletionRate {
+	color: #AFAFAF;
+}
+
+.PeerToPeerDetailsWrapper{
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
-	align-items: center;
-}
-
-.UserAdButton {
-	background-color: #C9EEE4;
-	border: none;
-	width: 120px;
-	height: 30px;
-	border-radius: 5px;
-	margin: auto;
-}
-
-.UserImage {
-	background-color: #D9D9D9;
-	border-radius: 50%;
-}
-
-.UserPaymentInfo {
-	border-radius: 10px;
-	margin: auto;
-	padding: 2px 20px 2px 20px;
-	color: #FFF;
-	font-size: 0.8em;
-}
-
-.UserLimitInfoWrapper {
-	display: flex;
-	flex-direction: row;
 	gap: 10px;
-	margin: auto;
-	text-align: left;
 }
 
-.UserName {
-	font-size: 1.1em;
-	font-weight: 700;
-	color: #FFF;
-}
-
-.UserOrderInfo {
-	display: flex;
-	flex-direction: row;
-	gap: 15px;
-	font-size: 0.8em;
-}
-
-.UserExchangeRate {
-	font-size: 1.2em;
-	font-weight: 600;
-	margin: auto;
-}
-
-.UserLimitInfoText {
-	
-}
 
 
 @media only screen and (max-width: 600px) {
 	.PeerToPeerAd {
 		width: 90%;
-		padding: 5px 10px;
+		padding: 15px;
 		margin: auto;
 		font-size: 0.8em;
 		height: 80%;
 	}
 
-	span {
-		font-size: 0.8em;
+	.PeerToPeerUserImage {
+		background-color: blueviolet;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
 	}
 
-	.UserName {
-		font-size: 0.8em;
+	.PeerToPeerUsername {
+		font-size: 1.1em;
 	}
 
-	.UserExchangeRate {
-		font-size: 0.8em;
-		margin: 0;
-	}
-
-	.UserInfo {
+	.PeerToPeerDetails{
 		display: flex;
 		flex-direction: column;
-	}
-
-	.UserPaymentInfo {
-		margin: 0;
-	}
-
-	.UserLimitInfoWrapper {
-		margin: 0;
-	}
-
-	.UserInfo {
-		display: flex;
-		flex-direction: row;
-	}
-
-	.PeerToPeerAdWrapper {
-		display: flex;
-		flex-direction: row;
-		gap: 30px;
+		gap: 10px;
 	}
 }
