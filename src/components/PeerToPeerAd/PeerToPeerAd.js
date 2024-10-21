@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './PeerToPeerAd.module.css';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+import starIcon from '../../assets/star.svg'
 
 
 const PeerToPeerAd = props => {
@@ -30,25 +31,32 @@ const PeerToPeerAd = props => {
 			</div>
 
 
-			<div>
-				<div>
-					<span>{props.rate}</span>
-					<span>limit: {props.available}</span>
+			<div className={style.PeerToPeerDetailsWrapper}>
+				<div className={style.PeerToPeerRateWrapper}>
+					<span className={style.PeerToPeerRate}>
+						{props.rate}
+					</span>
 
-					<div>
-						<span>
-							1k orders
+					<span className={style.PeerToPeerLimit}>
+						limit: {props.available}
+					</span>
+				</div>
+
+				<div className={style.PeerToPeerOrderStats}>
+					<span>
+						1k orders
+					</span>
+
+					<div className={style.PeerToPeerRating}>
+						<span className={style.PeerToPeerRatingNumber}>
+							5
 						</span>
 
-						<div>
-							<span>
-								5
-							</span>
-
-							<span>
-								star
-							</span>
-						</div>
+						<img
+							src={starIcon}
+							alt=""
+							className={style.PeerToPeerRatingStar}
+						/>
 					</div>
 				</div>
 			</div>

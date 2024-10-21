@@ -43,6 +43,37 @@ a {
 	gap: 10px;
 }
 
+.PeerToPeerOrderStats{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.PeerToPeerRateWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.PeerToPeerRate{
+	font-weight: 600;
+	font-size: 1.5em;
+}
+
+.PeerToPeerLimit{
+	color: #AFAFAF;	
+}
+
+.PeerToPeerStats{
+	color: #AFAFAF;		
+}
+
+.PeerToPeerRating{
+	display: flex;
+	flex-direction: row;
+	gap: 5px;
+}
+
 
 
 @media only screen and (max-width: 600px) {
