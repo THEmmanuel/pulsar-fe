@@ -109,3 +109,19 @@
 	width: 75%;
 	margin: auto;
 }
+
+
+.TradeMethodContainer{
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.TradeTermsWrapper{
+	color: #AFAFAF;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-bottom: 150px;
+	margin-top: 50px;
+}

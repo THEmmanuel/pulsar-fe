@@ -1,0 +1,25 @@
+.TradeMethodCardWrapper{
+	color: #AFAFAF;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	background-color: #232323;
+	border-radius: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+	.TradeMethodCardWrapper{
+		width: fit-content;
+		padding: 30px;
+		margin: auto;
+	}
+
+	.TradeMethodText{
+		font-weight: 700;
+	}
+
+	.TradeMethodLimit{
+		font-size: 0.8em;
+	}
+}

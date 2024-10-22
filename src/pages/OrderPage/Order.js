@@ -4,6 +4,8 @@ import BuyPage from '../Buy/BuyPage';
 import SellPage from '../Sell/SellPage';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+import starIcon from '../../assets/star.svg'
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -32,10 +34,43 @@ const Order = (props) => {
 	return (
 		adInfo ?
 			<div>
-				Order page
+				<div className={style.TraderInfoWrapper}>
+					<div className={style.TraderInfo}>
+						<img
+							src=""
+							alt=""
+							className={style.TraderInfoImage}
+						/>
+
+						<div className={style.TraderInfoDetails}>
+							<div className={style.TraderName}>
+								<span>p4nther</span>
+								<div>
+								<span>5</span>
+
+								<img
+									src={starIcon}
+									alt=""
+								/>
+								</div>
+							</div>
+
+							<span>Limit: 100 - 300k</span>
+						</div>
+					</div>
+
+					<PrimaryCTA
+						ButtonText='Message'
+					/>
+				</div>
+
+
+				{/* Order page
 				<span>{id}</span>
-				<span>{adInfo.adType}</span>
+				<span>{adInfo.adType}</span> */}
 				{CurrentOrderPage}
+
+				
 			</div>
 			:
 			<span>Loading</span>

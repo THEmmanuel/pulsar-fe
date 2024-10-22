@@ -1,0 +1,36 @@
+.TraderInfo{
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.TraderInfoImage{
+	background-color: brown;
+	width: 45px;
+	height: 45px;
+	border-radius: 50px;
+}
+
+.TraderInfoWrapper{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+	padding: 20px;
+}
+
+.TraderInfoWrapper button{
+	margin: 0;
+}
+
+.TraderInfoDetails{
+	display: flex;
+	text-align: left;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.TraderName{
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}

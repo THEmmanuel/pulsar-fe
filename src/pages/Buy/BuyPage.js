@@ -14,6 +14,9 @@ import TransactionStatus from '../../components/TransactionStatus/TransactionSta
 import TransactionCTAButtons from '../../components/TransactionCTAButtons/TransactionCTAButtons';
 import { generateOrderToken } from '../../utils/generateOrderToken';
 
+import TradeMethodCard from '../../components/TradeMethodCard/TradeMethodCard';
+import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+
 // <UserInformation />
 // <UserInformationContent />
 // <UserAccountDetails />
@@ -50,30 +53,6 @@ const BuyPage = (props) => {
 		setOrderToken(generateOrderToken());
 		setOrderCreated(true);
 		setOrderStatus('pending')
-
-		// start a timer, end and cancel if the payment isn't made in 30 mins
-		// if time === 0, cancle trade and return crypto to sellers wallet
-
-		// make a post request to the backend, create and API route there. Store the new order and it's details...
-		// axios.post(order details)
-
-		// escrow the crypto from the user's account...
-		// const escrow = (crypto amount) => {
-		// Maybe a smart contract interaction here or something... idk
-		// }
-
-		// if it's a sell ad, when the buyer has made payment, display a confirm reciept button for the seller
-		// display a success page for the buyer if the seller confirms the paymenr.
-		// display a success page for the seller if they confirm the reciept
-
-		// maybe allow the user to create a tarnsfer pin before the transaction is completed and the funds in escrow are released to the buyer
-
-		// Mark the order as completed if all goes well
-		// If the seller appeals the trade, keep crypto in escrow while dispute is resolved
-		// if the seller wins the case, return the crypto back to their account
-
-		// if the buyer appeals the trade, still hold the crypto in escrow
-		// if the buyer wins the case, release the crypto to their account and let admin decide to ban or suspend seller from creating ads and make their ads invisible
 	}
 
 	const scrollToTop = () => {
@@ -117,132 +96,32 @@ const BuyPage = (props) => {
 			:
 			<div className={style.BuyPageWrapper}>
 				<div className={style.BuyPageContainer}>
-					{
-						adInfo ?
-							<div className={style.BuyPageContent}>
-								<UserInformation
-									username={adInfo.username}
-									lowestOrder={adInfo.lowestOrder}
-									highestOrder={adInfo.highestOrder}
-									available={adInfo.available}
-									paymentMethod={adInfo.paymentMethod}
-									adType={adInfo.adType}
-								/>
+					<div>
+						<span>Payment Methods</span>
 
-								{
-									orderCreated && !buyerPaid ?
-										<div className={style.OrderInfo}>
-											<span>Your order {orderToken} has been created</span>
+						<div className={style.TradeMethodContainer}>
+							<TradeMethodCard
+								paymentMethodText='Pay via Token (automated and safer)'
+							/>
 
-
-											<span>Pay the Seller</span>
-
-											<CountdownTimer
-												initialTime={timer}
-												onTimerEnd={() => {
-													alert('timer elapsed')
-												}}
-											/>
-
-										</div>
-										: null
-								}
-
-								{
-									<div className={style.UserDetailsWrapper}>
-										{buyerPaid ?
-											<div className={style.BuyerPaymentWrapper}>
-												<img src={TransactionIcon} alt="" className={style.BuyerPaidImage} />
-												<h3>Notified seller</h3>
-												<span className={style.BuyerPaidText}>{amount} {adInfo.token} is in escrow and will be released to your wallet as soon as the seller confirms the receipt of your transfer.</span>
-												<button onClick={() => setSellerConfirmedOrder(true)}>Confirm order</button>
-											</div>
-											: null}
-										{
-											orderCreated ?
-												<UserAccountDetails
-													adType={adInfo.adType}
-												/> : null
-										}
-
-										<UserInformationContent
-											amount={cryptoAmount}
-											token={adInfo.token}
-											orderToken={orderToken}
-											adType={adInfo.adType}
-										/>
-
-										<UserTerms />
-									</div>
-								}
-							</div>
-							: <span>Loading</span>
-					}
-				</div>
-
-				<div className={style.ButtonContainer}>
-					<div className={style.ButtonWrapper}>
-						{
-							!buyerPaid ?
-								orderCreated ?
-									<button
-										className={style.ButtomButtonProceed}
-										onClick={() => {
-											processOrderHandler()
-										}}>
-										Paid, Notify Seller
-									</button>
-									:
-									<button
-										className={style.ButtomButtonProceed}
-										onClick={() => {
-											createOrderHandler()
-										}}>
-										{
-											`Buy ${adInfo.token}`
-										}
-									</button>
-								: <button
-									className={style.ButtomButtonProceed}
-								>
-									Appeal</button>
-						}
-						<button className={style.ButtomButtonCancel}>Cancel</button>
+							<TradeMethodCard
+								paymentMethodText='Pay via Token (automated and safer)'
+							/>
+						</div>
 					</div>
+
+					<div className={style.TradeTermsWrapper}>
+						<span>Seller's terms</span>
+						<span>Our terms</span>
+					</div>
+
+					<PrimaryCTA
+						ButtonText='Cancel'
+					/>
 				</div>
 			</div>
 	)
 }
-
-// const BuyPageContent = () => {
-// 	const [activePage, setActivePage] = useState('buy');
-
-
-
-
-// 	const buyCoinHandler = () => {
-// 		createOrderHandler()
-// 		setActivePage('confirm');
-// 	}
-// 	const confirmTransactionHandler = () => setActivePage('status')
-
-// 	if (activePage === 'buy') {
-// 		return <BuyPage
-// 			orderToken={orderToken}
-// 			proceed={buyCoinHandler} />
-// 	}
-
-// 	// if (activePage === 'confirm') {
-// 	// 	return <BuyPageConfirm
-// 	// 		orderToken={orderToken}
-// 	// 		proceed={confirmTransactionHandler}
-// 	// 	/>
-// 	// }
-
-// 	// if (activePage === 'status') {
-// 	// 	return <BuyPageStatus />
-// 	// }
-// };
 
 
 export default BuyPage;
