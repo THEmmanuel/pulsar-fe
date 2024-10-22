@@ -1,0 +1,58 @@
+.BankPayment {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.PaymentDetailsTitle {}
+
+.PaymentDetailsText {
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+.PaymentDetails {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.DetailsText {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.DetailsHeading {
+	font-weight: 700;
+}
+
+.AccountDetailsText {}
+
+.AccountDetailsTextWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	text-align: center;
+	margin: auto;
+}
+
+.AccountDetailsWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin: auto;
+}
+
+.PaymentTimeAndButtons {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	margin-top: 70px;
+}
+
+.BankPaymentButtons{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}

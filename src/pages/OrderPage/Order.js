@@ -6,6 +6,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import starIcon from '../../assets/star.svg'
+import BankPayment from '../BankPayment/BankPayment';
+
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -68,9 +70,11 @@ const Order = (props) => {
 				{/* Order page
 				<span>{id}</span>
 				<span>{adInfo.adType}</span> */}
-				{CurrentOrderPage}
 
-				
+
+				{/* {CurrentOrderPage} */}
+				{/* <BankPayment/> */}
+
 			</div>
 			:
 			<span>Loading</span>

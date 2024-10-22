@@ -18,6 +18,11 @@
 	gap: 100px;
 }
 
+.TransactionInfo{
+	display: flex;
+	flex-direction: row;
+}
+
 .TransactionWallet {
 	display: flex;
 	flex-direction: column;
