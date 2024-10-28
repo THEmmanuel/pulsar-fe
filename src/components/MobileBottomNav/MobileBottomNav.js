@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import dashboardIcon from '../../assets/dashboard.svg';
 import p2pIcon from '../../assets/peertopeer.svg';
 import walletsIcon from '../../assets/wallets.svg';
+import adsIcon from '../../assets/ads.svg';
+import profileIcon from '../../assets/profile.svg';
+
 
 
 const MobileBottomNav = () => {
@@ -18,7 +21,7 @@ const MobileBottomNav = () => {
 						className={style.NavItemIcon}
 					/>
 					<span className={style.NavItemText}>
-						home
+						Home
 					</span>
 				</div>
 			</Link>
@@ -31,12 +34,12 @@ const MobileBottomNav = () => {
 						className={style.NavItemIcon}
 					/>
 					<span className={style.NavItemText}>
-						p2p
+						P2P
 					</span>
 				</div>
 			</Link>
 
-			<Link to='/home'>
+			<Link to='/wallets'>
 				<div className={style.NavItemWrapper}>
 					<img
 						src={walletsIcon}
@@ -49,10 +52,10 @@ const MobileBottomNav = () => {
 				</div>
 			</Link>
 
-			<Link to='/home'>
+			<Link to='/my-ads'>
 				<div className={style.NavItemWrapper}>
 					<img
-						src={dashboardIcon}
+						src={adsIcon}
 						alt=""
 						className={style.NavItemIcon}
 					/>
@@ -62,10 +65,10 @@ const MobileBottomNav = () => {
 				</div>
 			</Link>
 
-			<Link to='/home'>
+			<Link to='/user-page'>
 				<div className={style.NavItemWrapper}>
 					<img
-						src={dashboardIcon}
+						src={profileIcon}
 						alt=""
 						className={style.NavItemIcon}
 					/>

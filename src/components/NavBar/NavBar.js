@@ -10,20 +10,8 @@ const NavBar = () => {
 	return (
 		<nav className={style.NavBar}>
 			<div className={style.NavContent}>
-				{/* <h2 className={style.Logo}>Logo</h2> */}
-
-				<div className={style.NavLinks}>
-					<Link to='/home'>
-						<span className={style.NavLink}>Home</span>
-					</Link>
-
-					<Link to='/wallets'>
-						<span className={style.NavLink}>Wallet</span>
-					</Link>
-				</div>
 				<div className={style.NavIntroduction}>
 					{/* <ConnectButton /> */}
-
 					{
 						user ? (
 							<div className={style.NavUserInfo}>

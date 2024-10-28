@@ -1,109 +1,23 @@
 .NavBar {
 	width: 100%;
-	background-color: #333;
+	background-color: #000;
 	padding: 10px 0;
 	position: sticky;
 	top: 0;
 	z-index: 1000;
-  }
-  
-  .NavContent {
-	display: flex;
-	flex-direction: row;
-	width: 80%;
-	margin: auto;
-	justify-content: space-between;
-	align-items: center;
-	color: white;
-  }
-  
-  .Logo {
-	font-size: 1.5em;
-	font-weight: bold;
-  }
-  
-  .NavLinks {
-	display: flex;
-	gap: 20px;
-  }
-  
-  .NavLink {
-	cursor: pointer;
-	font-size: 1em;
-	transition: color 0.3s ease;
-  }
-  
-  .NavLink:hover {
-	color: #f1f1f1;
-  }
-  
-  .NavIntroduction {
+}
+
+.NavUserInfo{
 	display: flex;
 	flex-direction: row;
 	gap: 20px;
-	align-items: center;
-  }
-  
-  .NavUserInfo {
+}
+
+.NavIntroduction{
+	padding-right: 20px;
+}
+
+.NavContent{
 	display: flex;
-	flex-direction: row;
-	gap: 10px;
-	align-items: center;
-  }
-  
-  .NavIntro {
-	font-size: 1em;
-	font-weight: 600;
-  }
-  
-  .LoginButton {
-	padding: 8px 16px;
-	background-color: #4CAF50;
-	border: none;
-	color: white;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-  }
-  
-  .LoginButton:hover {
-	background-color: #45a049;
-  }
-  
-  /* Responsive Styling */
-  @media (max-width: 768px) {
-	.NavContent {
-	  flex-direction: column;
-	  width: 90%;
-	}
-  
-	.NavLinks {
-	  justify-content: space-evenly;
-	  width: 100%;
-	}
-  
-	.NavUserInfo {
-	  justify-content: center;
-	  margin-top: 10px;
-	}
-  }
-  
-  @media (max-width: 600px) {
-	/* .NavLinks {
-	  display: none;
-	} */
-  
-	.NavContent {
-	  flex-direction: row;
-	  justify-content: space-between;
-	  padding: 0 10px;
-	}
-  
-	.Logo {
-	  font-size: 1.2em;
-	}
-  
-	.LoginButton {
-	  padding: 6px 12px;
-	}
-  }
-  
+	justify-content: right;
+}
