@@ -34,8 +34,7 @@ const TransactionCard = props => {
 
 
 	return (
-		<div
-			className={style.TransactionCardWrapper}>
+		<div className={style.TransactionCardWrapper}>
 			<div className={style.TransactionInfo}>
 				<span className={style.TransactionInfoTitle}>
 					{transactionTypeText}
@@ -63,7 +62,10 @@ const TransactionCard = props => {
 
 				<span className={style.TransactionInfoText}>
 					{props.timestamp}
-					{/* Time */}
+				</span>
+
+				<span className={style.TransactionInfoDate}>
+					{props.date}
 				</span>
 			</div>
 
