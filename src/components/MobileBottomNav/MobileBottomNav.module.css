@@ -1,0 +1,39 @@
+.MobileBottomNav {
+	position: fixed;
+	/* Makes the nav stick to a position */
+	bottom: 0;
+	/* Positions the nav at the bottom of the screen */
+	left: 0;
+	/* Aligns to the left edge */
+	right: 0;
+	/* Aligns to the right edge */
+	height: 60px;
+	/* Adjust the height as needed */
+	background-color: #000;
+	/* Background color, can be changed */
+	display: flex;
+	/* Flex layout to arrange items */
+	justify-content: space-around;
+	/* Space between the icons */
+	align-items: center;
+	/* Center icons vertically */
+	z-index: 1000;
+	/* Ensures it stays above other content */
+	box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+	/* Optional shadow for better visibility */
+}
+
+.NavItemWrapper{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.NavItemIcon{
+	width: 20px;
+	height: 20px;
+}
+
+.NavItemText{
+	font-size: 0.8em;
+}

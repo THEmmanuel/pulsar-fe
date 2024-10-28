@@ -32,6 +32,8 @@ export const getUSDTBalance = async (address) => {
 // Setup: npm install alchemy-sdk
 // Github: https://github.com/alchemyplatform/alchemy-sdk-js
 
+
+
 // Optional config object, but defaults to demo api-key and eth-mainnet.
 const settings = {
 	apiKey: process.env.REACT_APP_ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
@@ -40,6 +42,8 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 alchemy.core.getBlock(15221026).then(console.log);
+
+
 
 
 export const getETHBalance = async (walletAddress) => {
@@ -81,6 +85,8 @@ export const getETHBalance = async (walletAddress) => {
 			console.log(error);
 		});
 }
+
+
 
 
 export const sendETH = async (
@@ -125,6 +131,25 @@ export const sendUSDT = async (
 
 }
 
+
+
+export const estimateGasOfTx = async (sendAddress) => {
+	const estimatedGasCostInHex = await alchemy.core.estimateGas({
+		// Wrapped ETH address
+		to: sendAddress,
+		// `function deposit() payable`
+		data: '0xd0e30db0',
+		// 1 ether
+		value: Utils.parseEther('1.0'),
+		chainId: 11155111
+	});
+
+	return (
+		Utils.formatUnits(estimatedGasCostInHex, 'ether')
+	);
+}
+
+
 // export const getETHHistory = async (address) => {
 // 	let etherscanProvider = new ethers.providers.EtherscanProvider('goerli');
 
@@ -151,18 +176,18 @@ export const isValidEthereumAddress = (address) => {
 
 // Optional Config object, but defaults to demo api-key and eth-mainnet.
 
-export const estimateGasOfTx = async (sendAddress) => {
-	const estimatedGasCostInHex = await alchemy.core.estimateGas({
-		// Wrapped ETH address
-		to: sendAddress,
-		// `function deposit() payable`
-		data: '0xd0e30db0',
-		// 1 ether
-		value: Utils.parseEther('1.0'),
-		chainId: 11155111
-	});
+// export const estimateGasOfTx = async (sendAddress) => {
+// 	const estimatedGasCostInHex = await alchemy.core.estimateGas({
+// 		// Wrapped ETH address
+// 		to: sendAddress,
+// 		// `function deposit() payable`
+// 		data: '0xd0e30db0',
+// 		// 1 ether
+// 		value: Utils.parseEther('1.0'),
+// 		chainId: 11155111
+// 	});
 
-	return (
-		Utils.formatUnits(estimatedGasCostInHex)
-	);
-}
+// 	return (
+// 		Utils.formatUnits(estimatedGasCostInHex)
+// 	);
+// }

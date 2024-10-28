@@ -21,6 +21,7 @@ import TransactionPage from './pages/TransactionPage/TransactionPage';
 import Order from './pages/OrderPage/Order';
 import TokenFaucet from './pages/TokenFaucet/TokenFaucet';
 import HistoryPage from './pages/HistoryPage/HistoryPage';
+import MobileBottomNav from './components/MobileBottomNav/MobileBottomNav';
 
 import { useUser } from '@clerk/clerk-react';
 import { UserContext } from './contexts/UserContext';
@@ -89,7 +90,7 @@ function App() {
 				}}>
 
 					{windowWidth < 1280
-						? <span>jsdhks</span>
+						? <MobileBottomNav/>
 						: <SideBar />
 					}
 

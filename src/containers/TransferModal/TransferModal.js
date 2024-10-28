@@ -20,7 +20,7 @@ const TransferModal = (props) => {
 		setLoading(true);
 		try {
 			const gas = await estimateGasOfTx('0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2');
-			setEstimatedGas(parseFloat(gas));
+			setEstimatedGas((parseFloat(gas) * 2517.3));
 		} catch (error) {
 			console.error('Error estimating gas:', error);
 		} finally {
