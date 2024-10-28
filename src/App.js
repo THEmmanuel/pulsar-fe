@@ -20,6 +20,7 @@ import TransactionsHistory from './pages/TransactionsHistory/TransactionsHistory
 import TransactionPage from './pages/TransactionPage/TransactionPage';
 import Order from './pages/OrderPage/Order';
 import TokenFaucet from './pages/TokenFaucet/TokenFaucet';
+import HistoryPage from './pages/HistoryPage/HistoryPage';
 
 import { useUser } from '@clerk/clerk-react';
 import { UserContext } from './contexts/UserContext';
@@ -39,6 +40,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 function App() {
 	const { user } = useUser();
 	const [wallets, setWallets] = useState([])
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
 	const addUserToDatabase = () => {
 		axios.post(`${API_URL}/users`, {
@@ -60,6 +62,13 @@ function App() {
 	}
 
 	useEffect(() => {
+		const handleResize = () => setWindowWidth(window.innerWidth);
+		window.addEventListener('resize', handleResize);
+
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	useEffect(() => {
 		console.log('address' + API_URL)
 		if (user) {
 			addUserToDatabase()
@@ -70,6 +79,7 @@ function App() {
 
 	console.log(wallets)
 
+
 	return (
 		<Router>
 			<div className="App">
@@ -77,7 +87,12 @@ function App() {
 					wallets,
 					setWallets
 				}}>
-					{/* <SideBar /> */}
+
+					{windowWidth < 1280
+						? <span>jsdhks</span>
+						: <SideBar />
+					}
+
 					<section className='Page-container'>
 						<NavBar />
 						<div className='pages-wrapper'>
@@ -176,6 +191,12 @@ function App() {
 									exact
 									path='/order/:id/:amount'
 									element={<Order />}
+								/>
+
+								<Route
+									exact
+									path='/history'
+									element={<HistoryPage />}
 								/>
 
 							</Routes>

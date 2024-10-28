@@ -16,6 +16,9 @@ import { getETHBalance, getETHHistory, estimateGasOfTx } from '../../../utils/et
 import { getBTCBalance } from '../../../utils/btcWallet';
 import TransactionCard from '../../../components/TransactionCard/TransactionCard';
 // import DropDown from '../../components/DropDown/DropDown';
+import PrimaryCTA from '../../../components/PrimaryCTA/PrimaryCTA';
+import copyIcon from '../../../assets/copyIcon.svg';
+import ethereumIcon from '../../../assets/ethereumIcon.svg'
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -102,7 +105,7 @@ const EthereumWallet = () => {
 		<div className={style.WalletPage}>
 			<div className={style.WalletInformation}>
 				<div className={style.WalletCoinInformation}>
-					<img src={usdcWalletImage} alt="" className={style.WalletCoinImage} />
+					<img src={ethereumIcon} alt="" className={style.WalletCoinImage} />
 					<div className={style.WalletCoinPriceInfo}>
 						<span className={style.WalletCoinTotal}>
 							<span className={style.WalletCoinTotal}>
@@ -115,12 +118,10 @@ const EthereumWallet = () => {
 						</span>
 						{parseFloat(walletBalance).toFixed(2)} ETH
 
-						<button
-							className={style.SendButton}
-							onClick={() => setIsModalOpen(true)}>
-							Send
-							<img src={sendIcon} alt="" />
-						</button>
+						<PrimaryCTA
+							ButtonText='Send'
+							click={() => setIsModalOpen(true)}
+						/>
 					</div>
 				</div>
 
@@ -138,11 +139,21 @@ const EthereumWallet = () => {
 					/>
 				</div> */}
 
-				<span className={style.WalletAddress}>
-					{wallet.walletAddress}
-				</span>
+				<div className={style.WalletAddressContainer}>
+					<span className={style.WalletAddressText}>
+						Your wallet address
+					</span>
 
-				<img src={qrPlaceholder} alt="" />
+					<div className={style.WalletAddress}>
+						<span>
+							{wallet.walletAddress}
+						</span>
+
+						<img src={copyIcon} alt="" />
+					</div>
+				</div>
+
+				{/* <img src={qrPlaceholder} alt="" /> */}
 
 				{/* <div>
 					{estimateGasOfTx('0xD22507B380D33a6CD115cAe487ce4FDb19543Ac2')}
@@ -158,7 +169,7 @@ const EthereumWallet = () => {
 				/> : null}
 
 			<div className={style.TransactionHistoryWrapper}>
-				<span>
+				<span className={style.TransactionHistoryText}>
 					Transaction History
 				</span>
 
@@ -169,10 +180,12 @@ const EthereumWallet = () => {
 							<TransactionCard
 								ethValue={ethBalance} ETH
 								usdValue={ethBalance * 2300} USD
-								timestamp={new Date(transaction.timeStamp * 1000).toLocaleString()}
+								timestamp={new Date(transaction.timeStamp * 1000).toLocaleTimeString()}
+								date={new Date(transaction.timeStamp * 1000).toLocaleDateString()}
 								toAddress={transaction.to}
 								fromAddress={transaction.from}
 								txn={transaction.hash}
+								userAddress={wallet.walletAddress}
 							/>
 						)
 					}) : <span>Loading</span>}

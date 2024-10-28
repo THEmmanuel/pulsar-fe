@@ -1,5 +1,6 @@
 import React from "react";
 import style from './TransactionCard.module.css';
+import externalLink from '../../assets/externalLink.svg'
 
 
 const TransactionCard = props => {
@@ -8,30 +9,66 @@ const TransactionCard = props => {
 		return `${str.slice(0, frontChars)}...${str.slice(-backChars)}`;
 	}
 
+	let transactionTypeText = 'Value'
+	let transactionWalletText = 'Wallet'
+	let displayedAddress = 'hghs'
+
+
+	if (props.toAddress.toLowerCase() === props.userAddress.toLowerCase()) {
+		transactionTypeText = 'Recieve'
+		displayedAddress = truncateString(props.fromAddress)
+	}
+	else if (props.fromAddress.toLowerCase() === props.userAddress.toLowerCase()) {
+		transactionTypeText = 'Send'
+		displayedAddress = truncateString(props.toAddress)
+	}
+
+
+
+	if (props.toAddress.toLowerCase() === props.userAddress.toLowerCase()) {
+		transactionWalletText = 'From'
+	}
+	else if (props.fromAddress.toLowerCase() === props.userAddress.toLowerCase()) {
+		transactionWalletText = 'To'
+	}
+
 
 	return (
-		<div className={style.TransactionCardWrapper}>
+		<div
+			className={style.TransactionCardWrapper}>
 			<div className={style.TransactionInfo}>
-				<span className={style.TransactionInfo}>
-					Send
+				<span className={style.TransactionInfoTitle}>
+					{transactionTypeText}
 				</span>
 
-				<span className={style.TransactionInfo}>
-					Send
+				<span className={style.TransactionInfoText}>
+					{props.usdValue}
 				</span>
 			</div>
 
-			<div>
-				<span>Send</span>
-				<span>Send</span>
+			<div className={style.TransactionInfoWallet}>
+				<span className={style.TransactionInfoTitle}>
+					{transactionWalletText}
+				</span>
+
+				<span className={style.TransactionWalletInfo}>
+					{displayedAddress}
+				</span>
 			</div>
 
-			<div>
-				<span>Send</span>
-				<span>Send</span>
+			<div className={style.TransactionInfoTime}>
+				<span className={style.TransactionInfoTitle}>
+					Time
+				</span>
+
+				<span className={style.TransactionInfoText}>
+					{props.timestamp}
+					{/* Time */}
+				</span>
 			</div>
 
-			span
+
+			<img src={externalLink} alt="" />
 		</div>
 	)
 }

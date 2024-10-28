@@ -8,9 +8,9 @@ import { PaystackButton } from 'react-paystack'
 const TokenFaucet = () => {
 	const publicKey = "pk_test_6dbc146a6553071ae3e3adacd412351e580fdd4f"
 	const amount = 1000000
-	const [email, setEmail] = useState("test@test.com")
-	const [name, setName] = useState("Emmanuel")
-	const [phone, setPhone] = useState("11111111")
+	const [email, setEmail] = useState('');
+	const [name, setName] = useState('');
+	const [phone, setPhone] = useState('');
 
 
 	const componentProps = {

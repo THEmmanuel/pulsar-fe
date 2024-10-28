@@ -3,7 +3,7 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 50px;
+	gap: 30px;
 	align-items: center;
 }
 
@@ -12,11 +12,11 @@
 	flex-direction: column;
 	/* background-color: #E9EFEE; */
 	width: 100%;
-	gap: 20px;
+	gap: 50px;
 	margin: 10px auto;
 	justify-content: center;
 	align-items: center;
-	padding: 20px 0px 40px 0px;
+	padding: 20px 0px 20px 0px;
 	border-radius: 10px;
 }
 
@@ -49,27 +49,38 @@
 .WalletCoinTotal {
 	color: #AFAFAF;
 	font-weight: 600;
-	font-size: 1.1em;
+	font-size: 0.9em;
 }
 
 .WalletCoinValue {
 	color: #AFAFAF;
 	font-weight: 700;
-	font-size: 1.4em;
+	font-size: 1.2em;
 }
 
 .WalletCoinPriceInfo {
 	display: flex;
 	flex-direction: column;
-	gap: 5px;
+	gap: 12px;
+}
+
+.TransactionHistoryText{
+	color: #dbdbdb;
 }
 
 .WalletAddress {
-	background-color: #232323;
-	padding: 10px;
+	background-color: #0F0F0F;
+	padding: 5px 8px;
 	width: 400px;
 	border-radius: 5px;
 	color: #AFAFAF;
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.WalletAddressText {
+	font-size: 0.9em;
 }
 
 .SendButton {
@@ -87,11 +98,17 @@
 	justify-content: center;
 }
 
-.TransactionHistory{
+.TransactionHistory {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 	width: 100%;
+}
+
+.WalletAddressContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 }
 
 .WalletCoinNetwork {
@@ -107,12 +124,12 @@ td {
 		width: 100%
 	}
 
-	.WalletAddress{
+	.WalletAddress {
 		min-width: 250px;
 		max-width: 320px;
 	}
 
-	.WalletAddress{
+	.WalletAddress {
 		font-size: 0.8em;
 	}
 }
