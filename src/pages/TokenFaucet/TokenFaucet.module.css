@@ -1,0 +1,15 @@
+.FaucetPageWrapper{
+	display: flex;
+	flex-direction: column;
+}
+
+.FaucetInputWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+	margin-bottom: 50px;
+}
+
+.mainInput{
+	background-color: #E9E9E9;
+}

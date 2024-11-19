@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import style from './EthereumWallet.module.css';
+import style from '../EthereumWallet/EthereumWallet.module.css';
 import MainDropdown from '../../../components/MainDropdown/MainDropdown';
 import TransferModal from '../../../containers/TransferModal/TransferModal';
 import sendIcon from '../../../assets/send_icon.svg'
@@ -24,7 +24,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 
 const EthereumWallet = () => {
-	let { walletName } = useParams();
+	let walletName = 'ethereum';
 	const [wallet, setWallet] = useState({})
 	const { wallets } = useContext(UserContext);
 	const [walletBalance, setWalletBalance] = useState(0)
@@ -50,8 +50,9 @@ const EthereumWallet = () => {
 			const response = await axios.get('https://api-sepolia.etherscan.io/api', {
 				params: {
 					module: 'account',
-					action: 'txlist',
+					action: 'tokentx',
 					address: wallet.walletAddress,
+					contractaddress: '0x3dC961b0bcEBC01088AF48307b3C4Ea2Bfd21D2F',
 					page: 1,
 					offset: 100,
 					startblock: 0,
@@ -78,7 +79,7 @@ const EthereumWallet = () => {
 	useEffect(() => {
 		const fetchBalance = async () => {
 			try {
-				const response = await axios.get(`${API_URL}/wallet-actions/get-token-balance/${walletAddress}/ether`);
+				const response = await axios.get(`${API_URL}/wallet-actions/get-token-balance/${walletAddress}/0x3dC961b0bcEBC01088AF48307b3C4Ea2Bfd21D2F`);
 				setWalletBalance(response.data.balance);
 			} catch (error) {
 				console.error('Error fetching wallet balance:', error);
@@ -108,15 +109,15 @@ const EthereumWallet = () => {
 					<img src={ethereumIcon} alt="" className={style.WalletCoinImage} />
 					<div className={style.WalletCoinPriceInfo}>
 						<span className={style.WalletCoinTotal}>
-							<span className={style.WalletCoinTotal}>
-								{walletBalance} ETH
-							</span>
+							{/* <span className={style.WalletCoinTotal}>
+								{walletBalance} TNL
+							</span> */}
 
 						</span>
 						<span className={style.WalletCoinValue}>
-							${parseFloat(walletBalance * 2517.3).toFixed(2)}
+							${parseFloat(walletBalance * 100).toFixed(2)}
 						</span>
-						{parseFloat(walletBalance).toFixed(2)} ETH
+						{parseFloat(walletBalance).toFixed(2)} TNL
 
 						<PrimaryCTA
 							ButtonText='Send'
@@ -179,7 +180,7 @@ const EthereumWallet = () => {
 						return (
 							<TransactionCard
 								ethValue={ethBalance} ETH
-								usdValue={ethBalance * 2300} USD
+								usdValue={ethBalance * 100} USD
 								timestamp={new Date(transaction.timeStamp * 1000).toLocaleTimeString()}
 								date={new Date(transaction.timeStamp * 1000).toLocaleDateString()}
 								toAddress={transaction.to}

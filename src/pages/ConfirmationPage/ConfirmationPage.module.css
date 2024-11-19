@@ -1,0 +1,49 @@
+.BankPayment {
+	display: flex;
+	flex-direction: column;
+}
+
+.PaymentDetails {
+	display: flex;
+	flex-direction: column;
+	gap: 70px;
+}
+
+.ConfirmationDetails {
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+}
+
+.ConfirmationTimeWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 70px;
+}
+
+.BankPaymentButtons {
+	margin-top: 50px;
+}
+
+.ConfirmationText{
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.ConfirmationTimeContainer{
+	display: flex;
+	flex-direction: column;
+}
+
+.ConfirmationTimeNoteWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+	.BankPayment {
+		width: 85%;
+		margin: auto;
+	}
+}

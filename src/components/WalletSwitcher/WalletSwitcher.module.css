@@ -3,11 +3,13 @@
 	flex-direction: row;
 	gap: 30px;
 	margin-bottom: 100px;
+	margin: auto;
+	justify-content: center;
 }
 
 .WalletSwitcherTab {
 	padding-bottom: 5px;
-	/* Add some padding to give space for the border */
+	height: 20px;
 }
 
 .WalletSwitcherTab:hover {

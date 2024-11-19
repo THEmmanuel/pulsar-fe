@@ -34,3 +34,25 @@
 	flex-direction: row;
 	gap: 10px;
 }
+
+.Order{
+	display: flex;
+	flex-direction: column;
+	gap: 50px;	
+}
+
+.OrderPage{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.OrderInfo{
+	margin-bottom: 20px;
+}
+
+.OrderInput{
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}

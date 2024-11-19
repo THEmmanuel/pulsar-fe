@@ -110,6 +110,17 @@
 	margin: auto;
 }
 
+.BuyPaymentMethod{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.PaymentMethodWrapper{
+	display: flex;
+	flex-direction: column;
+}
+
 
 .TradeMethodContainer{
 	display: flex;

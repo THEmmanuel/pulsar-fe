@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 
 import EthereumWallet from './EthereumWallet/EthereumWallet';
+import TunnelWallet from './TunnelWallet/TunnelWallet';
 import BitcoinWallet from './BitcoinWallet/BitcoinWallet';
 import USDTWallet from './USDTWallet/USDTWallet';
 
@@ -21,9 +22,11 @@ const Wallet = () => {
 		return <EthereumWallet / >
 	}
 
-	// if (walletName === 'bitcoin') {
-	// 	return <BitcoinWallet />
-	// }
+	if (walletName === 'tnl') {
+		return <TunnelWallet / >
+	}
+
+
 }
 
 export default Wallet;

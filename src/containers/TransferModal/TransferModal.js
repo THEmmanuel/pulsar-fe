@@ -30,6 +30,7 @@ const TransferModal = (props) => {
 
 	// Timer effect to update gas estimate every 15 seconds
 	useEffect(() => {
+		document.body.style.overflow = 'hidden';
 		// Initial fetch of the gas estimate
 		updateGasEstimate();
 

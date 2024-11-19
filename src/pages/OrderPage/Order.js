@@ -7,12 +7,16 @@ import { useParams } from 'react-router-dom';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import starIcon from '../../assets/star.svg'
 import BankPayment from '../BankPayment/BankPayment';
-
+import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
+import DialogueBox from '../../components/DialogueBox/DialogueBox';
+import Overlay from '../../containers/Overlay/Overlay';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 const Order = (props) => {
-	const [adInfo, setAdInfo] = useState(null)
+	const [adInfo, setAdInfo] = useState(null);
+	const [amount, setAmount] = useState(0);
+
 	const { id } = useParams();
 
 	const getAdInfo = () => {
@@ -27,43 +31,71 @@ const Order = (props) => {
 	let CurrentOrderPage;
 
 	if (adInfo && adInfo.adType === 'buy') {
-		CurrentOrderPage = <BuyPage />
+		CurrentOrderPage = <BuyPage
+			amount={amount}
+		/>
 	}
 	if (adInfo && adInfo.adType === 'sell') {
 		CurrentOrderPage = <SellPage />
 	}
 
+
+	// logic state to activate the confirmation when the bank payment is confirmed.
+
+	// removes input and chain switcher.
+
 	return (
 		adInfo ?
-			<div>
-				<div className={style.TraderInfoWrapper}>
-					<div className={style.TraderInfo}>
-						<img
-							src=""
-							alt=""
-							className={style.TraderInfoImage}
-						/>
+			<div className={style.OrderPage}>
+				<div className={style.OrderInfo}>
+					<div className={style.TraderInfoWrapper}>
+						<div className={style.TraderInfo}>
+							<img
+								src=""
+								alt=""
+								className={style.TraderInfoImage}
+							/>
 
-						<div className={style.TraderInfoDetails}>
-							<div className={style.TraderName}>
-								<span>p4nther</span>
-								<div>
-								<span>5</span>
+							<div className={style.TraderInfoDetails}>
+								<div className={style.TraderName}>
+									<span>p4nther</span>
+									<div>
+										<span>5</span>
 
-								<img
-									src={starIcon}
-									alt=""
-								/>
+										<img
+											src={starIcon}
+											alt=""
+										/>
+									</div>
 								</div>
-							</div>
 
-							<span>Limit: 100 - 300k</span>
+								<span>Limit: 100 - 300k</span>
+							</div>
 						</div>
+
+						<PrimaryCTA
+							ButtonText='Message'
+						/>
 					</div>
 
-					<PrimaryCTA
-						ButtonText='Message'
-					/>
+					<div className={style.OrderInput}>
+						<input
+							type="text"
+							title="Amount"
+							value={amount}
+							onChange={(e) => setAmount(e.target.value)}
+							className='mainInput'
+							placeholder="Enter amount"
+						/>
+
+						<span>chain switcher</span>
+
+
+						{/* <Overlay>
+							<DialogueBox />
+						</Overlay> */}
+
+					</div>
 				</div>
 
 
@@ -72,8 +104,11 @@ const Order = (props) => {
 				<span>{adInfo.adType}</span> */}
 
 
-				{/* {CurrentOrderPage} */}
+				{CurrentOrderPage}
+
 				{/* <BankPayment/> */}
+
+				{/* <ConfirmationPage/> */}
 
 			</div>
 			:

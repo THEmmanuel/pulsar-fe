@@ -35,16 +35,21 @@ const WalletsPage = () => {
 
 				<div className={style.WalletsContainer}>
 
-					{/* <div className={style.WalletCardWrapper}>
+					<div className={style.WalletCardWrapper}>
 						<div className={style.WalletsPageBalance}>
 							<span className={style.WalletsPageChainType}>Bitcoin</span>
 							<ChainSwitcher />
 						</div>
 
-						<div className={style.WalletsCardContainer}>
-							<WalletCard />
-						</div>
-					</div> */}
+						<Link to='/wallet/tnl'>
+							<WalletCard
+								CoinName='Bitcoin - $BTC'
+								CoinText='View your TNL on the Ethereum chain'
+								CoinBalance=''
+								WalletIcon={usdcIcon}
+							/>
+						</Link>
+					</div>
 
 
 					<div className={style.WalletCardWrapper}>
@@ -54,6 +59,16 @@ const WalletsPage = () => {
 						</div>
 
 						<div className={style.WalletsCardContainer}>
+							<Link to='/wallet/tnl'>
+								<WalletCard
+									CoinName='Tunnel Token - $TNL'
+									CoinText='View your TNL on the Ethereum chain'
+									CoinBalance=''
+									WalletIcon={usdcIcon}
+								/>
+							</Link>
+
+
 							<Link to='/wallet/ethereum'>
 								<WalletCard
 									CoinName='Ether - ETH'
@@ -63,6 +78,14 @@ const WalletsPage = () => {
 								/>
 							</Link>
 
+							{/* <Link to='/wallet/bitcoin'>
+								<WalletCard
+									CoinName='Bitcoin - $BTC'
+									CoinText='View your BTC on the  BEP 32 chain'
+									CoinBalance=''
+									WalletIcon={usdcIcon}
+								/>
+							</Link> */}
 							{/* <Link>
 								<WalletCard />
 							</Link>

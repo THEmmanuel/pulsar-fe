@@ -1,0 +1,22 @@
+.DialogueBox{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	background-color: #1D1D1D;
+	width: 80%;
+	padding: 40px 20px;
+	margin: auto;
+	border-radius: 5px;
+}
+
+.DialogueBoxTextWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.DialogueBoxButtons{
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}

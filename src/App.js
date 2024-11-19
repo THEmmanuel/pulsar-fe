@@ -22,6 +22,7 @@ import Order from './pages/OrderPage/Order';
 import TokenFaucet from './pages/TokenFaucet/TokenFaucet';
 import HistoryPage from './pages/HistoryPage/HistoryPage';
 import MobileBottomNav from './components/MobileBottomNav/MobileBottomNav';
+import ChatPage from './pages/ChatPage/ChatPage';
 
 import { useUser } from '@clerk/clerk-react';
 import { UserContext } from './contexts/UserContext';
@@ -90,7 +91,7 @@ function App() {
 				}}>
 
 					{windowWidth < 1280
-						? <MobileBottomNav/>
+						? <MobileBottomNav />
 						: <SideBar />
 					}
 
@@ -198,6 +199,12 @@ function App() {
 									exact
 									path='/history'
 									element={<HistoryPage />}
+								/>
+
+								<Route
+									exact
+									path='/chat'
+									element={<ChatPage />}
 								/>
 
 							</Routes>

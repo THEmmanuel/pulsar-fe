@@ -96,17 +96,28 @@ const BuyPage = (props) => {
 			:
 			<div className={style.BuyPageWrapper}>
 				<div className={style.BuyPageContainer}>
-					<div>
-						<span>Payment Methods</span>
+					<div className={style.BuyPaymentMethod}>
+						<span>
+							Payment Method
+						</span>
 
-						<div className={style.TradeMethodContainer}>
-							<TradeMethodCard
-								paymentMethodText='Pay via Token (automated and safer)'
-							/>
+						<div className={style.PaymentMethodWrapper}>
+							<div className={style.TradeMethodContainer}>
+								<TradeMethodCard
+									amount={props.amount}
+									paymentMethodText='Pay with $TNL (automated and safer) balance: 1200000'
+								/>
 
-							<TradeMethodCard
-								paymentMethodText='Pay via Token (automated and safer)'
-							/>
+								<TradeMethodCard
+									amount={props.amount}
+									paymentMethodText='Pay via Card (automated)'
+								/>
+
+								<TradeMethodCard
+									amount={props.amount}
+									paymentMethodText='Pay via Bank Transfer'
+								/>
+							</div>
 						</div>
 					</div>
 

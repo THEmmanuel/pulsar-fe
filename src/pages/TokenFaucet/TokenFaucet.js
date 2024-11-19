@@ -1,55 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './TokenFaucet.module.css'
 import FormInput from '../../components/FormInput/FormInput';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import { PaystackButton } from 'react-paystack'
+import axios from 'axios';
 
 
 const TokenFaucet = () => {
-	const publicKey = "pk_test_6dbc146a6553071ae3e3adacd412351e580fdd4f"
-	const amount = 1000000
-	const [email, setEmail] = useState('');
-	const [name, setName] = useState('');
-	const [phone, setPhone] = useState('');
+	const [amount, setAmount] = useState(1000000); // Default amount set to 1000000
+	const [walletAddress, setWalletAddress] = useState('');
+	const API_URL = process.env.REACT_APP_API_URL;
 
+	// Deposit tokens function to send a POST request to /token-faucet
+	const depositTokens = async () => {
+		try {
+			const response = await axios.post(`${API_URL}/token-faucet`, {
+				tokenAmount: amount,
+				recieversWalletAddress: walletAddress,
+			});
 
-	const componentProps = {
-		email,
-		amount,
-		metadata: {
-			name,
-			phone,
-		},
-		publicKey,
-		text: "Pay Now",
-		onSuccess: () =>
-			alert("Thanks for doing business with us! Come back soon!!"),
-		onClose: () => alert("Wait! Don't leave :("),
-	}
-
-
+			console.log('Tokens deposited successfully:', response.data);
+		} catch (error) {
+			console.error('There was an error depositing the tokens:', error);
+		}
+	};
 
 	return (
-		<div>
-			Token Faucet
-			<FormInput
-				title='Amount'
-			/>
+		<div className={style.FaucetPageWrapper}>
+			<h2>Token Faucet</h2>
 
-			<FormInput
-				title='Wallet Address'
-			/>
+			{/* Input field for Amount */}
+			<div>
+				<div className={style.FaucetInputWrapper}>
+					<input
+						type="text"
+						title="Amount"
+						value={amount}
+						onChange={(e) => setAmount(e.target.value)}
+						placeholder="Enter token amount"
+						className='mainInput'
+					/>
 
-			<PrimaryCTA
-				ButtonText='Buy Token'
-			/>
+					{/* Input field for Wallet Address */}
+					<input
+						type="text"
+						title="Wallet Address"
+						value={walletAddress}
+						onChange={(e) => setWalletAddress(e.target.value)}
+						placeholder="Enter wallet address"
+						className='mainInput'
+					/>
+				</div>
 
-			<PaystackButton {...componentProps} />
-
-
-
+				{/* Button to trigger token deposit */}
+				<PrimaryCTA
+					ButtonText="Buy Token"
+					click={depositTokens}
+				/>
+			</div>
 		</div>
-	)
-}
+	);
+};
 
 export default TokenFaucet

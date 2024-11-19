@@ -6,12 +6,6 @@ const WalletSwitcher = () => {
 		<div className={style.WalletSwitcher}>
 			<div className={style.WalletSwitcherTab}>
 				<span className={style.WalletSwitcherTabText}>
-					All Wallets
-				</span>
-			</div>
-
-			<div className={style.WalletSwitcherTab}>
-				<span className={style.WalletSwitcherTabText}>
 					Cryptomatic Wallets
 				</span>
 			</div>

@@ -95,13 +95,13 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.DashboardCardsWrapper{
+	.DashboardCardsWrapper {
 		grid-template-columns: 1fr;
 		width: 0;
 		gap: 40px;
 	}
 
-	.DashboardCardsWrapper{
+	.DashboardCardsWrapper {
 		width: 100%;
 	}
-  }
+}
