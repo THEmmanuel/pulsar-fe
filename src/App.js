@@ -36,6 +36,10 @@ import {
 } from 'react-router-dom';
 import OrderPage from './pages/Buy/BuyPage';
 
+import 'react-simple-toasts/dist/style.css';
+import 'react-simple-toasts/dist/theme/dark.css';
+
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 

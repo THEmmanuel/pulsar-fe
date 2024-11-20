@@ -74,6 +74,10 @@ a {
 	gap: 5px;
 }
 
+.PeerToPeerRatingStar{
+	width: 10px;
+}
+
 
 
 @media only screen and (max-width: 600px) {

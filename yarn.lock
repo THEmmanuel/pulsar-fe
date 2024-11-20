@@ -12401,6 +12401,11 @@ react-select@^5.7.0:
     react-transition-group "^4.3.0"
     use-isomorphic-layout-effect "^1.1.2"
 
+react-simple-toasts@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/react-simple-toasts/-/react-simple-toasts-6.0.1.tgz#ca3ca10b604f1c6500ee42781ebe0a275a3a6a51"
+  integrity sha512-OYBC/p15WZHAfn4g0SiKl5Q+Pw67ooC3XN4JcYbACliVNyPmXYoNEoF8MQ2+3+G0SqP7bRjLmw1QFrIVHjYmRw==
+
 react-style-singleton@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-style-singleton/-/react-style-singleton-2.2.1.tgz#f99e420492b2d8f34d38308ff660b60d0b1205b4"

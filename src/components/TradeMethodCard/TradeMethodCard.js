@@ -3,7 +3,9 @@ import style from './TradeMethodCard.module.css';
 
 const TradeMethodCard = (props) => {
 	return (
-		<div className={style.TradeMethodCardWrapper}>
+		<div
+			className={style.TradeMethodCardWrapper}
+			onClick={() => props.click()}>
 			<div className={style.TradeMethodCardWrapper}>
 				<span>Buying {props.amount} Token on Chain Name</span>
 

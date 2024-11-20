@@ -1,0 +1,10 @@
+.ChainCardWrapper{
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+	gap: 5px;
+}
+
+.ChainImage{
+	width: 15px;
+}

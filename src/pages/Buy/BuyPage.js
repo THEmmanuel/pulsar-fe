@@ -16,6 +16,13 @@ import { generateOrderToken } from '../../utils/generateOrderToken';
 
 import TradeMethodCard from '../../components/TradeMethodCard/TradeMethodCard';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+import toast, { toastConfig } from 'react-simple-toasts';
+
+import DialogueBox from '../../components/DialogueBox/DialogueBox';
+import Overlay from '../../containers/Overlay/Overlay';
+
+toastConfig({ theme: 'dark' });
+
 
 // <UserInformation />
 // <UserInformationContent />
@@ -38,7 +45,6 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 const BuyPage = (props) => {
 	const { id, amount } = useParams();
-
 	const [adInfo, setAdInfo] = useState('');
 	const [cryptoAmount, setCryptoAmount] = useState(amount);
 	const [orderToken, setOrderToken] = useState('');
@@ -47,6 +53,8 @@ const BuyPage = (props) => {
 	const [sellerConfirmedOrder, setSellerConfirmedOrder] = useState(false)
 	const [buyerPaid, setBuyerPaid] = useState(false)
 	const [timer, setTimer] = useState(1800)
+	const [showDialogueBox, setShowDialogueBox] = useState(false)
+
 
 	const createOrderHandler = (adType) => {
 		//generate a unique transaction id and time stamp
@@ -106,11 +114,7 @@ const BuyPage = (props) => {
 								<TradeMethodCard
 									amount={props.amount}
 									paymentMethodText='Pay with $TNL (automated and safer) balance: 1200000'
-								/>
-
-								<TradeMethodCard
-									amount={props.amount}
-									paymentMethodText='Pay via Card (automated)'
+									click={() => setShowDialogueBox(true)}
 								/>
 
 								<TradeMethodCard
@@ -118,6 +122,18 @@ const BuyPage = (props) => {
 									paymentMethodText='Pay via Bank Transfer'
 								/>
 							</div>
+
+							{showDialogueBox ?
+								<Overlay>
+									<DialogueBox
+										HeadingText="jdhfjdshjdsf"
+										AdditionalText="jdhfjdshjdsf"
+										MoreText="jdhfjdshjdsf"
+										AcceptAction={() => toast('Your toast is ready! 🍞')}
+										CancelAction={() => setShowDialogueBox(false)}
+									/>
+								</Overlay>
+								: null}
 						</div>
 					</div>
 
@@ -129,6 +145,9 @@ const BuyPage = (props) => {
 					<PrimaryCTA
 						ButtonText='Cancel'
 					/>
+
+					<button onClick={() => toast('Your toast is ready! 🍞')}>Show Toast</button>
+
 				</div>
 			</div>
 	)

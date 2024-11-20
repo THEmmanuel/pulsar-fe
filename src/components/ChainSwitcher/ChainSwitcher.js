@@ -1,16 +1,35 @@
 import React from "react";
 import style from './ChainSwitcher.module.css';
 import arrow from '../../assets/arrow.svg'
+import ChainCard from "./ChainCard";
+import ethChainIcon from '../../assets/ethIconWhiteTest.svg';
+import Overlay from '../../containers/Overlay/Overlay'
 
 const ChainSwitcher = () => {
 	return (
-		<div className={style.ChainSwitcher}>
-			<span className={style.ChainSwitcherName}>
-				chain name
-			</span>
+		<Overlay>
+			<div className={style.ChainSwitcher}>
+				<ChainCard
+					ChainImage={ethChainIcon}
+					ChainName='Ethereum'
+				/>
 
-			<img src={arrow} alt="" />
-		</div>
+				<ChainCard
+					ChainImage={ethChainIcon}
+					ChainName='Ethereum'
+				/>
+
+				<ChainCard
+					ChainImage={ethChainIcon}
+					ChainName='Ethereum'
+				/>
+
+				<ChainCard
+					ChainImage={ethChainIcon}
+					ChainName='Ethereum'
+				/>
+			</div>
+		</Overlay>
 	)
 }
 

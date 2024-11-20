@@ -3,7 +3,10 @@ import style from './PrimaryCTA.module.css';
 
 const PrimaryCTA = props => {
 	return (
-		<button className={style.PrimaryCTA} onClick = {() => props.click()}>
+		<button
+			className={style.PrimaryCTA}
+			onClick={() => props.click()}
+		>
 			{props.ButtonText}
 		</button>
 	);

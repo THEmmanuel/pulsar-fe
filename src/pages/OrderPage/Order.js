@@ -10,6 +10,12 @@ import BankPayment from '../BankPayment/BankPayment';
 import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 import DialogueBox from '../../components/DialogueBox/DialogueBox';
 import Overlay from '../../containers/Overlay/Overlay';
+import toast, { toastConfig } from 'react-simple-toasts';
+import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher';
+
+
+
+toastConfig({ theme: 'dark' });
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -88,14 +94,23 @@ const Order = (props) => {
 							placeholder="Enter amount"
 						/>
 
-						<span>chain switcher</span>
+						<ChainSwitcher/>
 
 
 						{/* <Overlay>
-							<DialogueBox />
+							<DialogueBox
+								HeadingText="jdhfjdshjdsf"
+								AdditionalText="jdhfjdshjdsf"
+								MoreText="jdhfjdshjdsf"
+							/>
 						</Overlay> */}
 
 					</div>
+
+					<button onClick={() => toast('Your toast is ready! 🍞')}>Show Chains</button>
+
+
+
 				</div>
 
 

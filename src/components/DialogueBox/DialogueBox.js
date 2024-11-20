@@ -1,13 +1,16 @@
 import React from 'react';
 import style from './DialogueBox.module.css';
 import PrimaryCTA from '../PrimaryCTA/PrimaryCTA';
+import toast, { toastConfig } from 'react-simple-toasts';
+
+toastConfig({ theme: 'dark' });
 
 const DialogueBox = (props) => {
 	return (
 		<div className={style.DialogueBox}>
 			<div className={style.DialogueBoxTextWrapper}>
 				<span>
-					{props.headingText}
+					{props.HeadingText}
 				</span>
 
 				<span>
@@ -22,10 +25,12 @@ const DialogueBox = (props) => {
 			<div className={style.DialogueBoxButtons}>
 				<PrimaryCTA
 					ButtonText='Accept'
+					click={() => props.AcceptAction()}
 				/>
 
 				<PrimaryCTA
 					ButtonText='Cancel'
+					click={() => props.CancelAction()}
 				/>
 			</div>
 		</div>
