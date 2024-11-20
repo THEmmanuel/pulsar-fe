@@ -14,8 +14,8 @@ import toast, { toastConfig } from 'react-simple-toasts';
 import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher';
 
 
-
 toastConfig({ theme: 'dark' });
+
 
 const API_URL = process.env.REACT_APP_API_URL;
 

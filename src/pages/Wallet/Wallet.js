@@ -25,8 +25,6 @@ const Wallet = () => {
 	if (walletName === 'tnl') {
 		return <TunnelWallet / >
 	}
-
-
 }
 
 export default Wallet;

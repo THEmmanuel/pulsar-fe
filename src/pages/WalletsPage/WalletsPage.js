@@ -5,10 +5,11 @@ import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA.js';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { Link, useSubmit } from 'react-router-dom'
 import WalletCard from '../../components/WalletCard/WalletCard.js';
 import WalletSwitcher from '../../components/WalletSwitcher/WalletSwitcher.js';
 import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher.js';
+import ChainSwitcherButton from '../../components/ChainSwitcher/ChainSwitcherButton.js';
 import usdcIcon from '../../assets/usdc-icon.svg'
 
 
@@ -17,6 +18,8 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 const WalletsPage = () => {
 	const { wallets } = useContext(UserContext)
+	const [showEthereumChains, setShowEthereumChains] = useState(false)
+
 	console.log(wallets)
 
 	return (
@@ -38,7 +41,7 @@ const WalletsPage = () => {
 					<div className={style.WalletCardWrapper}>
 						<div className={style.WalletsPageBalance}>
 							<span className={style.WalletsPageChainType}>Bitcoin</span>
-							<ChainSwitcher />
+							{/* <ChainSwitcher /> */}
 						</div>
 
 						<Link to='/wallet/tnl'>
@@ -55,7 +58,12 @@ const WalletsPage = () => {
 					<div className={style.WalletCardWrapper}>
 						<div className={style.WalletsPageBalance}>
 							<span className={style.WalletsPageChainType}>Ethereum</span>
-							<ChainSwitcher />
+
+							<ChainSwitcherButton
+								click={() => setShowEthereumChains(true)}
+							/>
+
+							{showEthereumChains ? <ChainSwitcher/> : null}
 						</div>
 
 						<div className={style.WalletsCardContainer}>
