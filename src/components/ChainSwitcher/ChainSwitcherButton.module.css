@@ -1,0 +1,8 @@
+.ChainSwitcherButton {
+	display: flex;
+	flex-direction: row;
+	background: none;
+	border: none;
+	color: #fff;
+	gap: 10px;
+}

@@ -72,7 +72,6 @@ const PeerToPeerPage = () => {
 				Peer to peer
 			</span>
 
-
 			<div className={style.PeerToPeerHeadingContainer}>
 				<div className={style.PeerToPeerSearchWrapper}>
 					<input
@@ -84,45 +83,36 @@ const PeerToPeerPage = () => {
 				</div>
 
 
-				<div className={style.PeerToPeerHeading}>
-				kihkdj
-					<div className={style.PeerToPeerDropdownWrapper}>
-						<div>
-							<span>Ad type</span>
-							<DropDown
-								onSelect={handleAdTypeChange}
-								options={adTypes}
-							/>
-						</div>
-
-						<div>
-							<span>Token</span>
-							<DropDown
-								DropDownText='USDT'
-								onSelect={handleTokenChange}
-								options={tokens}
-							/>
-						</div>
-
-						<MainInput
-							change={handleInputAmount}
+				<div className={style.PeerToPeerFiltersWrapper}>
+					<div>
+						<span>Ad type</span>
+						<DropDown
+							onSelect={handleAdTypeChange}
+							options={adTypes}
 						/>
-						<div>
-							<span>Fiat</span>
-							<DropDown
-								DropDownText='USD'
-								onSelect={handleFiatChange}
-								options={fiatCurrencies}
-							/>
-						</div>
+					</div>
+					<div>
+						<span>Token</span>
+						<DropDown
+							DropDownText='USDT'
+							onSelect={handleTokenChange}
+							options={tokens}
+						/>
+					</div>
+
+					<MainInput
+						change={handleInputAmount}
+					/>
+
+					<div>
+						<span>Fiat</span>
+						<DropDown
+							DropDownText='USD'
+							onSelect={handleFiatChange}
+							options={fiatCurrencies}
+						/>
 					</div>
 				</div>
-
-				{/* <Link to='/create-ad'>
-					<button className={style.CreateAdButton}>
-						+ Create Ad
-					</button>
-				</Link> */}
 			</div>
 
 

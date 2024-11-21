@@ -112,7 +112,7 @@ const TransferModal = (props) => {
 							<div className={style.TransactionDetails}>
 								<span className={style.TransactionDetailsText}>Gas fees:</span>
 								<span className={style.TransactionDetailsValue}>
-									{loading ? 'Loading...' : `$${estimatedGas}`}
+									{loading ? 'Loading...' : `$${gasInUSD}`}
 								</span>
 								<span className={style.Timer}>
 									(Next refresh in {timeLeft}s)

@@ -1,13 +1,14 @@
 import React from "react";
-import style from './ChainSwitcher.module.css';
+import style from './ChainSwitcherButton.module.css';
 
 const ChainSwitcherButton = (props) => {
 	return (
 		<button
 			onClick={() => props.click()}
+			className={style.ChainSwitcherButton}
 		>
 			<span>Current chain here</span>
-			<span> </span>
+			<span> arrow </span>
 		</button>
 	)
 }

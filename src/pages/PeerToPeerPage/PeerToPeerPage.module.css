@@ -45,15 +45,16 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	max-width: 700px;
+	max-width: 800px;
 	margin: 10px auto 40px auto;
 	gap: 40px;
 }
 
-.PeerToPeerHeading {
-	display: none;
-	flex-direction: column;
-	justify-content: center;
+.PeerToPeerFiltersWrapper{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 700px;
 }
 
 .PageTitle {
@@ -71,6 +72,8 @@
 .PeerToPeerSearchWrapper {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
+	width: 700px;
 }
 
 @media only screen and (max-width: 600px) {

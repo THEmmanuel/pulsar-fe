@@ -171,8 +171,8 @@ function App() {
 
 								<Route
 									exact
-									path='/transactions-history'
-									element={<TransactionsHistory />}
+									path='/history'
+									element={<HistoryPage />}
 								/>
 
 								<Route
