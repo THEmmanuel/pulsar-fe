@@ -71,6 +71,7 @@ const Order = (props) => {
 										<img
 											src={starIcon}
 											alt=""
+											className={style.StarIcon}
 										/>
 									</div>
 								</div>
@@ -90,11 +91,11 @@ const Order = (props) => {
 							title="Amount"
 							value={amount}
 							onChange={(e) => setAmount(e.target.value)}
-							className='mainInput'
+							className={style.AmountInput}
 							placeholder="Enter amount"
 						/>
 
-						<ChainSwitcher/>
+						{/* <ChainSwitcher/> */}
 
 
 						{/* <Overlay>
@@ -107,7 +108,7 @@ const Order = (props) => {
 
 					</div>
 
-					<button onClick={() => toast('Your toast is ready! 🍞')}>Show Chains</button>
+					{/* <button onClick={() => toast('Your toast is ready! 🍞')}>Show Chains</button> */}
 
 
 

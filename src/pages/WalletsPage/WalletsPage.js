@@ -37,21 +37,23 @@ const WalletsPage = () => {
 				</div> */}
 
 				<div className={style.WalletsContainer}>
-
 					<div className={style.WalletCardWrapper}>
 						<div className={style.WalletsPageBalance}>
 							<span className={style.WalletsPageChainType}>Bitcoin</span>
 							{/* <ChainSwitcher /> */}
 						</div>
 
-						<Link to='/wallet/tnl'>
-							<WalletCard
-								CoinName='Bitcoin - $BTC'
-								CoinText='View your TNL on the Ethereum chain'
-								CoinBalance=''
-								WalletIcon={usdcIcon}
-							/>
-						</Link>
+
+						<div className={style.WalletsCardContainer}>
+							<Link to='/wallet/tnl'>
+								<WalletCard
+									CoinName='Bitcoin - $BTC'
+									CoinText='View your TNL on the Ethereum chain'
+									CoinBalance=''
+									WalletIcon={usdcIcon}
+								/>
+							</Link>
+						</div>
 					</div>
 
 
@@ -63,7 +65,7 @@ const WalletsPage = () => {
 								click={() => setShowEthereumChains(true)}
 							/>
 
-							{showEthereumChains ? <ChainSwitcher/> : null}
+							{showEthereumChains ? <ChainSwitcher /> : null}
 						</div>
 
 						<div className={style.WalletsCardContainer}>
@@ -79,28 +81,39 @@ const WalletsPage = () => {
 
 							<Link to='/wallet/ethereum'>
 								<WalletCard
-									CoinName='Ether - ETH'
+									CoinName='Ether - $ETH'
 									CoinText='View your ETH on the Ethereum chain'
 									CoinBalance=''
 									WalletIcon={usdcIcon}
 								/>
 							</Link>
 
-							{/* <Link to='/wallet/bitcoin'>
+							<Link to='/wallet/ethereum'>
 								<WalletCard
-									CoinName='Bitcoin - $BTC'
-									CoinText='View your BTC on the  BEP 32 chain'
+									CoinName='USD Coin - $USDC'
+									CoinText='View your ETH on the Ethereum chain'
 									CoinBalance=''
 									WalletIcon={usdcIcon}
 								/>
-							</Link> */}
-							{/* <Link>
-								<WalletCard />
 							</Link>
 
-							<Link>
-								<WalletCard />
-							</Link> */}
+							<Link to='/wallet/ethereum'>
+								<WalletCard
+									CoinName='USD Tether - $USDT'
+									CoinText='View your ETH on the Ethereum chain'
+									CoinBalance=''
+									WalletIcon={usdcIcon}
+								/>
+							</Link>
+
+							<Link to='/wallet/ethereum'>
+								<WalletCard
+									CoinName='Binance Coin - $BNB'
+									CoinText='View your ETH on the Ethereum chain'
+									CoinBalance=''
+									WalletIcon={usdcIcon}
+								/>
+							</Link>
 						</div>
 					</div>
 

@@ -46,7 +46,10 @@ const API_URL = process.env.REACT_APP_API_URL;
 function App() {
 	const { user } = useUser();
 	const [wallets, setWallets] = useState([])
+	const [tokenPrices, setTokenPrices] = useState(1)
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+	const [coinData, setCoinData] = useState({});
+
 
 	const addUserToDatabase = () => {
 		axios.post(`${API_URL}/users`, {
@@ -66,6 +69,16 @@ function App() {
 		console.log('///get wallet details')
 		console.log(`${API_URL}/users/${user.id}`)
 	}
+
+
+	const coinGeckoAPI = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether%2Csolana&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true'
+
+	useEffect(() => {
+		axios.get(coinGeckoAPI)
+			.then(res => setCoinData(res.data))
+			.catch(err => console.log(err))
+	}, [])
+
 
 	useEffect(() => {
 		const handleResize = () => setWindowWidth(window.innerWidth);
@@ -91,7 +104,9 @@ function App() {
 			<div className="App">
 				<UserContext.Provider value={{
 					wallets,
-					setWallets
+					setWallets,
+					coinData,
+					setCoinData
 				}}>
 
 					{windowWidth < 1280

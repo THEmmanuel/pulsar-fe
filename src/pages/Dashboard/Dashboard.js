@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import style from './Dashboard.module.css';
 import MarketCharts from '../../components/MarketCharts/MarketCharts';
@@ -17,6 +17,7 @@ import walletIcon from '../../assets/walletIcon.svg';
 import accountIcon from '../../assets/accountIcon.svg';
 import p2pIcon from '../../assets/ptopIcon.svg';
 import helpIcon from '../../assets/helpIcon.svg';
+import { UserContext } from '../../contexts/UserContext';
 
 
 

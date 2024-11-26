@@ -18,6 +18,7 @@
 	width: 80%;
 	margin: 40px auto;
 	padding-bottom: 80px;
+	
 }
 
 .WalletTotalValue {
@@ -28,7 +29,7 @@
 .WalletsContainer {
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
+	gap: 100px;
 	margin: 40px 0 70px 0px;
 }
 
@@ -45,9 +46,10 @@
 }
 
 .WalletsCardContainer {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 50px;
+	margin-top: 40px;
 }
 
 .WalletCardWrapper {

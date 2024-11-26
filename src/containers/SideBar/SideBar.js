@@ -39,7 +39,7 @@ const SideBar = () => {
 					/>
 				</Link>
 
-				<Link to='/transactions-history'>
+				<Link to='/history'>
 					<SideBarButton
 						SidebarIcon={historyIcon}
 						SidebarText='Transactions History'

@@ -26,11 +26,13 @@ const API_URL = process.env.REACT_APP_API_URL;
 const EthereumWallet = () => {
 	let { walletName } = useParams();
 	const [wallet, setWallet] = useState({})
+	const [EthPrice, setEthPrice] = useState(1)
 	const { wallets } = useContext(UserContext);
 	const [walletBalance, setWalletBalance] = useState(0)
 	const [ethTransactions, setEthTransactions] = useState([]);
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	let userWallet = wallets.find(wallet => wallet.walletName === walletName)
+	const {coinData} = useContext(UserContext) 
 
 	useEffect(() => {
 		if (wallets.length !== 0) {
@@ -44,8 +46,6 @@ const EthereumWallet = () => {
 	const walletAddress = wallet.walletAddress; // Example address
 
 	const fetchTransactions = async (address) => {
-		console.log('running');
-
 		try {
 			const response = await axios.get('https://api-sepolia.etherscan.io/api', {
 				params: {
@@ -80,11 +80,11 @@ const EthereumWallet = () => {
 			try {
 				const response = await axios.get(`${API_URL}/wallet-actions/get-token-balance/${walletAddress}/ether`);
 				setWalletBalance(response.data.balance);
+				setEthPrice(coinData.ethereum.usd)
 			} catch (error) {
 				console.error('Error fetching wallet balance:', error);
 			}
 		};
-
 		fetchBalance();
 		fetchTransactions()
 	}, [walletAddress]);
@@ -114,7 +114,7 @@ const EthereumWallet = () => {
 
 						</span>
 						<span className={style.WalletCoinValue}>
-							${parseFloat(walletBalance * 2517.3).toFixed(2)}
+							${parseFloat(walletBalance * EthPrice).toFixed(2)}
 						</span>
 						{parseFloat(walletBalance).toFixed(2)} ETH
 
@@ -179,7 +179,7 @@ const EthereumWallet = () => {
 						return (
 							<TransactionCard
 								ethValue={ethBalance} ETH
-								usdValue={ethBalance * 2300} USD
+								usdValue={ethBalance * EthPrice} USD
 								timestamp={new Date(transaction.timeStamp * 1000).toLocaleTimeString()}
 								date={new Date(transaction.timeStamp * 1000).toLocaleDateString()}
 								toAddress={transaction.to}

@@ -4,6 +4,11 @@ import { sendETH, estimateGasOfTx } from '../../utils/ethWallet';
 import FormInput from '../../components/FormInput/FormInput';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import { ethers } from 'ethers';
+import toast, { toastConfig } from 'react-simple-toasts';
+import axios from 'axios';
+
+toastConfig({ theme: 'dark' });
+
 
 const TransferModal = (props) => {
 	const [recipientAddress, setRecipientAddress] = useState("");
@@ -51,6 +56,25 @@ const TransferModal = (props) => {
 			clearInterval(countdownId);
 		};
 	}, []);
+
+
+	const sendToken = async () => {
+		const data = {
+			amount: 100,  // Replace with the desired amount
+			walletAddress: '0xYourWalletAddress',  // Replace with the actual wallet address
+			tokenToSend: 'eth',  // Replace with the token name or symbol
+			username: 'leunamme',  // Use a secure method to handle this!
+			walletName: 'ethereum'
+		};
+
+		try {
+			const response = await axios.post('http://localhost:3000/send-token', data);  // Replace with your actual endpoint URL
+			console.log('Response:', response.data);
+		} catch (error) {
+			console.error('Error sending token:', error.response ? error.response.data : error.message);
+		}
+	};
+
 
 	// Validate the wallet address
 	const isValidAddress = ethers.utils.isAddress(recipientAddress);
@@ -129,7 +153,10 @@ const TransferModal = (props) => {
 
 						{/* Action Buttons */}
 						<div className={style.TransferButtons}>
-							<PrimaryCTA ButtonText='Send' />
+							<PrimaryCTA
+								ButtonText='Send'
+								click={() => toast('transaction submitted')}
+							/>
 							<PrimaryCTA ButtonText='Cancel' />
 						</div>
 					</div>

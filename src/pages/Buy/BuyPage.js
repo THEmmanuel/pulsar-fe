@@ -113,6 +113,7 @@ const BuyPage = (props) => {
 							<div className={style.TradeMethodContainer}>
 								<TradeMethodCard
 									amount={props.amount}
+									token={props.token}
 									paymentMethodText='Pay with $TNL (automated and safer) balance: 1200000'
 									click={() => setShowDialogueBox(true)}
 								/>
@@ -126,9 +127,11 @@ const BuyPage = (props) => {
 							{showDialogueBox ?
 								<Overlay>
 									<DialogueBox
-										HeadingText="jdhfjdshjdsf"
-										AdditionalText="jdhfjdshjdsf"
-										MoreText="jdhfjdshjdsf"
+										HeadingText={`You’re about to send ${props.amount} TNL to p4nther for X USDT.`}
+
+										AdditionalText="Chain: Ethereum Mainnet"
+
+										MoreText="Unaccepted trades will be automatically declined in 5 hrs, please confirm you have the right chain. Funds transferred to the wrong chains can't be recovered"
 										AcceptAction={() => toast('Your toast is ready! 🍞')}
 										CancelAction={() => setShowDialogueBox(false)}
 									/>
@@ -137,16 +140,18 @@ const BuyPage = (props) => {
 						</div>
 					</div>
 
-					<div className={style.TradeTermsWrapper}>
-						<span>Seller's terms</span>
-						<span>Our terms</span>
+					<div>
+						<div className={style.TradeTermsWrapper}>
+							<span>Seller's terms</span>
+							<span>Our terms</span>
+						</div>
+
+						<PrimaryCTA
+							ButtonText='Cancel'
+						/>
 					</div>
 
-					<PrimaryCTA
-						ButtonText='Cancel'
-					/>
-
-					<button onClick={() => toast('Your toast is ready! 🍞')}>Show Toast</button>
+					{/* <button onClick={() => toast('Your toast is ready! 🍞')}>Show Toast</button> */}
 
 				</div>
 			</div>

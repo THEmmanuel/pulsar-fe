@@ -1,5 +1,6 @@
 import React from "react";
 import style from './ChainSwitcherButton.module.css';
+import arrowIcon from '../../assets/arrowImage.svg';
 
 const ChainSwitcherButton = (props) => {
 	return (
@@ -7,8 +8,8 @@ const ChainSwitcherButton = (props) => {
 			onClick={() => props.click()}
 			className={style.ChainSwitcherButton}
 		>
-			<span>Current chain here</span>
-			<span> arrow </span>
+			<span>Ethereum Mainnet</span>
+			<img src={arrowIcon} alt="" />
 		</button>
 	)
 }
