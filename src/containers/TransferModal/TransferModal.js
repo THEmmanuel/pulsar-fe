@@ -9,10 +9,12 @@ import axios from 'axios';
 
 toastConfig({ theme: 'dark' });
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 const TransferModal = (props) => {
 	const [recipientAddress, setRecipientAddress] = useState("");
-	const [amount, setAmount] = useState("");
+	const [amount, setAmount] = useState(0);
 	const [estimatedGas, setEstimatedGas] = useState(0);
 	const [loading, setLoading] = useState(true);
 	const [timeLeft, setTimeLeft] = useState(15); // Timer for refresh
@@ -60,18 +62,29 @@ const TransferModal = (props) => {
 
 	const sendToken = async () => {
 		const data = {
-			amount: 100,  // Replace with the desired amount
-			walletAddress: '0xYourWalletAddress',  // Replace with the actual wallet address
-			tokenToSend: 'eth',  // Replace with the token name or symbol
-			username: 'leunamme',  // Use a secure method to handle this!
+			amount: amount,  // Replace with the desired amount
+			walletAddress: recipientAddress,  // Replace with the actual wallet address
+			tokenToSend: 'tnl',  // Replace with the token name or symbol
+			senderUsername: 'leunamme',  // Use a secure method to handle this!
 			walletName: 'ethereum'
 		};
 
+		// Display an initial toast message when the transaction is submitted
+		toast('Transaction submitted...');
+
 		try {
-			const response = await axios.post('http://localhost:3000/send-token', data);  // Replace with your actual endpoint URL
-			console.log('Response:', response.data);
+			// Wait for the response from the backend
+			const response = await axios.post(`${API_URL}/wallet-actions/send-token`, data);
+
+			// Extract the transaction hash from the response
+			const txHash = response.data.data.hash;
+
+			// Display the transaction hash in the toast
+			toast(`Transaction sent successfully! Hash: ${txHash}`);
 		} catch (error) {
+			// Handle errors and display an error toast message
 			console.error('Error sending token:', error.response ? error.response.data : error.message);
+			toast('Error sending transaction: ' + (error.response?.data?.details || error.message));
 		}
 	};
 
@@ -155,9 +168,12 @@ const TransferModal = (props) => {
 						<div className={style.TransferButtons}>
 							<PrimaryCTA
 								ButtonText='Send'
-								click={() => toast('transaction submitted')}
+								click={() => sendToken()}
 							/>
-							<PrimaryCTA ButtonText='Cancel' />
+							<PrimaryCTA
+								ButtonText='Cancel'
+								click={() => props.cancel()}
+							/>
 						</div>
 					</div>
 				</div>
