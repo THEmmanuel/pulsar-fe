@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Dashboard.module.css';
 import MarketCharts from '../../components/MarketCharts/MarketCharts';
@@ -74,6 +74,14 @@ const Dashboard = () => {
 							icon={buyIcon}
 							title='Sell Crypto'
 							description='Sell BTC, ETH, USDT, USDC.'
+						/>
+					</Link>
+
+					<Link to={`/faucet`}>
+						<DashboardCard
+							icon={buyIcon}
+							title='$TNL Faucet'
+							description='Buy $TNL'
 						/>
 					</Link>
 

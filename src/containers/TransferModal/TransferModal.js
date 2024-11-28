@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import style from './TransferModal.module.css';
 import { sendETH, estimateGasOfTx } from '../../utils/ethWallet';
 import FormInput from '../../components/FormInput/FormInput';
@@ -7,49 +7,84 @@ import { ethers } from 'ethers';
 import toast, { toastConfig } from 'react-simple-toasts';
 import axios from 'axios';
 
+import { UserContext } from '../../contexts/UserContext';
+
 toastConfig({ theme: 'dark' });
 
 const API_URL = process.env.REACT_APP_API_URL;
+const ETHERSCAN_KEY = process.env.REACT_APP_ETHERSCAN_KEY;
 
 
 const TransferModal = (props) => {
 	const [recipientAddress, setRecipientAddress] = useState("");
 	const [amount, setAmount] = useState(0);
-	const [estimatedGas, setEstimatedGas] = useState(0);
+	const [gasPriceData, setGasPriceData] = useState({});
 	const [loading, setLoading] = useState(true);
-	const [timeLeft, setTimeLeft] = useState(15); // Timer for refresh
+	const [timeLeft, setTimeLeft] = useState(30); // Timer for refresh
+	const [selectedCurrency, setSelectedCurrency] = useState('USD'); // Timer for refresh
 
-	const privateKey = props.privateKey;
-	const sendAddress = props.ETHAddress;
+	const { coinData, setCoinData } = useContext(UserContext)
 
-	// Function to fetch and update gas estimate
-	const updateGasEstimate = async () => {
-		setLoading(true);
+
+	const coinGeckoAPI = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether%2Csolana&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true'
+
+	useEffect(() => {
+		axios.get(coinGeckoAPI)
+			.then(res => setCoinData(res.data))
+			.catch(err => console.log(err))
+	}, [])
+
+
+	const fetchGasPrices = async () => {
 		try {
-			const gas = await estimateGasOfTx('0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2');
-			setEstimatedGas((parseFloat(gas) * 2517.3));
+			const response = await axios.get('https://api.etherscan.io/api', {
+				params: {
+					module: 'gastracker',
+					action: 'gasoracle',
+					apikey: 'HU3E6FBNA9KRV755H4UQ5DN3AWUEJKCWMU'
+				}
+			});
+
+			// Set the gasPriceData to the result
+			const gasPriceObject = response.data.result;
+			setGasPriceData(gasPriceObject)
+			setLoading(false)
+			console.log('Gas Price Data:', gasPriceObject);
+
+			return gasPriceObject; // Return the data if needed elsewhere
 		} catch (error) {
-			console.error('Error estimating gas:', error);
-		} finally {
-			setLoading(false);
+			console.error('Error fetching gas prices:', error.message);
+			throw error;
 		}
 	};
 
-	// Timer effect to update gas estimate every 15 seconds
+	const convertGweiToUSD = (gweiAmount, ethPriceInUSD) => {
+		// Convert Gwei to ETH (1 Gwei = 1e-9 ETH)
+		const ethAmount = gweiAmount * 1e-9;
+
+		// Calculate the USD equivalent
+		const usdValue = ethAmount * ethPriceInUSD;
+
+		return usdValue;
+	};
+	// Function to fetch and update gas estimate
+
+
+	// Timer effect to update gas estimate every 30 seconds
 	useEffect(() => {
 		document.body.style.overflow = 'hidden';
 		// Initial fetch of the gas estimate
-		updateGasEstimate();
+		fetchGasPrices();
 
 		// Set an interval to refresh gas estimate every 15 seconds
 		const intervalId = setInterval(() => {
-			updateGasEstimate();
-			setTimeLeft(15); // Reset the countdown every time it refreshes
-		}, 15000);
+			fetchGasPrices();
+			setTimeLeft(30); // Reset the countdown every time it refreshes
+		}, 30000);
 
 		// Countdown timer for the next refresh
 		const countdownId = setInterval(() => {
-			setTimeLeft(prevTime => (prevTime > 0 ? prevTime - 1 : 15));
+			setTimeLeft(prevTime => (prevTime > 0 ? prevTime - 1 : 30));
 		}, 1000);
 
 		// Cleanup intervals on component unmount
@@ -91,15 +126,31 @@ const TransferModal = (props) => {
 
 	// Validate the wallet address
 	const isValidAddress = ethers.utils.isAddress(recipientAddress);
-
 	// Validate the amount
 	const isValidAmount = !isNaN(amount) && +amount > 0;
 
-	// Convert `estimatedGas` to a number and calculate the total
-	const gasInUSD = parseFloat(estimatedGas) * 2517.3; // Gas price in USD
-	const totalCost = isValidAmount ? (parseFloat(amount) + estimatedGas).toFixed(2) : 0; // Total = amount + gas fees
 
 
+	// Function to handle amount change based on selected currency
+	const handleAmountChange = (value) => {
+		if (selectedCurrency === 'USD') {
+			setAmount(value); // Store USD value directly
+		} else {
+			setAmount(value); // Store ETH value directly
+		}
+	};
+
+	// Function to switch currencies
+	const handleCurrencySwitch = (currency) => {
+		if (currency === 'USD') {
+			// Convert ETH to USD if switching to USD
+			setAmount((prevAmount) => prevAmount * 3500);
+		} else {
+			// Convert USD to ETH if switching to ETH
+			setAmount((prevAmount) => prevAmount / 3500);
+		}
+		setSelectedCurrency(currency);
+	};
 
 	return (
 		<div className={style.TransferModalWrapper}>
@@ -111,9 +162,27 @@ const TransferModal = (props) => {
 						{/* Amount Input */}
 						<div className={style.TransferInputContainer}>
 							<FormInput
-								title='Amount in $'
-								change={(e) => setAmount(e.target.value)}
+								title={`Amount in ${selectedCurrency}`}
+								change={(e) => handleAmountChange(e.target.value)}
+								value={amount}  // Controlled input value
 							/>
+
+							<div className={style.CurrencySwitcherWrapper}>
+								<button
+									className={style.CurrencySwitcher}
+									onClick={() => handleCurrencySwitch('USD')}
+								>
+									USD
+								</button>
+
+								<button
+									className={style.CurrencySwitcher}
+									onClick={() => handleCurrencySwitch('ETH')}
+								>
+									ETH
+								</button>
+							</div>
+
 							<span
 								style={{
 									textAlign: 'left',
@@ -149,8 +218,12 @@ const TransferModal = (props) => {
 							<div className={style.TransactionDetails}>
 								<span className={style.TransactionDetailsText}>Gas fees:</span>
 								<span className={style.TransactionDetailsValue}>
-									{loading ? 'Loading...' : `$${gasInUSD}`}
+									{loading || !gasPriceData?.ProposeGasPrice || !coinData?.ethereum?.usd
+										? 'Loading...'
+										: `$${convertGweiToUSD(gasPriceData.ProposeGasPrice, coinData.ethereum.usd).toFixed(8)}`
+									}
 								</span>
+
 								<span className={style.Timer}>
 									(Next refresh in {timeLeft}s)
 								</span>
@@ -159,7 +232,7 @@ const TransferModal = (props) => {
 							<div className={style.TransactionDetails}>
 								<span className={style.TransactionDetailsText}>Total:</span>
 								<span className={style.TransactionDetailsValue}>
-									{isValidAmount ? `$${totalCost}` : 'Enter a valid amount'}
+									{/* {isValidAmount ? `$${totalCost}` : 'Enter a valid amount'} */}
 								</span>
 							</div>
 						</div>

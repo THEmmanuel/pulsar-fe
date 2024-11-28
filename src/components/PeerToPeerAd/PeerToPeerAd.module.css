@@ -37,47 +37,68 @@ a {
 	color: #AFAFAF;
 }
 
-.PeerToPeerDetailsWrapper{
+.PeerToPeerDetailsWrapper {
 	display: flex;
-	flex-direction: column;
-	gap: 10px;
+	flex-direction: row;
+	gap: 50px;
+	align-items: center;
 }
 
-.PeerToPeerOrderStats{
+.PeerToPeerOrderStats {
 	display: flex;
 	flex-direction: row;
 	gap: 20px;
 }
 
-.PeerToPeerRateWrapper{
+.PeerToPeerRateWrapper {
 	display: flex;
-	flex-direction: column;
-	gap: 10px;
+	flex-direction: row;
+	gap: 80px;
+	align-items: center;
 }
 
-.PeerToPeerRate{
+.PeerToPeerRate {
 	font-weight: 600;
 	font-size: 1.5em;
 }
 
-.PeerToPeerLimit{
-	color: #AFAFAF;	
+.PeerToPeerLimit {
+	color: #AFAFAF;
 }
 
-.PeerToPeerStats{
-	color: #AFAFAF;		
+.PeerToPeerStats {
+	color: #AFAFAF;
 }
 
-.PeerToPeerRating{
+.PeerToPeerRating {
 	display: flex;
 	flex-direction: row;
 	gap: 5px;
 }
 
-.PeerToPeerRatingStar{
+.PeerToPeerRatingStar {
 	width: 10px;
 }
 
+.PeerToPeerDetails {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 30px;
+}
+
+.PeerToPeerUserImage {
+	background-color: blueviolet;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.PeerToPeerOrderStats{
+	display: flex;
+	flex-direction: row;
+	gap: 50px;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -100,7 +121,7 @@ a {
 		font-size: 1.1em;
 	}
 
-	.PeerToPeerDetails{
+	.PeerToPeerDetails {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
