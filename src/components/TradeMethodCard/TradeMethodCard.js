@@ -7,7 +7,7 @@ const TradeMethodCard = (props) => {
 			className={style.TradeMethodCardWrapper}
 			onClick={() => props.click()}>
 			<div className={style.TradeMethodCardWrapper}>
-				<span>Buying {props.amount} Token on Chain Name</span>
+				<span>Buying {props.amount} {props.token} on Chain Name</span>
 
 				<span className={style.TradeMethodText}>
 					{props.paymentMethodText}

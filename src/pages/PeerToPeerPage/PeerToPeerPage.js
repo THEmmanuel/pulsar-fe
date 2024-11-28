@@ -8,6 +8,9 @@ import DropDown from '../../components/DropDown/DropDown';
 import MainInput from '../../components/MainInput/MainInput';
 import SecondaryDropdown from '../../components/SecondaryDropdown/SecondaryDropdown';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+import WalletSwitcher from '../../components/WalletSwitcher/WalletSwitcher.js';
+import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher.js';
+import ChainSwitcherButton from '../../components/ChainSwitcher/ChainSwitcherButton.js';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -34,6 +37,7 @@ const PeerToPeerPage = () => {
 	const [selectedFiat, setSelectedFiat] = useState(fiatCurrencies[0].value)
 	const [selectedAdType, setSelectedAdType] = useState(adType)
 	const [inputAmount, setInputAmount] = useState(0)
+	const [showEthereumChains, setShowEthereumChains] = useState(false)
 
 	const handleTokenChange = e => {
 		setSelectedToken(e.value)
@@ -113,6 +117,14 @@ const PeerToPeerPage = () => {
 						/>
 					</div>
 				</div>
+
+				<div className={style.ChainSwitcherWrapper}>
+					<ChainSwitcherButton
+						click={() => setShowEthereumChains(true)}
+					/>
+				</div>
+
+				{showEthereumChains ? <ChainSwitcher /> : null}
 			</div>
 
 
@@ -123,6 +135,7 @@ const PeerToPeerPage = () => {
 				<span className={style.PageTitle}>
 					Open Offers
 				</span>
+
 				{ads.map(ad =>
 					<Link to={`/order/${ad._id}/${inputAmount}`}>
 						<PeerToPeerAd

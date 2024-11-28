@@ -20,7 +20,7 @@ toastConfig({ theme: 'dark' });
 const API_URL = process.env.REACT_APP_API_URL;
 
 const Order = (props) => {
-	const [adInfo, setAdInfo] = useState(null);
+	const [adInfo, setAdInfo] = useState({});
 	const [amount, setAmount] = useState(0);
 
 	const { id } = useParams();
@@ -64,7 +64,7 @@ const Order = (props) => {
 
 							<div className={style.TraderInfoDetails}>
 								<div className={style.TraderName}>
-									<span>p4nther</span>
+									<span>{adInfo.username}</span>
 									<div>
 										<span>5</span>
 
@@ -76,7 +76,7 @@ const Order = (props) => {
 									</div>
 								</div>
 
-								<span>Limit: 100 - 300k</span>
+								<span>{`Limit: ${adInfo.lowestOrder} - ${adInfo.highestOrder}`}</span>
 							</div>
 						</div>
 

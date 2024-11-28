@@ -45,7 +45,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 const BuyPage = (props) => {
 	const { id, amount } = useParams();
-	const [adInfo, setAdInfo] = useState('');
+	const [adInfo, setAdInfo] = useState({});
 	const [cryptoAmount, setCryptoAmount] = useState(amount);
 	const [orderToken, setOrderToken] = useState('');
 	const [orderCreated, setOrderCreated] = useState(false);
@@ -113,13 +113,14 @@ const BuyPage = (props) => {
 							<div className={style.TradeMethodContainer}>
 								<TradeMethodCard
 									amount={props.amount}
-									token={props.token}
+									token={adInfo.token}
 									paymentMethodText='Pay with $TNL (automated and safer) balance: 1200000'
 									click={() => setShowDialogueBox(true)}
 								/>
 
 								<TradeMethodCard
 									amount={props.amount}
+									token={adInfo.token}
 									paymentMethodText='Pay via Bank Transfer'
 								/>
 							</div>
@@ -127,7 +128,7 @@ const BuyPage = (props) => {
 							{showDialogueBox ?
 								<Overlay>
 									<DialogueBox
-										HeadingText={`You’re about to send ${props.amount} TNL to p4nther for X USDT.`}
+										HeadingText={`You’re about to send ${props.amount} TNL to p4nther for X ${adInfo.token}.`}
 
 										AdditionalText="Chain: Ethereum Mainnet"
 
