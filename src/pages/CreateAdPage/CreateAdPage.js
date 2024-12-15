@@ -8,6 +8,9 @@ import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import FormInput from '../../components/FormInput/FormInput';
 import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import MainDropdown from '../../components/MainDropdown/MainDropdown';
+import toast, { toastConfig } from 'react-simple-toasts';
+toastConfig({ theme: 'dark' });
+
 
 const CreateAdPage = () => {
 	const API_URL = process.env.REACT_APP_API_URL;
@@ -18,12 +21,19 @@ const CreateAdPage = () => {
 		adType: 'buy',
 		username: '',
 		token: 'ETH',
+		fiatCurrency: 'USD',
 		rate: 0,
 		available: 0,
 		lowestOrder: 0,
 		highestOrder: 0,
-		paymentMethod: 'Bank Transfer'
-	})
+		paymentMethods: [] // Initialize as an empty array for multiple methods
+	});
+
+	const options = [
+		{ value: 'tnl', label: '$TNL' },
+		{ value: 'bank transfer', label: 'Bank Transfer' },
+		{ value: 'paypal', label: 'PayPal' },
+	];
 
 	useEffect(() => {
 		if (user) {
@@ -54,12 +64,33 @@ const CreateAdPage = () => {
 		});
 	}
 
+	const handleCheckboxChange = (value) => {
+		setAd((prev) => {
+			const updatedPaymentMethods = prev.paymentMethods.includes(value)
+				? prev.paymentMethods.filter((method) => method !== value) // Remove if already selected
+				: [...prev.paymentMethods, value]; // Add if not selected
+
+			return {
+				...prev,
+				paymentMethods: updatedPaymentMethods, // Update paymentMethods in state
+			};
+		});
+	};
+
 	const addPeerToPeerAd = () => {
+		toast("Creating ad...");
+
 		axios.post(`${API_URL}/p2p`, ad)
-			.then(res => console.log(res))
-			.catch(err => console.log(err))
-		// Send a post reequst with the data passed to the input fields here.
-	}
+			.then(res => {
+				if (res.status === 200) {
+					toast("Ad created successfully!");
+				}
+			})
+			.catch(err => {
+				toast("Failed to create ad. Please try again.");
+				console.error(err); // Optional: Log error details
+			});
+	};
 
 	return (
 		!user ? <span>Not logged in</span>
@@ -78,6 +109,30 @@ const CreateAdPage = () => {
 								]}
 							onSelect={handleChange}
 							name='adType'
+						/>
+
+						<MainDropdown
+							DropdownHeading='Fiat Currency'
+							PrimaryText='NGN'
+							options={
+								[
+									{ value: 'NGN', label: 'Nigerian Naira' },
+									{ value: 'USD', label: 'United States Dollar' },
+								]}
+							onSelect={handleChange}
+							name='fiatCurrency'
+						/>
+
+						<MainDropdown
+							DropdownHeading='Chain'
+							PrimaryText='Etherum Mainnet'
+							options={
+								[
+									{ value: 'NGN', label: 'Etherum Mainnet' },
+									{ value: 'USD', label: 'Etherum Sepolia' },
+								]}
+							onSelect={handleChange}
+							name='chain'
 						/>
 
 						<MainDropdown
@@ -116,17 +171,22 @@ const CreateAdPage = () => {
 							change={handleTextChange}
 						/>
 
-						<MainDropdown
-							DropdownHeading='Payment Method'
-							PrimaryText='$TNL'
-							options={
-								[
-									{ value: 'tnl', label: '$TNL' },
-									{ value: 'bank transfer', label: 'Bank Transfer' },
-								]}
-							onSelect={handleChange}
-							name='paymentMethod'
-						/>
+						<div className={style.PaymentMethodWrapper}>
+							<span>Payment Method</span>
+							<div className={style.PaymentMethods}>
+								{options.map((option) => (
+									<label key={option.value}>
+										<input
+											type="checkbox"
+											value={option.value}
+											checked={ad.paymentMethods.includes(option.value)}
+											onChange={() => handleCheckboxChange(option.value)}
+										/>
+										{option.label}
+									</label>
+								))}
+							</div>
+						</div>
 					</div>
 
 					<div className={style.AdPreviewWrapper}>
@@ -134,12 +194,13 @@ const CreateAdPage = () => {
 						<PeerToPeerAd
 							adType={ad.adType}
 							token={ad.token}
+							fiatCurrency={ad.fiatCurrency}
 							username={user.username}
 							rate={ad.rate}
 							available={ad.available}
-							lowest={ad.lowestOrder}
-							highest={ad.highestOrder}
-							paymentMethod={ad.paymentMethod}
+							lowestOrder={ad.lowestOrder}
+							highestOrder={ad.highestOrder}
+							paymentMethod={ad.paymentMethods}
 						/>
 					</div>
 

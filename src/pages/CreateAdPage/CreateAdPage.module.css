@@ -27,3 +27,16 @@
 	font-size: 1.2em;
 	font-weight: 600;
 }
+
+.PaymentMethods{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.PaymentMethodWrapper{
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ text-align: left;
+}

@@ -12,6 +12,7 @@ import DialogueBox from '../../components/DialogueBox/DialogueBox';
 import Overlay from '../../containers/Overlay/Overlay';
 import toast, { toastConfig } from 'react-simple-toasts';
 import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher';
+import Loader from '../../components/Spinner/Spinner';
 
 
 toastConfig({ theme: 'dark' });

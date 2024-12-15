@@ -140,13 +140,14 @@ const PeerToPeerPage = () => {
 					<Link to={`/order/${ad._id}/${inputAmount}`}>
 						<PeerToPeerAd
 							adType={ad.adType}
-							username={ad.username}
 							token={ad.token}
-							available={ad.available}
-							lowest={ad.lowestOrder}
-							highest={ad.highestOrder}
-							paymentMethod={ad.paymentMethod}
+							fiatCurrency={ad.fiatCurrency}
+							username={ad.username}
 							rate={ad.rate}
+							available={ad.available}
+							lowestOrder={ad.lowestOrder}
+							highestOrder={ad.highestOrder}
+							paymentMethod={ad.paymentMethods}
 						/>
 					</Link>
 				)}

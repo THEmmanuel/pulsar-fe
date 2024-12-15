@@ -20,7 +20,7 @@ const SideBar = () => {
 		<div className={style.SideBar}>
 			<div className={style.LogoContainer}>
 				<Link to='/home'>
-					<span>Cryptomatic</span>
+					<span>Tunnel</span>
 				</Link>
 			</div>
 

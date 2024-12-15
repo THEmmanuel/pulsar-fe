@@ -14,7 +14,7 @@ const TradeMethodCard = (props) => {
 				</span>
 
 				<span className={style.TradeMethodLimit}>
-					Limit: $100 000
+					Limit: ${props.limit}
 				</span>
 			</div>
 		</div>

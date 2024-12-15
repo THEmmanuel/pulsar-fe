@@ -22,6 +22,7 @@ const MainDropdown = ({ DropdownHeading, options, onSelect, name }) => {
 				options={options}
 				value={selectedOption}
 				onChange={handleChange}
+			// className={style.MainDropdown}
 			/>
 		</div>
 	);

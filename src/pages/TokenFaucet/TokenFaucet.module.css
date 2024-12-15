@@ -7,9 +7,27 @@
 	display: flex;
 	flex-direction: column;
 	gap: 35px;
-	margin-bottom: 50px;
+	width: fit-content;
+	margin: auto;
+	margin-bottom: 100px;
 }
 
 .mainInput{
 	background-color: #E9E9E9;
+}
+
+.CurrencySwitcherWrapper{
+	display: flex;
+	flex-direction: row;
+	gap: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.CurrencySwitcher{
+	background-color: #232323;
+	border: 0;
+	padding: 5px 10px;
+	border-radius: 10px;
+	color: #FFF;
 }

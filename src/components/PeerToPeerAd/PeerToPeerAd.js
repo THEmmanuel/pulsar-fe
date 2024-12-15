@@ -24,8 +24,14 @@ const PeerToPeerAd = props => {
 					<span className={style.PeerToPeerCompletionRate}>
 						100% completion Rate
 					</span>
-					<div>
-						<span>{props.paymentMethod}</span>
+					<div className={style.PeerToPeerPaymentMethods}>
+						{props.paymentMethod.map(
+							paymentMethod =>
+									<span className={style.PeerToPeerPaymentMethod}>
+										{paymentMethod}
+									</span>
+						)
+						}
 					</div>
 				</div>
 			</div>
@@ -34,11 +40,11 @@ const PeerToPeerAd = props => {
 			<div className={style.PeerToPeerDetailsWrapper}>
 				<div className={style.PeerToPeerRateWrapper}>
 					<span className={style.PeerToPeerRate}>
-						{props.rate}
+						{props.rate} {props.fiatCurrency}/{props.token}
 					</span>
 
 					<span className={style.PeerToPeerLimit}>
-						limit: {props.available}
+						limit: {props.lowestOrder} - {props.highestOrder}
 					</span>
 				</div>
 

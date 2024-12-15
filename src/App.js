@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState, useRef } from 'react';
 import axios from 'axios';
 
 
@@ -49,6 +49,26 @@ function App() {
 	const [tokenPrices, setTokenPrices] = useState(1)
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 	const [coinData, setCoinData] = useState({});
+	const hasFetched = useRef(false); // Track if data was fetched
+
+	useEffect(() => {
+		const fetchBalance = async () => {
+			try {
+				const response1 = await axios.get(`${API_URL}/wallet-actions/get-token-usd-balance/0xD22507B380D33a6CD115cAe487ce4FDb19543Ac2/ether/ethereum`);
+				const response2 = await axios.get(`${API_URL}/wallet-actions/get-token-usd-balance/0xD22507B380D33a6CD115cAe487ce4FDb19543Ac2/0x3dC961b0bcEBC01088AF48307b3C4Ea2Bfd21D2F/tnl`);
+
+				console.log(response1.data);
+				console.log(response2.data);
+			} catch (error) {
+				console.error('Error fetching wallet balance:', error);
+			}
+		};
+
+		if (!hasFetched.current) {
+			fetchBalance();
+			hasFetched.current = true; // Mark as fetched
+		}
+	}, []); // Dependency array ensures this runs once
 
 
 	const addUserToDatabase = () => {
