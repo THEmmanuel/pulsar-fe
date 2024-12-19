@@ -22,6 +22,7 @@ const SellPage = (props) => {
 	const { id, amount } = useParams();
 	const [orderCreated, setOrderCreated] = useState(false);
 	const [paymentConfirmed, setPaymentConfirmed] = useState(false)
+	const [showDialogueBox, setShowDialogueBox] = useState(false)
 
 	const getAdInfo = () => {
 		axios.get(`${API_URL}/p2p/${id}`)
