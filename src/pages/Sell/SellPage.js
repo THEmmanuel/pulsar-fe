@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import WaitIcon from '../../assets/waitIcon.svg';
-import style from './SellPage.module.css';
+import style from '../Buy/BuyPage.module.css'
 
 import UserInformation from '../../components/UserInformation/UserInformation';
 import UserTerms from '../../components/UserTerms/UserTerms';
@@ -12,7 +12,9 @@ import TransactionStatus from '../../components/TransactionStatus/TransactionSta
 import TradeMethodCard from '../../components/TradeMethodCard/TradeMethodCard';
 import DialogueBox from '../../components/DialogueBox/DialogueBox';
 import Overlay from '../../containers/Overlay/Overlay';
-
+import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+import toast, { toastConfig } from 'react-simple-toasts';
+toastConfig({ theme: 'dark' });
 
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -42,32 +44,61 @@ const SellPage = (props) => {
 	}
 
 	return (
-		<div>
-			might need to add a wallets system
+		<div className={style.BuyPageWrapper}>
+			<div className={style.BuyPageContainer}>
+				<div className={style.BuyPaymentMethod}>
+					<span>
+						Payment Method
+					</span>
 
-			<TradeMethodCard
-				amount={props.amount}
-				token={adInfo.token}
-				paymentMethodText='Pay with $PULSR (automated and safer) balance: 1200000'
-				click={() => setShowDialogueBox(true)}
-				limit={adInfo.highestOrder}
-			/>
+					<div className={style.PaymentMethodWrapper}>
+						<div className={style.TradeMethodContainer}>
+							<TradeMethodCard
+								amount={props.amount}
+								token={adInfo.token}
+								paymentMethodText='Sell with $PULSR (automated and safer) balance: 1200000'
+								click={() => setShowDialogueBox(true)}
+								limit={adInfo.highestOrder}
+							/>
 
-			<TradeMethodCard
-				amount={props.amount}
-				token={adInfo.token}
-				paymentMethodText='Pay with $PULSR (automated and safer) balance: 1200000'
-				click={() => setShowDialogueBox(true)}
-				limit={adInfo.highestOrder}
-			/>
+							<TradeMethodCard
+								amount={props.amount}
+								token={adInfo.token}
+								paymentMethodText='Pay via Bank Transfer'
+								limit={adInfo.highestOrder}
+							/>
+						</div>
 
-			<TradeMethodCard
-				amount={props.amount}
-				token={adInfo.token}
-				paymentMethodText='Pay with $PULSR (automated and safer) balance: 1200000'
-				click={() => setShowDialogueBox(true)}
-				limit={adInfo.highestOrder}
-			/>
+						{showDialogueBox ?
+							<Overlay>
+								<DialogueBox
+									HeadingText={`You’re about to send ${props.amount} TNL to p4nther for X ${adInfo.token}.`}
+
+									AdditionalText="Chain: Ethereum Mainnet"
+
+									MoreText="Unaccepted trades will be automatically declined in 5 hrs, please confirm you have the right chain. Funds transferred to the wrong chains can't be recovered"
+									AcceptAction={() => toast('Your toast is ready! 🍞')}
+									CancelAction={() => setShowDialogueBox(false)}
+								/>
+							</Overlay>
+							: null}
+					</div>
+				</div>
+
+				<div>
+					<div className={style.TradeTermsWrapper}>
+						<span>Seller's terms</span>
+						<span>Our terms</span>
+					</div>
+
+					<PrimaryCTA
+						ButtonText='Cancel'
+					/>
+				</div>
+
+				{/* <button onClick={() => toast('Your toast is ready! 🍞')}>Show Toast</button> */}
+
+			</div>
 		</div>
 	)
 }

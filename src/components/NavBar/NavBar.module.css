@@ -21,3 +21,8 @@
 	display: flex;
 	justify-content: right;
 }
+
+.NavNotificationIcon{
+	background: 0;
+	border: 0;
+}

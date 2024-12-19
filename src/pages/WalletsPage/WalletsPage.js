@@ -71,7 +71,7 @@ const WalletsPage = () => {
 						<div className={style.WalletsCardContainer}>
 							<Link to='/wallet/tnl'>
 								<WalletCard
-									CoinName='Tunnel Token - $TNL'
+									CoinName='Pulsar Token - $PULSR'
 									CoinText='View your TNL on the Ethereum chain'
 									CoinBalance=''
 									WalletIcon={usdcIcon}

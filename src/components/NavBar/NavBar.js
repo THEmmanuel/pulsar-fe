@@ -2,6 +2,7 @@ import React from 'react';
 import style from './NavBar.module.css';
 import { useUser, UserButton } from '@clerk/clerk-react';
 import { Link } from 'react-router-dom';
+import NotifIcon from '../../assets/notifIcon.svg'
 // import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const NavBar = () => {
@@ -15,10 +16,12 @@ const NavBar = () => {
 					{
 						user ? (
 							<div className={style.NavUserInfo}>
-								<div>
-									Notifs
-								</div>
-								
+								<Link to='/notifications'>
+									<button className={style.NavNotificationIcon}>
+										<img src={NotifIcon} alt="" />
+									</button>
+								</Link>
+
 								<span className={style.NavIntro}>Hi {user.username}!</span>
 								<UserButton />
 							</div>
