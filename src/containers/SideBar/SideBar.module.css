@@ -1,7 +1,7 @@
 .SideBar{
 	background-color: #212121;
 	color: #FFF;
-	width: 15%;
+	width: 18%;
 	height: 100vh;
 	/* position: fixed; */
 }
@@ -11,4 +11,8 @@
 	flex-direction: column;
 	gap: 20px;
 	margin-top: 50px;
+}
+
+.LogoContainer{
+	padding-top: 30px;
 }

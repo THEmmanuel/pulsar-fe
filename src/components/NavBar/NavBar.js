@@ -15,6 +15,10 @@ const NavBar = () => {
 					{
 						user ? (
 							<div className={style.NavUserInfo}>
+								<div>
+									Notifs
+								</div>
+								
 								<span className={style.NavIntro}>Hi {user.username}!</span>
 								<UserButton />
 							</div>

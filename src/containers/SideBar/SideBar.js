@@ -12,6 +12,7 @@ import adsIcon from '../../assets/ads.svg';
 import profileIcon from '../../assets/profile.svg';
 import settingsIcon from '../../assets/settings.svg';
 import historyIcon from '../../assets/historyIcon.svg';
+import faucetIcon from '../../assets/faucetIcon.svg'
 
 const SideBar = () => {
 	const [isMobile, setIsMobile] = useState(true);
@@ -20,7 +21,7 @@ const SideBar = () => {
 		<div className={style.SideBar}>
 			<div className={style.LogoContainer}>
 				<Link to='/home'>
-					<span>Tunnel</span>
+					<span>PULSAR</span>
 				</Link>
 			</div>
 
@@ -36,6 +37,13 @@ const SideBar = () => {
 					<SideBarButton
 						SidebarIcon={p2pIcon}
 						SidebarText='Peer To Peer'
+					/>
+				</Link>
+
+				<Link to='/faucet'>
+					<SideBarButton
+						SidebarIcon={faucetIcon}
+						SidebarText='$PULSR Faucet'
 					/>
 				</Link>
 

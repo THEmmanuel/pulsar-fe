@@ -114,7 +114,7 @@ const BuyPage = (props) => {
 								<TradeMethodCard
 									amount={props.amount}
 									token={adInfo.token}
-									paymentMethodText='Pay with $TNL (automated and safer) balance: 1200000'
+									paymentMethodText='Pay with $PULSR (automated and safer) balance: 1200000'
 									click={() => setShowDialogueBox(true)}
 									limit={adInfo.highestOrder}
 								/>

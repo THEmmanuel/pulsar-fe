@@ -80,8 +80,8 @@ const Dashboard = () => {
 					<Link to={`/faucet`}>
 						<DashboardCard
 							icon={buyIcon}
-							title='$TNL Faucet'
-							description='Buy $TNL'
+							title='$PUSLR Faucet'
+							description='Buy $PUSLR'
 						/>
 					</Link>
 

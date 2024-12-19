@@ -10,8 +10,14 @@ const TransactionStatus = props => {
 
 			<div className={style.TransactionInfo}>
 				<div className={style.TransactionDetails}>
-					<span className={style.TransactionAmount}>{props.amount} {props.token}</span>
-					<span className={style.TransactionText}>Deposited into your wallet</span>
+					<span className={style.TransactionAmount}>
+						{props.amount}
+						{props.token}
+					</span>
+
+					<span className={style.TransactionText}>
+						Deposited into your wallet
+					</span>
 				</div>
 
 				<div className={style.TransactionCTA}>

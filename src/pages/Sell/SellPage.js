@@ -9,10 +9,15 @@ import UserTerms from '../../components/UserTerms/UserTerms';
 import UserInformationContent from '../../components/UserInformationContent/UserInformationContent';
 import CountdownTimer from '../../components/Timer/Timer';
 import TransactionStatus from '../../components/TransactionStatus/TransactionStatus';
+import TradeMethodCard from '../../components/TradeMethodCard/TradeMethodCard';
+import DialogueBox from '../../components/DialogueBox/DialogueBox';
+import Overlay from '../../containers/Overlay/Overlay';
+
+
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-const SellPage = () => {
+const SellPage = (props) => {
 	const [adInfo, setAdInfo] = useState('');
 	const { id, amount } = useParams();
 	const [orderCreated, setOrderCreated] = useState(false);
@@ -35,32 +40,34 @@ const SellPage = () => {
 		setPaymentConfirmed(true)
 	}
 
-
 	return (
-		paymentConfirmed ? <TransactionStatus /> :
-			<div className={style.SellPageWrapper}>
-				{
-					orderCreated ?
-						<div>
-							<span>pending buyer's payment</span>
-							<CountdownTimer initialTime={1800} />
-							<img src={WaitIcon} alt="" />
-						</div>
-						:
-						<div className={style.SellPageContainer}>
-							<UserInformation
-								username={adInfo.username}
-								lowestOrder={adInfo.lowestOrder}
-								highestOrder={adInfo.highestOrder}
-								available={adInfo.available}
-								paymentMethod={adInfo.paymentMethod}
-								adType={adInfo.adType}
-							/>
-							<UserInformationContent />
-							<UserTerms />
-						</div>
-				}
-			</div>
+		<div>
+			might need to add a wallets system
+
+			<TradeMethodCard
+				amount={props.amount}
+				token={adInfo.token}
+				paymentMethodText='Pay with $PULSR (automated and safer) balance: 1200000'
+				click={() => setShowDialogueBox(true)}
+				limit={adInfo.highestOrder}
+			/>
+
+			<TradeMethodCard
+				amount={props.amount}
+				token={adInfo.token}
+				paymentMethodText='Pay with $PULSR (automated and safer) balance: 1200000'
+				click={() => setShowDialogueBox(true)}
+				limit={adInfo.highestOrder}
+			/>
+
+			<TradeMethodCard
+				amount={props.amount}
+				token={adInfo.token}
+				paymentMethodText='Pay with $PULSR (automated and safer) balance: 1200000'
+				click={() => setShowDialogueBox(true)}
+				limit={adInfo.highestOrder}
+			/>
+		</div>
 	)
 }
 

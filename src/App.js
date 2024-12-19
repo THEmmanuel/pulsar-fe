@@ -23,7 +23,7 @@ import TokenFaucet from './pages/TokenFaucet/TokenFaucet';
 import HistoryPage from './pages/HistoryPage/HistoryPage';
 import MobileBottomNav from './components/MobileBottomNav/MobileBottomNav';
 import ChatPage from './pages/ChatPage/ChatPage';
-
+import NotificationsPage from './pages/NotificationsPage/NotificationsPage';
 import { useUser } from '@clerk/clerk-react';
 import { UserContext } from './contexts/UserContext';
 
@@ -38,6 +38,8 @@ import OrderPage from './pages/Buy/BuyPage';
 
 import 'react-simple-toasts/dist/style.css';
 import 'react-simple-toasts/dist/theme/dark.css';
+import BankPayment from './pages/BankPayment/BankPayment';
+import ConfirmationPage from './pages/ConfirmationPage/ConfirmationPage';
 
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -246,6 +248,23 @@ function App() {
 									element={<ChatPage />}
 								/>
 
+								<Route
+									exact
+									path='/bank-payment'
+									element={<BankPayment />}
+								/>
+
+								<Route
+									exact
+									path='/confirmation-page'
+									element={<ConfirmationPage />}
+								/>
+
+								<Route
+									exact
+									path='/notifications'
+									element={<NotificationsPage />}
+								/>
 							</Routes>
 						</div>
 					</section>

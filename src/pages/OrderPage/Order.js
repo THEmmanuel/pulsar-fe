@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import style from './Order.module.css';
 import BuyPage from '../Buy/BuyPage';
 import SellPage from '../Sell/SellPage';
@@ -81,9 +82,11 @@ const Order = (props) => {
 							</div>
 						</div>
 
-						<PrimaryCTA
-							ButtonText='Message'
-						/>
+						<Link to='/chat'>
+							<PrimaryCTA
+								ButtonText='Message'
+							/>
+						</Link>
 					</div>
 
 					<div className={style.OrderInput}>

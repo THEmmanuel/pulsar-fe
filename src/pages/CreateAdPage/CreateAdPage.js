@@ -171,6 +171,28 @@ const CreateAdPage = () => {
 							change={handleTextChange}
 						/>
 
+						bank details:
+						<FormInput
+							title='Bank'
+							name='highestOrder'
+							value={ad.highestOrder}
+							change={handleTextChange}
+						/>
+
+						<FormInput
+							title='Bank Account Number'
+							name='highestOrder'
+							value={ad.highestOrder}
+							change={handleTextChange}
+						/>
+
+						<FormInput
+							title='Bank Account Name'
+							name='highestOrder'
+							value={ad.highestOrder}
+							change={handleTextChange}
+						/>
+
 						<div className={style.PaymentMethodWrapper}>
 							<span>Payment Method</span>
 							<div className={style.PaymentMethods}>
@@ -188,6 +210,12 @@ const CreateAdPage = () => {
 							</div>
 						</div>
 					</div>
+
+					buyer is paying.
+					seller is recieving payments.
+
+					add bank details.
+					add this in db too.
 
 					<div className={style.AdPreviewWrapper}>
 						<span className={style.AdPreviewHeading}>Here's what your ad will look like</span>

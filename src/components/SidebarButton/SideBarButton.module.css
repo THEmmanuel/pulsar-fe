@@ -3,15 +3,19 @@
 	border: none;
 	display: flex;
 	flex-direction: row;
-	gap: 50px;
+	gap: 40px;
 	color: #646464;
 	width: 80%;
 	margin: auto;
 	border-radius: 5px;
 	align-self: center;
 	padding: 10px;
+	align-items: center;
 }
 
 .SideBarButton:hover{
 	background-color: #000000;
+	padding: 10px;
 }
+
+.SideBarButtonIcon{}

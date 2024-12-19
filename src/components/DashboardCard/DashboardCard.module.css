@@ -3,10 +3,13 @@
 	flex-direction: column;
 	gap: 20px;
 	background-color: #232323;
-	width: fit-content;
-	padding: 20px 100px;
+	width: 300px;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	/* padding: 20px 100px; */
 	border-radius: 10px;
 	cursor: pointer;
+	max-width: 300px;
 }
 
 .DashboardCardTitle {
@@ -23,6 +26,7 @@
 
 .DashboardCardIcon {
 	width: 30px;
+	height: 30px;
 	margin: auto;
 }
 
