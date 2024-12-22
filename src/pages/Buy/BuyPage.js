@@ -56,34 +56,7 @@ const BuyPage = (props) => {
 	const [showDialogueBox, setShowDialogueBox] = useState(false)
 
 
-	const createOrderHandler = (adType) => {
-		//generate a unique transaction id and time stamp
-		setOrderToken(generateOrderToken());
-		setOrderCreated(true);
-		setOrderStatus('pending')
-	}
 
-	const scrollToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth"
-		});
-	}
-
-	const processOrderHandler = () => {
-		scrollToTop()
-		if (adInfo.adType === 'buy') {
-			setBuyerPaid(true)
-		}
-
-		if (adInfo.adType === 'sell') {
-			setSellerConfirmedOrder(true)
-		}
-	}
-
-	const confirmOrderHandler = () => {
-		setSellerConfirmedOrder(true)
-	}
 
 	const getAdInfo = () => {
 		axios.get(`${API_URL}/p2p/${id}`)
@@ -93,6 +66,8 @@ const BuyPage = (props) => {
 	useEffect(() => {
 		getAdInfo()
 	}, [])
+
+	// sendTransaction
 
 
 	return (
@@ -130,7 +105,7 @@ const BuyPage = (props) => {
 							{showDialogueBox ?
 								<Overlay>
 									<DialogueBox
-										HeadingText={`You’re about to send ${props.amount} TNL to p4nther for X ${adInfo.token}.`}
+										HeadingText={`You’re about to send ${props.amount} PULSR to p4nther for X ${adInfo.token}.`}
 
 										AdditionalText="Chain: Ethereum Mainnet"
 

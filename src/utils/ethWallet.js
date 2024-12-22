@@ -32,8 +32,6 @@ export const getUSDTBalance = async (address) => {
 // Setup: npm install alchemy-sdk
 // Github: https://github.com/alchemyplatform/alchemy-sdk-js
 
-
-
 // Optional config object, but defaults to demo api-key and eth-mainnet.
 const settings = {
 	apiKey: process.env.REACT_APP_ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
@@ -42,8 +40,6 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 alchemy.core.getBlock(15221026).then(console.log);
-
-
 
 
 export const getETHBalance = async (walletAddress) => {
@@ -151,44 +147,8 @@ export const estimateGasOfTx = async (sendAddress) => {
 }
 
 
-// export const getETHHistory = async (address) => {
-// 	let etherscanProvider = new ethers.providers.EtherscanProvider('goerli');
-
-// 	try {
-// 		// Wait for the Promise to resolve
-// 		const history = await etherscanProvider.getHistory(address);
-
-// 		// Do something with the history
-// 		history.forEach((tx) => tx);
-
-// 		// Return the history
-// 		return history;
-// 	} catch (error) {
-// 		// Catch any errors that might occur
-// 		console.error(error);
-// 	}
-// };
 
 
 export const isValidEthereumAddress = (address) => {
 	return ethers.utils.isAddress(address);
 }
-
-
-// Optional Config object, but defaults to demo api-key and eth-mainnet.
-
-// export const estimateGasOfTx = async (sendAddress) => {
-// 	const estimatedGasCostInHex = await alchemy.core.estimateGas({
-// 		// Wrapped ETH address
-// 		to: sendAddress,
-// 		// `function deposit() payable`
-// 		data: '0xd0e30db0',
-// 		// 1 ether
-// 		value: Utils.parseEther('1.0'),
-// 		chainId: 11155111
-// 	});
-
-// 	return (
-// 		Utils.formatUnits(estimatedGasCostInHex)
-// 	);
-// }

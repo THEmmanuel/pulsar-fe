@@ -5,7 +5,7 @@ import MainDropdown from '../../../components/MainDropdown/MainDropdown';
 import TransferModal from '../../../containers/TransferModal/TransferModal';
 import sendIcon from '../../../assets/send_icon.svg'
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
 
@@ -32,7 +32,7 @@ const EthereumWallet = () => {
 	const [ethTransactions, setEthTransactions] = useState([]);
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	let userWallet = wallets.find(wallet => wallet.walletName === walletName)
-	const {coinData} = useContext(UserContext) 
+	const { coinData } = useContext(UserContext)
 
 	useEffect(() => {
 		if (wallets.length !== 0) {
@@ -91,17 +91,7 @@ const EthereumWallet = () => {
 		fetchTransactions()
 	}, [walletAddress]);
 
-	// useEffect(() => {
-	// 	const fetchBalance = async () => {
-	// 		if (wallet) {
-	// 			const balance = await getETHBalance(wallet.walletAddress);
-	// 			setWalletBalance(balance);
-	// 		}
-	// 	};
-	// 	fetchBalance();
-	// 	return () => {
-	// 	};
-	// }, [fetchTransactions, wallet]);
+
 
 	return (
 		<div className={style.WalletPage}>
@@ -176,16 +166,22 @@ const EthereumWallet = () => {
 					{ethTransactions ? ethTransactions.map(transaction => {
 						const ethBalance = parseInt(transaction.value, 10) / 1e18
 						return (
-							<TransactionCard
-								ethValue={ethBalance} ETH
-								usdValue={ethBalance * EthPrice} USD
-								timestamp={new Date(transaction.timeStamp * 1000).toLocaleTimeString()}
-								date={new Date(transaction.timeStamp * 1000).toLocaleDateString()}
-								toAddress={transaction.to}
-								fromAddress={transaction.from}
-								txn={transaction.hash}
-								userAddress={wallet.walletAddress}
-							/>
+							<Link
+								to={`https://sepolia.etherscan.io/tx/${transaction.hash}`}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<TransactionCard
+									ethValue={ethBalance} ETH
+									usdValue={ethBalance * EthPrice} USD
+									timestamp={new Date(transaction.timeStamp * 1000).toLocaleTimeString()}
+									date={new Date(transaction.timeStamp * 1000).toLocaleDateString()}
+									toAddress={transaction.to}
+									fromAddress={transaction.from}
+									txn={transaction.hash}
+									userAddress={wallet.walletAddress}
+								/>
+							</Link>
 						)
 					}) : <span>Loading</span>}
 				</div>

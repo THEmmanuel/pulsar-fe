@@ -51,7 +51,7 @@ const Dashboard = () => {
 						</span>
 
 						<span className={style.DashboardBalanceAmount}>
-							{totalUsdBalance}
+							${totalUsdBalance}
 						</span>
 					</div>
 
