@@ -24,3 +24,20 @@
 	margin: auto;
 	gap: 40px;
 }
+
+.MyAds{
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.CreateAdButton{
+	width: fit-content;
+	padding: 10px 25px;
+	border-radius: 5px;
+	background-color: #232323;
+	border: none;
+	color: #FFF;
+	font-size: 0.9em;
+	font-weight: 700;
+}

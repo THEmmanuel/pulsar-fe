@@ -75,6 +75,8 @@ const EthereumWallet = () => {
 
 
 
+
+
 	useEffect(() => {
 		const fetchBalance = async () => {
 			try {
@@ -111,7 +113,6 @@ const EthereumWallet = () => {
 							<span className={style.WalletCoinTotal}>
 								{walletBalance} ETH
 							</span>
-
 						</span>
 						<span className={style.WalletCoinValue}>
 							${parseFloat(walletBalance * EthPrice).toFixed(2)}

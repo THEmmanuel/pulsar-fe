@@ -3,7 +3,8 @@
 	display: flex;
 	flex-direction: row;
 	color: #AFAFAF;
-	margin-bottom: 100px;
+	/* height: 100vh; Set full height for the application */
+	overflow: hidden; /* Prevent scrolling of the entire application */
 }
 
 .mainInput {

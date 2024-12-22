@@ -40,3 +40,14 @@
  gap: 10px;
  text-align: left;
 }
+
+.BankInfoForms{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.BankInfo{
+	background-color: chartreuse;
+	margin-top: 40px;
+}

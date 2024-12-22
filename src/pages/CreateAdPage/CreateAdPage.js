@@ -170,28 +170,39 @@ const CreateAdPage = () => {
 							value={ad.highestOrder}
 							change={handleTextChange}
 						/>
+						
+						{
+						ad.adType === 'sell' ?
+						<div className={style.BankInfo}>
+							<span>
+								Bank Details
+							</span>
 
-						bank details:
-						<FormInput
-							title='Bank'
-							name='highestOrder'
-							value={ad.highestOrder}
-							change={handleTextChange}
-						/>
+							<div className={style.BankInfoForms}>
+								<FormInput
+									title='Bank'
+									name='highestOrder'
+									value={ad.highestOrder}
+									change={handleTextChange}
+								/>
 
-						<FormInput
-							title='Bank Account Number'
-							name='highestOrder'
-							value={ad.highestOrder}
-							change={handleTextChange}
-						/>
+								<FormInput
+									title='Bank Account Number'
+									name='highestOrder'
+									value={ad.highestOrder}
+									change={handleTextChange}
+								/>
 
-						<FormInput
-							title='Bank Account Name'
-							name='highestOrder'
-							value={ad.highestOrder}
-							change={handleTextChange}
-						/>
+								<FormInput
+									title='Bank Account Name'
+									name='highestOrder'
+									value={ad.highestOrder}
+									change={handleTextChange}
+								/>
+							</div>
+						</div>
+						: null
+						}
 
 						<div className={style.PaymentMethodWrapper}>
 							<span>Payment Method</span>

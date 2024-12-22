@@ -51,26 +51,39 @@ function App() {
 	const [tokenPrices, setTokenPrices] = useState(1)
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 	const [coinData, setCoinData] = useState({});
-	const hasFetched = useRef(false); // Track if data was fetched
+	const [walletBalances, setWalletBalances] = useState([]);
+	const [totalUsdBalance, setTotalUsdBalance] = useState(0); // State to store the total USD balance
 
 	useEffect(() => {
 		const fetchBalance = async () => {
 			try {
 				const response1 = await axios.get(`${API_URL}/wallet-actions/get-token-usd-balance/0xD22507B380D33a6CD115cAe487ce4FDb19543Ac2/ether/ethereum`);
-				const response2 = await axios.get(`${API_URL}/wallet-actions/get-token-usd-balance/0xD22507B380D33a6CD115cAe487ce4FDb19543Ac2/0x3dC961b0bcEBC01088AF48307b3C4Ea2Bfd21D2F/tnl`);
+				const response2 = await axios.get(`${API_URL}/wallet-actions/get-token-usd-balance/0xD22507B380D33a6CD115cAe487ce4FDb19543Ac2/0x3dC961b0bcEBC01088AF48307b3C4Ea2Bfd21D2F/pulsar`);
 
-				console.log(response1.data);
-				console.log(response2.data);
+				console.log('my wallet eth price', response1.data);
+				console.log('my wallet token price', response2.data);
+
+				// Update the wallet balances
+				const balances = [
+					{ token: 'ETH', ...response1.data },
+					{ token: 'PULSAR', ...response2.data },
+				];
+
+				setWalletBalances(balances);
+
+				// Calculate total USD balance
+				const totalUsd = balances.reduce((sum, balance) => sum + (balance.usdBalance || 0), 0);
+				setTotalUsdBalance(totalUsd);
+				console.log('total usd balance', totalUsdBalance)
 			} catch (error) {
 				console.error('Error fetching wallet balance:', error);
 			}
 		};
 
-		if (!hasFetched.current) {
-			fetchBalance();
-			hasFetched.current = true; // Mark as fetched
-		}
-	}, []); // Dependency array ensures this runs once
+		fetchBalance(); // Fetch balances when the component mounts
+	}, []); // Dependency array ensures this runs only once
+
+
 
 
 	const addUserToDatabase = () => {
@@ -95,11 +108,37 @@ function App() {
 
 	const coinGeckoAPI = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether%2Csolana&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true'
 
+
+
+
+	// http://localhost:9000/wallet-actions/get-token-usd-balance/0x353B58476f7071E3188f55724564C8eC95395624/0x3dC961b0bcEBC01088AF48307b3C4Ea2Bfd21D2F/pulsar
+
+	// http://localhost:9000/wallet-actions/get-token-usd-balance/0x353B58476f7071E3188f55724564C8eC95395624/ethereum/pulsar
+
+	// const [walletBalances, setWalletBalances] = useState([])
+
+
+
 	useEffect(() => {
+		console.log('fectching coin prices from coingecko')
 		axios.get(coinGeckoAPI)
 			.then(res => setCoinData(res.data))
 			.catch(err => console.log(err))
 	}, [])
+
+
+	useEffect(() => {
+		console.log('fectching coin prices from coingecko')
+		axios.get(coinGeckoAPI)
+			.then(res => setCoinData(res.data))
+			.catch(err => console.log(err))
+	}, [])
+
+
+
+
+
+
 
 
 	useEffect(() => {
@@ -128,7 +167,9 @@ function App() {
 					wallets,
 					setWallets,
 					coinData,
-					setCoinData
+					setCoinData,
+					walletBalances,
+					totalUsdBalance
 				}}>
 
 					{windowWidth < 1280
@@ -270,6 +311,7 @@ function App() {
 					</section>
 				</UserContext.Provider>
 			</div>
+
 		</Router>
 	);
 }

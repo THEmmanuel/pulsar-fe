@@ -79,7 +79,7 @@ const TokenFaucet = () => {
 							<button
 								className={style.CurrencySwitcher}
 								onClick={() => handleCurrencySwitch('ETH')}>
-								TNL
+								$PULSR
 							</button>
 						</div>
 					</div>

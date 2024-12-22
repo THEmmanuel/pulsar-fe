@@ -39,6 +39,8 @@ const adTtype = [
 ]
 
 const Dashboard = () => {
+	const { totalUsdBalance } = useContext(UserContext)
+
 	return (
 		<div className={style.Dashboard}>
 			<div className={style.DashboardContent}>
@@ -49,7 +51,7 @@ const Dashboard = () => {
 						</span>
 
 						<span className={style.DashboardBalanceAmount}>
-							...
+							{totalUsdBalance}
 						</span>
 					</div>
 
