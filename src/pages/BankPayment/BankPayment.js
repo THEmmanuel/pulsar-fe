@@ -3,6 +3,18 @@ import style from './BankPayment.module.css'
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 
 
+	// get trade. this calls the api for the current trade and shows pages based on order status.
+
+// A page for order history etc will show up here as transactions status.
+
+// notification design. db schema. and link. or route.
+// expecting notifs for chats.
+// new trades.
+// completed trades.
+
+// clear one notification.
+// clear all notiifvations
+// create a mew notif.
 
 const BankPayment = () => {
 	return (

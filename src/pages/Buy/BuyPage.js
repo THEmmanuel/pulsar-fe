@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import TransactionIcon from '../../assets/transactionIcon.svg';
+import { useUser } from '@clerk/clerk-react';
 
 import style from './BuyPage.module.css';
 import UserTerms from '../../components/UserTerms/UserTerms';
@@ -54,23 +55,10 @@ const BuyPage = (props) => {
 	const [buyerPaid, setBuyerPaid] = useState(false)
 	const [timer, setTimer] = useState(1800)
 	const [showDialogueBox, setShowDialogueBox] = useState(false)
+	const [showDialogueBox2, setShowDialogueBox2] = useState(false)
+	const { user } = useUser();
+	const navigate = useNavigate();
 
-
-	const orderData = {
-		adType: adInfo.adType, // Example value
-		token: adInfo.token, // Example value
-		tokenAmount: cryptoAmount, // Example value
-		fiatAmount: '2000', // Example value
-		buyerUsername: 'buyer123', // Example value
-		sellerUsername: 'seller456', // Example value
-		buyerAddress: '0xBuyerAddress12345', // Example value
-		sellerAddress: '0xSellerAddress67890', // Example value
-		timestamp: new Date().toISOString(), // Current timestamp
-		tradeExpiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // Expire in 24 hours
-		status: 'pending', // Initial status
-		orderTradePaymentMethod: 'bank_transfer', // Example value
-		orderTradeAdID: 'ad12345' // Example value
-	  };
 
 
 
@@ -84,20 +72,22 @@ const BuyPage = (props) => {
 	}, [])
 
 	const AcceptAction = async () => {
+
 		const requestData = {
-			USDAmount: 100,
-			tokenToBuy: 'BTC',
-			tokenToSell: 'ETH',
-			buyerUsername: 'buyer123',
-			sellerUsername: 'seller456',
-			buyWalletName: 'buyerWallet',
-			sellWalletName: 'sellerWallet',
-			wallet: '0x123456789abcdef',
-			chain: 'Ethereum'
+			USDAmount: '1', // Example value
+			tokenToBuy: adInfo.buyToken,
+			tokenToSell: adInfo.sellToken,
+			buyerUsername: 'leunamme', // Example value
+			sellerUsername: 'lordoloni', // Example va
+			buyWalletName: 'ethereum',
+			sellWalletName: 'ethereum',
+			chain: 'erc20'
 		};
 
+
 		try {
-			const response = await axios.post('http://localhost:3000/exchange-tokens', requestData);
+			const response = await axios.post('http://localhost:9000/orders/exchange-tokens', requestData);
+			console.log(requestData)
 			toast('Tokens exchanged successfully! 🎉'); // Success toast
 			console.log('Response:', response.data);
 		} catch (error) {
@@ -106,7 +96,72 @@ const BuyPage = (props) => {
 		}
 	};
 
+
+	const setUpBankTrade = async () => {	
+		try {
+			const orderData = {
+				adType: adInfo.adType,
+				tokenToBuy: adInfo.buyToken,
+				tokenToSell: adInfo.sellToken,
+				fiatAmount: props.amount,
+				buyerUsername: 'leunamme222',
+				sellerUsername: user.username,
+				buyerAddress: '0xbuyeraddress',
+				sellerAddress: '0xSellerAddress',
+				timestamp: new Date().toISOString(),
+				tradeExpiresAt: new Date(Date.now() + 3 * 60 * 60 * 1000).toISOString(),
+				status: 'pending',
+				orderPaymentMethod: 'Bank Transfer',
+				orderTradeAdID: adInfo._id,
+				buyerHash: '0xhash',
+				sellerHash: '0xhash'
+			};
+	
+			// Log orderData for debugging
+			console.log('Sending orderData:', orderData);
+	
+			// Make Axios POST request
+			await axios.post(`${API_URL}/orders`, orderData);
+	
+			// Navigate to /bank-payments upon success
+			navigate('/bank-payment');
+		} catch (error) {
+			// Log the error for debugging
+			console.error('Error setting up bank trade:', error);
+		}
+	}
+
+
+
+	// localhost/orders
+
+	// this function does the following.
+	// it makes a request to open a new trade with the details here. show a toast to say opening a new trade initially.
+	// - to-do
+
+
+
+	// it then navigates the user to the bank details page.
+	// order shows page based on order status.
+	// 		pending,
+	// 		bank-payment
+	// 		sellerMarkPaid, 
+	// 		BuyerMarkPaid, 
+	// 		BuyerMarkRecieved, 
+	// 		SellerMarkRecieved,
+	// 		successful
+	// 		timedout
+	// 		failed
+
+	// can then set up conditions based on this.
+
+	// orderpage updates the info as stuff progresses.
+
 	// sendTransaction
+
+
+
+
 
 
 	return (
@@ -142,7 +197,8 @@ const BuyPage = (props) => {
 									paymentMethodText='Pay via Bank Transfer'
 									limit={adInfo.highestOrder}
 									action='Buying'
-									// call create order here.
+									click={() => setShowDialogueBox2(true)}
+								// call create order here.
 								/>
 							</div>
 
@@ -155,6 +211,23 @@ const BuyPage = (props) => {
 
 										MoreText="Unaccepted trades will be automatically declined in 5 hrs, please confirm you have the right chain. Funds transferred to the wrong chains can't be recovered"
 										AcceptAction={() => AcceptAction()}
+										CancelAction={() => setShowDialogueBox(false)}
+									/>
+									{/* here */}
+
+								</Overlay>
+								: null}
+
+
+							{showDialogueBox2 ?
+								<Overlay>
+									<DialogueBox
+										HeadingText={`You’re about to open a trade to [buy or sell] x token for x fiat. Chain: Chain name`}
+
+										AdditionalText="Payment Method: Bank Transfer"
+
+										MoreText="Please open a dispute if there are any issues."
+										AcceptAction={() => setUpBankTrade()}
 										CancelAction={() => setShowDialogueBox(false)}
 									/>
 									{/* here */}

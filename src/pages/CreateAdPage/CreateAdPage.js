@@ -50,7 +50,7 @@ const CreateAdPage = () => {
 	}, user)
 
 	const tokens = [
-		{ value: 'pulsar', label: 'Pulsar' },
+		{ value: 'tnl', label: 'Pulsar' },
 		{ value: 'btc', label: 'Bitcoin' },
 		{ value: 'eth', label: 'Ethereum' },
 		{ value: 'usdt', label: 'USDT' },
