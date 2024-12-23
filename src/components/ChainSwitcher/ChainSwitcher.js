@@ -11,22 +11,17 @@ const ChainSwitcher = () => {
 			<div className={style.ChainSwitcher}>
 				<ChainCard
 					ChainImage={ethChainIcon}
-					ChainName='Ethereum'
+					ChainName='(BNB) Binance Smart Chain'
 				/>
 
 				<ChainCard
 					ChainImage={ethChainIcon}
-					ChainName='Ethereum'
+					ChainName='Ethereum Sepolia'
 				/>
 
 				<ChainCard
 					ChainImage={ethChainIcon}
-					ChainName='Ethereum'
-				/>
-
-				<ChainCard
-					ChainImage={ethChainIcon}
-					ChainName='Ethereum'
+					ChainName='Ethereum Holesky'
 				/>
 			</div>
 		</Overlay>

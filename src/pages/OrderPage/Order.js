@@ -37,6 +37,7 @@ const Order = (props) => {
 	}, [])
 
 	let CurrentOrderPage;
+	
 
 	if (adInfo && adInfo.adType === 'buy') {
 		CurrentOrderPage = <BuyPage

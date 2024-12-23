@@ -20,17 +20,22 @@ const CreateAdPage = () => {
 	const [ad, setAd] = useState({
 		adType: 'buy',
 		username: '',
-		token: 'ETH',
-		fiatCurrency: 'USD',
+		buyToken: 'eth',
+		sellToken: 'pulsar',
+		fiatCurrency: 'usd',
 		rate: 0,
 		available: 0,
 		lowestOrder: 0,
 		highestOrder: 0,
-		paymentMethods: [] // Initialize as an empty array for multiple methods
+		paymentMethods: [], // Initialize as an empty array for multiple methods
+		bankName: '',
+		bankAccountNumber: '',
+		bankAccountName: '',
+		paypalID: ''
 	});
 
 	const options = [
-		{ value: 'tnl', label: '$TNL' },
+		{ value: 'pulsr', label: '$PULSR' },
 		{ value: 'bank transfer', label: 'Bank Transfer' },
 		{ value: 'paypal', label: 'PayPal' },
 	];
@@ -45,9 +50,10 @@ const CreateAdPage = () => {
 	}, user)
 
 	const tokens = [
-		{ value: 'ETH', label: 'Ethereum' },
-		{ value: 'USDT', label: 'USDT' },
-		{ value: 'BTC', label: 'Bitcoin' }
+		{ value: 'pulsar', label: 'Pulsar' },
+		{ value: 'btc', label: 'Bitcoin' },
+		{ value: 'eth', label: 'Ethereum' },
+		{ value: 'usdt', label: 'USDT' },
 	]
 
 	const handleChange = e => {
@@ -128,19 +134,27 @@ const CreateAdPage = () => {
 							PrimaryText='Etherum Mainnet'
 							options={
 								[
-									{ value: 'NGN', label: 'Etherum Mainnet' },
-									{ value: 'USD', label: 'Etherum Sepolia' },
+									{ value: 'ethereum-mainnet', label: 'Etherum Mainnet' },
+									{ value: 'ethereum-sepolia', label: 'Etherum Sepolia' },
 								]}
 							onSelect={handleChange}
 							name='chain'
 						/>
 
 						<MainDropdown
-							DropdownHeading='Token'
-							PrimaryText={ad.token}
+							DropdownHeading='Token to buy'
+							PrimaryText={ad.buyToken}
 							options={tokens}
 							onSelect={handleChange}
-							name='token'
+							name='buyToken'
+						/>
+
+						<MainDropdown
+							DropdownHeading='Token to sell'
+							PrimaryText={ad.sellToken}
+							options={tokens}
+							onSelect={handleChange}
+							name='sellToken'
 						/>
 
 						<FormInput
@@ -151,11 +165,12 @@ const CreateAdPage = () => {
 						/>
 
 						<FormInput
-							title={`Available ${ad.token}`}
-							name='available'
-							value={ad.available}
+							title={`Available ${ad.adType ? ad.sellToken : ad.buyToken}`}
+							name="available"
+							value={ad.available || ""}
 							change={handleTextChange}
 						/>
+
 
 						<FormInput
 							title='Lowest Order Limit'
@@ -170,38 +185,45 @@ const CreateAdPage = () => {
 							value={ad.highestOrder}
 							change={handleTextChange}
 						/>
-						
+
 						{
-						ad.adType === 'sell' ?
-						<div className={style.BankInfo}>
-							<span>
-								Bank Details
-							</span>
+							ad.adType === 'sell' ?
+								<div className={style.BankInfo}>
+									<span>
+										Bank Details
+									</span>
 
-							<div className={style.BankInfoForms}>
-								<FormInput
-									title='Bank'
-									name='highestOrder'
-									value={ad.highestOrder}
-									change={handleTextChange}
-								/>
+									<div className={style.BankInfoForms}>
+										<FormInput
+											title='Bank'
+											name='bankName'
+											value={ad.bankName}
+											change={handleTextChange}
+										/>
 
-								<FormInput
-									title='Bank Account Number'
-									name='highestOrder'
-									value={ad.highestOrder}
-									change={handleTextChange}
-								/>
+										<FormInput
+											title='Bank Account Number'
+											name='bankAccountNumber'
+											value={ad.bankAccountNumber}
+											change={handleTextChange}
+										/>
 
-								<FormInput
-									title='Bank Account Name'
-									name='highestOrder'
-									value={ad.highestOrder}
-									change={handleTextChange}
-								/>
-							</div>
-						</div>
-						: null
+										<FormInput
+											title='Bank Account Name'
+											name='bankAccountName'
+											value={ad.bankAccountName}
+											change={handleTextChange}
+										/>
+
+										<FormInput
+											title='Paypal ID'
+											name='paypalID'
+											value={ad.paypalID}
+											change={handleTextChange}
+										/>
+									</div>
+								</div>
+								: null
 						}
 
 						<div className={style.PaymentMethodWrapper}>
@@ -232,7 +254,8 @@ const CreateAdPage = () => {
 						<span className={style.AdPreviewHeading}>Here's what your ad will look like</span>
 						<PeerToPeerAd
 							adType={ad.adType}
-							token={ad.token}
+							sellToken={ad.sellToken}
+							buyToken={ad.buyToken}
 							fiatCurrency={ad.fiatCurrency}
 							username={user.username}
 							rate={ad.rate}

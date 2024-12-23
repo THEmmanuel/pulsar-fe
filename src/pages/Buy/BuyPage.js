@@ -56,6 +56,22 @@ const BuyPage = (props) => {
 	const [showDialogueBox, setShowDialogueBox] = useState(false)
 
 
+	const orderData = {
+		adType: adInfo.adType, // Example value
+		token: adInfo.token, // Example value
+		tokenAmount: cryptoAmount, // Example value
+		fiatAmount: '2000', // Example value
+		buyerUsername: 'buyer123', // Example value
+		sellerUsername: 'seller456', // Example value
+		buyerAddress: '0xBuyerAddress12345', // Example value
+		sellerAddress: '0xSellerAddress67890', // Example value
+		timestamp: new Date().toISOString(), // Current timestamp
+		tradeExpiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // Expire in 24 hours
+		status: 'pending', // Initial status
+		orderTradePaymentMethod: 'bank_transfer', // Example value
+		orderTradeAdID: 'ad12345' // Example value
+	  };
+
 
 
 	const getAdInfo = () => {
@@ -66,6 +82,29 @@ const BuyPage = (props) => {
 	useEffect(() => {
 		getAdInfo()
 	}, [])
+
+	const AcceptAction = async () => {
+		const requestData = {
+			USDAmount: 100,
+			tokenToBuy: 'BTC',
+			tokenToSell: 'ETH',
+			buyerUsername: 'buyer123',
+			sellerUsername: 'seller456',
+			buyWalletName: 'buyerWallet',
+			sellWalletName: 'sellerWallet',
+			wallet: '0x123456789abcdef',
+			chain: 'Ethereum'
+		};
+
+		try {
+			const response = await axios.post('http://localhost:3000/exchange-tokens', requestData);
+			toast('Tokens exchanged successfully! 🎉'); // Success toast
+			console.log('Response:', response.data);
+		} catch (error) {
+			toast('An error occurred while exchanging tokens. ❌'); // Error toast
+			console.error('Error:', error.response?.data || error.message);
+		}
+	};
 
 	// sendTransaction
 
@@ -84,6 +123,8 @@ const BuyPage = (props) => {
 							Payment Method
 						</span>
 
+						calculate prices for the tokens being swapped against the current prices.
+
 						<div className={style.PaymentMethodWrapper}>
 							<div className={style.TradeMethodContainer}>
 								<TradeMethodCard
@@ -92,6 +133,7 @@ const BuyPage = (props) => {
 									paymentMethodText='Pay with $PULSR (automated and safer) balance: 1200000'
 									click={() => setShowDialogueBox(true)}
 									limit={adInfo.highestOrder}
+									action='Buying'
 								/>
 
 								<TradeMethodCard
@@ -99,6 +141,8 @@ const BuyPage = (props) => {
 									token={adInfo.token}
 									paymentMethodText='Pay via Bank Transfer'
 									limit={adInfo.highestOrder}
+									action='Buying'
+									// call create order here.
 								/>
 							</div>
 
@@ -110,9 +154,11 @@ const BuyPage = (props) => {
 										AdditionalText="Chain: Ethereum Mainnet"
 
 										MoreText="Unaccepted trades will be automatically declined in 5 hrs, please confirm you have the right chain. Funds transferred to the wrong chains can't be recovered"
-										AcceptAction={() => toast('Your toast is ready! 🍞')}
+										AcceptAction={() => AcceptAction()}
 										CancelAction={() => setShowDialogueBox(false)}
 									/>
+									{/* here */}
+
 								</Overlay>
 								: null}
 						</div>
@@ -131,6 +177,7 @@ const BuyPage = (props) => {
 
 					{/* <button onClick={() => toast('Your toast is ready! 🍞')}>Show Toast</button> */}
 
+					{/* call api-url/order/exchange-tokens with body deets */}
 				</div>
 			</div>
 	)

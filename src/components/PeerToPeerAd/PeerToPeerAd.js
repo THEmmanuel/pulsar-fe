@@ -9,27 +9,53 @@ const PeerToPeerAd = props => {
 		<div className={style.PeerToPeerAd}>
 			<div className={style.PeerToPeerDetailsWrapper}>
 				<div className={style.PeerToPeerUserInfo}>
-					<img
-						src=""
-						alt=""
-						className={style.PeerToPeerUserImage}
-					/>
+					<div>
+						<img
+							src=""
+							alt=""
+							className={style.PeerToPeerUserImage}
+						/>
 
-					<span className={style.PeerToPeerUsername}>
-						{props.username}
-					</span>
+						<span className={style.PeerToPeerUsername}>
+							{props.username}
+						</span>
+					</div>
+
+					<div className={style.PeerToPeerUserStats}>
+						<span className={style.PeerToPeerCompletionRate}>
+							100% completion Rate
+						</span>
+
+						<span>orders and stars</span>
+						<div className={style.PeerToPeerRating}>
+							<span className={style.PeerToPeerRatingNumber}>
+								5
+							</span>
+
+							<img
+								src={starIcon}
+								alt=""
+								className={style.PeerToPeerRatingStar}
+							/>
+						</div>
+					</div>
 				</div>
 
+				{props.rate} {props.fiatCurrency}
+
+
+				<span className={style.PeerToPeerLimit}>
+					limit: {props.lowestOrder} - {props.highestOrder}
+				</span>
+
+
 				<div className={style.PeerToPeerDetails}>
-					<span className={style.PeerToPeerCompletionRate}>
-						100% completion Rate
-					</span>
 					<div className={style.PeerToPeerPaymentMethods}>
 						{props.paymentMethod.map(
 							paymentMethod =>
-									<span className={style.PeerToPeerPaymentMethod}>
-										{paymentMethod}
-									</span>
+								<span className={style.PeerToPeerPaymentMethod}>
+									{paymentMethod}
+								</span>
 						)
 						}
 					</div>
@@ -40,30 +66,7 @@ const PeerToPeerAd = props => {
 			<div className={style.PeerToPeerDetailsWrapper}>
 				<div className={style.PeerToPeerRateWrapper}>
 					<span className={style.PeerToPeerRate}>
-						{props.rate} {props.fiatCurrency}/{props.token}
 					</span>
-
-					<span className={style.PeerToPeerLimit}>
-						limit: {props.lowestOrder} - {props.highestOrder}
-					</span>
-				</div>
-
-				<div className={style.PeerToPeerOrderStats}>
-					<span>
-						1k orders
-					</span>
-
-					<div className={style.PeerToPeerRating}>
-						<span className={style.PeerToPeerRatingNumber}>
-							5
-						</span>
-
-						<img
-							src={starIcon}
-							alt=""
-							className={style.PeerToPeerRatingStar}
-						/>
-					</div>
 				</div>
 			</div>
 		</div>

@@ -169,6 +169,7 @@ function App() {
 					coinData,
 					setCoinData,
 					walletBalances,
+					setWalletBalances,
 					totalUsdBalance
 				}}>
 

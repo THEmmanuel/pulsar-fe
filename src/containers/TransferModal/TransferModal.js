@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import style from './TransferModal.module.css';
-import { sendETH, estimateGasOfTx } from '../../utils/ethWallet';
+import { sendETH, estimateGasOfTx, sendToken } from '../../utils/ethWallet';
 import FormInput from '../../components/FormInput/FormInput';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import { ethers } from 'ethers';
@@ -94,35 +94,13 @@ const TransferModal = (props) => {
 		};
 	}, []);
 
-
-	const sendToken = async () => {
-		const data = {
-			amount: amount,  // Replace with the desired amount
-			walletAddress: recipientAddress,  // Replace with the actual wallet address
-			tokenToSend: 'tnl',  // Replace with the token name or symbol
-			senderUsername: 'leunamme',  // Use a secure method to handle this!
-			walletName: 'ethereum'
-		};
-
-		// Display an initial toast message when the transaction is submitted
-		toast('Transaction submitted...');
-
-		try {
-			// Wait for the response from the backend
-			const response = await axios.post(`${API_URL}/wallet-actions/send-token`, data);
-
-			// Extract the transaction hash from the response
-			const txHash = response.data.data.hash;
-
-			// Display the transaction hash in the toast
-			toast(`Transaction sent successfully! Hash: ${txHash}`);
-		} catch (error) {
-			// Handle errors and display an error toast message
-			console.error('Error sending token:', error.response ? error.response.data : error.message);
-			toast('Error sending transaction: ' + (error.response?.data?.details || error.message));
-		}
+	const data = {
+		amount: amount,  // Replace with the desired amount
+		walletAddress: recipientAddress,  // Replace with the actual wallet address
+		tokenToSend: 'eth',  // Replace with the token name or symbol
+		senderUsername: 'leunamme',  // Use a secure method to handle this!
+		walletName: 'ethereum'
 	};
-
 
 	// Validate the wallet address
 	const isValidAddress = ethers.utils.isAddress(recipientAddress);
@@ -241,10 +219,10 @@ const TransferModal = (props) => {
 						<div className={style.TransferButtons}>
 							<PrimaryCTA
 								ButtonText='Send'
-								click={() => sendToken()}
+								click={() => sendToken(data)}
 							/>
 							<PrimaryCTA
-								ButtonText='Cancel'
+								ButtonText='Close'
 								click={() => props.cancel()}
 							/>
 						</div>
