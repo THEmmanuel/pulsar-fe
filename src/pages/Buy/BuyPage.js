@@ -72,32 +72,49 @@ const BuyPage = (props) => {
 	}, [])
 
 	const AcceptAction = async () => {
-
 		const requestData = {
 			USDAmount: '1', // Example value
 			tokenToBuy: adInfo.buyToken,
 			tokenToSell: adInfo.sellToken,
-			buyerUsername: 'leunamme', // Example value
-			sellerUsername: 'lordoloni', // Example va
+			buyerUsername: user.username,
+			sellerUsername: adInfo.username,
 			buyWalletName: 'ethereum',
 			sellWalletName: 'ethereum',
 			chain: 'erc20'
 		};
 
-
 		try {
+			setShowDialogueBox(false);
+			// Toast indicating the process has started
+			toast('Exchanging tokens... 🔄');
+
+
+			// Send the POST request
 			const response = await axios.post('http://localhost:9000/orders/exchange-tokens', requestData);
-			console.log(requestData)
-			toast('Tokens exchanged successfully! 🎉'); // Success toast
+
+			// Log request data for debugging
+			console.log('Request Data:', requestData);
+
+			// Toast for success
+			toast('Tokens exchanged successfully! 🎉');
+
+			// Log response data for debugging
 			console.log('Response:', response.data);
+
 		} catch (error) {
-			toast('An error occurred while exchanging tokens. ❌'); // Error toast
+			// Toast for error
+			toast('An error occurred while exchanging tokens. ❌');
+
+			// Log the error for debugging
 			console.error('Error:', error.response?.data || error.message);
+		} finally {
+			// Close the dialogue box
 		}
 	};
 
 
-	const setUpBankTrade = async () => {	
+
+	const setUpBankTrade = async () => {
 		try {
 			const orderData = {
 				adType: adInfo.adType,
@@ -110,26 +127,37 @@ const BuyPage = (props) => {
 				sellerAddress: '0xSellerAddress',
 				timestamp: new Date().toISOString(),
 				tradeExpiresAt: new Date(Date.now() + 3 * 60 * 60 * 1000).toISOString(),
-				status: 'pending',
+				status: 'order_created',
 				orderPaymentMethod: 'Bank Transfer',
 				orderTradeAdID: adInfo._id,
 				buyerHash: '0xhash',
-				sellerHash: '0xhash'
+				sellerHash: '0xhash',
 			};
-	
+
 			// Log orderData for debugging
 			console.log('Sending orderData:', orderData);
-	
-			// Make Axios POST request
-			await axios.post(`${API_URL}/orders`, orderData);
-	
-			// Navigate to /bank-payments upon success
-			navigate('/bank-payment');
+
+			// Make Axios POST request and extract response
+			const response = await axios.post(`${API_URL}/orders`, orderData);
+
+			// Extract the returned _id from the response
+			const orderId = response.data._id;
+
+			// Log the received order ID for debugging
+			console.log('Order created with ID:', orderId);
+
+			// Display a success toast notification
+			toast('Order created successfully');
+
+			// Navigate to the transaction page with the order ID
+			navigate(`/transaction-page/${orderId}`);
 		} catch (error) {
 			// Log the error for debugging
 			console.error('Error setting up bank trade:', error);
+			toast.error('Failed to create order. Please try again.');
 		}
-	}
+	};
+
 
 
 
@@ -189,16 +217,19 @@ const BuyPage = (props) => {
 									click={() => setShowDialogueBox(true)}
 									limit={adInfo.highestOrder}
 									action='Buying'
+									AcceptAction={() => AcceptAction()}
+									CancelAction={() => setShowDialogueBox(false)}
 								/>
 
 								<TradeMethodCard
 									amount={props.amount}
 									token={adInfo.token}
 									paymentMethodText='Pay via Bank Transfer'
+									click={() => setShowDialogueBox2(true)}
 									limit={adInfo.highestOrder}
 									action='Buying'
-									click={() => setShowDialogueBox2(true)}
-								// call create order here.
+									AcceptAction={() => setUpBankTrade()}
+									CancelAction={() => setShowDialogueBox2(false)}
 								/>
 							</div>
 
@@ -228,7 +259,7 @@ const BuyPage = (props) => {
 
 										MoreText="Please open a dispute if there are any issues."
 										AcceptAction={() => setUpBankTrade()}
-										CancelAction={() => setShowDialogueBox(false)}
+										CancelAction={() => setShowDialogueBox2(false)}
 									/>
 									{/* here */}
 

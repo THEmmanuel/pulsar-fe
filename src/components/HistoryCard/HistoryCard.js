@@ -10,7 +10,7 @@ const HistoryCard = props => {
 				</span>
 
 				<span className={style.HistoryCardDetailsText}>
-					$602.4
+					${props.order.fiatAmount}
 				</span>
 			</div>
 
@@ -20,7 +20,7 @@ const HistoryCard = props => {
 				</span>
 
 				<span className={style.HistoryCardDetailsText}>
-					XX...XXXXXXX
+					{props.order._id}
 				</span>
 			</div>
 

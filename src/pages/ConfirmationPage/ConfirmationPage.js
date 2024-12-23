@@ -4,7 +4,7 @@ import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 
 
 
-const ConfirmationPage = () => {
+const ConfirmationPage = (props) => {
 	return (
 		<div className={style.BankPayment}>
 			<div className={style.PaymentDetails}>

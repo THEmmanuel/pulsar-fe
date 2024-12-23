@@ -12,16 +12,31 @@ import toast, { toastConfig } from 'react-simple-toasts';
 toastConfig({ theme: 'dark' });
 
 
+
+
+
+// I want this rewritten in a way such that the value of "token to buy" or "sell" text depends on if its a buy or sell adType, if adtype is buy and 'pulsar' is included in the paymentMethods, set sellToken to 'pulsar'. leave buyToken as it is.
+
+// if its a sell adType, token to buy is token to sell. if adType is sell and 'pulsar' is included in the paymentMethods, set 'pulsar' as the value of buyToken.
+
+
+// determine ad type. buy or sell.
+// check ad object. if adType is buy.
+// if payment methods array has the word 'pulsar included. set it as the value of'
+
+
+
+
 const CreateAdPage = () => {
 	const API_URL = process.env.REACT_APP_API_URL;
-
 	const { user } = useUser();
+
 
 	const [ad, setAd] = useState({
 		adType: 'buy',
 		username: '',
 		buyToken: 'eth',
-		sellToken: 'pulsar',
+		sellToken: '',
 		fiatCurrency: 'usd',
 		rate: 0,
 		available: 0,
@@ -34,8 +49,10 @@ const CreateAdPage = () => {
 		paypalID: ''
 	});
 
+	const [pulsarSelected, setPulsarSelected] = useState(false)
+
 	const options = [
-		{ value: 'pulsr', label: '$PULSR' },
+		{ value: 'pulsar', label: '$PULSR' },
 		{ value: 'bank transfer', label: 'Bank Transfer' },
 		{ value: 'paypal', label: 'PayPal' },
 	];
@@ -50,25 +67,46 @@ const CreateAdPage = () => {
 	}, user)
 
 	const tokens = [
-		{ value: 'tnl', label: 'Pulsar' },
+		{ value: 'pulsar', label: 'Pulsar' },
 		{ value: 'btc', label: 'Bitcoin' },
 		{ value: 'eth', label: 'Ethereum' },
 		{ value: 'usdt', label: 'USDT' },
 	]
 
-	const handleChange = e => {
-		setAd({
-			...ad,
-			[e.name]: e.value,
-		});
+	const addPulsar = (ad) => {
+		console.log('function runs')
+		if (pulsarSelected && ad.adType === 'buy') {
+			setAd({
+				...ad,
+				sellToken: 'pulsar'
+			})
+		}
+
+		if (pulsarSelected && ad.adType === 'sell') {
+			setAd({
+				...ad,
+				buyToken: 'pulsar'
+			})
+		}
 	}
 
+	const handleChange = e => {
+		const updatedAd = {
+			...ad,
+			[e.name]: e.value,
+		};
+		setAd(updatedAd);
+		addPulsar(updatedAd); // Pass the updated ad state here
+	};
+
 	const handleTextChange = e => {
-		setAd({
+		const updatedAd = {
 			...ad,
 			[e.target.name]: e.target.value,
-		});
-	}
+		};
+		setAd(updatedAd);
+		addPulsar(updatedAd); // Pass the updated ad state here
+	};
 
 	const handleCheckboxChange = (value) => {
 		setAd((prev) => {
@@ -76,12 +114,20 @@ const CreateAdPage = () => {
 				? prev.paymentMethods.filter((method) => method !== value) // Remove if already selected
 				: [...prev.paymentMethods, value]; // Add if not selected
 
-			return {
+			// Update pulsarSelected based on whether 'pulsar' is in the array
+			const isPulsarSelected = updatedPaymentMethods.includes('pulsar');
+			setPulsarSelected(isPulsarSelected); // Set pulsarSelected to true or false
+
+			const updatedAd = {
 				...prev,
 				paymentMethods: updatedPaymentMethods, // Update paymentMethods in state
 			};
+			addPulsar(updatedAd); // Pass the updated ad state here
+			return updatedAd; // Return the updated ad for setAd
 		});
 	};
+
+
 
 	const addPeerToPeerAd = () => {
 		toast("Creating ad...");
@@ -141,21 +187,24 @@ const CreateAdPage = () => {
 							name='chain'
 						/>
 
-						<MainDropdown
-							DropdownHeading='Token to buy'
-							PrimaryText={ad.buyToken}
-							options={tokens}
-							onSelect={handleChange}
-							name='buyToken'
-						/>
+						{ad.adType === 'buy' ?
+							<MainDropdown
+								DropdownHeading='Token to buy'
+								PrimaryText={ad.buyToken}
+								options={tokens}
+								onSelect={handleChange}
+								name='buyToken'
+							/>
 
-						<MainDropdown
-							DropdownHeading='Token to sell'
-							PrimaryText={ad.sellToken}
-							options={tokens}
-							onSelect={handleChange}
-							name='sellToken'
-						/>
+							:
+							<MainDropdown
+								DropdownHeading='Token to sell'
+								PrimaryText={ad.sellToken}
+								options={tokens}
+								onSelect={handleChange}
+								name='sellToken'
+							/>
+						}
 
 						<FormInput
 							title='Rate'
@@ -187,7 +236,7 @@ const CreateAdPage = () => {
 						/>
 
 						{
-							ad.adType === 'sell' ?
+							ad.adType === 'buy' ?
 								<div className={style.BankInfo}>
 									<span>
 										Bank Details
@@ -278,3 +327,67 @@ const CreateAdPage = () => {
 }
 
 export default CreateAdPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if the user is selling with pulsar. set it as sellToken automatically.
+
+// 						if the user is buying with pulsar. set it as the buy token automatically.
+
+// 						{/* if token to buy, pulsar acts as fiat sell and is token to be sold. */}
+// 						automatically set pulsar to token to buy or sell depending on if user chooses it as a means of payment and if its buy ir sell.
+
+// 						its either token to buy or sell now.
+
+// 						if i have sell and pulsar selected in the options.
+
+// 						it means i have fiat and I want to buy crypto.
+
+// 						if i have that selected, it means im recieving money too. show my aza if i have bank payments.

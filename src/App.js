@@ -304,6 +304,12 @@ function App() {
 
 								<Route
 									exact
+									path='/transaction-page/:id'
+									element={<TransactionPage />}
+								/>
+
+								<Route
+									exact
 									path='/notifications'
 									element={<NotificationsPage />}
 								/>

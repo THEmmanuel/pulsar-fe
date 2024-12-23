@@ -7,26 +7,26 @@ import starIcon from '../../assets/star.svg'
 const PeerToPeerAd = props => {
 	return (
 		<div className={style.PeerToPeerAd}>
-			<div className={style.PeerToPeerDetailsWrapper}>
-				<div className={style.PeerToPeerUserInfo}>
-					<div>
-						<img
-							src=""
-							alt=""
-							className={style.PeerToPeerUserImage}
-						/>
+			<div className={style.PeerToPeerUserInfo}>
+				<div className={style.PeerToPeerUser}>
+					<img
+						src=""
+						alt=""
+						className={style.PeerToPeerUserImage}
+					/>
 
-						<span className={style.PeerToPeerUsername}>
-							{props.username}
-						</span>
-					</div>
+					<span className={style.PeerToPeerUsername}>
+						{props.username}
+					</span>
+				</div>
 
-					<div className={style.PeerToPeerUserStats}>
-						<span className={style.PeerToPeerCompletionRate}>
-							100% completion Rate
-						</span>
+				<div className={style.PeerToPeerUserStats}>
+					<span className={style.PeerToPeerCompletionRate}>
+						100% completion Rate
+					</span>
 
-						<span>orders and stars</span>
+					<div className={style.PeerToPeerOrdersAndStats}>
+						<span>1k orders</span>
 						<div className={style.PeerToPeerRating}>
 							<span className={style.PeerToPeerRatingNumber}>
 								5
@@ -40,34 +40,45 @@ const PeerToPeerAd = props => {
 						</div>
 					</div>
 				</div>
-
-				{props.rate} {props.fiatCurrency}
-
-
-				<span className={style.PeerToPeerLimit}>
-					limit: {props.lowestOrder} - {props.highestOrder}
-				</span>
-
-
-				<div className={style.PeerToPeerDetails}>
-					<div className={style.PeerToPeerPaymentMethods}>
-						{props.paymentMethod.map(
-							paymentMethod =>
-								<span className={style.PeerToPeerPaymentMethod}>
-									{paymentMethod}
-								</span>
-						)
-						}
-					</div>
-				</div>
 			</div>
 
 
-			<div className={style.PeerToPeerDetailsWrapper}>
-				<div className={style.PeerToPeerRateWrapper}>
-					<span className={style.PeerToPeerRate}>
-					</span>
+
+
+
+
+			<div className={style.PeerToPeerRate}>
+				{props.rate}
+				{props.fiatCurrency}
+			</div>
+
+
+
+
+
+
+
+			<span className={style.PeerToPeerLimit}>
+				limit: {props.lowestOrder} - {props.highestOrder}
+			</span>
+
+
+			<div className={style.PeerToPeerDetails}>
+				<div className={style.PeerToPeerPaymentMethods}>
+					{props.paymentMethod.map(
+						paymentMethod =>
+							<span className={style.PeerToPeerPaymentMethod}>
+								{paymentMethod}
+							</span>
+					)
+					}
 				</div>
+			</div>
+
+			<div className={style.PeerToPeerAdActionButtonWrapper}>
+				<button className={style.PeerToPeerAdActionButton}>
+					{props.adType === 'sell' ? `BUY TOKEN` : props.adType === 'buy' ? 'SELL TOKEN' : ''}
+				</button>
 			</div>
 		</div>
 	)

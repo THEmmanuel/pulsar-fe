@@ -17,6 +17,12 @@ a {
 	background-color: blueviolet;
 }
 
+.PeerToPeerUser{
+	display: flex;
+	gap: 10px;
+	width: 100%;
+}
+
 .PeerToPeerUserInfo {
 	display: flex;
 	flex-direction: column;
@@ -35,13 +41,17 @@ a {
 .PeerToPeerUserStats{
 	display: flex;
 	flex-direction: column;
+	gap: 20px;
 }
 
 .PeerToPeerDetailsWrapper {
 	display: flex;
+	width: 60%;
+	height: fit-content;
+	background-color: blue;
 	flex-direction: row;
-	gap: 50px;
 	align-items: center;
+	gap: 50px;
 }
 
 .PeerToPeerOrderStats {
@@ -60,10 +70,14 @@ a {
 .PeerToPeerRate {
 	font-weight: 600;
 	font-size: 1.5em;
+	display: flex;
+	align-items: center;
 }
 
 .PeerToPeerLimit {
 	color: #AFAFAF;
+	display: flex;
+	align-items: center;
 }
 
 .PeerToPeerStats {
@@ -102,7 +116,7 @@ a {
 
 .PeerToPeerPaymentMethods{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: 10px
 }
 
@@ -113,6 +127,25 @@ a {
 	border-radius: 20px;
 }
 
+.PeerToPeerOrdersAndStats{
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+}
+
+.PeerToPeerAdActionButton{
+	background-color: #3E3E3E;
+	border: none;
+	color: #ececec;
+	height: fit-content;
+	padding: 15px 25px;
+	border-radius: 5px;
+}
+
+.PeerToPeerAdActionButtonWrapper{
+	display: flex;
+	align-items: center;
+}
 
 @media only screen and (max-width: 600px) {
 	.PeerToPeerAd {

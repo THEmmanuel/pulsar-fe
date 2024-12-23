@@ -1,6 +1,11 @@
 .UserPage {
 	width: 100%;
-	background-color: #F3F3F3;
+}
+
+.UserBalance{
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 }
 
 .UserStatsContainer {
@@ -22,7 +27,7 @@
 }
 
 .UserImage {
-	width: 60px;
+width: 60px;
 	height: 60px;
 	background-color: dodgerblue;
 	border-radius: 50%;
@@ -35,6 +40,11 @@
 .UserJoinDate {
 	font-weight: 300;
 	color: #6F6A6A;
+}
+
+.UserBalanceText{
+	font-size: 1.5em;
+	font-weight: 700;
 }
 
 .UserPageWrapper {

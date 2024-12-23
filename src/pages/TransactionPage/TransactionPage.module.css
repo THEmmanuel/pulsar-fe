@@ -1,77 +1,9 @@
-.TransactionPage{
+.OrderTimesWrapper{
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-	gap: 40px;
 }
 
-.TransactionStatusContainer{
+.OrderTime{
 	display: flex;
 	flex-direction: column;
-	margin: auto;
-	gap: 20px;
-}
-
-.TransactionStatusHeading{
-	font-weight: 700;
-}
-
-.TransactionStatusIcon{
-	width: 120px;
-	height: 120px;
-	background-color: blue;
-	border-radius: 50%;
-}
-
-/* .TransactionStatus{
-	
-} */
-
-.OrderToken{
-	color: #008DFF;
-}
-
-.OrderTokenWrapper{
-	display: flex;
-	flex-direction: row;
-	gap: 20px;
-	background-color: #FFF;
-	padding: 5px 20px;
-	border-radius: 10px;
-	width: fit-content;
-	margin: auto;
-}
-
-.OrderDetailsWrapper{
-	display: flex;
-	flex-direction: column;
-	gap: 30px;
-	/* width: 50%; */
-}
-
-.OrderDetail{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
-.OrderDetails{
-	padding: 25px;
-	width: 60%;
-	background-color: #FFF;
-	border-radius: 5px;
-	margin: auto;
-	display: flex;
-	flex-direction: column;
-	gap: 25px;
-}
-
-.OrderDetailsContainer{
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
-.OrderDetailText{
-	font-weight: 700;
 }

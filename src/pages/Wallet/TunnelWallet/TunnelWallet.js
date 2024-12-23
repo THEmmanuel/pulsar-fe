@@ -117,7 +117,7 @@ const EthereumWallet = () => {
 						<span className={style.WalletCoinValue}>
 							${parseFloat(walletBalance * 100).toFixed(2)}
 						</span>
-						{parseFloat(walletBalance).toFixed(2)} TNL
+						{parseFloat(walletBalance).toFixed(2)} PULSAR
 
 						<PrimaryCTA
 							ButtonText='Send'

@@ -2,8 +2,7 @@ import React from 'react';
 import style from './BankPayment.module.css'
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 
-
-	// get trade. this calls the api for the current trade and shows pages based on order status.
+// get trade. this calls the api for the current trade and shows pages based on order status.
 
 // A page for order history etc will show up here as transactions status.
 
@@ -16,7 +15,7 @@ import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 // clear all notiifvations
 // create a mew notif.
 
-const BankPayment = () => {
+const BankPayment = props => {
 	return (
 		<div className={style.BankPayment}>
 			<div className={style.PaymentDetails}>
@@ -49,6 +48,16 @@ const BankPayment = () => {
 						Bank Details
 					</span>
 
+					<div className={style.AccountDetailsTextWrapper}>
+						<span className={style.AccountDetailsText}>
+							Bank Account Number:
+						</span>
+
+						<span className={style.AccountDetailsText}>
+							{props.tradeAdInfo.bankAccountNumber}
+						</span>
+					</div>
+
 					<div className={style.AccountDetailsWrapper}>
 						<div className={style.AccountDetailsTextWrapper}>
 							<span className={style.AccountDetailsText}>
@@ -56,7 +65,7 @@ const BankPayment = () => {
 							</span>
 
 							<span className={style.AccountDetailsText}>
-								Guaranty Trust Bank
+								{props.tradeAdInfo.bankName}
 							</span>
 						</div>
 
@@ -67,17 +76,7 @@ const BankPayment = () => {
 							</span>
 
 							<span className={style.AccountDetailsText}>
-								John Doe
-							</span>
-						</div>
-
-						<div className={style.AccountDetailsTextWrapper}>
-							<span className={style.AccountDetailsText}>
-								Bank Name:
-							</span>
-
-							<span className={style.AccountDetailsText}>
-								0092368937
+								{props.tradeAdInfo.bankAccountName}
 							</span>
 						</div>
 					</div>
@@ -86,24 +85,40 @@ const BankPayment = () => {
 
 
 
-			<div className={style.PaymentTimeAndButtons}>
-				<div>
-					<span>Time Left before trade Timeout </span>
-					<span>30:00 mins</span>
-				</div>
-
 				<div className={style.BankPaymentButtons}>
 					<PrimaryCTA
 						ButtonText='Confirm'
 					/>
 
+				clicking on confirm.
+				shows the confirmation page.
+				changes the status to the normal one
+				
+
+				other user has to accept the order first.
+				when they do.
+
+				show this page. otherwise have a status that marks it accordingly and shows a banner that says waiting for them to accept.
+
+				after they accept, show this page.
+				the user can then click on confirm and go to the confirmationpage
+
+				once they click on confirm other party gets a notif that they should confirm and the token is sent when they do.
+
+				eg. I pay usd. ethereum is deposited. after I confirm.
+
+				eg. I want usd. I set up an ad and recieve 2 notifs. when an order is created on my ad.
+				when i click on accept and the order is created, to eth is escrowed from my account.
+
+				and whne the other user transfers and im prompted to confirm and confirm fund release from escrow to user.
+
 					<PrimaryCTA
 						ButtonText='Cancel'
 					/>
 				</div>
-			</div>
 		</div>
 	)
 }
+
 
 export default BankPayment;

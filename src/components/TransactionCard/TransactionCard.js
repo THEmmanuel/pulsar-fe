@@ -11,7 +11,7 @@ const TransactionCard = props => {
 
 	let transactionTypeText = 'Value'
 	let transactionWalletText = 'Wallet'
-	let displayedAddress = 'hghs'
+	let displayedAddress = ''
 
 
 	if (props.toAddress.toLowerCase() === props.userAddress.toLowerCase()) {

@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import style from './UserPage.module.css';
 import UserStat from '../../components/UserStat/UserStat';
 import PeerToPeerAd from '../../components/PeerToPeerAd/PeerToPeerAd';
 import UserReview from '../../components/UserReview/UserReview';
+import { UserContext } from '../../contexts/UserContext';
+import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
+import toast, { toastConfig } from 'react-simple-toasts';
+
+
+toastConfig({ theme: 'dark' });
 
 const UserPage = () => {
+	const { walletBalances } = useContext(UserContext)
+
 	return (
 		<div className={style.UserPage}>
 			<div className={style.UserPageWrapper}>
@@ -18,6 +26,20 @@ const UserPage = () => {
 						<span className={style.UserJoinDate}>Join date</span>
 					</div>
 				</div>
+
+				<div className={style.UserBalance}>
+					<span className={style.UserBalanceText}>
+						${walletBalances?.find(item => item.token === "PULSAR")?.usdBalance ?? "USD Balance not available"}
+					</span>
+
+					<button
+						className={style.UserBalanceButton}
+						onClick={() => toast('DEMO! FUNDS Withdrawn')}
+					>
+						Withdraw
+					</button>
+				</div>
+
 
 				<div className={style.UserStatsContainer}>
 					<UserStat
@@ -48,43 +70,22 @@ const UserPage = () => {
 				<div className={style.UserAdsWrapper}>
 					<div className={style.UserAdsContainer}>
 						<span className={style.UserAdHeading}>
-							Buy
+							{/* Buy */}
 						</span>
+					</div>
 
-						<div className={style.UserAds}>
-							<PeerToPeerAd
-								adType='buy'
-							/>
-							<PeerToPeerAd
-								adType='buy'
-							/>
-						</div>
+
+
+					<div className={style.UserAdsContainer}>
+						<span className={style.UserAdHeading}>
+							{/* Sell */}
+						</span>
 					</div>
 
 					<div className={style.UserAdsContainer}>
 						<span className={style.UserAdHeading}>
-							Sell
+							{/* Reviews */}
 						</span>
-
-						<div className={style.UserAds}>
-							<PeerToPeerAd
-								adType='sell'
-							/>
-							<PeerToPeerAd
-								adType='sell'
-							/>
-						</div>
-					</div>
-
-					<div className={style.UserAdsContainer}>
-						<span className={style.UserAdHeading}>
-							Reviews
-						</span>
-
-						<div className={style.UserReviews}>
-							<UserReview />
-							<UserReview />
-						</div>
 					</div>
 				</div>
 			</div>
