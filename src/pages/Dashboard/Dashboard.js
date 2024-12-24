@@ -18,7 +18,7 @@ import accountIcon from '../../assets/accountIcon.svg';
 import p2pIcon from '../../assets/ptopIcon.svg';
 import helpIcon from '../../assets/helpIcon.svg';
 import { UserContext } from '../../contexts/UserContext';
-
+import addCommas from '../../utils/addCommas';
 
 
 
@@ -51,7 +51,7 @@ const Dashboard = () => {
 						</span>
 
 						<span className={style.DashboardBalanceAmount}>
-							${totalUsdBalance}
+							${addCommas(totalUsdBalance)}
 						</span>
 					</div>
 

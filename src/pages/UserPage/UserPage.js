@@ -6,6 +6,7 @@ import UserReview from '../../components/UserReview/UserReview';
 import { UserContext } from '../../contexts/UserContext';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import toast, { toastConfig } from 'react-simple-toasts';
+import addCommas from '../../utils/addCommas';
 
 
 toastConfig({ theme: 'dark' });
@@ -29,8 +30,9 @@ const UserPage = () => {
 
 				<div className={style.UserBalance}>
 					<span className={style.UserBalanceText}>
-						${walletBalances?.find(item => item.token === "PULSAR")?.usdBalance ?? "USD Balance not available"}
+						${addCommas(walletBalances?.find(item => item.token === "PULSAR")?.usdBalance ?? "USD Balance not available")}
 					</span>
+
 
 					<button
 						className={style.UserBalanceButton}

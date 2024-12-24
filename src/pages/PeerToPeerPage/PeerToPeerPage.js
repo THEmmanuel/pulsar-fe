@@ -12,6 +12,7 @@ import WalletSwitcher from '../../components/WalletSwitcher/WalletSwitcher.js';
 import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher.js';
 import ChainSwitcherButton from '../../components/ChainSwitcher/ChainSwitcherButton.js';
 
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 const tokens = [
@@ -39,6 +40,8 @@ const PeerToPeerPage = () => {
 	const [inputAmount, setInputAmount] = useState(0)
 	const [showEthereumChains, setShowEthereumChains] = useState(false)
 
+	const filteredAds = ads.filter(ad => ad.adType === adType);
+
 	const handleTokenChange = e => {
 		setSelectedToken(e.value)
 	}
@@ -64,11 +67,6 @@ const PeerToPeerPage = () => {
 	useEffect(() => {
 		getAds()
 	}, ads)
-
-	const filteredAds = ads.filter(ad =>
-		ad.token === selectedToken &&
-		ad.adType === selectedAdType
-	);
 
 	return (
 		<div className={style.PeerToPeerPage}>
@@ -136,8 +134,8 @@ const PeerToPeerPage = () => {
 					Open Offers
 				</span>
 
-				{ads.map(ad =>
-					<Link to={`/order/${ad._id}/${inputAmount}`}>
+				{filteredAds.map(ad => (
+					<Link to={`/order/${ad._id}/${inputAmount}`} key={ad._id}>
 						<PeerToPeerAd
 							adType={ad.adType}
 							token={ad.token}
@@ -150,70 +148,7 @@ const PeerToPeerPage = () => {
 							paymentMethod={ad.paymentMethods}
 						/>
 					</Link>
-				)}
-
-				{/* <Link to={`/order/${ad._id}/${inputAmount}`}> */}
-				{/* <PeerToPeerAd
-					adType={'buy'}
-					username={'p4nther'}
-					token={'usdc'}
-					available={'100'}
-					lowest={'300'}
-					highest={'100k'}
-					paymentMethod={'Bank transfer'}
-					rate={'1200'}
-					completionRate={'100'}
-				/>
-
-
-				<PeerToPeerAd
-					adType={'buy'}
-					username={'p4nther'}
-					token={'usdc'}
-					available={'100'}
-					lowest={'300'}
-					highest={'100k'}
-					paymentMethod={'Bank transfer'}
-					rate={'1200'}
-					completionRate={'100'}
-				/>
-
-				<PeerToPeerAd
-					adType={'buy'}
-					username={'p4nther'}
-					token={'usdc'}
-					available={'100'}
-					lowest={'300'}
-					highest={'100k'}
-					paymentMethod={'Bank transfer'}
-					rate={'1200'}
-					completionRate={'100'}
-				/>
-
-				<PeerToPeerAd
-					adType={'buy'}
-					username={'p4nther'}
-					token={'usdc'}
-					available={'100'}
-					lowest={'300'}
-					highest={'100k'}
-					paymentMethod={'Bank transfer'}
-					rate={'1200'}
-					completionRate={'100'}
-				/>
-
-				<PeerToPeerAd
-					adType={'buy'}
-					username={'p4nther'}
-					token={'usdc'}
-					available={'100'}
-					lowest={'300'}
-					highest={'100k'}
-					paymentMethod={'Bank transfer'}
-					rate={'1200'}
-					completionRate={'100'}
-				/> */}
-				{/* </Link> */}
+				))}
 			</div>
 		</div>
 	)
