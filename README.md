@@ -7,6 +7,9 @@ PULSAR combines a fixed-price, infinite-supply token with a user-driven peer-to-
 Software flow diagram:
 https://github.com/user-attachments/assets/bd10fc56-055b-4454-beeb-970cf3e6bba6
 
+Smart contracts:
+https://github.com/THEmmanuel/pulsar-contracts
+
 ---
 
 ## Key Features
