@@ -94,6 +94,11 @@
 	font-size: 0.8em;
 }
 
+.ChainSwitcherWrapper{
+	margin: auto;
+	margin-bottom: 15px;
+}
+
 @media only screen and (max-width: 600px) {
 	.DashboardCardsWrapper {
 		grid-template-columns: 1fr;
