@@ -121,10 +121,11 @@ a {
 }
 
 .PeerToPeerPaymentMethod{
-	background-color: rgb(0, 34, 0);
+	background-color: #c5c5c5;
 	text-align: center;
 	padding: 2px 10px;
 	border-radius: 20px;
+	color: #000;
 }
 
 .PeerToPeerOrdersAndStats{

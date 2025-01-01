@@ -41,7 +41,7 @@ const TransactionCard = props => {
 				</span>
 
 				<span className={style.TransactionInfoText}>
-					{props.usdValue}
+					${props.usdValue}
 				</span>
 			</div>
 

@@ -4,6 +4,8 @@ import FormInput from '../../components/FormInput/FormInput';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import { PaystackButton } from 'react-paystack'
 import axios from 'axios';
+import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher';
+import ChainSwitcherButton from '../../components/ChainSwitcher/ChainSwitcherButton.js';
 
 import toast, { toastConfig } from 'react-simple-toasts';
 toastConfig({ theme: 'dark' });
@@ -12,6 +14,7 @@ toastConfig({ theme: 'dark' });
 const TokenFaucet = () => {
 	const [amount, setAmount] = useState(1000000); // Default amount set to 1000000
 	const [walletAddress, setWalletAddress] = useState('');
+	const [showEthereumChains, setShowEthereumChains] = useState(false)
 	const [selectedCurrency, setSelectedCurrency] = useState('USD'); // Timer for refresh
 	const API_URL = process.env.REACT_APP_API_URL;
 
@@ -54,6 +57,14 @@ const TokenFaucet = () => {
 	return (
 		<div className={style.FaucetPageWrapper}>
 			<h2>Token Faucet</h2>
+
+			{/* <div>
+				<ChainSwitcherButton
+					click={() => setShowEthereumChains(true)}
+				/>
+
+				{showEthereumChains ? <ChainSwitcher /> : null}
+			</div> */}
 
 			{/* Input field for Amount */}
 			<div>

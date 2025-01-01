@@ -1,22 +1,27 @@
-.DialogueBox{
+.DialogueBox {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	background-color: #1D1D1D;
-	width: 80%;
 	padding: 40px 20px;
 	margin: auto;
 	border-radius: 5px;
 }
 
-.DialogueBoxTextWrapper{
+.DialogueBoxTextWrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 }
 
-.DialogueBoxButtons{
+.DialogueBoxButtons {
 	display: flex;
 	flex-direction: row;
 	gap: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+	.DialogueBox {
+		width: 80%;
+	}
 }

@@ -1,0 +1,28 @@
+sepolia.
+- https://sepolia.etherscan.io/token/0x7b0452d705feb600c0f838970db36c519635177a - pulsr
+- https://sepolia.etherscan.io/address/0x4e030fe23026404aeda523d6cc168fcadf7afe38 - paymaster
+- https://sepolia.etherscan.io/tx/0x0640297d00ed1832ee2bf64c110d7d13152fdb92aa911f7ddccced9883ce3687
+
+
+
+bnb testnet.
+- https://testnet.bscscan.com/tx/0x5f9b5759e9475ddb979e4c27d20f794ba528b8b0192f4d4beb2f2ef686416ce0. pulsar.
+- https://testnet.bscscan.com/tx/0x4bb6b672880d980e7a45f4fae4d56eff56ed10d8ec38116834c7abfb382f6546. paymaster.
+
+- https://testnet.bscscan.com/tx/0x5e248fddfc4f2951427c38fb4372d900b573b2e11f3d23e56ff3c4364b2c7c19.
+fee contract
+0x770c3340c4e756b917c596295accf1ac3d2b9f2f103f3a8da3299ab0f099f472
+
+Holesky.
+- https://holesky.etherscan.io/tx/0x75b21b4d3c88b2347f1affd8169681756c1965d22f4375f9a74f1494b61de550
+fee contract
+- https://holesky.etherscan.io/tx/0x7bd995f3012945590906c9ba0e58ceecfc6a52a662cebbe8c2444410ec528191
+pulsar
+- https://holesky.etherscan.io/tx/0xbabb1af41b28ac0570f34346532fac81aa984b0b29cd38c474593fc5d197538a
+-paymaster
+
+
+
+
+
+0xC4D4Ad0d298ee6392d0e44030E887B07ED6c6009

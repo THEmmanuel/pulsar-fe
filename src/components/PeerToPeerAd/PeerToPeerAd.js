@@ -77,7 +77,7 @@ const PeerToPeerAd = props => {
 
 			<div className={style.PeerToPeerAdActionButtonWrapper}>
 				<button className={style.PeerToPeerAdActionButton}>
-					{props.adType === 'sell' ? `BUY TOKEN` : props.adType === 'buy' ? 'SELL TOKEN' : ''}
+					{props.adType === 'buy' ? `BUY TOKEN` : props.adType === 'sell' ? 'SELL TOKEN' : ''}
 				</button>
 			</div>
 		</div>

@@ -3,7 +3,10 @@ import style from './ChainCard.module.css';
 
 const ChainCard = (props) => {
 	return (
-		<div className={style.ChainCardWrapper}>
+		<div
+			className={style.ChainCardWrapper}
+			onClick={props.click}
+		>
 			<img
 				src={props.ChainImage}
 				alt="chain"

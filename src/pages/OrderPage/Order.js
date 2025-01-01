@@ -91,6 +91,10 @@ const Order = (props) => {
 					</div>
 
 					<div className={style.OrderInput}>
+						<span>
+							Amount in USD
+						</span>
+
 						<input
 							type="text"
 							title="Amount"

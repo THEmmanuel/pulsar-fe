@@ -52,7 +52,10 @@ function App() {
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 	const [coinData, setCoinData] = useState({});
 	const [walletBalances, setWalletBalances] = useState([]);
-	const [totalUsdBalance, setTotalUsdBalance] = useState(0); // State to store the total USD balance
+	const [selectedChain, setSelectedChain] = useState('eth-sepolia');
+	const [totalUsdBalance, setTotalUsdBalance] = useState(0);
+	const [userObject, setUserObject] = useState({})
+	// State to store the total USD balance
 
 	useEffect(() => {
 		const fetchBalance = async () => {
@@ -97,13 +100,33 @@ function App() {
 		console.log('adding user to database...')
 	};
 
-	const getWalletDetails = () => {
+	const getCurrentUser = () => {
 		axios.get(`${API_URL}/users/${user.id}`)
-			.then(res => setWallets(res.data.userWallets))
-			.catch(err => console.log(err))
-		console.log('///get wallet details')
-		console.log(`${API_URL}/users/${user.id}`)
-	}
+			.then(res => {
+				setSelectedChain(res.data.currentChain);
+				return res; // Explicitly return the response object
+			})
+			.then(res => {
+				setUserObject(res.data);
+				return res; // Return again to pass it to the next .then
+			})
+			.then(res => {
+				setWallets([...res.data.userWallets]);
+			})
+			.catch(err => console.log(err));
+
+		console.log('///get wallet details');
+		console.log(`${API_URL}/users/${user.id}`);
+	};
+
+
+	// const getWalletDetails = () => {
+	// 	axios.get(`${API_URL}/users/${user.id}`)
+	// 		.then(res => setWallets(res.data.userWallets))
+	// 		.catch(err => console.log(err))
+	// 	console.log('///get wallet details')
+	// 	console.log(`${API_URL}/users/${user.id}`)
+	// }
 
 
 	const coinGeckoAPI = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether%2Csolana&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true'
@@ -126,21 +149,6 @@ function App() {
 			.catch(err => console.log(err))
 	}, [])
 
-
-	useEffect(() => {
-		console.log('fectching coin prices from coingecko')
-		axios.get(coinGeckoAPI)
-			.then(res => setCoinData(res.data))
-			.catch(err => console.log(err))
-	}, [])
-
-
-
-
-
-
-
-
 	useEffect(() => {
 		const handleResize = () => setWindowWidth(window.innerWidth);
 		window.addEventListener('resize', handleResize);
@@ -148,16 +156,16 @@ function App() {
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
 
+
 	useEffect(() => {
 		console.log('address' + API_URL)
 		if (user) {
 			addUserToDatabase()
-			getWalletDetails()
+			// getWalletDetails()
+			getCurrentUser()
 		}
 		console.log(user)
 	}, [user])
-
-	console.log(wallets)
 
 
 	return (
@@ -170,7 +178,11 @@ function App() {
 					setCoinData,
 					walletBalances,
 					setWalletBalances,
-					totalUsdBalance
+					totalUsdBalance,
+					selectedChain,
+					setSelectedChain,
+					userObject,
+					setUserObject
 				}}>
 
 					{windowWidth < 1280

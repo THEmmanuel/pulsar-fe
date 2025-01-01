@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import TransactionIcon from '../../assets/transactionIcon.svg';
@@ -21,6 +21,7 @@ import toast, { toastConfig } from 'react-simple-toasts';
 
 import DialogueBox from '../../components/DialogueBox/DialogueBox';
 import Overlay from '../../containers/Overlay/Overlay';
+import { UserContext } from '../../contexts/UserContext';
 
 toastConfig({ theme: 'dark' });
 
@@ -47,7 +48,8 @@ const API_URL = process.env.REACT_APP_API_URL;
 const BuyPage = (props) => {
 	const { id, amount } = useParams();
 	const [adInfo, setAdInfo] = useState({});
-	const [cryptoAmount, setCryptoAmount] = useState(amount);
+	const [cryptoAmount, setCryptoAmount] = useState(0);
+	const [usdAmount, setUsdAmount] = useState(amount)
 	const [orderToken, setOrderToken] = useState('');
 	const [orderCreated, setOrderCreated] = useState(false);
 	const [orderStatus, setOrderStatus] = useState('')
@@ -58,6 +60,7 @@ const BuyPage = (props) => {
 	const [showDialogueBox2, setShowDialogueBox2] = useState(false)
 	const { user } = useUser();
 	const navigate = useNavigate();
+	const { coinData, setCoinData, selectedChain } = useContext(UserContext);
 
 
 
@@ -67,20 +70,29 @@ const BuyPage = (props) => {
 			.then(res => setAdInfo(res.data))
 	}
 
+	const coinGeckoAPI = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether%2Csolana&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true'
+
+	// useEffect(() => {
+	// 	console.log('fectching coin prices from coingecko')
+	// 	axios.get(coinGeckoAPI)
+	// 		.then(res => setCoinData(res.data))
+	// 		.catch(err => console.log(err))
+	// }, [])
+
 	useEffect(() => {
 		getAdInfo()
 	}, [])
 
 	const AcceptAction = async () => {
 		const requestData = {
-			USDAmount: '1', // Example value
+			USDAmount: props.amount, // Example value
 			tokenToBuy: adInfo.buyToken,
 			tokenToSell: adInfo.sellToken,
 			buyerUsername: user.username,
 			sellerUsername: adInfo.username,
 			buyWalletName: 'ethereum',
 			sellWalletName: 'ethereum',
-			chain: 'erc20'
+			chain: selectedChain
 		};
 
 		try {
@@ -189,9 +201,6 @@ const BuyPage = (props) => {
 
 
 
-
-
-
 	return (
 		sellerConfirmedOrder ?
 			<TransactionStatus
@@ -206,18 +215,17 @@ const BuyPage = (props) => {
 							Payment Method
 						</span>
 
-						calculate prices for the tokens being swapped against the current prices.
-
 						<div className={style.PaymentMethodWrapper}>
 							<div className={style.TradeMethodContainer}>
 								<TradeMethodCard
 									amount={props.amount}
-									token={adInfo.token}
+									token={adInfo.buyToken}
 									paymentMethodText='Pay with $PULSR (automated and safer) balance: 1200000'
 									click={() => setShowDialogueBox(true)}
 									limit={adInfo.highestOrder}
 									action='Buying'
 									AcceptAction={() => AcceptAction()}
+									// AcceptAction={() => console.log(coinData)}
 									CancelAction={() => setShowDialogueBox(false)}
 								/>
 
@@ -229,6 +237,7 @@ const BuyPage = (props) => {
 									limit={adInfo.highestOrder}
 									action='Buying'
 									AcceptAction={() => setUpBankTrade()}
+									// show toast that just says work in progress here.
 									CancelAction={() => setShowDialogueBox2(false)}
 								/>
 							</div>
@@ -236,16 +245,15 @@ const BuyPage = (props) => {
 							{showDialogueBox ?
 								<Overlay>
 									<DialogueBox
-										HeadingText={`You’re about to send ${props.amount} PULSR to p4nther for X ${adInfo.token}.`}
+										HeadingText={`You’re about to send $${props.amount} in ${props.amount / 100} $PULSR to ${adInfo.username} for ${props.amount / coinData.ethereum.usd} ${adInfo.buyToken}.`}
 
-										AdditionalText="Chain: Ethereum Mainnet"
+										AdditionalText={`Chain: ${selectedChain}`}
 
-										MoreText="Unaccepted trades will be automatically declined in 5 hrs, please confirm you have the right chain. Funds transferred to the wrong chains can't be recovered"
+										MoreText="Unaccepted trades will be automatically declined in 2 hrs, please confirm you have the right chain. Funds transferred to the wrong chains can't be recovered"
 										AcceptAction={() => AcceptAction()}
+										// AcceptAction={() => console.log(coinData)}
 										CancelAction={() => setShowDialogueBox(false)}
 									/>
-									{/* here */}
-
 								</Overlay>
 								: null}
 
@@ -253,7 +261,7 @@ const BuyPage = (props) => {
 							{showDialogueBox2 ?
 								<Overlay>
 									<DialogueBox
-										HeadingText={`You’re about to open a trade to [buy or sell] x token for x fiat. Chain: Chain name`}
+										HeadingText={`You’re about to open a trade to buy ${props.amount / coinData.ethereum.usd} ${adInfo.buyToken} for $${props.amount}. Chain: Chain name`}
 
 										AdditionalText="Payment Method: Bank Transfer"
 
