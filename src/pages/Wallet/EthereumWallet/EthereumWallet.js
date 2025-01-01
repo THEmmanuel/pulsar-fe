@@ -80,7 +80,7 @@ const EthereumWallet = () => {
 	useEffect(() => {
 		const fetchBalance = async () => {
 			try {
-				const response = await axios.get(`${API_URL}/wallet-actions/get-token-balance/${walletAddress}/ether`);
+				const response = await axios.get(`${API_URL}/wallet-actions/get-token-balance/${walletAddress}/ether/eth-sepolia`);
 				setWalletBalance(response.data.balance);
 				setEthPrice(coinData.ethereum.usd)
 			} catch (error) {

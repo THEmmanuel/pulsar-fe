@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Dashboard.module.css';
 import MarketCharts from '../../components/MarketCharts/MarketCharts';
@@ -20,6 +20,9 @@ import helpIcon from '../../assets/helpIcon.svg';
 import { UserContext } from '../../contexts/UserContext';
 import addCommas from '../../utils/addCommas';
 
+import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher.js';
+import ChainSwitcherButton from '../../components/ChainSwitcher/ChainSwitcherButton.js';
+
 
 
 const tokens = [
@@ -40,12 +43,25 @@ const adTtype = [
 
 const Dashboard = () => {
 	const { totalUsdBalance } = useContext(UserContext)
+	const [showEthereumChains, setShowEthereumChains] = useState(false)
 
 	return (
 		<div className={style.Dashboard}>
 			<div className={style.DashboardContent}>
 				<div className={style.DashboardBalanceWrapper}>
 					<div className={style.DashboardBalance}>
+						<div className={style.ChainSwitcherWrapper}>
+							<ChainSwitcherButton
+								click={() => setShowEthereumChains(true)}
+							/>
+						</div>
+
+						{showEthereumChains ?
+							<ChainSwitcher
+								showSwitcher={showEthereumChains}
+							/>
+							: null}
+
 						<span className={style.DashboardBalanceText}>
 							Total wallet balance
 						</span>

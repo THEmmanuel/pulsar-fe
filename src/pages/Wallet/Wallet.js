@@ -25,6 +25,10 @@ const Wallet = () => {
 	if (walletName === 'tnl') {
 		return <TunnelWallet / >
 	}
+
+	if (walletName === 'bnb') {
+		return <TunnelWallet / >
+	}
 }
 
 export default Wallet;

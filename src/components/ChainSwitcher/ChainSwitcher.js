@@ -1,75 +1,69 @@
-import React, { useContext } from "react";
-import axios from 'axios';
-import style from './ChainSwitcher.module.css';
-import arrow from '../../assets/arrow.svg'
+import React, { useContext, useState } from "react";
+import axios from "axios";
+import style from "./ChainSwitcher.module.css";
+import Overlay from "../../containers/Overlay/Overlay";
 import ChainCard from "./ChainCard";
-import ethChainIcon from '../../assets/ethIconWhiteTest.svg';
-import Overlay from '../../containers/Overlay/Overlay'
-import bnbIcon from '../../assets/bnbIcon.svg'
-
-import { UserContext } from '../../contexts/UserContext';
-import { useUser } from '@clerk/clerk-react';
-
-const ChainSwitcher = (props) => {
-	const { selectedChain, setSelectedChain } = useContext(UserContext);
-
-	const API_URL = process.env.REACT_APP_API_URL;
-
-	const { user } = useUser();
-	// on select, set the currentUserChain to the selected one.
-	// add a chain list to fe and be.
-
-	const switchCurrentChain = async (chain) => {
-		try {
-			// Set the selected chain locally
-			setSelectedChain(chain);
-
-			// API call to update currentChain in the backend
-			const response = await axios.put(`${API_URL}/users/update-current-chain`, {
-				userID: user.id, // Replace with the actual user ID, e.g., from state or props
-				currentChain: chain,
-			});
-
-			// Handle success response
-			console.log('Current chain updated successfully:', response.data);
-		} catch (error) {
-			// Handle error response
-			console.error('Error updating current chain:', error.response?.data || error.message);
-		}
-	};
+import ethChainIcon from "../../assets/ethIconWhiteTest.svg";
+import bnbIcon from "../../assets/bnbIcon.svg";
+import { UserContext } from "../../contexts/UserContext";
+import { useUser } from "@clerk/clerk-react";
+import toast, { toastConfig } from 'react-simple-toasts';
+toastConfig({ theme: 'dark' });
 
 
+const ChainSwitcher = () => {
+  const { selectedChain, setSelectedChain } = useContext(UserContext);
+  const [showSwitcher, setShowSwitcher] = useState(true);
 
-	return (
-		<Overlay>
-			<div className={style.ChainSwitcher}>
-				<ChainCard
-					ChainImage={bnbIcon}
-					ChainName='(BNB) Testnet'
-					click={() => switchCurrentChain('bnb-testnet')}
-				/>
+  const API_URL = process.env.REACT_APP_API_URL;
+  const { user } = useUser();
 
-				<ChainCard
-					ChainImage={ethChainIcon}
-					ChainName='Ethereum Sepolia'
-					click={() => switchCurrentChain('eth-sepolia')}
-				/>
+  const switchCurrentChain = async (chain) => {
+    try {
+      // Set the selected chain locally
+      setSelectedChain(chain);
 
-				<ChainCard
-					ChainImage={ethChainIcon}
-					ChainName='Ethereum Holesky'
-					click={() => switchCurrentChain('eth-holesky')}
-				/>
-			</div>
+      // API call to update currentChain in the backend
+      const response = await axios.put(`${API_URL}/users/update-current-chain`, {
+        userID: user.id, // Replace with the actual user ID
+        currentChain: chain,
+      });
 
-			{/* add a route that updates the chain when this is clicked. users current chain in the db. */}
-		</Overlay>
-	)
-}
+      // Handle success response	  
+	  toast('chain switch synced.');
+      // Close the switcher after successful update
+      setShowSwitcher(false);
+    } catch (error) {
+      // Handle error response
+      console.error("Error updating current chain:", error.response?.data || error.message);
+    }
+  };
 
+  return (
+    <>
+      {showSwitcher && (
+        <Overlay>
+          <div className={style.ChainSwitcher}>
+            <ChainCard
+              ChainImage={bnbIcon}
+              ChainName="(BNB) Testnet"
+              click={() => switchCurrentChain("bnb-testnet")}
+            />
+            <ChainCard
+              ChainImage={ethChainIcon}
+              ChainName="Ethereum Sepolia"
+              click={() => switchCurrentChain("eth-sepolia")}
+            />
+            <ChainCard
+              ChainImage={ethChainIcon}
+              ChainName="Ethereum Holesky"
+              click={() => switchCurrentChain("eth-holesky")}
+            />
+          </div>
+        </Overlay>
+      )}
+    </>
+  );
+};
 
-
-
-
-
-export default ChainSwitcher
+export default ChainSwitcher;

@@ -6,6 +6,7 @@ import { PaystackButton } from 'react-paystack'
 import axios from 'axios';
 import ChainSwitcher from '../../components/ChainSwitcher/ChainSwitcher';
 import ChainSwitcherButton from '../../components/ChainSwitcher/ChainSwitcherButton.js';
+import DemoPaymentPay from '../../components/DemoPayment/DemoPaymentPay.js';
 
 import toast, { toastConfig } from 'react-simple-toasts';
 toastConfig({ theme: 'dark' });
@@ -111,6 +112,8 @@ const TokenFaucet = () => {
 					ButtonText="Buy Token"
 					click={depositTokens}
 				/>
+
+				<DemoPaymentPay />
 			</div>
 		</div>
 	);

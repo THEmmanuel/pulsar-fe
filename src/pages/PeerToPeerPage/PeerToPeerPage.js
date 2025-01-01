@@ -122,7 +122,13 @@ const PeerToPeerPage = () => {
 					/>
 				</div>
 
-				{showEthereumChains ? <ChainSwitcher /> : null}
+				{showEthereumChains
+					?
+					<ChainSwitcher
+						showSwitcher={showEthereumChains}
+					/>
+					:
+					null}
 			</div>
 
 

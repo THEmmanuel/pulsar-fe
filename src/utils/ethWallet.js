@@ -183,6 +183,3 @@ export const estimateGasOfTx = async (sendAddress) => {
 export const isValidEthereumAddress = (address) => {
 	return ethers.utils.isAddress(address);
 }
-
-
-// implement send token here. and call in transfer modeal to ensure it works. once this works and tokens are swapped. 

@@ -97,19 +97,10 @@ const WalletsPage = () => {
 								/>
 							</Link>
 
-							<Link to='/wallet/ethereum'>
-								<WalletCard
-									CoinName='USD Tether - $USDT'
-									CoinText='View your ETH on the Ethereum chain'
-									CoinBalance=''
-									WalletIcon={usdcIcon}
-								/>
-							</Link>
-
-							<Link to='/wallet/ethereum'>
+							<Link to='/wallet/bnb'>
 								<WalletCard
 									CoinName='Binance Coin - $BNB'
-									CoinText='View your ETH on the Ethereum chain'
+									CoinText='View your BNB on the Ethereum chain'
 									CoinBalance=''
 									WalletIcon={usdcIcon}
 								/>
