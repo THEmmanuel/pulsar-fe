@@ -1,6 +1,6 @@
 # PULSAR: Decentralized Finance, Trading and Token
-![pulsar software design](![pulsar design](https://ik.imagekit.io/t2vnkmzt25/pulsar-design_VmCQ8YUKw.png?updatedAt=1735764549439))
 
+![pulsar-design](https://github.com/user-attachments/assets/bd10fc56-055b-4454-beeb-970cf3e6bba6)
 
 
 ## Summary
