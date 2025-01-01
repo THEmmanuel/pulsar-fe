@@ -1,10 +1,11 @@
 # PULSAR: Decentralized Finance, Trading and Token
 
-![pulsar-design](https://github.com/user-attachments/assets/bd10fc56-055b-4454-beeb-970cf3e6bba6)
-
 
 ## Summary
 PULSAR combines a fixed-price, infinite-supply token with a user-driven peer-to-peer marketplace. The token’s stability eliminates volatility while empowering traders to set their own exchange rates. Built with Instinct Engine encryption, the platform ensures secure, automated transactions. PULSAR is more than a platform—it’s a fresh perspective on trading and tokenomics, bridging traditional finance and decentralized innovation in a transformative way.
+
+Software flow diagram:
+https://github.com/user-attachments/assets/bd10fc56-055b-4454-beeb-970cf3e6bba6
 
 ---
 
